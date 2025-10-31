@@ -1,4 +1,6 @@
  'use client'
+import Footer from '@/components/Footer';
+import Navbar from '@/components/Navbar';
 import { Menu, X, ChevronDown, ArrowRight, Phone, Mail, MapPin, CheckCircle, TrendingUp, Shield, Users, Briefcase, FileText, Calculator, BarChart3, Building2, ShoppingCart, Laptop, Truck, Heart, GraduationCap, Factory } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
@@ -93,46 +95,7 @@ const BookerAccountingWebsite = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Navigation */}
-      <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-slate-900 shadow-lg' : 'bg-slate-900/95'}`}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-20">
-            <div className="flex items-center space-x-3">
-              <div className="w-12 h-12 bg-gradient-to-br from-cyan-400 to-teal-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xl">BA</span>
-              </div>
-              <div>
-                <div className="text-white font-bold text-xl">Booker Accounting</div>
-                <div className="text-cyan-400 text-xs">Company</div>
-              </div>
-            </div>
-
-            <div className="hidden md:flex items-center space-x-8">
-              <a href="#home" className="text-white hover:text-cyan-400 transition">Home</a>
-              <a href="#services" className="text-white hover:text-cyan-400 transition">Services</a>
-              <a href="#industries" className="text-white hover:text-cyan-400 transition">Industries</a>
-              <a href="#about" className="text-white hover:text-cyan-400 transition">About</a>
-              <a href="#contact" className="bg-gradient-to-r from-cyan-500 to-teal-600 text-white px-6 py-2 rounded-lg hover:shadow-lg transition">Contact Us</a>
-            </div>
-
-            <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="md:hidden text-white">
-              {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </button>
-          </div>
-        </div>
-
-        {/* Mobile Menu */}
-        {isMenuOpen && (
-          <div className="md:hidden bg-slate-800 border-t border-slate-700">
-            <div className="px-4 py-4 space-y-3">
-              <a href="#home" className="block text-white hover:text-cyan-400 transition py-2">Home</a>
-              <a href="#services" className="block text-white hover:text-cyan-400 transition py-2">Services</a>
-              <a href="#industries" className="block text-white hover:text-cyan-400 transition py-2">Industries</a>
-              <a href="#about" className="block text-white hover:text-cyan-400 transition py-2">About</a>
-              <a href="#contact" className="block bg-gradient-to-r from-cyan-500 to-teal-600 text-white px-6 py-3 rounded-lg text-center">Contact Us</a>
-            </div>
-          </div>
-        )}
-      </nav>
+      <Navbar/>
 
       {/* Hero Section */}
       <section id="home" className="pt-32 pb-20 bg-gradient-to-br from-slate-900 via-slate-800 to-teal-900 text-white relative overflow-hidden">
@@ -404,56 +367,7 @@ const BookerAccountingWebsite = () => {
       </section>
 
       {/* Footer */}
-      <footer className="bg-slate-900 text-gray-400 py-12 border-t border-slate-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-4 gap-8 mb-8">
-            <div>
-              <div className="flex items-center space-x-3 mb-4">
-                <div className="w-10 h-10 bg-gradient-to-br from-cyan-400 to-teal-600 rounded-lg flex items-center justify-center">
-                  <span className="text-white font-bold">BA</span>
-                </div>
-                <div>
-                  <div className="text-white font-bold">Booker Accounting</div>
-                  <div className="text-cyan-400 text-xs">Company</div>
-                </div>
-              </div>
-              <p className="text-sm">Your trusted financial partner in the UAE, delivering excellence through expert accounting, tax, and advisory services.</p>
-            </div>
-
-            <div>
-              <h4 className="text-white font-semibold mb-4">Services</h4>
-              <ul className="space-y-2 text-sm">
-                <li><a href="#" className="hover:text-cyan-400 transition">Audit & Assurance</a></li>
-                <li><a href="#" className="hover:text-cyan-400 transition">Taxation</a></li>
-                <li><a href="#" className="hover:text-cyan-400 transition">Bookkeeping</a></li>
-                <li><a href="#" className="hover:text-cyan-400 transition">Business Advisory</a></li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="text-white font-semibold mb-4">Company</h4>
-              <ul className="space-y-2 text-sm">
-                <li><a href="#about" className="hover:text-cyan-400 transition">About Us</a></li>
-                <li><a href="#industries" className="hover:text-cyan-400 transition">Industries</a></li>
-                <li><a href="#contact" className="hover:text-cyan-400 transition">Contact</a></li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="text-white font-semibold mb-4">Connect</h4>
-              <ul className="space-y-2 text-sm">
-                <li>+971 56 767 8156</li>
-                <li>info@bookeraccounting.com</li>
-                <li className="text-xs">Al Karama, Dubai, UAE</li>
-              </ul>
-            </div>
-          </div>
-
-          <div className="border-t border-slate-800 pt-8 text-center text-sm">
-            <p>&copy; {new Date().getFullYear()} Booker Accounting Company. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
+      <Footer/>
     </div>
   );
 };
