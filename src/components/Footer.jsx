@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { FaLinkedinIn, FaYoutube, FaXTwitter, FaFacebookF } from "react-icons/fa6";
+import Image from "next/image";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 20 },
@@ -13,7 +14,7 @@ const fadeInUp = {
 
 const Footer = () => {
   return (
-    <footer className="bg-white text-gray-800 border-t border-gray-200">
+    <footer className="bg-primary text-white border-t border-gray-200">
       <div className="max-w-7xl mx-auto px-6 py-12 flex flex-col md:flex-row justify-between items-start md:items-center gap-10">
         {/* Left Section - Logo and Description */}
         <motion.div
@@ -25,10 +26,16 @@ const Footer = () => {
           className="max-w-md"
         >
           <div className="flex items-center gap-3 mb-3">
-            <div className="w-10 h-10 bg-yellow-400 rotate-12"></div>
-            <h2 className="text-3xl font-extrabold tracking-tight text-gray-900">
-              Booker
-            </h2>
+            
+          <div className=" flex items-center justify-center overflow-hidden">
+                        <Image
+                          src="/images/LogoDark.png"
+                          alt="Booker Accounting Company Logo"
+                          width={120}
+                          height={120}
+                          className="object-contain"
+                        />
+                      </div>
           </div>
           <p className="text-sm text-gray-600 leading-relaxed">
             Booker refers to the global organization of accounting and consultancy firms,
@@ -94,7 +101,7 @@ const Footer = () => {
               href={social.href}
               whileHover={{ scale: 1.1, rotate: 3 }}
               whileTap={{ scale: 0.95 }}
-              className="border border-gray-300 rounded-full w-10 h-10 flex items-center justify-center hover:bg-gray-100 transition"
+              className=" bg-secondary border border-gray-300 rounded-full w-10 h-10 flex items-center justify-center  hover:text-black hover:bg-white transition"
             >
               {social.icon}
             </motion.a>
