@@ -96,7 +96,7 @@ const BookerAccountingWebsite = () => {
 
       {/* Hero Section - Using Deep Dark Blue/Teal Theme */}
      {/* Hero Section - Streamlined Modern Design */}
-      <section id="home" className="relative overflow-hidden min-h-screen flex items-center bg-dark-primary text-white">
+      <section id="home" className=" font-sans relative overflow-hidden min-h-screen flex items-center bg-dark-primary text-white">
 
         {/* Video Background */}
         <div className="video-container">

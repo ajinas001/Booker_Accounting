@@ -5,6 +5,12 @@
   --foreground: #171717; */
 }
 
+@font-face {
+  font-family: "Gros Ventre";
+  src: url("/font/RemoraCorp-W3Medium.otf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -13,6 +19,8 @@
   --color-primary-black: #0d1a20;
   --color-primary: #f9f9f9;
   --color-secondary: #1c5e6a;
+ 
+   --font-sans: "Gros Ventre", var(--font-geist-sans), sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
