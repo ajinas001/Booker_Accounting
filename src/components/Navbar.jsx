@@ -112,7 +112,7 @@ export default function Navbar({ scrolled }) {
 
           {/* Get Started Button */}
           <motion.button
-            className="hidden md:block ml-4 px-6 py-2.5 bg-secondary text-white rounded-lg font-medium hover:bg-teal-800 transition-colors shadow-md"
+            className="hidden md:block ml-4 w-fit px-8 py-3 rounded-tl-full rounded-tr-full rounded-br-full border-2 bg-secondary text-white rounded-lg font-medium hover:bg-teal-800 transition-colors "
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.6, duration: 0.3 }}

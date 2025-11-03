@@ -10,7 +10,11 @@ import Whychoose from '@/components/Whychoose';
 import Industries from '@/components/Industries';
 import Values from '@/components/Values';
 import Faqs from '@/components/Faqs';
+<<<<<<< HEAD
 import IndustriesSection from '@/components/Industry';
+=======
+import HomeAboutTimeline from '@/components/About';
+>>>>>>> 2460a350226bf8fc2c6b51accbd56f4f4462c8a8
 
 // --- Static Data ---
 const COMPANY_INFO = {
@@ -198,6 +202,9 @@ const BookerAccountingWebsite = () => {
 
       {/* Why Choose Us */}
       <Whychoose />
+
+      {/* about */}
+      <HomeAboutTimeline/>
 
       {/* Services Section */}
       <Services />

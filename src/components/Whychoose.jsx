@@ -51,7 +51,7 @@ function Whychoose() {
   };
 
   return (
-    <section className="relative py-20 lg:py-28 bg-[#f9f9f9] overflow-hidden text-slate-900">
+    <section className="relative py-20 lg:py-28 bg-neutral-200 overflow-hidden text-slate-900">
       {/* Background Pattern Overlay */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute inset-0" style={{
@@ -63,7 +63,7 @@ function Whychoose() {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header Section */}
         <div className="mb-12">
-          <div className="inline-block px-4 py-2 bg-white rounded-full border border-emerald-500/30 mb-6 shadow-sm">
+          <div className="inline-block w-fit px-8 py-3 rounded-tl-full rounded-tr-full rounded-br-full  bg-white   border-secondary mb-6 shadow-sm">
             <span className="text-sm font-semibold text-secondary uppercase tracking-wider">Why Hire Us</span>
           </div>
           
@@ -80,7 +80,7 @@ function Whychoose() {
               key={index}
               onClick={() => setActiveTab(index)}
               className={`
-                px-6 py-3 rounded-lg font-semibold text-sm transition-all duration-300
+                w-fit px-8 py-3 rounded-tl-full rounded-tr-full rounded-br-full font-semibold text-sm transition-all duration-300
                 ${activeTab === index 
                   ? 'bg-secondary text-white shadow-lg shadow-emerald-800/30' 
                   : 'bg-slate-100 text-slate-700 hover:bg-slate-200 hover:text-slate-900'
@@ -180,7 +180,7 @@ function Whychoose() {
 
               {/* CTA Button */}
               <div className="pt-6">
-                <button className="group inline-flex items-center gap-3 px-8 py-4 bg-secondary hover:bg-emerald-600 text-white font-semibold rounded-lg shadow-lg shadow-emerald-500/30 transition-all duration-300 hover:shadow-xl hover:shadow-emerald-500/50">
+                <button className="group inline-flex items-center gap-3 w-fit px-8 py-3 rounded-tl-full rounded-tr-full rounded-br-full bg-secondary  text-white font-semibold rounded-lg shadow-lg shadow-cyan-500/30 transition-all duration-300 hover:shadow-xl hover:shadow-cyan-500/20">
                   <span>Get Started Today</span>
                   <svg className="w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
