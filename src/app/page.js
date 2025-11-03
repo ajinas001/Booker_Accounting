@@ -10,6 +10,7 @@ import Whychoose from '@/components/Whychoose';
 import Industries from '@/components/Industries';
 import Values from '@/components/Values';
 import Faqs from '@/components/Faqs';
+import IndustriesSection from '@/components/Industry';
 
 // --- Static Data ---
 const COMPANY_INFO = {
@@ -90,12 +91,12 @@ const BookerAccountingWebsite = () => {
         }
       `}</style>
 
-     
-<Navbar scrolled={scrolled} isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
+
+      <Navbar scrolled={scrolled} isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
 
 
       {/* Hero Section - Using Deep Dark Blue/Teal Theme */}
-     {/* Hero Section - Streamlined Modern Design */}
+      {/* Hero Section - Streamlined Modern Design */}
       <section id="home" className=" font-sans relative overflow-hidden min-h-screen flex items-center bg-dark-primary text-white">
 
         {/* Video Background */}
@@ -117,7 +118,7 @@ const BookerAccountingWebsite = () => {
         <div className="relative z-20 w-full px-4 sm:px-6 lg:px-8 py-20 sm:py-24 lg:py-24">
           <div className="max-w-7xl mx-auto">
             <div className="max-w-4xl">
-              
+
               {/* Badge */}
               <div className="inline-flex items-center gap-2 bg-cyan-500/10 backdrop-blur-md text-cyan-300 px-4 py-2 rounded-full text-xs sm:text-sm font-semibold border border-cyan-400/20 mb-6 sm:mb-8 animate-fade-in">
                 <Shield className="w-3 h-3 sm:w-4 sm:h-4" />
@@ -202,8 +203,8 @@ const BookerAccountingWebsite = () => {
       <Services />
 
       {/* Industries Section */}
-      <Industries />
-
+      {/* <Industries /> */}
+      <IndustriesSection />
       {/* Values Section */}
       <Values />
 
