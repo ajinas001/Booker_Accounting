@@ -13,7 +13,11 @@ import Faqs from '@/components/Faqs';
 import IndustriesSection from '@/components/Industry';
 import HomeAboutTimeline from '@/components/About';
 import MainAchievements from '@/components/Stats';
-import Herosection from '@/components/Herosection';
+import HeroSection from '@/components/HeroSection';
+
+
+
+
 
 // --- Static Data ---
 const COMPANY_INFO = {
@@ -100,7 +104,7 @@ const BookerAccountingWebsite = () => {
 
       {/* Hero Section - Using Deep Dark Blue/Teal Theme */}
       {/* Hero Section - Streamlined Modern Design */}
-      <Herosection/>
+      <HeroSection/>
       {/* <section id="home" className=" font-sans relative overflow-hidden min-h-screen flex items-center bg-dark-primary text-white">
 
      
