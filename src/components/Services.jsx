@@ -113,7 +113,7 @@ imageUrl: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&q=80'
     buttonBorder: 'border-white',
     type: 'content',
     span: 'lg:col-span-1 lg:row-span-1',
-    borderRadius: 'rounded-tl-[70px] rounded-tr-[70px] rounded-bl-[70px]',
+    borderRadius: 'rounded-tl-[70px] rounded-tr-[70px] rounded-br-[70px]',
     height: 'min-h-[300px]'
   }
 ];
