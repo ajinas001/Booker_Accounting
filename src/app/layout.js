@@ -20,7 +20,15 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`
+          ${geistSans.variable} 
+          ${geistMono.variable} 
+          font-sans 
+          antialiased
+        `}
+        style={{
+          fontFamily: '"Gros Ventre", var(--font-geist-sans), sans-serif',
+        }}
       >
         {children}
       </body>
