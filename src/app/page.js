@@ -10,6 +10,7 @@ import Whychoose from '@/components/Whychoose';
 import Industries from '@/components/Industries';
 import Values from '@/components/Values';
 import Faqs from '@/components/Faqs';
+import HomeAboutTimeline from '@/components/About';
 
 // --- Static Data ---
 const COMPANY_INFO = {
@@ -20,7 +21,7 @@ const COMPANY_INFO = {
     email: 'info@bookeraccounting.com',
   },
   // ADDED: Video URL for Hero Background
-  heroVideoUrl: './videos/video4.mp4', // Placeholder Burj Khalifa video
+  heroVideoUrl: './videos/video5.mp4', // Placeholder Burj Khalifa video
 };
 
 
@@ -197,6 +198,9 @@ const BookerAccountingWebsite = () => {
 
       {/* Why Choose Us */}
       <Whychoose />
+
+      {/* about */}
+      <HomeAboutTimeline/>
 
       {/* Services Section */}
       <Services />

@@ -69,7 +69,7 @@ export default function Navbar({ scrolled }) {
             {navLinks.map((link, i) => (
               <motion.a
                 key={link}
-                href={`#${link.toLowerCase()}`}
+                href={link}
                 className={`px-4 py-2 ${
                   scrolled ? "text-gray-800" : "text-white"
                 } hover:text-teal-700 text-xl font-medium transition-colors relative group`}
