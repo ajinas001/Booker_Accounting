@@ -1,6 +1,7 @@
 "use client";
 import { useRef, useState, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import Navbar from "@/components/Navbar";
 
 // --- Custom Tailwind-like Colors based on CSS Theme ---
 const PRIMARY_BLACK = "#0d1a20"; // --color-primary-black
@@ -272,6 +273,8 @@ const AboutPageTimeline = () => {
   ];
 
   return (
+    <>
+    <Navbar/>
     <div style={{ backgroundColor: PRIMARY_LIGHT }} className="min-h-screen">
       
       {/* Hero Section */}
@@ -378,6 +381,7 @@ const AboutPageTimeline = () => {
         </div>
       </section>
     </div>
+    </>
   );
 };
 
