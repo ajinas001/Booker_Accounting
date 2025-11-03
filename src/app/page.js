@@ -99,6 +99,60 @@ const BookerAccountingWebsite = () => {
 
       {/* Hero Section - Using Deep Dark Blue/Teal Theme */}
       {/* Hero Section - Streamlined Modern Design */}
+      {/* <section id="home" className=" font-sans relative overflow-hidden min-h-screen flex items-center bg-dark-primary text-white">
+
+      
+        <div className="video-container">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            poster="https://placehold.co/1920x1080/0d1a20/1c5e6a?text=Loading"
+            src={COMPANY_INFO.heroVideoUrl}
+          />
+        </div>
+
+      
+        <div className="absolute inset-0 bg-gradient-to-r from-dark-primary/90 via-dark-primary/70 to-transparent z-10"></div>
+
+      
+        <div className="relative z-20 w-full px-4 sm:px-6 lg:px-8 py-20 sm:py-24 lg:py-24">
+          <div className="max-w-7xl mx-auto">
+            <div className="max-w-4xl">
+
+            
+              <div className="inline-flex items-center gap-2 bg-cyan-500/10 backdrop-blur-md text-cyan-300 px-4 py-2 rounded-full text-xs sm:text-sm font-semibold border border-cyan-400/20 mb-6 sm:mb-8 animate-fade-in">
+                <Shield className="w-3 h-3 sm:w-4 sm:h-4" />
+                <span>UAE's Trusted Accounting Partner</span>
+              </div>
+
+            
+              <h1 className="text-4xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-6xl font-black leading-[1.1] tracking-tight mb-6 sm:mb-8">
+                <span className="block text-white italic">A Strategic Force</span>
+                <span className="block italic text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-cyan-500 to-secondary animate-gradient">
+                  Behind Your Numbers
+                </span>
+              </h1>
+
+           
+              <p className="text-lg sm:text-xl lg:text-2xl text-white mb-8 sm:mb-10 max-w-2xl leading-relaxed">
+                Expert accounting & tax solutions that help Dubai businesses grow with confidence
+              </p>
+
+             
+
+            </div>
+          </div>
+        </div>
+
+      
+        <div className="hidden sm:flex absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 animate-bounce">
+          <div className="flex flex-col items-center gap-2 text-white/40 hover:text-white/60 transition-colors">
+            <ChevronDown className="w-6 h-6" />
+          </div>
+        </div>
+      </section> */}
       <HeroSection/>
 
       {/* Why Choose Us */}
