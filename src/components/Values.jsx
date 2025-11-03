@@ -1,168 +1,281 @@
-import React from 'react'
-import { TrendingUp, Shield, Users, Target, Eye, Rocket, Star, Award } from 'lucide-react';
+"use client";
 
-function Values() {
-  const values = [
-    { 
-      title: "Brilliance", 
-      desc: "Delivering excellence through insightful, proactive accounting and advisory services.", 
-      icon: <TrendingUp className="w-8 h-8" />,
-      color: "from-blue-600 to-cyan-500",
-      textColor: "text-blue-600"
-    },
-    { 
-      title: "Balance", 
-      desc: "Ensuring compliance and financial stability so you can scale with confidence.", 
-      icon: <Shield className="w-8 h-8" />,
-      color: "from-emerald-600 to-teal-500",
-      textColor: "text-emerald-600"
-    },
-    { 
-      title: "Build", 
-      desc: "Empowering businesses to grow stronger with dependable bookkeeping and expert guidance.", 
-      icon: <Users className="w-8 h-8" />,
-      color: "from-violet-600 to-purple-500",
-      textColor: "text-violet-600"
-    }
-  ];
+import { motion } from "framer-motion";
 
-  const stats = [
-    { number: "99%", label: "Client Satisfaction", icon: <Star className="w-6 h-6" /> },
-    { number: "500+", label: "Businesses Served", icon: <Users className="w-6 h-6" /> },
-    { number: "15+", label: "Years Experience", icon: <Award className="w-6 h-6" /> },
-    { number: "24/7", label: "Support Available", icon: <Shield className="w-6 h-6" /> }
-  ];
+const MainVisionSection = () => {
+  const VisionSVG = () => (
+    <svg 
+      viewBox="0 0 600 400" 
+      className="w-full h-auto"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      {/* Background Circle */}
+      <circle cx="300" cy="200" r="180" fill="none" stroke="#1c5e6a" strokeWidth="2" opacity="0.1"/>
+      
+      {/* Central Core - Build */}
+      <motion.circle
+        initial={{ scale: 0, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ duration: 1, delay: 0.2 }}
+        cx="300" 
+        cy="200" 
+        r="60" 
+        fill="#1c5e6a"
+        className="shadow-lg"
+      />
+      <text x="300" y="205" textAnchor="middle" fill="white" fontSize="18" fontWeight="bold">
+        BUILD
+      </text>
+      
+      {/* Balance Orbital */}
+      <motion.g
+        initial={{ scale: 0, rotate: -180 }}
+        animate={{ scale: 1, rotate: 0 }}
+        transition={{ duration: 1, delay: 0.5 }}
+      >
+        <circle cx="180" cy="200" r="40" fill="#0d1a20" className="shadow-md"/>
+        <text x="180" y="205" textAnchor="middle" fill="white" fontSize="14" fontWeight="600">
+          BALANCE
+        </text>
+        {/* Connecting line */}
+        <line x1="240" y1="200" x2="340" y2="200" stroke="#1c5e6a" strokeWidth="2" strokeDasharray="4 4"/>
+      </motion.g>
+      
+      {/* Brilliance Orbital */}
+      <motion.g
+        initial={{ scale: 0, rotate: 180 }}
+        animate={{ scale: 1, rotate: 0 }}
+        transition={{ duration: 1, delay: 0.8 }}
+      >
+        <circle cx="420" cy="200" r="40" fill="#0d1a20" className="shadow-md"/>
+        <text x="420" y="205" textAnchor="middle" fill="white" fontSize="14" fontWeight="600">
+          BRILLIANCE
+        </text>
+        {/* Connecting line */}
+        <line x1="360" y1="200" x2="260" y2="200" stroke="#1c5e6a" strokeWidth="2" strokeDasharray="4 4"/>
+      </motion.g>
+      
+      {/* Strategic Vision Rings */}
+      <motion.circle
+        initial={{ scale: 0, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ duration: 1.5, delay: 1 }}
+        cx="300" 
+        cy="200" 
+        r="120" 
+        fill="none" 
+        stroke="#1c5e6a" 
+        strokeWidth="1" 
+        strokeDasharray="5 5"
+      />
+      
+      {/* Outer Vision Ring */}
+      <motion.circle
+        initial={{ scale: 0, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ duration: 2, delay: 1.2 }}
+        cx="300" 
+        cy="200" 
+        r="150" 
+        fill="none" 
+        stroke="#1c5e6a" 
+        strokeWidth="1" 
+        opacity="0.5"
+      />
+      
+      {/* Floating Elements */}
+      <motion.g
+        animate={{
+          y: [0, -10, 0],
+          opacity: [0.7, 1, 0.7]
+        }}
+        transition={{
+          duration: 3,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }}
+      >
+        <circle cx="120" cy="120" r="8" fill="#1c5e6a" opacity="0.6"/>
+        <circle cx="480" cy="280" r="6" fill="#1c5e6a" opacity="0.4"/>
+      </motion.g>
+      
+      <motion.g
+        animate={{
+          y: [0, 10, 0],
+          opacity: [0.5, 1, 0.5]
+        }}
+        transition={{
+          duration: 4,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 1
+        }}
+      >
+        <circle cx="480" cy="120" r="7" fill="#0d1a20" opacity="0.5"/>
+        <circle cx="120" cy="280" r="5" fill="#0d1a20" opacity="0.3"/>
+      </motion.g>
+    </svg>
+  );
 
   return (
-    <section id="about" className="py-20 bg-white relative overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-blue-50 to-cyan-50 rounded-full blur-3xl opacity-60"></div>
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-br from-emerald-50 to-teal-50 rounded-full blur-3xl opacity-60"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-br from-violet-50 to-purple-50 rounded-full blur-3xl opacity-40"></div>
-      </div>
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Header */}
-        <div className="text-center mb-20">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-50 to-cyan-50 rounded-full border border-blue-200 mb-6">
-            <Target className="w-4 h-4 text-secondary" />
-            <span className="text-sm font-semibold text-secondary uppercase tracking-wider">
-              Our Foundation
-            </span>
-          </div>
-          <h2 className="text-5xl md:text-6xl font-bold text-slate-900 mb-6">
-            Core <span className="bg-gradient-to-r from-cyan-600 to-secondary bg-clip-text text-transparent">Values</span>
-          </h2>
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
-            The guiding principles that shape our approach and drive our commitment to your success
-          </p>
-        </div>
-
-        {/* Values Grid */}
-        <div className="grid lg:grid-cols-3 gap-8 mb-20">
-          {values.map((value, index) => (
-            <div 
-              key={index}
-              className="group relative bg-[#ebe5d5] rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-slate-100 hover:border-slate-200"
+    <section className="bg-primary py-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          
+          {/* Left Content */}
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="space-y-8"
+          >
+            {/* Label */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="inline-block border border-secondary text-secondary text-sm font-medium w-fit px-8 py-3 rounded-tl-full rounded-tr-full rounded-br-full uppercase tracking-widest"
             >
-              {/* Hover Gradient Border Effect */}
-              <div className={`absolute inset-0 rounded-2xl bg-gradient-to-r ${value.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}></div>
-              
-              {/* Icon Container */}
-              <div className={`relative mb-6 inline-flex w-20 h-20 rounded-2xl bg-gradient-to-br ${value.color} items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform duration-300`}>
-                {value.icon}
-              </div>
-              
-              {/* Content */}
-              <h3 className={`text-2xl font-bold ${value.textColor} mb-4 group-hover:translate-x-2 transition-transform duration-300`}>
-                {value.title}
-              </h3>
-              <p className="text-slate-600 leading-relaxed text-lg">
-                {value.desc}
-              </p>
-              
-              {/* Decorative Element */}
-              <div className={`absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r ${value.color} rounded-b-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
-            </div>
-          ))}
-        </div>
+              Our Core Vision
+            </motion.div>
 
-        {/* Stats Section */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
-          {stats.map((stat, index) => (
-            <div 
-              key={index}
-              className="bg-gradient-to-br from-slate-50 to-white rounded-2xl p-6 text-center border border-slate-100 shadow-sm hover:shadow-lg transition-all duration-300 group"
+            {/* Main Heading */}
+            <motion.h2
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              viewport={{ once: true }}
+              className="text-4xl md:text-5xl lg:text-6xl font-light text-primary-black leading-tight"
             >
-              <div className="inline-flex w-12 h-12 bg-white rounded-xl items-center justify-center text-secondary mb-4 shadow-md group-hover:scale-110 transition-transform duration-300">
-                {stat.icon}
-              </div>
-              <div className="text-3xl font-bold text-slate-900 mb-2">{stat.number}</div>
-              <div className="text-slate-600 font-medium">{stat.label}</div>
-            </div>
-          ))}
-        </div>
+              Building Your Financial
+              <span className="block text-secondary font-bold">Future with Purpose</span>
+            </motion.h2>
 
-        {/* Vision Section */}
-        <div className="relative">
-          {/* Main Vision Card */}
-          <div className="bg-gradient-to-r from-secondary to-teal-600 rounded-3xl p-12 text-white shadow-2xl relative overflow-hidden">
-            {/* Background Pattern */}
-            <div className="absolute inset-0 opacity-10">
-              <div className="absolute top-0 right-0 w-64 h-64 bg-white rounded-full -translate-y-32 translate-x-32"></div>
-              <div className="absolute bottom-0 left-0 w-64 h-64 bg-white rounded-full translate-y-32 -translate-x-32"></div>
+            {/* Vision Statement */}
+            {/* <motion.p
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              viewport={{ once: true }}
+              className="text-xl text-primary-black/80 leading-relaxed"
+            >
+              To become the most trusted and forward-thinking financial partner 
+              empowering businesses of all sizes through expert accounting, 
+              strategic advisory, and AI-driven innovation.
+            </motion.p> */}
+
+            {/* Values Breakdown */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+              viewport={{ once: true }}
+              className="space-y-6"
+            >
+              {/* Build - Central Value */}
+              <div className="bg-white/50 p-6 rounded-lg border-l-4 border-secondary">
+                <h3 className="text-2xl font-bold text-secondary mb-2">Build</h3>
+                <p className="text-primary-black/80">
+                  Empowering businesses to grow stronger with dependable bookkeeping 
+                  and expert guidance. We lay the foundation for your sustainable success.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {/* Balance */}
+                <div className="bg-white/30 p-4 rounded-lg">
+                  <h4 className="font-semibold text-primary-black mb-1">Balance</h4>
+                  <p className="text-primary-black/70 text-sm">
+                    Ensuring compliance and financial stability so you can scale with confidence.
+                  </p>
+                </div>
+
+                {/* Brilliance */}
+                <div className="bg-white/30 p-4 rounded-lg">
+                  <h4 className="font-semibold text-primary-black mb-1">Brilliance</h4>
+                  <p className="text-primary-black/70 text-sm">
+                    Delivering excellence through insightful, proactive accounting and advisory services.
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* CTA */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              viewport={{ once: true }}
+              className="pt-4"
+            >
+              {/* <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="bg-secondary text-white px-8 py-4 rounded-sm font-semibold hover:bg-secondary/90 transition-colors duration-300"
+              >
+                Start Building with BAC
+              </motion.button> */}
+            </motion.div>
+          </motion.div>
+
+          {/* Right SVG */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1 }}
+            viewport={{ once: true }}
+            className="relative"
+          >
+            <div className="bg-white/20 rounded-2xl p-8 backdrop-blur-sm border border-white/30">
+              <VisionSVG />
             </div>
             
-            <div className="relative z-10 text-center max-w-4xl mx-auto">
-              {/* Vision Icon */}
-              <div className="inline-flex w-16 h-16 bg-white/10 rounded-2xl items-center justify-center text-white mb-6 backdrop-blur-sm border border-white/20">
-                <Eye className="w-8 h-8" />
-              </div>
-              
-              <h3 className="text-4xl font-bold mb-6">
-                Our <span className="bg-gradient-to-r from-black to-gray-800 bg-clip-text text-transparent">Vision</span>
-              </h3>
-              
-              <p className="text-xl text-slate-200 leading-relaxed mb-8">
-                To become the most trusted and forward-thinking financial partner empowering businesses 
-                of all sizes through expert accounting, strategic advisory, and AI-driven innovation.
-              </p>
-              
-              {/* CTA Button */}
-              <button className="inline-flex items-center gap-3 px-8 py-4 bg-white text-slate-900 font-semibold rounded-xl hover:scale-105 transition-transform duration-300 shadow-lg">
-                <span>Join Our Vision</span>
-                <Rocket className="w-5 h-5" />
-              </button>
-            </div>
+            {/* Floating Stats */}
+            {/* <motion.div
+              initial={{ opacity: 0, scale: 0 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 1 }}
+              viewport={{ once: true }}
+              className="absolute -top-4 -right-4 bg-secondary text-white px-4 py-2 rounded-lg shadow-lg"
+            >
+              <div className="text-sm font-semibold">AI-Driven</div>
+              <div className="text-xs opacity-90">Innovation</div>
+            </motion.div> */}
+            
+            {/* <motion.div
+              initial={{ opacity: 0, scale: 0 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 1.2 }}
+              viewport={{ once: true }}
+              className="absolute -bottom-4 -left-4 bg-primary-black text-white px-4 py-2 rounded-lg shadow-lg"
+            >
+              <div className="text-sm font-semibold">UAE Focused</div>
+              <div className="text-xs opacity-90">Local Expertise</div>
+            </motion.div> */}
+          </motion.div>
+        </div>
+
+        {/* Bottom Quote */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.8 }}
+          viewport={{ once: true }}
+          className="text-center mt-16 pt-12 border-t border-gray-300/20"
+        >
+          <blockquote className="text-2xl md:text-3xl font-light text-primary-black/90 italic max-w-4xl mx-auto">
+            "Where financial clarity, regulatory confidence, and business growth are 
+            accessible to all powered by integrity, insight, and intelligent technology."
+          </blockquote>
+          <div className="mt-4 text-secondary font-semibold">
+            — BAC Company Vision
           </div>
-
-          {/* Floating Elements */}
-          <div className="absolute -top-4 -left-4 w-8 h-8 bg-cyan-400 rounded-full opacity-20 animate-pulse"></div>
-          <div className="absolute -bottom-4 -right-4 w-12 h-12 bg-secondary rounded-full opacity-30 animate-pulse delay-1000"></div>
-        </div>
-
-        {/* Bottom Decorative Line */}
-        <div className="mt-20 flex justify-center">
-          <div className="w-24 h-1 bg-gradient-to-r from-transparent via-slate-300 to-transparent rounded-full"></div>
-        </div>
+        </motion.div>
       </div>
-
-      <style jsx>{`
-        .shadow-custom {
-          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05), 0 5px 15px rgba(0, 0, 0, 0.03);
-        }
-        
-        .hover-lift {
-          transition: all 0.3s ease;
-        }
-        
-        .hover-lift:hover {
-          transform: translateY(-5px);
-        }
-      `}</style>
     </section>
-  )
-}
+  );
+};
 
-export default Values
+export default MainVisionSection;

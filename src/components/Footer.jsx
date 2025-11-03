@@ -52,7 +52,7 @@ const Footer = () => {
           variants={fadeInUp}
           className="flex flex-col md:flex-row items-start md:items-center gap-8 text-sm font-medium"
         >
-          {["Connect with us", "Our locations", "My Booker", "Site map", "Legal and privacy"].map(
+          {["Home","About Us", "Services", "Contact Us",].map(
             (link, index) => (
               <motion.a
                 key={index}

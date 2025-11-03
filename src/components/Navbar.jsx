@@ -9,7 +9,7 @@ export default function Navbar({ scrolled }) {
   const [showNavbar, setShowNavbar] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
 
-  const navLinks = ["Home", "About", "Services", "Blog", "Contact"];
+  const navLinks = ["Home", "About", "Services" , "Contact"];
 
   // 🧭 Handle scroll direction to hide/show navbar
   useEffect(() => {
@@ -112,7 +112,8 @@ export default function Navbar({ scrolled }) {
 
           {/* Get Started Button */}
           <motion.button
-            className="hidden md:block ml-4 w-fit px-8 py-3 rounded-tl-full rounded-tr-full rounded-br-full border-2 bg-secondary text-white rounded-lg font-medium hover:bg-teal-800 transition-colors "
+            className={scrolled?"hidden md:block ml-4 w-fit px-8 py-3 rounded-tl-full rounded-tr-full rounded-br-full border-2   text-secondary rounded-lg font-medium hover:bg-teal-800 transition-colors hover:text-white ":
+              "hidden md:block ml-4 w-fit px-8 py-3 rounded-tl-full rounded-tr-full rounded-br-full border-2  text-white rounded-lg font-medium hover:bg-teal-800 transition-colors "}
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.6, duration: 0.3 }}
