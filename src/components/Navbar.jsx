@@ -9,7 +9,7 @@ export default function Navbar({ scrolled }) {
   const [showNavbar, setShowNavbar] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
 
-  const navLinks = ["Home", "About", "Services" , "Contact"];
+  const navLinks = ["Home", "About", "Services", "Contact"];
 
   // 🧭 Handle scroll direction to hide/show navbar
   useEffect(() => {
@@ -71,7 +71,9 @@ export default function Navbar({ scrolled }) {
           >
             <div className="flex items-center justify-center overflow-hidden">
               <Image
-                src={scrolled ? "/images/LogoDark.png" : "/images/LogoLight.png"}
+                src={
+                  scrolled ? "/images/LogoDark.png" : "/images/LogoLight.png"
+                }
                 alt="Booker Accounting Company Logo"
                 width={120}
                 height={120}
@@ -112,8 +114,11 @@ export default function Navbar({ scrolled }) {
 
           {/* Get Started Button */}
           <motion.button
-            className={scrolled?"hidden md:block ml-4 w-fit px-8 py-3 rounded-tl-full rounded-tr-full rounded-br-full border-2   text-secondary rounded-lg font-medium hover:bg-teal-800 transition-colors hover:text-white ":
-              "hidden md:block ml-4 w-fit px-8 py-3 rounded-tl-full rounded-tr-full rounded-br-full border-2  text-white rounded-lg font-medium hover:bg-teal-800 transition-colors "}
+            className={
+              scrolled
+                ? "hidden md:block ml-4 w-fit px-8 py-3 rounded-tl-full rounded-tr-full rounded-br-full border-2   text-secondary rounded-lg font-medium hover:bg-teal-800 transition-colors hover:text-white "
+                : "hidden md:block ml-4 w-fit px-8 py-3 rounded-tl-full rounded-tr-full rounded-br-full border-2  text-white rounded-lg font-medium hover:bg-teal-800 transition-colors "
+            }
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.6, duration: 0.3 }}
@@ -155,7 +160,7 @@ export default function Navbar({ scrolled }) {
               initial="closed"
               animate="open"
               exit="closed"
-              className="lg:hidden overflow-hidden bg-white shadow-md rounded-lg mt-2"
+              className="lg:hidden overflow-hidden bg-primary text-center  rounded-lg mt-2"
             >
               <div className="py-4 space-y-2">
                 {navLinks.map((link, i) => {
@@ -164,7 +169,7 @@ export default function Navbar({ scrolled }) {
                     <motion.div key={link} custom={i} variants={linkVariants}>
                       <Link
                         href={href}
-                        className="block px-4 py-3 text-gray-700 hover:bg-teal-100 hover:text-teal-700 rounded-lg font-medium transition-colors"
+                        className="block px-4 py-3 text-secondary hover:bg-teal-100 hover:text-teal-700 rounded-lg font-medium transition-colors"
                         onClick={() => setIsOpen(false)}
                       >
                         {link}
@@ -172,17 +177,7 @@ export default function Navbar({ scrolled }) {
                     </motion.div>
                   );
                 })}
-                <motion.button
-                  className="w-full px-4 py-3 bg-secondary text-white rounded-lg font-medium hover:bg-teal-800 transition-colors shadow-md mt-4"
-                  custom={navLinks.length}
-                  variants={linkVariants}
-                  initial="closed"
-                  animate="open"
-                  exit="closed"
-                  whileTap={{ scale: 0.95 }}
-                >
-                  Get started
-                </motion.button>
+               
               </div>
             </motion.div>
           )}
