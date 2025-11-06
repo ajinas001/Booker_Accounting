@@ -140,7 +140,7 @@ const MainAchievements = () => {
   ];
 
   return (
-    <section className="bg-neutral-200 py-24 relative overflow-hidden">
+    <section className="bg-[#f5f5f0] py-24 relative overflow-hidden">
       {/* Background SVG Patterns */}
       <div className="absolute inset-0 pointer-events-none">
         <svg viewBox="0 0 1000 600" className="w-full h-full opacity-5">

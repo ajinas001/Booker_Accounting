@@ -1,5 +1,8 @@
+
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import useLenis from "@/lib/lenis";
+import LenisWrapper from "@/components/LenisWrapper";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -60,7 +63,10 @@ export default function RootLayout({ children }) {
           fontFamily: '"Gros Ventre", var(--font-geist-sans), sans-serif',
         }}
       >
-        {children}
+        <LenisWrapper>
+          {children}
+        </LenisWrapper>
+        
       </body>
     </html>
   );

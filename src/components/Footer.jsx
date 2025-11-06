@@ -14,7 +14,7 @@ const fadeInUp = {
 
 const Footer = () => {
   return (
-    <footer className="bg-primary text-white border-t border-gray-200">
+    <footer className="bg-[#f5f5f0] text-white border-t border-gray-200">
       <div className="max-w-7xl mx-auto px-6 py-12 flex flex-col md:flex-row justify-between items-start md:items-center gap-10">
         {/* Left Section - Logo and Description */}
         <motion.div

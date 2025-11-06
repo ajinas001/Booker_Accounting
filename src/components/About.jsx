@@ -6,7 +6,7 @@ import { Layers, TrendingUp, Compass, Globe } from 'lucide-react';
 // Note: SECONDARY_COLOR and DARK_BG are now only used for text accents and images.
 const SECONDARY_COLOR = 'bg-cyan-800'; 
 const ACCENT_COLOR_TEXT = 'text-cyan-600';
-const NEUTRAL_BG = 'bg-neutral-200';
+const NEUTRAL_BG = 'bg-[#f5f5f0]';
 const DARK_BG = 'bg-secondary';
 
 // Placeholder Image Paths (Update these to your working URLs)

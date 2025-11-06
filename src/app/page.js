@@ -54,49 +54,7 @@ const BookerAccountingWebsite = () => {
 
   return (
     <div className="min-h-screen bg-light-primary text-foreground">
-      <style jsx global>{`
-        /* Global CSS based on user's preference for Next.js setup */
-        :root {
-          --color-primary-black: #0d1a20;
-          --color-secondary: #1c5e6a;
-          --color-primary: #f9f9f9;
-        }
-
-        /* Define Tailwind custom utilities using CSS variables */
-        .bg-dark-primary { background-color: var(--color-primary-black); }
-        .bg-light-primary { background-color: var(--color-primary); }
-        .text-accent { color: var(--color-secondary); }
-        .bg-accent { background-color: var(--color-secondary); }
-
-        /* General Body Styling */
-        body {
-          font-family: 'Inter', Arial, Helvetica, sans-serif;
-          background: var(--color-primary);
-          color: #171717;
-        }
-
-        /* Essential styles for the video background to cover the section */
-        .video-container {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            z-index: 0;
-        }
-
-        .video-container video {
-            min-width: 100%; 
-            min-height: 100%;
-            width: auto;
-            height: auto;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-      `}</style>
+     
 
 
       <Navbar scrolled={scrolled} isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />

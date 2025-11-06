@@ -150,7 +150,7 @@ const StarburstIcon = () => (
 
 export default function AccountingServices() {
   return (
-    <><div className="min-h-screen bg-neutral-200 p-4 md:p-8">
+    <><div className="min-h-screen bg-[#f5f5f0] p-4 md:p-8">
     
     <section className="relative  py-12 px-6 md:px-16 overflow-hidden">
         {/* Decorative Green Glow / Shape */}
