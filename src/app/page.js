@@ -14,6 +14,8 @@ import IndustriesSection from '@/components/Industry';
 import HomeAboutTimeline from '@/components/About';
 import MainAchievements from '@/components/Stats';
 import HeroSection from '@/components/HeroSection';
+import ContactSection from '@/components/ContactSection';
+import FloatingMenuButton from '@/components/FloatingMenuButton';
 
 
 
@@ -171,13 +173,14 @@ const BookerAccountingWebsite = () => {
       <Whychoose />
       {/* Values Section */}
       <Values />
+      <ContactSection/>
 
       {/* FAQ Section */}
       {/* <Faqs /> */}
 
       {/* Contact Section */}
       {/* <Getintouch /> */}
-
+<FloatingMenuButton/>
       <Footer />
     </div>
   );
