@@ -14,7 +14,7 @@ const fadeInUp = {
 
 const Footer = () => {
   return (
-    <footer className="bg-[#f5f5f0] text-white border-t border-gray-200">
+    <footer className="bg-gradient-to-br from-gray-900 to-teal-900 text-white border-t  rounded-t-[4rem]">
       <div className="max-w-7xl mx-auto px-6 py-12 flex flex-col md:flex-row justify-between items-start md:items-center gap-10">
         {/* Left Section - Logo and Description */}
         <motion.div
@@ -29,7 +29,7 @@ const Footer = () => {
             
           <div className=" flex items-center justify-center overflow-hidden">
                         <Image
-                          src="/images/LogoDark.png"
+                          src="/images/LogoLight.png"
                           alt="Booker Accounting Company Logo"
                           width={120}
                           height={120}
@@ -37,7 +37,7 @@ const Footer = () => {
                         />
                       </div>
           </div>
-          <p className="text-sm text-gray-600 leading-relaxed">
+          <p className="text-sm text-gray-50 leading-relaxed">
             Booker refers to the global organization of accounting and consultancy firms,
             providing trusted financial services with integrity and innovation.
           </p>
@@ -58,7 +58,7 @@ const Footer = () => {
                 key={index}
                 href="#"
                 whileHover={{ x: 3 }}
-                className="hover:underline text-gray-700 hover:text-gray-900 transition-colors"
+                className="hover:underline text-gray-50 hover:text-gray-900 transition-colors"
               >
                 {link}
               </motion.a>
@@ -76,7 +76,7 @@ const Footer = () => {
         custom={2}
         className="max-w-7xl mx-auto px-6 pb-10 flex flex-col md:flex-row justify-between items-center border-t border-gray-200 pt-6"
       >
-        <p className="text-sm text-gray-500 leading-relaxed max-w-2xl text-center md:text-left">
+        <p className="text-sm text-gray-50 leading-relaxed max-w-2xl text-center md:text-left">
           Booker refers to the global organization and may refer to one or more of
           the member firms of Booker Global Limited, each of which is a separate legal entity.
           Booker Global Limited, a company limited by guarantee, does not provide services to clients.

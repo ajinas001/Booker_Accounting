@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Navbar({ scrolled }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,38 +12,45 @@ export default function Navbar({ scrolled }) {
 
   const navLinks = ["Home", "About", "Services", "Contact"];
 
-  const services = [
-    {
-      title: "Audit & Assurance",
-      description:
-        "• Ensure financial accuracy\n• Meet regulatory standards\n• Build stakeholder confidence",
-    },
-    {
-      title: "Taxation",
-      description:
-        "• Tax planning & compliance\n• Return preparation\n• Minimize tax liabilities",
-    },
-    {
-      title: "Accounting & Bookkeeping",
-      description:
-        "• Maintain accurate records\n• Manage financial statements\n• Support informed decisions",
-    },
-    {
-      title: "Business Advisory & Support Services",
-      description:
-        "• Strategic business advice\n• Process improvement\n• Growth and expansion planning",
-    },
-    {
-      title: "Business Support Services",
-      description:
-        "• Administrative assistance\n• Compliance management\n• Operational efficiency",
-    },
-    {
-      title: "Anti–Money Laundering",
-      description:
-        "• AML policy development\n• Risk assessment & monitoring\n• Regulatory compliance support",
-    },
-  ];
+ const services = [
+  {
+    title: "Audit & Assurance",
+    link: "/audit-assurance",
+    description:
+      "• Ensure financial accuracy\n• Meet regulatory standards\n• Build stakeholder confidence",
+  },
+  {
+    title: "Taxation",
+    link: "/taxation",
+    description:
+      "• Tax planning & compliance\n• Return preparation\n• Minimize tax liabilities",
+  },
+  {
+    title: "Accounting & Bookkeeping",
+    link: "/accounting-bookkeeping",
+    description:
+      "• Maintain accurate records\n• Manage financial statements\n• Support informed decisions",
+  },
+  {
+    title: "Business Advisory Services",
+    link: "/business-advisory",
+    description:
+      "• Strategic business advice\n• Process improvement\n• Growth and expansion planning",
+  },
+  {
+    title: "Business Support Services",
+    link: "/business-support",
+    description:
+      "• Strategic business advice\n• Process improvement\n• Growth and expansion planning",
+  },
+  {
+    title: "Anti–Money Laundering (AML)",
+    link: "/aml",
+    description:
+      "• AML policy development\n• Risk assessment & monitoring\n• Regulatory compliance support",
+  },
+];
+
 
   useEffect(() => {
     const handleScroll = () => {
@@ -286,7 +294,9 @@ export default function Navbar({ scrolled }) {
             onMouseEnter={() => setServicesOpen(true)}
             onMouseLeave={() => setServicesOpen(false)}
             className={`fixed left-0 right-0 z-40 ${
-              scrolled ? "bg-white m-4 rounded-2xl" : "bg-gray-900 bg-opacity-95 m-4 rounded-2xl"
+              scrolled
+                ? "bg-white m-4 rounded-2xl"
+                : "bg-gray-900 bg-opacity-95 m-4 rounded-2xl"
             } `}
           >
             <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-2 py-20 ">
@@ -306,7 +316,9 @@ export default function Navbar({ scrolled }) {
                       scrolled ? "text-gray-600" : "text-gray-300"
                     }`}
                   >
-                    No matter your role or goal <span className="text-secondary font-bold">BAC</span> adapts to your needs
+                    No matter your role or goal{" "}
+                    <span className="text-secondary font-bold">BAC</span> adapts
+                    to your needs
                   </p>
                 </div>
 
@@ -320,14 +332,17 @@ export default function Navbar({ scrolled }) {
                       transition={{ delay: index * 0.05, duration: 0.3 }}
                       className="space-y-2"
                     >
-                      <h4
-                        className={`text-lg font-semibold mb-2 ${
-                          scrolled ? "text-secondary" : "text-white"
-                        }`}
-                      >
-                        {service.title}
-                      </h4>
-
+                      
+                        <Link href={service.link}
+                          className={`text-lg font-semibold mb-2 ${
+                            scrolled ? "text-secondary" : "text-white"
+                          }`}
+                        >
+                           
+                          {service.title}
+                          
+                        </Link>
+                     
                       <ul
                         className={` text-start list-disc pl-5 space-y-1 ${
                           scrolled ? "text-gray-600" : "text-gray-300"

@@ -17,7 +17,7 @@ export default function ContactSection() {
   const gap = useTransform(scrollYProgress, [0, 0.7], ["140vh", "0vh"]);
 
   return (
-    <section ref={sectionRef} className="w-full bg-primary py-20">
+    <section ref={sectionRef} className="w-full  py-20">
       <div className="grid grid-cols-1 md:grid-cols-2">
 
         {/* LEFT SIDE */}
