@@ -10,47 +10,46 @@ export default function Navbar({ scrolled }) {
   const [lastScrollY, setLastScrollY] = useState(0);
   const [servicesOpen, setServicesOpen] = useState(false);
 
-  const navLinks = ["Home", "About", "Services","Blog", "Contact"];
+  const navLinks = ["Home", "About", "Services", "Blog", "Contact"];
 
- const services = [
-  {
-    title: "Audit & Assurance",
-    link: "/audit-assurance",
-    description:
-      "• Ensure financial accuracy\n• Meet regulatory standards\n• Build stakeholder confidence",
-  },
-  {
-    title: "Taxation",
-    link: "/taxation",
-    description:
-      "• Tax planning & compliance\n• Return preparation\n• Minimize tax liabilities",
-  },
-  {
-    title: "Accounting & Bookkeeping",
-    link: "/accounting-bookkeeping",
-    description:
-      "• Maintain accurate records\n• Manage financial statements\n• Support informed decisions",
-  },
-  {
-    title: "Business Advisory Services",
-    link: "/business-advisory",
-    description:
-      "• Strategic business advice\n• Process improvement\n• Growth and expansion planning",
-  },
-  {
-    title: "Business Support Services",
-    link: "/business-support",
-    description:
-      "• Strategic business advice\n• Process improvement\n• Growth and expansion planning",
-  },
-  {
-    title: "Anti–Money Laundering (AML)",
-    link: "/aml",
-    description:
-      "• AML policy development\n• Risk assessment & monitoring\n• Regulatory compliance support",
-  },
-];
-
+  const services = [
+    {
+      title: "Audit & Assurance",
+      link: "/audit-assurance",
+      description:
+        "• Ensure financial accuracy\n• Meet regulatory standards\n• Build stakeholder confidence",
+    },
+    {
+      title: "Taxation",
+      link: "/taxation",
+      description:
+        "• Tax planning & compliance\n• Return preparation\n• Minimize tax liabilities",
+    },
+    {
+      title: "Accounting & Bookkeeping",
+      link: "/accounting-bookkeeping",
+      description:
+        "• Maintain accurate records\n• Manage financial statements\n• Support informed decisions",
+    },
+    {
+      title: "Business Advisory Services",
+      link: "/business-advisory",
+      description:
+        "• Strategic business advice\n• Process improvement\n• Growth and expansion planning",
+    },
+    {
+      title: "Business Support Services",
+      link: "/business-support",
+      description:
+        "• Strategic business advice\n• Process improvement\n• Growth and expansion planning",
+    },
+    {
+      title: "Anti–Money Laundering (AML)",
+      link: "/aml",
+      description:
+        "• AML policy development\n• Risk assessment & monitoring\n• Regulatory compliance support",
+    },
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -251,6 +250,7 @@ export default function Navbar({ scrolled }) {
           </div>
 
           {/* Mobile Menu */}
+          {/* ✅ Mobile Menu */}
           <AnimatePresence>
             {isOpen && (
               <motion.div
@@ -258,12 +258,67 @@ export default function Navbar({ scrolled }) {
                 initial="closed"
                 animate="open"
                 exit="closed"
-                className="lg:hidden overflow-hidden bg-white text-center rounded-lg  shadow-lg"
+                className="lg:hidden overflow-hidden bg-white text-center rounded-lg shadow-lg"
               >
                 <div className="py-4 space-y-2">
                   {navLinks.map((link, i) => {
                     const href =
                       link === "Home" ? "/" : `/${link.toLowerCase()}`;
+
+                    // ✅ Mobile dropdown for Services
+                    if (link === "Services") {
+                      return (
+                        <motion.div
+                          key={link}
+                          custom={i}
+                          variants={linkVariants}
+                        >
+                          <button
+                            onClick={() => setServicesOpen((prev) => !prev)}
+                            className="w-full px-4 py-3 flex items-center justify-center text-gray-800 hover:bg-teal-100 hover:text-teal-700 rounded-lg font-medium transition-colors"
+                          >
+                            Services
+                            <svg
+                              className={`w-4 h-4 transition-transform ${
+                                servicesOpen ? "rotate-180" : ""
+                              }`}
+                              fill="none"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth="2"
+                              viewBox="0 0 24 24"
+                              stroke="currentColor"
+                            >
+                              <path d="M19 9l-7 7-7-7" />
+                            </svg>
+                          </button>
+
+                          {/* ✅ Services dropdown list */}
+                          <AnimatePresence>
+                            {servicesOpen && (
+                              <motion.div
+                                initial={{ opacity: 0, height: 0 }}
+                                animate={{ opacity: 1, height: "auto" }}
+                                exit={{ opacity: 0, height: 0 }}
+                                className="pl-6 pr-4 space-y-1 text-start"
+                              >
+                                {services.map((service) => (
+                                  <Link
+                                    key={service.title}
+                                    href={service.link}
+                                    className="block py-2 text-gray-700 hover:text-teal-700 text-sm"
+                                    onClick={() => setIsOpen(false)} // closes menu on click
+                                  >
+                                    {service.title}
+                                  </Link>
+                                ))}
+                              </motion.div>
+                            )}
+                          </AnimatePresence>
+                        </motion.div>
+                      );
+                    }
+
                     return (
                       <motion.div key={link} custom={i} variants={linkVariants}>
                         <a
@@ -332,17 +387,15 @@ export default function Navbar({ scrolled }) {
                       transition={{ delay: index * 0.05, duration: 0.3 }}
                       className="space-y-2"
                     >
-                      
-                        <Link href={service.link}
-                          className={`text-lg font-semibold mb-2 ${
-                            scrolled ? "text-secondary" : "text-white"
-                          }`}
-                        >
-                           
-                          {service.title}
-                          
-                        </Link>
-                     
+                      <Link
+                        href={service.link}
+                        className={`text-lg font-semibold mb-2 ${
+                          scrolled ? "text-secondary" : "text-white"
+                        }`}
+                      >
+                        {service.title}
+                      </Link>
+
                       <ul
                         className={` text-start list-disc pl-5 space-y-1 ${
                           scrolled ? "text-gray-600" : "text-gray-300"

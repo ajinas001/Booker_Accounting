@@ -227,93 +227,81 @@ export default function Page() {
         </div>
       </section>
 
-      {/* 2nd SECTION */}
+      {/* 3rd SECTION */}
 
-      <section className="py-16 md:py-24">
+      <section className="py-16 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col lg:flex-row items-center lg:space-x-16">
+          <div className="flex flex-col lg:flex-row lg:space-x-12 items-center">
             {/* LEFT CONTENT */}
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="lg:w-1/2 w-full mb-10 lg:mb-0"
-            >
-              <p className="text-xs md:text-sm font-semibold uppercase tracking-wider text-teal-600 mb-3">
-                Tax Agent Service (FTA Approved)
+            <div className="lg:w-1/2 mb-12 lg:mb-0">
+              <p className="text-sm font-semibold uppercase tracking-wider text-gray-500 mb-2">
+                TAX AGENT SERVICE (FTA APPROVED)
               </p>
 
-              <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+              <h2 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-gray-900 leading-tight mb-6">
                 Your Trusted Representation,
                 <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-cyan-600">
+                <span className="text-teal-500">
                   Before the FTA & Authorities
                 </span>
               </h2>
 
-              <p className="text-gray-600 leading-relaxed text-base mb-4">
+              <p className="text-lg text-gray-600 mb-6">
                 Appointing a tax agent ensures your business stays compliant
                 with UAE tax laws — without stress. We act as your official
-                representative with the **Federal Tax Authority (FTA)**.
+                representative with the{" "}
+                <strong>Federal Tax Authority (FTA).</strong>
               </p>
 
-              <p className="text-gray-600 leading-relaxed text-base mb-8">
+              <p className="text-lg text-gray-600 mb-10">
                 From handling your tax filings to managing audits and appeals,
                 we protect your business and ensure hassle-free tax compliance.
               </p>
 
-              {/* GRID LIST */}
-              <div className="grid grid-cols-2 gap-y-6 gap-x-4">
-                <div className="flex items-center gap-2">
-                  <Shield className="w-5 h-5 text-teal-600" />
-                  <span className="text-gray-900 font-semibold text-sm">
+              <div className="grid grid-cols-2 gap-y-6">
+                <div className="flex items-center space-x-2">
+                  <span className="text-xl text-teal-500">•</span>
+                  <p className="text-base font-medium text-gray-700">
                     FTA Representation
-                  </span>
+                  </p>
                 </div>
 
-                <div className="flex items-center gap-2">
-                  <FileText className="w-5 h-5 text-teal-600" />
-                  <span className="text-gray-900 font-semibold text-sm">
+                <div className="flex items-center space-x-2">
+                  <span className="text-xl text-teal-500">•</span>
+                  <p className="text-base font-medium text-gray-700">
                     Tax Filings & Documentation
-                  </span>
+                  </p>
                 </div>
 
-                <div className="flex items-center gap-2">
-                  <Users className="w-5 h-5 text-teal-600" />
-                  <span className="text-gray-900 font-semibold text-sm">
+                <div className="flex items-center space-x-2">
+                  <span className="text-xl text-teal-500">•</span>
+                  <p className="text-base font-medium text-gray-700">
                     Audit & Dispute Handling
-                  </span>
+                  </p>
                 </div>
 
-                <div className="flex items-center gap-2">
-                  <CheckCircle className="w-5 h-5 text-teal-600" />
-                  <span className="text-gray-900 font-semibold text-sm">
+                <div className="flex items-center space-x-2">
+                  <span className="text-xl text-teal-500">•</span>
+                  <p className="text-base font-medium text-gray-700">
                     Full Compliance Assurance
-                  </span>
+                  </p>
                 </div>
               </div>
-            </motion.div>
+            </div>
 
             {/* RIGHT IMAGE */}
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="lg:w-1/2 w-full flex justify-center"
-            >
-              <div className="relative w-full max-w-lg overflow-hidden rounded-3xl">
+            <div className="lg:w-1/2 relative">
+              <div className="w-full overflow-hidden rounded-xl">
                 <Image
-                  src="/images/about-hero.png" // << Replace with your image
-                  alt="Tax Agent Service UAE"
                   width={600}
                   height={500}
-                  className="object-cover rounded-3xl"
+                  src="/images/about-hero.png"
+                  alt="FTA approved tax agent service"
+                  className="w-full h-full object-cover"
                   priority
                 />
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>
@@ -384,9 +372,8 @@ export default function Page() {
       </section>
 
       {/* CONTACT */}
-      <div id="contact" className="mt-20">
-        <ContactSection />
-      </div>
+
+      <ContactSection />
 
       <Footer />
     </>
