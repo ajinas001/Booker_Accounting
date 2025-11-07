@@ -168,14 +168,14 @@ export default function IndustriesSection() {
             backgroundColor: "rgba(28, 94, 106, 0.1)",
             transition: { duration: 0.2 }
           }}
-          className="inline-block border border-secondary text-secondary text-sm font-medium w-fit px-8 py-3 rounded-tl-full rounded-tr-full rounded-br-full uppercase tracking-widest mb-12 cursor-pointer"
+          className=" inline-block border border-secondary text-secondary text-sm font-medium w-fit px-8 py-3 rounded-tl-full rounded-tr-full rounded-br-full uppercase tracking-widest mb-12 cursor-pointer"
         >
           Industries We Serve
         </motion.div>
 
         {/* Heading with fixed text reveal animation */}
         <div className="mb-16">
-          <div className="text-4xl md:text-6xl font-light leading-tight mb-8">
+          <div className="text-4xl md:text-6xl   mb-8">
             <SingleTextReveal 
               text="Tailored expertise for" 
               delay={0.1}

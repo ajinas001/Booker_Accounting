@@ -10,6 +10,7 @@ import {
   Shield,
   CheckCircle,
   TrendingUp,
+  Users,
   Target,
   Award,
   Briefcase,
@@ -25,7 +26,7 @@ export default function Page() {
       <Navbar />
 
       {/* HERO SECTION */}
-      <section className="relative overflow-hidden text-white">
+      <section className="relative overflow-hidden text-white ">
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -38,10 +39,11 @@ export default function Page() {
               backgroundImage: `url('/images/img3.jpg')`,
             }}
           />
+
           <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-black/50 to-black/80" />
         </motion.div>
 
-        <div className="relative z-10 mx-6 md:mx-20 mx-auto px-6 py-32">
+        <div className="relative z-10 max-w-7xl mx-auto px-6 py-32">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -57,9 +59,7 @@ export default function Page() {
               &nbsp;›&nbsp;
               <span>Services</span>
               &nbsp;›&nbsp;
-              <span className="text-teal-400 font-medium">
-                Taxation Compliances
-              </span>
+              <span className="text-teal-400 font-medium">Taxation</span>
             </div>
           </motion.div>
 
@@ -69,9 +69,9 @@ export default function Page() {
             transition={{ duration: 0.8 }}
             className="text-5xl md:text-7xl font-bold leading-tight mb-6"
           >
-            Taxation{" "}
+            {" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-cyan-400">
-              Compliances
+              Taxation
             </span>
           </motion.h1>
 
@@ -88,164 +88,233 @@ export default function Page() {
       </section>
 
       {/* FIRST CONTENT */}
-      <section className="max-w-7xl mx-auto px-6 py-20">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <span className="text-teal-600 font-semibold text-sm uppercase tracking-wider inline-block mb-4">
-              Corporate Tax Advisory
-            </span>
 
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 leading-tight">
-              Strategic Tax Guidance
-              <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-cyan-600">
-                in a Complex and Evolving Landscape
-              </span>
-            </h2>
+      <section className="py-16 md:py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col lg:flex-row lg:space-x-12 items-center">
+            {/* LEFT CONTENT */}
+            <div className="lg:w-1/2 mb-12 lg:mb-0">
+              <p className="text-sm font-semibold uppercase tracking-wider text-gray-500 mb-2">
+                CORPORATE TAX ADVISORY
+              </p>
 
-            <p className="text-gray-600 leading-relaxed text-base mb-3">
-              In today's highly regulated and digitally transparent{" "}
-              <strong>UAE tax environment</strong>, managing your tax obligations
-              is more than just compliance — it's about adding value, minimizing
-              risk, and supporting sustainable business growth.
-            </p>
+              <h2 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-gray-900 leading-tight mb-6">
+                Strategic Tax Guidance
+                <br />
+                <span className="text-teal-500">
+                  in a Complex and Evolving Landscape
+                </span>
+              </h2>
 
-            <p className="text-gray-600 leading-relaxed text-base mb-8">
-              Booker Accounting offers expert{" "}
-              <strong>corporate tax advisory</strong> and comprehensive tax
-              compliance services designed to help startups, SMEs, and
-              multinational businesses navigate the complexities of the tax
-              framework with confidence.
-            </p>
+              <p className="text-lg text-gray-600 mb-6">
+                In today&apos;s highly regulated and digitally transparent UAE
+                tax environment, managing your tax obligations is more than just
+                compliance — it&apos;s about adding value, minimizing risk, and
+                supporting sustainable business growth.
+              </p>
 
-            <div className="grid grid-cols-2 gap-6">
-              {[
-                { icon: CheckCircle, text: "Value-Driven Compliance" },
-                { icon: Target, text: "For All Business Sizes" },
-              ].map((item, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: 10 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.4, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  className="flex items-center gap-2"
-                >
-                  <item.icon className="w-5 h-5 text-teal-600" />
-                  <span className="text-gray-900 text-sm font-semibold">
-                    {item.text}
-                  </span>
-                </motion.div>
-              ))}
+              <p className="text-lg text-gray-600 mb-10">
+                Booker Accounting offers expert corporate tax advisory and
+                comprehensive tax compliance services designed to help startups,
+                SMEs, and multinational businesses navigate the complexities of
+                the tax framework with confidence.
+              </p>
+
+              <div className="grid grid-cols-2 gap-y-6">
+                <div className="flex items-center space-x-2">
+                  <span className="text-xl text-teal-500">•</span>
+                  <p className="text-base font-medium text-gray-700">
+                    Value-Driven Compliance
+                  </p>
+                </div>
+
+                <div className="flex items-center space-x-2">
+                  <span className="text-xl text-teal-500">•</span>
+                  <p className="text-base font-medium text-gray-700">
+                    For All Business Sizes
+                  </p>
+                </div>
+              </div>
             </div>
-          </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="relative"
-          >
-            <Image
-              src="/images/about-hero.png"
-              alt="VAT services and tax consulting"
-              width={600}
-              height={500}
-              className="rounded-3xl object-cover"
-              priority
-            />
-          </motion.div>
+            {/* RIGHT IMAGE */}
+            <div className="lg:w-1/2 relative">
+              <div className="w-full overflow-hidden rounded-xl">
+                <Image
+                  width={600}
+                  height={500}
+                  src="/images/about-hero.png"
+                  alt="Corporate tax advisory consultation"
+                  className="w-full h-full object-cover"
+                  priority
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* VAT SECTION */}
-      <section className="max-w-7xl mx-auto px-6 py-20 bg-gray-50 rounded-3xl">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          {/* IMAGE */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="relative"
-          >
-            <Image
-              src="/images/about-hero.png"
-              alt="Strategic Corporate Tax Advisory in UAE"
-              width={600}
-              height={500}
-              className="rounded-3xl object-cover"
-              priority
-            />
-          </motion.div>
-
-          {/* CONTENT */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <span className="text-teal-600 font-semibold text-sm uppercase tracking-wider inline-block mb-4">
-              Value Added Tax (VAT) Services
-            </span>
-
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 leading-tight">
-              VAT Made Simple,
-              <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-cyan-600">
-                Compliance + Optimization
-              </span>
-            </h2>
-
-            <p className="text-gray-600 leading-relaxed text-base mb-3">
-              VAT compliance remains a critical focus for businesses operating
-              across the UAE. Booker Accounting supports your business with a
-              full spectrum of VAT services designed to simplify complexity and
-              ensure total accuracy.
-            </p>
-
-            <p className="text-gray-600 leading-relaxed text-base mb-8">
-              Our team offers tailored VAT expertise for specialized sectors,
-              including free zone businesses and the oil and gas
-              industry—ensuring full compliance and helping you avoid costly
-              penalties.
-            </p>
-
-            <div className="grid grid-cols-2 gap-6">
-              {[
-                { icon: CheckCircle, text: "VAT registration & Return Filing" },
-                {
-                  icon: Shield,
-                  text: "Audits, Voluntary Disclosures & Advisory",
-                },
-                {
-                  icon: Target,
-                  text: "Real-time VAT Reporting & Optimization",
-                },
-              ].map((item, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: 10 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.4, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  className="flex items-center gap-2"
-                >
-                  <item.icon className="w-5 h-5 text-teal-600" />
-                  <span className="text-gray-900 text-sm font-semibold">
-                    {item.text}
-                  </span>
-                </motion.div>
-              ))}
+      {/* 2nd SECTION */}
+      <section className="py-16 md:py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col lg:flex-row items-center lg:space-x-16">
+            {/* LEFT IMAGE */}
+            <div className="lg:w-1/2 w-full lg:order-1 mb-10 lg:mb-0">
+              <div className="relative w-full overflow-hidden rounded-3xl">
+                <Image
+                  src="/images/about-hero.png"
+                  alt="VAT advisory consultation"
+                  className="object-cover rounded-3xl"
+                  priority
+                  width={600}
+                  height={500}
+                />
+              </div>
             </div>
-          </motion.div>
+
+            {/* RIGHT CONTENT */}
+            <div className="lg:w-1/2 w-full lg:order-2">
+              <p className="text-xs md:text-sm font-semibold uppercase tracking-wider text-teal-600 mb-3">
+                VALUE ADDED TAX (VAT)
+              </p>
+
+              <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+                VAT Made Simple,
+                <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-cyan-600">
+                  Compliance + Optimization
+                </span>
+              </h2>
+
+              <p className="text-gray-600 leading-relaxed text-base mb-4">
+                VAT compliance remains a critical focus for businesses operating
+                across the UAE. Booker Accounting supports your business with a
+                full spectrum of VAT services designed to simplify complexity
+                and ensure total accuracy.
+              </p>
+
+              <p className="text-gray-600 leading-relaxed text-base mb-8">
+                Our team offers tailored VAT expertise for specialized sectors,
+                including free zone businesses and the oil and gas industry —
+                ensuring full compliance and helping you avoid costly penalties.
+              </p>
+
+              {/* ICON GRID */}
+              <div className="grid grid-cols-2 gap-y-6 gap-x-4">
+                <div className="flex items-center gap-2">
+                  <FileText className="w-5 h-5 text-teal-600" />
+                  <span className="text-gray-900 font-semibold text-sm">
+                    VAT Registration & Return Filing
+                  </span>
+                </div>
+
+                <div className="flex items-center gap-2">
+                  <Shield className="w-5 h-5 text-teal-600" />
+                  <span className="text-gray-900 font-semibold text-sm">
+                    Audits, Voluntary Disclosures & Advisory
+                  </span>
+                </div>
+
+                <div className="flex items-center gap-2">
+                  <TrendingUp className="w-5 h-5 text-teal-600" />
+                  <span className="text-gray-900 font-semibold text-sm">
+                    Real-time VAT Reporting & Optimization
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 2nd SECTION */}
+
+      <section className="py-16 md:py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col lg:flex-row items-center lg:space-x-16">
+            {/* LEFT CONTENT */}
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="lg:w-1/2 w-full mb-10 lg:mb-0"
+            >
+              <p className="text-xs md:text-sm font-semibold uppercase tracking-wider text-teal-600 mb-3">
+                Tax Agent Service (FTA Approved)
+              </p>
+
+              <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+                Your Trusted Representation,
+                <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-cyan-600">
+                  Before the FTA & Authorities
+                </span>
+              </h2>
+
+              <p className="text-gray-600 leading-relaxed text-base mb-4">
+                Appointing a tax agent ensures your business stays compliant
+                with UAE tax laws — without stress. We act as your official
+                representative with the **Federal Tax Authority (FTA)**.
+              </p>
+
+              <p className="text-gray-600 leading-relaxed text-base mb-8">
+                From handling your tax filings to managing audits and appeals,
+                we protect your business and ensure hassle-free tax compliance.
+              </p>
+
+              {/* GRID LIST */}
+              <div className="grid grid-cols-2 gap-y-6 gap-x-4">
+                <div className="flex items-center gap-2">
+                  <Shield className="w-5 h-5 text-teal-600" />
+                  <span className="text-gray-900 font-semibold text-sm">
+                    FTA Representation
+                  </span>
+                </div>
+
+                <div className="flex items-center gap-2">
+                  <FileText className="w-5 h-5 text-teal-600" />
+                  <span className="text-gray-900 font-semibold text-sm">
+                    Tax Filings & Documentation
+                  </span>
+                </div>
+
+                <div className="flex items-center gap-2">
+                  <Users className="w-5 h-5 text-teal-600" />
+                  <span className="text-gray-900 font-semibold text-sm">
+                    Audit & Dispute Handling
+                  </span>
+                </div>
+
+                <div className="flex items-center gap-2">
+                  <CheckCircle className="w-5 h-5 text-teal-600" />
+                  <span className="text-gray-900 font-semibold text-sm">
+                    Full Compliance Assurance
+                  </span>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* RIGHT IMAGE */}
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="lg:w-1/2 w-full flex justify-center"
+            >
+              <div className="relative w-full max-w-lg overflow-hidden rounded-3xl">
+                <Image
+                  src="/images/about-hero.png" // << Replace with your image
+                  alt="Tax Agent Service UAE"
+                  width={600}
+                  height={500}
+                  className="object-cover rounded-3xl"
+                  priority
+                />
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
 
@@ -280,7 +349,7 @@ export default function Page() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
           viewport={{ once: true }}
-          className="bg-gray-50 rounded-3xl p-10 shadow-lg"
+          className="bg-gray-50 rounded-3xl p-10 "
         >
           <h3 className="text-2xl font-bold mb-6 text-teal-700">
             Specialized Tax Advisory Areas – Transfer Pricing Advisory

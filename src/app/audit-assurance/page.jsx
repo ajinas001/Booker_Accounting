@@ -217,7 +217,7 @@ export default function AuditAssurancePage() {
 
         {/* Hero Section */}
 
-        <section className="relative overflow-hidden text-white">
+        <section className="relative overflow-hidden text-white ">
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -234,7 +234,7 @@ export default function AuditAssurancePage() {
             <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-black/50 to-black/80" />
           </motion.div>
 
-          <div className="relative z-10 max-w-6xl mx-auto px-6 py-32">
+          <div className="relative z-10 max-w-7xl mx-auto px-6 py-32">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
