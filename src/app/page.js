@@ -1,14 +1,13 @@
 'use client'
 
 import React, { useState, useEffect } from 'react';
-import { Menu, X, ChevronDown, ArrowRight, Phone, Mail, MapPin, CheckCircle, TrendingUp, Shield, Users, Briefcase, FileText, Calculator, BarChart3, Building2, ShoppingCart, Laptop, Truck, Heart, GraduationCap, Factory } from 'lucide-react';
+import { X, ChevronDown, ArrowRight, Phone, Mail, MapPin, CheckCircle, TrendingUp, Shield, Briefcase, Calculator, BarChart3, Building2, ShoppingCart, Laptop, Truck, Heart, GraduationCap, Factory } from 'lucide-react';
 import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar';
 import Getintouch from '@/components/Getintouch';
 import Services from '@/components/Services';
 import Whychoose from '@/components/Whychoose';
 import Industries from '@/components/Industries';
-import Values from '@/components/Values';
 import Faqs from '@/components/Faqs';
 import IndustriesSection from '@/components/Industry';
 import HomeAboutTimeline from '@/components/About';
@@ -16,6 +15,11 @@ import MainAchievements from '@/components/Stats';
 import HeroSection from '@/components/HeroSection';
 import ContactSection from '@/components/ContactSection';
 import FloatingMenuButton from '@/components/FloatingMenuButton';
+import Values from '@/components/Values';
+import MainVisionSection from '@/components/Values';
+import { Users, FileText, BarChart2, Menu } from 'lucide-react';
+import { BlogCard } from './blog/page';
+
 
 
 
@@ -32,6 +36,46 @@ const COMPANY_INFO = {
   // ADDED: Video URL for Hero Background
   heroVideoUrl: './images/waves.svg', // Placeholder Burj Khalifa video
 };
+
+const MOCK_POSTS = [
+  {
+    id: 1,
+    title: "Six Critical Ad Creative Mistakes Every Marketer Makes",
+    author: "Swetha Venkateswaran",
+    role: "Content Writer @ Pixis",
+    date: "5 November, 2025",
+    // Changed to placeholder URL for universal runnability. You should use your local path: /images/img3.jpg
+    imageUrl: "./images/img.jpg",
+    category: "Ad Creative",
+    color: "bg-indigo-600", // Replaced bg-secondary
+    icon: FileText
+  },
+  {
+    id: 2,
+    title: "18 ChatGPT Prompts for Ad Creative and Copywriting That Actually Improve Performance",
+    author: "Colin Campbell",
+    role: "Head of Content @ Pixis",
+    date: "4 November, 2025",
+    // Changed to placeholder URL for universal runnability. You should use your local path: /images/image4.jpg
+    imageUrl: "./images/image3.jpg",
+    category: "Ad Creative",
+    category2: "Performance",
+    color: "bg-teal-500",
+    icon: Users
+  },
+  {
+    id: 3,
+    title: "How to Build a Testing Cadence for Scaling in Performance Marketing",
+    author: "William Lewis Eldredge",
+    role: "Director - Customer Success @ Pixis",
+    date: "31 October, 2025",
+    // Changed to placeholder URL for universal runnability. You should use your local path: /images/image3.jpg
+    imageUrl: "./images/image4.jpg",
+    category: "Performance Marketing",
+    color: "bg-emerald-500",
+    icon: BarChart2
+  },
+];
 
 
 
@@ -56,7 +100,7 @@ const BookerAccountingWebsite = () => {
 
   return (
     <div className="min-h-screen bg-light-primary text-foreground">
-     
+
 
 
       <Navbar scrolled={scrolled} isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
@@ -64,7 +108,7 @@ const BookerAccountingWebsite = () => {
 
       {/* Hero Section - Using Deep Dark Blue/Teal Theme */}
       {/* Hero Section - Streamlined Modern Design */}
-      <HeroSection/>
+      <HeroSection />
       {/* <section id="home" className=" font-sans relative overflow-hidden min-h-screen flex items-center bg-dark-primary text-white">
 
      
@@ -114,12 +158,12 @@ const BookerAccountingWebsite = () => {
 
        
       </section> */}
-{/* Stats  */}
-<MainAchievements/>
-      
+      {/* Stats  */}
+      <MainAchievements />
+
 
       {/* about */}
-      <HomeAboutTimeline/>
+      <HomeAboutTimeline />
 
       {/* Services Section */}
       <Services />
@@ -130,15 +174,48 @@ const BookerAccountingWebsite = () => {
       {/* Why Choose Us */}
       <Whychoose />
       {/* Values Section */}
-      <Values />
-      <ContactSection/>
+      <MainVisionSection />
+
+      <div className="bg-gray-100 p-8 sm:p-12">
+        <header className="text-center mb-12">
+          <h1 className="text-4xl sm:text-5xl font-extrabold text-gray-900">
+            Latest Insights
+          </h1>
+          <p className="mt-4 text-xl text-gray-600 max-w-2xl mx-auto">
+            All the posts you need to succeed.
+          </p>
+        </header>
+
+        <div className="max-w-7xl mx-auto">
+          {/* Blog Grid Layout */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {MOCK_POSTS.map((post) => (
+              <BlogCard key={post.id} post={post} />
+            ))}
+          </div>
+
+          {/* Read More Button */}
+          <div className="text-center mt-12">
+            <a
+              href="/blog"
+              className="inline-block text-lg font-semibold w-fit px-8 py-3 rounded-tl-full rounded-tr-full rounded-br-full border-2 border-gray-800 text-gray-800  transition-all duration-300"
+            >
+              View All Blogs
+            </a>
+          </div>
+        </div>
+      </div>
+
+
+
+      <ContactSection />
 
       {/* FAQ Section */}
       {/* <Faqs /> */}
 
       {/* Contact Section */}
       {/* <Getintouch /> */}
-<FloatingMenuButton/>
+      <FloatingMenuButton />
       <Footer />
     </div>
   );

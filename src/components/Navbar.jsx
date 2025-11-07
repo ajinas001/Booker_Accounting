@@ -10,7 +10,7 @@ export default function Navbar({ scrolled }) {
   const [lastScrollY, setLastScrollY] = useState(0);
   const [servicesOpen, setServicesOpen] = useState(false);
 
-  const navLinks = ["Home", "About", "Services", "Contact"];
+  const navLinks = ["Home", "About", "Services","Blog", "Contact"];
 
  const services = [
   {

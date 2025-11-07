@@ -52,7 +52,7 @@ const Footer = () => {
           variants={fadeInUp}
           className="flex flex-col md:flex-row items-start md:items-center gap-8 text-sm font-medium"
         >
-          {["Home","About Us", "Services", "Contact Us",].map(
+          {["Home","About Us", "Services", "Blog", "Contact Us",].map(
             (link, index) => (
               <motion.a
                 key={index}

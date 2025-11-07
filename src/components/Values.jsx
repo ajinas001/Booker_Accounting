@@ -3,490 +3,523 @@
 import { motion } from "framer-motion";
 
 const MainVisionSection = () => {
-  const VisionSVG = () => (
-    <svg
-      viewBox="0 0 600 400"
-      className="w-full h-auto"
-      xmlns="http://www.w3.org/2000/svg"
-      preserveAspectRatio="xMidYMid meet"
-    >
-      {/* Gradient Definitions */}
+  // Sophisticated icon components
+  const BuildIcon = () => (
+    <svg viewBox="0 0 100 100" className="w-full h-full">
       <defs>
-        <linearGradient id="coreGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#1c5e6a" stopOpacity="1" />
-          <stop offset="100%" stopColor="#0d4a54" stopOpacity="1" />
+        <linearGradient id="buildGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#0891b2" />
+          <stop offset="100%" stopColor="#0e7490" />
         </linearGradient>
-        <linearGradient id="orbitalGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#0d1a20" stopOpacity="1" />
-          <stop offset="100%" stopColor="#1a2f38" stopOpacity="1" />
-        </linearGradient>
-        <filter id="glow">
-          <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-          <feMerge>
-            <feMergeNode in="coloredBlur"/>
-            <feMergeNode in="SourceGraphic"/>
-          </feMerge>
-        </filter>
       </defs>
-
-      {/* Animated Background Circles */}
-      <motion.circle
-        cx="300"
-        cy="200"
-        r="180"
-        fill="none"
-        stroke="#1c5e6a"
-        strokeWidth="2"
-        opacity="0.1"
-        initial={{ scale: 0.8, opacity: 0 }}
-        animate={{ scale: 1, opacity: 0.1 }}
-        transition={{ duration: 1.5, ease: "easeOut" }}
-      />
-
-      {/* Rotating Ring */}
-      <motion.circle
-        cx="300"
-        cy="200"
-        r="150"
-        fill="none"
-        stroke="#1c5e6a"
-        strokeWidth="1"
-        strokeDasharray="10 5"
+      {/* Foundation layers */}
+      <motion.rect
+        x="20"
+        y="65"
+        width="60"
+        height="8"
+        fill="url(#buildGrad)"
         opacity="0.3"
-        animate={{ rotate: 360 }}
-        transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-        style={{ transformOrigin: "300px 200px" }}
+        initial={{ scaleX: 0 }}
+        animate={{ scaleX: 1 }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+        style={{ transformOrigin: "50px 69px" }}
       />
-
-      {/* Central Core - Build */}
-      <motion.circle
-        initial={{ scale: 0, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{ duration: 1, delay: 0.3, type: "spring", stiffness: 100 }}
-        cx="300"
-        cy="200"
-        r="60"
-        fill="url(#coreGradient)"
-        filter="url(#glow)"
+      <motion.rect
+        x="25"
+        y="52"
+        width="50"
+        height="8"
+        fill="url(#buildGrad)"
+        opacity="0.5"
+        initial={{ scaleX: 0 }}
+        animate={{ scaleX: 1 }}
+        transition={{ duration: 0.6, delay: 0.4 }}
+        style={{ transformOrigin: "50px 56px" }}
       />
-      
-      <motion.circle
-        cx="300"
-        cy="200"
-        r="55"
-        fill="none"
-        stroke="#ffffff"
-        strokeWidth="1"
-        opacity="0.3"
-        initial={{ scale: 0 }}
-        animate={{ scale: [1, 1.1, 1] }}
-        transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+      <motion.rect
+        x="30"
+        y="39"
+        width="40"
+        height="8"
+        fill="url(#buildGrad)"
+        opacity="0.7"
+        initial={{ scaleX: 0 }}
+        animate={{ scaleX: 1 }}
+        transition={{ duration: 0.6, delay: 0.6 }}
+        style={{ transformOrigin: "50px 43px" }}
       />
-
-      <text
-        x="300"
-        y="208"
-        textAnchor="middle"
-        fill="white"
-        fontSize="18"
-        fontWeight="bold"
-        letterSpacing="2"
-      >
-        BUILD
-      </text>
-
-      {/* Balance Orbital - Left */}
-      <motion.g
-        initial={{ scale: 0, rotate: -180, opacity: 0 }}
-        animate={{ scale: 1, rotate: 0, opacity: 1 }}
-        transition={{ duration: 1.2, delay: 0.6, type: "spring" }}
-      >
-        <circle 
-          cx="180" 
-          cy="200" 
-          r="40" 
-          fill="url(#orbitalGradient)"
-          filter="url(#glow)"
-        />
-        <circle
-          cx="180"
-          cy="200"
-          r="37"
-          fill="none"
-          stroke="#ffffff"
-          strokeWidth="1"
-          opacity="0.2"
-        />
-        <text
-          x="180"
-          y="195"
-          textAnchor="middle"
-          fill="white"
-          fontSize="11"
-          fontWeight="700"
-          letterSpacing="1"
-        >
-          BALANCE
-        </text>
-        <text
-          x="180"
-          y="210"
-          textAnchor="middle"
-          fill="white"
-          fontSize="20"
-          opacity="0.3"
-        >
-          ⚖
-        </text>
-        
-        {/* Connecting Line */}
-        <motion.line
-          x1="220"
-          y1="200"
-          x2="240"
-          y2="200"
-          stroke="#1c5e6a"
-          strokeWidth="2"
-          strokeDasharray="4 4"
-          initial={{ pathLength: 0, opacity: 0 }}
-          animate={{ pathLength: 1, opacity: 1 }}
-          transition={{ duration: 0.8, delay: 1 }}
-        />
-      </motion.g>
-
-      {/* Brilliance Orbital - Right */}
-      <motion.g
-        initial={{ scale: 0, rotate: 180, opacity: 0 }}
-        animate={{ scale: 1, rotate: 0, opacity: 1 }}
-        transition={{ duration: 1.2, delay: 0.9, type: "spring" }}
-      >
-        <circle 
-          cx="420" 
-          cy="200" 
-          r="40" 
-          fill="url(#orbitalGradient)"
-          filter="url(#glow)"
-        />
-        <circle
-          cx="420"
-          cy="200"
-          r="37"
-          fill="none"
-          stroke="#ffffff"
-          strokeWidth="1"
-          opacity="0.2"
-        />
-        <text
-          x="420"
-          y="193"
-          textAnchor="middle"
-          fill="white"
-          fontSize="10"
-          fontWeight="700"
-          letterSpacing="1"
-        >
-          BRILLIANCE
-        </text>
-        <text
-          x="420"
-          y="210"
-          textAnchor="middle"
-          fill="white"
-          fontSize="20"
-          opacity="0.3"
-        >
-          ✦
-        </text>
-        
-        {/* Connecting Line */}
-        <motion.line
-          x1="360"
-          y1="200"
-          x2="380"
-          y2="200"
-          stroke="#1c5e6a"
-          strokeWidth="2"
-          strokeDasharray="4 4"
-          initial={{ pathLength: 0, opacity: 0 }}
-          animate={{ pathLength: 1, opacity: 1 }}
-          transition={{ duration: 0.8, delay: 1.2 }}
-        />
-      </motion.g>
-
-      {/* Strategic Vision Ring */}
-      <motion.circle
-        initial={{ scale: 0, opacity: 0 }}
-        animate={{ scale: 1, opacity: 0.4 }}
-        transition={{ duration: 1.5, delay: 1.3 }}
-        cx="300"
-        cy="200"
-        r="120"
-        fill="none"
-        stroke="#1c5e6a"
-        strokeWidth="1"
-        strokeDasharray="8 4"
+      <motion.rect
+        x="35"
+        y="26"
+        width="30"
+        height="8"
+        fill="url(#buildGrad)"
+        initial={{ scaleX: 0 }}
+        animate={{ scaleX: 1 }}
+        transition={{ duration: 0.6, delay: 0.8 }}
+        style={{ transformOrigin: "50px 30px" }}
       />
-
-      {/* Pulse Rings */}
-      <motion.circle
-        cx="300"
-        cy="200"
-        r="60"
-        fill="none"
-        stroke="#1c5e6a"
-        strokeWidth="2"
-        opacity="0"
-        animate={{ 
-          r: [60, 100, 140],
-          opacity: [0.6, 0.3, 0]
-        }}
-        transition={{ 
-          duration: 3,
-          repeat: Infinity,
-          ease: "easeOut"
-        }}
-      />
-
-      {/* Floating Particles */}
-      <motion.g
-        animate={{
-          y: [0, -15, 0],
-          opacity: [0.5, 1, 0.5],
-        }}
-        transition={{
-          duration: 4,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-      >
-        <circle cx="120" cy="120" r="6" fill="#1c5e6a" opacity="0.6" />
-        <circle cx="480" cy="280" r="4" fill="#1c5e6a" opacity="0.4" />
-        <circle cx="150" cy="300" r="5" fill="#0d1a20" opacity="0.5" />
-      </motion.g>
-
-      <motion.g
-        animate={{
-          y: [0, 15, 0],
-          opacity: [0.4, 1, 0.4],
-        }}
-        transition={{
-          duration: 5,
-          repeat: Infinity,
-          ease: "easeInOut",
-          delay: 1.5,
-        }}
-      >
-        <circle cx="480" cy="120" r="7" fill="#0d1a20" opacity="0.5" />
-        <circle cx="120" cy="280" r="5" fill="#1c5e6a" opacity="0.3" />
-        <circle cx="450" cy="300" r="4" fill="#1c5e6a" opacity="0.4" />
-      </motion.g>
     </svg>
   );
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2
-      }
-    }
-  };
+  const BalanceIcon = () => (
+    <svg viewBox="0 0 100 100" className="w-full h-full">
+      <defs>
+        <linearGradient id="balGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#0891b2" />
+          <stop offset="100%" stopColor="#0e7490" />
+        </linearGradient>
+      </defs>
+      {/* Balance beam */}
+      <motion.line
+        x1="50"
+        y1="25"
+        x2="50"
+        y2="70"
+        stroke="url(#balGrad)"
+        strokeWidth="2.5"
+        strokeLinecap="round"
+        initial={{ pathLength: 0 }}
+        animate={{ pathLength: 1 }}
+        transition={{ duration: 0.8 }}
+      />
+      {/* Horizontal beam */}
+      <motion.line
+        x1="20"
+        y1="35"
+        x2="80"
+        y2="35"
+        stroke="url(#balGrad)"
+        strokeWidth="2.5"
+        strokeLinecap="round"
+        initial={{ pathLength: 0 }}
+        animate={{ pathLength: 1 }}
+        transition={{ duration: 0.8, delay: 0.3 }}
+      />
+      {/* Left scale */}
+      <motion.path
+        d="M 20 35 L 15 45 L 25 45 Z"
+        fill="url(#balGrad)"
+        opacity="0.6"
+        initial={{ scale: 0 }}
+        animate={{ scale: 1 }}
+        transition={{ duration: 0.5, delay: 0.6 }}
+        style={{ transformOrigin: "20px 40px" }}
+      />
+      {/* Right scale */}
+      <motion.path
+        d="M 80 35 L 75 45 L 85 45 Z"
+        fill="url(#balGrad)"
+        opacity="0.6"
+        initial={{ scale: 0 }}
+        animate={{ scale: 1 }}
+        transition={{ duration: 0.5, delay: 0.6 }}
+        style={{ transformOrigin: "80px 40px" }}
+      />
+      {/* Base */}
+      <motion.rect
+        x="40"
+        y="70"
+        width="20"
+        height="4"
+        rx="2"
+        fill="url(#balGrad)"
+        initial={{ scaleX: 0 }}
+        animate={{ scaleX: 1 }}
+        transition={{ duration: 0.5, delay: 0.9 }}
+        style={{ transformOrigin: "50px 72px" }}
+      />
+    </svg>
+  );
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6 }
-    }
-  };
+  const BrillianceIcon = () => (
+    <svg viewBox="0 0 100 100" className="w-full h-full">
+      <defs>
+        <linearGradient id="brillGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#0891b2" />
+          <stop offset="100%" stopColor="#0e7490" />
+        </linearGradient>
+      </defs>
+      {/* Diamond shape */}
+      <motion.path
+        d="M 50 20 L 70 40 L 50 75 L 30 40 Z"
+        fill="none"
+        stroke="url(#brillGrad)"
+        strokeWidth="2.5"
+        strokeLinejoin="round"
+        initial={{ pathLength: 0 }}
+        animate={{ pathLength: 1 }}
+        transition={{ duration: 1.2 }}
+      />
+      {/* Inner facets */}
+      <motion.line
+        x1="30"
+        y1="40"
+        x2="50"
+        y2="40"
+        stroke="url(#brillGrad)"
+        strokeWidth="2"
+        initial={{ pathLength: 0 }}
+        animate={{ pathLength: 1 }}
+        transition={{ duration: 0.5, delay: 0.6 }}
+      />
+      <motion.line
+        x1="70"
+        y1="40"
+        x2="50"
+        y2="40"
+        stroke="url(#brillGrad)"
+        strokeWidth="2"
+        initial={{ pathLength: 0 }}
+        animate={{ pathLength: 1 }}
+        transition={{ duration: 0.5, delay: 0.6 }}
+      />
+      <motion.line
+        x1="50"
+        y1="40"
+        x2="50"
+        y2="75"
+        stroke="url(#brillGrad)"
+        strokeWidth="2"
+        initial={{ pathLength: 0 }}
+        animate={{ pathLength: 1 }}
+        transition={{ duration: 0.5, delay: 0.8 }}
+      />
+      {/* Sparkle effect */}
+      <motion.circle
+        cx="50"
+        cy="20"
+        r="3"
+        fill="url(#brillGrad)"
+        initial={{ scale: 0 }}
+        animate={{ scale: [0, 1.2, 1] }}
+        transition={{ duration: 0.6, delay: 1.2 }}
+      />
+    </svg>
+  );
+
+  // Enhanced central visualization
+  const CentralVision = () => (
+    <svg viewBox="0 0 800 500" className="w-full h-auto">
+      <defs>
+        <linearGradient id="mainGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stopColor="#0891b2" />
+          <stop offset="50%" stopColor="#0e7490" />
+          <stop offset="100%" stopColor="#0891b2" />
+        </linearGradient>
+        <linearGradient id="coreGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#0891b2" />
+          <stop offset="100%" stopColor="#155e75" />
+        </linearGradient>
+        <filter id="softGlow">
+          <feGaussianBlur stdDeviation="2" result="blur"/>
+          <feComposite in="blur" in2="SourceGraphic" operator="over"/>
+        </filter>
+      </defs>
+
+      {/* Outer framework circle */}
+      <motion.circle
+        cx="400"
+        cy="250"
+        r="200"
+        fill="none"
+        stroke="#e0f2fe"
+        strokeWidth="1"
+        initial={{ scale: 0.8, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ duration: 1, delay: 0.2 }}
+      />
+
+      {/* Connection paths */}
+      <motion.path
+        d="M 400 250 L 200 250"
+        stroke="url(#mainGrad)"
+        strokeWidth="2"
+        strokeDasharray="6 6"
+        opacity="0.5"
+        initial={{ pathLength: 0 }}
+        animate={{ pathLength: 1 }}
+        transition={{ duration: 1, delay: 0.5 }}
+      />
+      <motion.path
+        d="M 400 250 L 600 250"
+        stroke="url(#mainGrad)"
+        strokeWidth="2"
+        strokeDasharray="6 6"
+        opacity="0.5"
+        initial={{ pathLength: 0 }}
+        animate={{ pathLength: 1 }}
+        transition={{ duration: 1, delay: 0.5 }}
+      />
+
+      {/* Balance node - Left */}
+      <motion.g
+        initial={{ scale: 0, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ duration: 0.6, delay: 0.8, type: "spring" }}
+      >
+        <circle cx="200" cy="250" r="65" fill="white" stroke="#e0f2fe" strokeWidth="2" />
+        <circle cx="200" cy="250" r="58" fill="none" stroke="url(#mainGrad)" strokeWidth="2" />
+        <text x="200" y="245" textAnchor="middle" fill="#0e7490" fontSize="15" fontWeight="600">
+          BALANCE
+        </text>
+        <text x="200" y="265" textAnchor="middle" fill="#0891b2" fontSize="11" fontWeight="500">
+          Compliance
+        </text>
+      </motion.g>
+
+      {/* Central Build node */}
+      <motion.g
+        initial={{ scale: 0, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ duration: 0.8, delay: 0.3, type: "spring" }}
+      >
+        <circle cx="400" cy="250" r="85" fill="url(#coreGrad)" filter="url(#softGlow)" />
+        <circle cx="400" cy="250" r="78" fill="none" stroke="white" strokeWidth="2" opacity="0.6" />
+        <motion.circle
+          cx="400"
+          cy="250"
+          r="85"
+          fill="none"
+          stroke="white"
+          strokeWidth="1"
+          opacity="0"
+          animate={{
+            r: [85, 95],
+            opacity: [0.4, 0]
+          }}
+          transition={{ duration: 2, repeat: Infinity, ease: "easeOut" }}
+        />
+        <text x="400" y="255" textAnchor="middle" fill="white" fontSize="22" fontWeight="700" letterSpacing="3">
+          BUILD
+        </text>
+        <text x="400" y="275" textAnchor="middle" fill="white" fontSize="12" fontWeight="500" opacity="0.9">
+          Core Foundation
+        </text>
+      </motion.g>
+
+      {/* Brilliance node - Right */}
+      <motion.g
+        initial={{ scale: 0, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ duration: 0.6, delay: 0.8, type: "spring" }}
+      >
+        <circle cx="600" cy="250" r="65" fill="white" stroke="#e0f2fe" strokeWidth="2" />
+        <circle cx="600" cy="250" r="58" fill="none" stroke="url(#mainGrad)" strokeWidth="2" />
+        <text x="600" y="245" textAnchor="middle" fill="#0e7490" fontSize="15" fontWeight="600">
+          BRILLIANCE
+        </text>
+        <text x="600" y="265" textAnchor="middle" fill="#0891b2" fontSize="11" fontWeight="500">
+          Excellence
+        </text>
+      </motion.g>
+
+      {/* Decorative nodes */}
+      <motion.circle
+        cx="300"
+        cy="150"
+        r="4"
+        fill="#0891b2"
+        opacity="0.4"
+        animate={{ scale: [1, 1.3, 1], opacity: [0.4, 0.7, 0.4] }}
+        transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+      />
+      <motion.circle
+        cx="500"
+        cy="150"
+        r="5"
+        fill="#0891b2"
+        opacity="0.4"
+        animate={{ scale: [1, 1.3, 1], opacity: [0.4, 0.7, 0.4] }}
+        transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+      />
+      <motion.circle
+        cx="300"
+        cy="350"
+        r="4"
+        fill="#0891b2"
+        opacity="0.4"
+        animate={{ scale: [1, 1.3, 1], opacity: [0.4, 0.7, 0.4] }}
+        transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
+      />
+      <motion.circle
+        cx="500"
+        cy="350"
+        r="5"
+        fill="#0891b2"
+        opacity="0.4"
+        animate={{ scale: [1, 1.3, 1], opacity: [0.4, 0.7, 0.4] }}
+        transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+      />
+    </svg>
+  );
 
   return (
-    <section className="relative bg-gradient-to-br from-teal-50 via-cyan-50 to-blue-50 py-16 sm:py-20 md:py-24 lg:py-32 overflow-hidden">
-      {/* Decorative Background Elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+    <section className="relative bg-gradient-to-b from-slate-50 via-white to-cyan-50/20 py-24 md:py-32 overflow-hidden">
+      {/* Subtle top border */}
+      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-cyan-200 to-transparent opacity-60" />
+      
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+        {/* Header Section */}
         <motion.div
-          className="absolute -top-40 -right-40 w-96 h-96 bg-teal-200/20 rounded-full blur-3xl"
-          animate={{ 
-            scale: [1, 1.2, 1],
-            opacity: [0.3, 0.5, 0.3]
-          }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        />
-        <motion.div
-          className="absolute -bottom-40 -left-40 w-96 h-96 bg-blue-200/20 rounded-full blur-3xl"
-          animate={{ 
-            scale: [1.2, 1, 1.2],
-            opacity: [0.5, 0.3, 0.5]
-          }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-        />
-      </div>
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-          
-          {/* Left Content */}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          className="text-center mb-20"
+        >
           <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            className="space-y-6 sm:space-y-8 text-center lg:text-left order-2 lg:order-1"
+            className="inline-flex items-center gap-3 mb-6"
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
           >
-            <motion.div
-              variants={itemVariants}
-              className="inline-flex items-center gap-2 border-2 border-teal-600 text-teal-700 text-xs sm:text-sm font-semibold px-5 sm:px-7 py-2.5 sm:py-3 rounded-full uppercase tracking-wider shadow-sm hover:shadow-md transition-shadow"
-            >
-              <span className="w-2 h-2 bg-teal-600 rounded-full animate-pulse" />
-              Our Core Vision
-            </motion.div>
+            <div className="w-12 h-px bg-gradient-to-r from-transparent to-cyan-600" />
+            <span className="text-cyan-700 text-sm font-semibold uppercase tracking-widest">
+              Our Vision
+            </span>
+            <div className="w-12 h-px bg-gradient-to-l from-transparent to-cyan-600" />
+          </motion.div>
+          
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-gray-900 mb-3 tracking-tight leading-tight">
+            Building Your Financial
+          </h2>
+          <motion.h3
+            className="text-4xl md:text-5xl lg:text-6xl font-semibold bg-gradient-to-r from-cyan-700 to-cyan-600 bg-clip-text text-transparent"
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2, duration: 0.7 }}
+          >
+            Future with Purpose
+          </motion.h3>
+        </motion.div>
 
-            <motion.h2
-              variants={itemVariants}
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-light text-gray-900 leading-tight"
-            >
-              Building Your Financial
-              <motion.span 
-                className="block text-teal-700 font-bold mt-2 sm:mt-3"
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.5, duration: 0.6 }}
-              >
-                Future with Purpose
-              </motion.span>
-            </motion.h2>
+        {/* Central Diagram */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1 }}
+          className="mb-24"
+        >
+          <CentralVision />
+        </motion.div>
 
-            <motion.div
-              variants={containerVariants}
-              className="space-y-5 sm:space-y-6"
-            >
-              {/* Build Card */}
-              <motion.div
-                variants={itemVariants}
-                whileHover={{ scale: 1.02, translateY: -4 }}
-                transition={{ type: "spring", stiffness: 300 }}
-                className="group bg-gradient-to-br from-white/80 to-white/60 backdrop-blur-sm p-5 sm:p-7 rounded-2xl border-l-4 border-teal-600 shadow-lg hover:shadow-xl transition-all"
-              >
-                <div className="flex items-start gap-3 sm:gap-4">
-                  <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 bg-teal-600 rounded-xl flex items-center justify-center shadow-md group-hover:scale-110 transition-transform">
-                    <span className="text-white text-xl sm:text-2xl font-bold">🏗</span>
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-xl sm:text-2xl font-bold text-teal-700 mb-2 sm:mb-3">
-                      Build
-                    </h3>
-                    <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
-                      Empowering businesses to grow stronger with dependable
-                      bookkeeping and expert guidance. We lay the foundation for
-                      your sustainable success.
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* Balance & Brilliance Cards */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
-                <motion.div
-                  variants={itemVariants}
-                  whileHover={{ scale: 1.05, translateY: -4 }}
-                  transition={{ type: "spring", stiffness: 300 }}
-                  className="group bg-gradient-to-br from-white/70 to-white/50 backdrop-blur-sm p-5 sm:p-6 rounded-xl shadow-md hover:shadow-lg transition-all border border-white/60"
-                >
-                  <div className="w-10 h-10 bg-gradient-to-br from-teal-500 to-teal-600 rounded-lg flex items-center justify-center mb-3 shadow-sm group-hover:scale-110 transition-transform">
-                    <span className="text-white text-lg">⚖️</span>
-                  </div>
-                  <h4 className="font-bold text-gray-900 mb-2 text-base sm:text-lg">
-                    Balance
-                  </h4>
-                  <p className="text-gray-700 text-xs sm:text-sm leading-relaxed">
-                    Ensuring compliance and financial stability so you can scale
-                    with confidence.
-                  </p>
-                </motion.div>
-
-                <motion.div
-                  variants={itemVariants}
-                  whileHover={{ scale: 1.05, translateY: -4 }}
-                  transition={{ type: "spring", stiffness: 300 }}
-                  className="group bg-gradient-to-br from-white/70 to-white/50 backdrop-blur-sm p-5 sm:p-6 rounded-xl shadow-md hover:shadow-lg transition-all border border-white/60"
-                >
-                  <div className="w-10 h-10 bg-gradient-to-br from-teal-500 to-teal-600 rounded-lg flex items-center justify-center mb-3 shadow-sm group-hover:scale-110 transition-transform">
-                    <span className="text-white text-lg">✦</span>
-                  </div>
-                  <h4 className="font-bold text-gray-900 mb-2 text-base sm:text-lg">
-                    Brilliance
-                  </h4>
-                  <p className="text-gray-700 text-xs sm:text-sm leading-relaxed">
-                    Delivering excellence through insightful, proactive
-                    accounting and advisory services.
-                  </p>
-                </motion.div>
+        {/* Three Pillars Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-16 mb-24 max-w-6xl mx-auto">
+          {/* Build Pillar */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1, duration: 0.7 }}
+            className="relative group"
+          >
+            <div className="absolute inset-0 bg-gradient-to-br from-cyan-50/50 to-transparent rounded-2xl transform group-hover:scale-105 transition-transform duration-500 ease-out" />
+            <div className="relative text-center p-8">
+              <div className="w-28 h-28 mx-auto mb-6">
+                <BuildIcon />
               </div>
-            </motion.div>
+              <h3 className="text-2xl font-semibold text-gray-900 mb-3">Build</h3>
+              <div className="w-16 h-0.5 bg-gradient-to-r from-cyan-600 to-cyan-400 mx-auto mb-5" />
+              <p className="text-gray-600 leading-relaxed">
+                Empowering businesses to grow stronger with dependable bookkeeping and expert guidance. We lay the foundation for your sustainable success.
+              </p>
+            </div>
           </motion.div>
 
-          {/* Right SVG Container */}
+          {/* Balance Pillar */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.9, x: 50 }}
-            whileInView={{ opacity: 1, scale: 1, x: 0 }}
-            transition={{ duration: 1, ease: "easeOut" }}
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="flex justify-center lg:justify-end order-1 lg:order-2"
+            transition={{ delay: 0.2, duration: 0.7 }}
+            className="relative group"
           >
-            <div className="relative w-full max-w-[550px]">
-              {/* Glow Effect */}
-              <div className="absolute inset-0 bg-gradient-to-br from-teal-400/20 to-blue-400/20 rounded-3xl blur-2xl" />
-              
-              {/* SVG Container */}
-              <motion.div 
-                className="relative   rounded-3xl p-6 sm:p-8 md:p-10"
-                whileHover={{ scale: 1.02 }}
-                transition={{ type: "spring", stiffness: 300 }}
-              >
-                <VisionSVG />
-              </motion.div>
+            <div className="absolute inset-0 bg-gradient-to-br from-cyan-50/50 to-transparent rounded-2xl transform group-hover:scale-105 transition-transform duration-500 ease-out" />
+            <div className="relative text-center p-8">
+              <div className="w-28 h-28 mx-auto mb-6">
+                <BalanceIcon />
+              </div>
+              <h3 className="text-2xl font-semibold text-gray-900 mb-3">Balance</h3>
+              <div className="w-16 h-0.5 bg-gradient-to-r from-cyan-600 to-cyan-400 mx-auto mb-5" />
+              <p className="text-gray-600 leading-relaxed">
+                Ensuring compliance and financial stability so you can scale with confidence and maintain peace of mind throughout your growth journey.
+              </p>
+            </div>
+          </motion.div>
+
+          {/* Brilliance Pillar */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3, duration: 0.7 }}
+            className="relative group"
+          >
+            <div className="absolute inset-0 bg-gradient-to-br from-cyan-50/50 to-transparent rounded-2xl transform group-hover:scale-105 transition-transform duration-500 ease-out" />
+            <div className="relative text-center p-8">
+              <div className="w-28 h-28 mx-auto mb-6">
+                <BrillianceIcon />
+              </div>
+              <h3 className="text-2xl font-semibold text-gray-900 mb-3">Brilliance</h3>
+              <div className="w-16 h-0.5 bg-gradient-to-r from-cyan-600 to-cyan-400 mx-auto mb-5" />
+              <p className="text-gray-600 leading-relaxed">
+                Delivering excellence through insightful, proactive accounting and advisory services tailored to your unique business needs.
+              </p>
             </div>
           </motion.div>
         </div>
 
-        {/* Bottom Quote Section */}
+        {/* Vision Statement */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
           viewport={{ once: true }}
-          className="text-center mt-16 sm:mt-20 lg:mt-24 pt-10 sm:pt-14 border-t-2 border-gradient-to-r from-transparent via-teal-200 to-transparent"
+          transition={{ duration: 0.8 }}
+          className="text-center pt-20 border-t border-gray-200/60"
         >
+          <blockquote className="text-2xl md:text-3xl font-light text-gray-700 max-w-5xl mx-auto leading-relaxed mb-10 px-4">
+            <motion.span
+              className="text-cyan-600 text-4xl font-serif"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+            >
+              "
+            </motion.span>
+            Where financial clarity, regulatory confidence, and business growth are accessible to all — powered by integrity, insight, and intelligent technology.
+            <motion.span
+              className="text-cyan-600 text-4xl font-serif"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+            >
+              "
+            </motion.span>
+          </blockquote>
+          
           <motion.div
-            className="relative inline-block"
-            whileHover={{ scale: 1.02 }}
-            transition={{ type: "spring", stiffness: 300 }}
-          >
-            <div className="absolute -inset-4 bg-gradient-to-r from-teal-100/50 to-blue-100/50 rounded-2xl blur-xl" />
-            <blockquote className="relative text-lg sm:text-xl md:text-2xl lg:text-3xl font-light text-gray-800 italic max-w-5xl mx-auto leading-relaxed px-6 sm:px-8">
-              <span className="text-teal-600 text-5xl sm:text-6xl leading-none">"</span>
-              Where financial clarity, regulatory confidence, and business growth
-              are accessible to all — powered by integrity, insight, and
-              intelligent technology.
-              <span className="text-teal-600 text-5xl sm:text-6xl leading-none">"</span>
-            </blockquote>
-          </motion.div>
-          <motion.div 
-            className="mt-6 sm:mt-8 flex items-center justify-center gap-2 text-teal-700 font-bold text-sm sm:text-base"
+            className="inline-flex items-center gap-4"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            transition={{ delay: 0.5 }}
             viewport={{ once: true }}
+            transition={{ delay: 0.3 }}
           >
-            <div className="w-12 h-0.5 bg-gradient-to-r from-transparent to-teal-600" />
-            <span>BAC Company Vision</span>
-            <div className="w-12 h-0.5 bg-gradient-to-l from-transparent to-teal-600" />
+            <div className="w-10 h-px bg-cyan-600" />
+            <span className="text-cyan-700 font-semibold text-sm uppercase tracking-widest">
+              BAC Vision
+            </span>
+            <div className="w-10 h-px bg-cyan-600" />
           </motion.div>
         </motion.div>
       </div>
+
+      {/* Subtle bottom border */}
+      <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-cyan-200 to-transparent opacity-60" />
     </section>
   );
 };
