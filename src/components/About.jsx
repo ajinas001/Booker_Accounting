@@ -11,7 +11,7 @@ const DARK_BG = 'bg-secondary';
 
 // Placeholder Image Paths (Update these to your working URLs)
 const Image1Path = '/images/newimg2.png'; 
-const Image2Path = '/images/business2.jpg';
+const Image2Path = '/images/business2.png';
 const Image3Path = '/images/newimg3.png';
 
 const AboutUsFlow = () => {

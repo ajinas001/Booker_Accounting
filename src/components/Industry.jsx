@@ -156,7 +156,7 @@ export default function IndustriesSection() {
 
   return (
     <section className="bg-[#ebe5d5] text-foreground">
-      <div className="mx-20 sm:mx-8 md:mx-20 px-4 md:px-12 py-20">
+      <div className="mx-4 sm:mx-8 lg:mx-20 xl:mx-32 px-6 md:px-12 lg:px-16 py-24 md:py-32">
         {/* Label with animation */}
         <motion.div
           variants={labelVariants}
@@ -168,18 +168,18 @@ export default function IndustriesSection() {
             backgroundColor: "rgba(28, 94, 106, 0.1)",
             transition: { duration: 0.2 }
           }}
-          className=" inline-block border border-secondary text-secondary text-sm font-medium w-fit px-8 py-3 rounded-tl-full rounded-tr-full rounded-br-full uppercase tracking-widest mb-12 cursor-pointer"
+          className="inline-block border border-secondary text-secondary text-sm font-medium w-fit px-8 py-3 rounded-tl-full rounded-tr-full rounded-br-full uppercase tracking-widest mb-16 cursor-pointer"
         >
           Industries We Serve
         </motion.div>
 
         {/* Heading with fixed text reveal animation */}
-        <div className="mb-16">
-          <div className="text-4xl md:text-6xl   mb-8">
+        <div className="mb-20 md:mb-24">
+          <div className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl mb-10">
             <SingleTextReveal 
               text="Tailored expertise for" 
               delay={0.1}
-              className="block mb-2"
+              className="block mb-3"
             />
             <SingleTextReveal 
               text="every business sector." 
@@ -194,7 +194,7 @@ export default function IndustriesSection() {
             whileInView={{ scaleX: 1 }}
             transition={{ duration: 1.2, ease: "easeOut", delay: 0.5 }}
             viewport={{ once: true, margin: "-50px" }}
-            className="h-px bg-gradient-to-r from-transparent via-secondary to-transparent mt-8"
+            className="h-px bg-gradient-to-r from-transparent via-secondary to-transparent mt-10"
           />
         </div>
 
@@ -214,12 +214,12 @@ export default function IndustriesSection() {
                 backgroundColor: "rgba(13, 26, 32, 0.03)",
                 transition: { duration: 0.3 }
               }}
-              className="flex flex-col md:flex-row items-start md:items-center justify-between py-12 gap-8 rounded-sm px-6 -mx-6 cursor-pointer group"
+              className="flex flex-col md:flex-row items-start md:items-center justify-between py-10 md:py-14 gap-6 md:gap-10 lg:gap-12 rounded-sm px-6 md:px-8 -mx-6 md:-mx-8 cursor-pointer group"
             >
               {/* Left side: Number + Title */}
-              <div className="flex items-start md:items-center gap-8 md:w-2/5">
+              <div className="flex items-start md:items-center gap-6 md:gap-10 md:w-2/5 lg:w-1/3">
                 <motion.h3 
-                  className="text-5xl md:text-6xl font-bold text-secondary"
+                  className="text-5xl md:text-6xl lg:text-7xl font-bold text-secondary flex-shrink-0"
                   variants={numberVariants}
                   whileHover={{
                     scale: 1.1,
@@ -239,7 +239,7 @@ export default function IndustriesSection() {
                         delay: 0.2 + index * 0.1
                       }}
                       viewport={{ once: true, margin: "-50px" }}
-                      className="text-xl md:text-2xl font-light text-primary-black group-hover:text-secondary transition-colors duration-300"
+                      className="text-xl md:text-2xl lg:text-3xl font-light text-primary-black group-hover:text-secondary transition-colors duration-300"
                     >
                       {industry.title}
                     </motion.h4>
@@ -248,7 +248,7 @@ export default function IndustriesSection() {
               </div>
 
               {/* Right side: Description */}
-              <div className="md:w-3/5">
+              <div className="md:w-3/5 lg:w-2/3 md:pl-4">
                 <div className="overflow-hidden">
                   <motion.p 
                     initial={{ y: "100%" }}
@@ -259,7 +259,7 @@ export default function IndustriesSection() {
                       delay: 0.4 + index * 0.1
                     }}
                     viewport={{ once: true, margin: "-50px" }}
-                    className="text-primary-black/80 text-lg leading-relaxed group-hover:text-primary-black transition-colors duration-300"
+                    className="text-primary-black/80 text-base md:text-lg lg:text-xl leading-relaxed group-hover:text-primary-black transition-colors duration-300"
                   >
                     {industry.description}
                   </motion.p>
@@ -275,14 +275,14 @@ export default function IndustriesSection() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
           viewport={{ once: true, margin: "-50px" }}
-          className="text-center mt-16 pt-12 border-t border-gray-300/20"
+          className="text-center mt-20 md:mt-24 pt-16 md:pt-20 border-t border-gray-300/20"
         >
           <motion.div
             whileHover={{ 
               scale: 1.02,
               backgroundColor: "rgba(13, 26, 32, 0.05)"
             }}
-            className="inline-flex items-center gap-4 px-4 py-4 rounded-sm "
+            className="inline-flex flex-col sm:flex-row items-center gap-3 sm:gap-6 px-6 py-6 rounded-sm"
           >
             <div className="overflow-hidden">
               <motion.span
@@ -290,7 +290,7 @@ export default function IndustriesSection() {
                 whileInView={{ y: 0 }}
                 transition={{ duration: 0.7, delay: 0.7 }}
                 viewport={{ once: true, margin: "-50px" }}
-                className="text-lg text-primary-black font-light block"
+                className="text-lg md:text-xl text-primary-black font-light block"
               >
                 Ready to transform your financial strategy?
               </motion.span>
@@ -301,7 +301,7 @@ export default function IndustriesSection() {
                 whileInView={{ y: 0 }}
                 transition={{ duration: 0.7, delay: 0.9 }}
                 viewport={{ once: true, margin: "-50px" }}
-                className="text-secondary text-lg font-medium block"
+                className="text-secondary text-lg md:text-xl font-medium block"
               >
                 Get started →
               </motion.span>
