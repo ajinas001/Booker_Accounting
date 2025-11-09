@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import MottoSwiper from "./MottoSwiper";
 
 const MainVisionSection = () => {
   // Sophisticated icon components
@@ -356,6 +357,8 @@ const MainVisionSection = () => {
   );
 
   return (
+    <>
+    <MottoSwiper/>
     <section className="relative bg-gradient-to-b from-slate-50 via-white to-cyan-50/20 py-24 md:py-32 overflow-hidden">
       {/* Subtle top border */}
       <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-cyan-200 to-transparent opacity-60" />
@@ -521,6 +524,7 @@ const MainVisionSection = () => {
       {/* Subtle bottom border */}
       <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-cyan-200 to-transparent opacity-60" />
     </section>
+    </>
   );
 };
 

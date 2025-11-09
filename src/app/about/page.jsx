@@ -1,37 +1,58 @@
-"use client";
+'use client'; 
 import { useRef, useState, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+
+
 
 // --- Custom Tailwind-like Colors based on CSS Theme ---
 const PRIMARY_BLACK = "#0d1a20";
 const SECONDARY_TEAL = "#1c5e6a";
 const PRIMARY_LIGHT = "#f9f9f9";
 const NEUTRAL_FOREGROUND = "#171717";
-const ACCENT_GREEN = "rgb(20, 83, 45)";
 
-// --- Icon Map for Professional Unicode Symbols ---
+// --- START: Custom SVG Icons (Replacing Emojis) ---
+
+const HandshakeIcon = (props) => (<svg {...props} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M11 17l-5-5a3.5 3.5 0 0 1 7-5l3 3a3.5 3.5 0 0 1 7-5l-5 5"/><path d="M14 14l-5 5a3.5 3.5 0 0 1-7-5l3-3a3.5 3.5 0 0 1 7-5l5 5"/></svg>);
+const TargetIcon = (props) => (<svg {...props} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>);
+const GemIcon = (props) => (<svg {...props} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M6 3L2 9l10 12 10-12-4-6H6z"/><path d="M12 21l-2-9h4l-2 9z"/><path d="M2 9h20"/></svg>);
+const MapIcon = (props) => (<svg {...props} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21 3 6"/><line x1="9" x2="9" y1="3" y2="18"/><line x1="15" x2="15" y1="6" y2="21"/></svg>);
+const CheckCircleIcon = (props) => (<svg {...props} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>);
+const UsersIcon = (props) => (<svg {...props} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><path d="M19 21v-2a4 4 0 0 0-4-4h-1"/><path d="M19 3a4 4 0 1 0 0 8"/></svg>);
+const CalendarIcon = (props) => (<svg {...props} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>);
+const PhoneIcon = (props) => (<svg {...props} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-5.74-5.75A19.79 19.79 0 0 1 1.05 4.11a2 2 0 0 1 2-2.18h3a2 2 0 0 1 2 1.73l.7 4.99a2 2 0 0 1-.58 1.77l-2.88 2.88a1 1 0 0 0 0 1.41l5.44 5.44a1 1 0 0 0 1.41 0l2.88-2.88a2 2 0 0 1 1.77-.58l4.99.7a2 2 0 0 1 1.73 2z"/></svg>);
+const SearchIcon = (props) => (<svg {...props} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" x2="16.65" y1="21" y2="16.65"/></svg>);
+const LockIcon = (props) => (<svg {...props} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>);
+const LightbulbIcon = (props) => (<svg {...props} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 14c.2-1 .5-2 1-3 1.2-2.3 3.3-3.5 5-3.5 2.8 0 5 2.2 5 5 0 1-.2 2-1 3.5"/><path d="M9 14c-.2-1-.5-2-1-3-1.2-2.3-3.3-3.5-5-3.5-2.8 0-5 2.2-5 5 0 1 .2 2 1 3.5"/><path d="M12 22a2 2 0 0 0 2-2h-4a2 2 0 0 0 2 2z"/><path d="M12 2c2 0 3 1.5 3 4v.5a3.5 3.5 0 0 1-7 0V6c0-2 1-4 3-4z"/></svg>);
+const DollarSignIcon = (props) => (<svg {...props} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="12" x2="12" y1="2" y2="22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>);
+const GavelIcon = (props) => (<svg {...props} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 9l-4 4-2-2m0 0l-5 5a2 2 0 0 1-2.83 0L3 18.17a2 2 0 0 1 0-2.83l5-5z"/><path d="M17 14l2 2 2-2 2 2v4a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2v-4z"/></svg>);
+const BuildingIcon = (props) => (<svg {...props} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><path d="M3 8h18"/><path d="M10 12v6"/><path d="M14 12v6"/><path d="M10 4v4"/><path d="M14 4v4"/></svg>);
+
+// --- END: Custom SVG Icons ---
+
+
+// --- Icon Map for React Components ---
 const ICON_MAP = {
     // Timeline Dots
-    "foundation": "🤝", // Handshake
-    "vision": "✨", // Sparkle/Vision
-    "values": "💎", // Diamond/Core
-    "uae": "🗺️", // Map/Local focus
+    "foundation": HandshakeIcon, 
+    "vision": TargetIcon, 
+    "values": GemIcon, 
+    "uae": MapIcon, 
 
     // Stats Grid
-    "accuracy": "✅", // Check/Accuracy
-    "clients": "👥", // Users/Clients
-    "experience": "🗓️", // Calendar/Years
-    "support": "📞", // Phone/Support
+    "accuracy": CheckCircleIcon, 
+    "clients": UsersIcon, 
+    "experience": CalendarIcon, 
+    "support": PhoneIcon, 
 
     // Core Values & Features
-    "precision": "🔬", // Microscope/Detail
-    "integrity": "🔒", // Lock/Security
-    "foresight": "💡", // Lightbulb/Idea
-    "tax": "💰", // Money/Tax
-    "regulatory": "🏛️", // Bank/Regulation
-    "freezone": "🏗️", // Building/Construction/Setup
+    "precision": SearchIcon, 
+    "integrity": LockIcon, 
+    "foresight": LightbulbIcon, 
+    "tax": DollarSignIcon, 
+    "regulatory": GavelIcon, 
+    "freezone": BuildingIcon, 
 };
 
 // Image Content Block with Overlay Text (No change needed)
@@ -83,7 +104,7 @@ const SplitContentLayout = ({ imageUrl, title, content, reverse = false, delay =
     </motion.div>
 );
 
-// Interactive Stats Grid (Shadows removed, Icons updated)
+// Interactive Stats Grid (Icons updated to use components)
 const StatsGrid = ({ stats, delay = 0 }) => (
     <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
@@ -92,17 +113,24 @@ const StatsGrid = ({ stats, delay = 0 }) => (
         viewport={{ once: true, amount: 0.3 }}
         className="grid grid-cols-2 md:grid-cols-4 gap-6"
     >
-        {stats.map((stat, index) => (
-            <motion.div
-                key={index}
-                whileHover={{ scale: 1.05, y: -5 }}
-                className="bg-white rounded-xl p-6 text-center border border-gray-200"
-            >
-                <div className="text-3xl mb-2">{ICON_MAP[stat.icon]}</div>
-                <div className="text-2xl font-black mb-1" style={{ color: SECONDARY_TEAL }}>{stat.value}</div>
-                <div className="text-sm font-medium text-gray-600">{stat.label}</div>
-            </motion.div>
-        ))}
+        {stats.map((stat, index) => {
+            const IconComponent = ICON_MAP[stat.icon];
+            return (
+                <motion.div
+                    key={index}
+                    whileHover={{ scale: 1.05, y: -5 }}
+                    className="bg-white rounded-xl p-6 text-center border border-gray-200"
+                >
+                    {/* Render the SVG component */}
+                    <div className="text-3xl mb-2 flex justify-center">
+                        {IconComponent && <IconComponent className="w-8 h-8" style={{ color: SECONDARY_TEAL }} />}
+                    </div>
+                    
+                    <div className="text-2xl font-black mb-1" style={{ color: SECONDARY_TEAL }}>{stat.value}</div>
+                    <div className="text-sm font-medium text-gray-600">{stat.label}</div>
+                </motion.div>
+            );
+        })}
     </motion.div>
 );
 
@@ -142,25 +170,31 @@ const FloatingImageGallery = ({ images, delay = 0 }) => (
 );
 
 
-// Timeline Dot with Animation (Shadows removed)
-const TimelineDot = ({ iconKey, color = SECONDARY_TEAL, index = 0 }) => (
-    <motion.div
-        initial={{ opacity: 0, scale: 0.5, rotate: -45 }}
-        whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
-        transition={{ duration: 0.5, delay: index * 0.1, type: "spring", stiffness: 100 }}
-        style={{ backgroundColor: color }}
-        className="h-14 w-14 absolute left-3 md:left-2 flex items-center justify-center rounded-full border-4 border-white z-30"
-        viewport={{ once: true }}
-    >
-        <span className="text-2xl" role="img" aria-label="Timeline Icon">{ICON_MAP[iconKey]}</span>
-    </motion.div>
-);
+// Timeline Dot with Animation (Icons updated to use components)
+const TimelineDot = ({ iconKey, color = SECONDARY_TEAL, index = 0 }) => {
+    const IconComponent = ICON_MAP[iconKey];
+    return (
+        <motion.div
+            initial={{ opacity: 0, scale: 0.5, rotate: -45 }}
+            whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+            transition={{ duration: 0.5, delay: index * 0.1, type: "spring", stiffness: 100 }}
+            style={{ backgroundColor: color }}
+            className="h-14 w-14 absolute left-3 md:left-2 flex items-center justify-center rounded-full border-4 border-white z-30"
+            viewport={{ once: true }}
+        >
+            {/* Render the SVG component */}
+            {IconComponent && <IconComponent className="w-7 h-7 text-white" />}
+        </motion.div>
+    );
+};
 
 // --- Main Component ---
 const AboutPageTimeline = () => {
     const containerRef = useRef(null);
     const timelineRef = useRef(null);
-    const [timelineHeight, setTimelineHeight] = useState(0);
+    // timelineHeight is still needed to set the scroll target area via containerRef offset, 
+    // but no longer used in useTransform calculation.
+    const [timelineHeight, setTimelineHeight] = useState(0); 
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
 
@@ -183,10 +217,11 @@ const AboutPageTimeline = () => {
         offset: ["start 10%", "end 50%"],
     });
 
-    const heightTransform = useTransform(scrollYProgress, [0, 1], [0, timelineHeight]);
+    // FIX: Using scrollYProgress (0 to 1) directly for scaleY transformation for better performance
+    const scaleYTransform = useTransform(scrollYProgress, [0, 1], [0, 1]);
     const opacityTransform = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
 
-    // Updated timelineData with professional icon keys
+    // Updated timelineData is now referencing the SVG component keys
     const timelineData = [
         {
             title: "Our Foundation",
@@ -194,7 +229,7 @@ const AboutPageTimeline = () => {
             content: (
                 <div className="space-y-8">
                     <SplitContentLayout
-                        imageUrl="/images/img3.jpg"
+                        imageUrl="/images/sticky-3.png"
                         title="Strategic Partnership"
                         content={
                             <>
@@ -215,7 +250,7 @@ const AboutPageTimeline = () => {
                 <div className="space-y-8">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <ImageContentBlock
-                            imageUrl="/images/img1.jpg"
+                            imageUrl="/images/business3.jpg"
                             title="Our Mission"
                             description="Deliver flawless accuracy and proactive financial intelligence to keep your business not just compliant, but highly competitive."
                             overlayPosition="bottom"
@@ -250,33 +285,39 @@ const AboutPageTimeline = () => {
                     <FloatingImageGallery
                         images={[
                             { url: "/images/image3.jpg", caption: "Precision in Every Detail" },
-                            { url: "/images/image4.jpg", caption: "Uncompromising Integrity" },
-                            { url: "/images/image3.jpg", caption: "Strategic Foresight" },
-                            { url: "/images/image4.jpg", caption: "Continuous Innovation" }
+                            { url: "/images/img1.jpg", caption: "Uncompromising Integrity" },
+                            { url: "/images/business7.jpg", caption: "Strategic Foresight" },
+                            // { url: "/images/image4.jpg", caption: "Continuous Innovation" }
                         ]}
                         delay={0.1}
                     />
                     
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-32">
                         {[
-                            { title: "Precision", icon: "precision", desc: "Flawless attention to detail in all compliance and reporting." },
-                            { title: "Integrity", icon: "integrity", desc: "Operating with the highest ethical standards and transparency." },
-                            { title: "Foresight", icon: "foresight", desc: "Proactive advice that turns financial data into future strategy." }
-                        ].map((value, index) => (
-                            <motion.div
-                                key={index}
-                                initial={{ opacity: 0, y: 30 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
-                                whileHover={{ scale: 1.05 }}
-                                viewport={{ once: true, amount: 0.3 }}
-                                className="bg-white rounded-xl p-6 text-center border border-gray-100"
-                            >
-                                <div className="text-4xl mb-4">{ICON_MAP[value.icon]}</div>
-                                <h4 className="font-black text-xl mb-3" style={{ color: PRIMARY_BLACK }}>{value.title}</h4>
-                                <p className="text-gray-600 text-sm">{value.desc}</p>
-                            </motion.div>
-                        ))}
+                            { icon: "precision", title: "Precision", desc: "Flawless attention to detail in all compliance and reporting." },
+                            { icon: "integrity", title: "Integrity", desc: "Operating with the highest ethical standards and transparency." },
+                            { icon: "foresight", title: "Foresight", desc: "Proactive advice that turns financial data into future strategy." }
+                        ].map((value, index) => {
+                            const IconComponent = ICON_MAP[value.icon];
+                            return (
+                                <motion.div
+                                    key={index}
+                                    initial={{ opacity: 0, y: 30 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
+                                    whileHover={{ scale: 1.05 }}
+                                    viewport={{ once: true, amount: 0.3 }}
+                                    className="bg-white rounded-xl p-6 text-center border border-gray-100"
+                                >
+                                    {/* Render the SVG component */}
+                                    <div className="text-4xl mb-4 flex justify-center">
+                                        {IconComponent && <IconComponent className="w-10 h-10" style={{ color: SECONDARY_TEAL }} />}
+                                    </div>
+                                    <h4 className="font-black text-xl mb-3" style={{ color: PRIMARY_BLACK }}>{value.title}</h4>
+                                    <p className="text-gray-600 text-sm">{value.desc}</p>
+                                </motion.div>
+                            );
+                        })}
                     </div>
                 </div>
             )
@@ -286,7 +327,7 @@ const AboutPageTimeline = () => {
             iconKey: "uae",
             content: (
                 <SplitContentLayout
-                    imageUrl="/images/image3.jpg"
+                    imageUrl="/images/business8.jpg"
                     title="Local Mastery, Global Standards"
                     reverse={true}
                     content={
@@ -296,22 +337,26 @@ const AboutPageTimeline = () => {
                                     { icon: "tax", title: "VAT & Corporate Tax Readiness", desc: "Navigating complex UAE tax frameworks is our core strength." },
                                     { icon: "regulatory", title: "Regulatory Compliance", desc: "Full adherence to local Economic Substance Regulations and AML requirements." },
                                     { icon: "freezone", title: "Free Zone Expertise", desc: "Specialized setup and maintenance for all UAE Free Zones." }
-                                ].map((feature, index) => (
-                                    <motion.div 
-                                        key={index}
-                                        initial={{ opacity: 0, x: -20 }}
-                                        whileInView={{ opacity: 1, x: 0 }}
-                                        transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
-                                        viewport={{ once: true, amount: 0.3 }}
-                                        className="flex items-start space-x-4 p-4 rounded-lg hover:bg-gray-50 transition-colors"
-                                    >
-                                        <span className="text-2xl flex-shrink-0" style={{ color: SECONDARY_TEAL }}>{ICON_MAP[feature.icon]}</span>
-                                        <div>
-                                            <h6 className="font-bold text-lg" style={{ color: NEUTRAL_FOREGROUND }}>{feature.title}</h6>
-                                            <p className="text-gray-600 text-sm">{feature.desc}</p>
-                                        </div>
-                                    </motion.div>
-                                ))}
+                                ].map((feature, index) => {
+                                    const IconComponent = ICON_MAP[feature.icon];
+                                    return (
+                                        <motion.div 
+                                            key={index}
+                                            initial={{ opacity: 0, x: -20 }}
+                                            whileInView={{ opacity: 1, x: 0 }}
+                                            transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
+                                            viewport={{ once: true, amount: 0.3 }}
+                                            className="flex items-start space-x-4 p-4 rounded-lg hover:bg-gray-50 transition-colors"
+                                        >
+                                            {/* Render the SVG component */}
+                                            {IconComponent && <IconComponent className="w-6 h-6 flex-shrink-0" style={{ color: SECONDARY_TEAL }} />}
+                                            <div>
+                                                <h6 className="font-bold text-lg" style={{ color: NEUTRAL_FOREGROUND }}>{feature.title}</h6>
+                                                <p className="text-gray-600 text-sm">{feature.desc}</p>
+                                            </div>
+                                        </motion.div>
+                                    );
+                                })}
                             </div>
                         </>
                     }
@@ -332,7 +377,8 @@ const AboutPageTimeline = () => {
                 <section
                     style={{
                         backgroundColor: PRIMARY_BLACK,
-                        backgroundImage: `url('/images/image3.jpg')`,
+                        // NOTE: If you are using local images, replace the placeholder URL with the absolute path from your /public directory:
+                        backgroundImage: `url('./images/image3.jpg')`,
                         backgroundSize: 'cover',
                         backgroundPosition: 'center',
                     }}
@@ -372,15 +418,16 @@ const AboutPageTimeline = () => {
                             {/* Static Background Line */}
                             <div className="absolute left-8 top-0 bottom-0 w-1 bg-gray-300 rounded-full" />
 
-                            {/* Animated Progress Line (Shadows removed) */}
+                            {/* Animated Progress Line - FIX: Using scaleY for smooth scrolling performance */}
                             <div className="absolute left-8 top-0 bottom-0 w-1 overflow-hidden rounded-full">
                                 <motion.div
                                     style={{
-                                        height: heightTransform,
+                                        scaleY: scaleYTransform, // Using scaleY is GPU accelerated and faster
                                         opacity: opacityTransform,
-                                        background: `linear-gradient(to bottom, ${SECONDARY_TEAL}, ${PRIMARY_BLACK})`
+                                        background: `linear-gradient(to bottom, ${SECONDARY_TEAL}, ${PRIMARY_BLACK})`,
+                                        transformOrigin: 'top', // Ensures the scaling animation starts from the top
                                     }}
-                                    className="w-full"
+                                    className="w-full h-full" // Height is now 100% of the parent
                                 />
                             </div>
 
@@ -388,13 +435,12 @@ const AboutPageTimeline = () => {
                                 <div key={index} className="flex justify-start py-16 md:py-24">
                                     {/* Timeline Dot (Sticky Column) */}
                                     <div className="relative z-20 w-24 md:w-36 flex-shrink-0">
-                                        {/* The dot itself remains sticky at the start of the item */}
                                         <div className="sticky top-28"> 
                                             <TimelineDot iconKey={item.iconKey} index={index} />
                                         </div>
                                     </div>
 
-                                    {/* Content Block (Title scrolls) */}
+                                    {/* Content Block */}
                                     <div className="relative w-full">
                                         
                                         {/* Title for Desktop */}
@@ -415,7 +461,7 @@ const AboutPageTimeline = () => {
                             ))}
                         </div>
 
-                        {/* Final CTA (Shadows removed) */}
+                        {/* Final CTA */}
                         <motion.div
                             initial={{ opacity: 0, scale: 0.9 }}
                             whileInView={{ opacity: 1, scale: 1 }}

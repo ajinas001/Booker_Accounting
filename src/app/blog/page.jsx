@@ -147,9 +147,9 @@ const BlogHero = () => (
 
 
 // Main App Component
-const App = () => {
+const blog = () => {
   return (
-    <div className="font-['Inter'] min-h-screen">
+    <div className=" min-h-screen">
       
       {/* 1. Placeholder Navbar (Replaces <Navbar/> import) */}
      <Navbar/>
@@ -184,4 +184,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default blog;

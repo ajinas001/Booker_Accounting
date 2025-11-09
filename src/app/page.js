@@ -19,6 +19,8 @@ import Values from '@/components/Values';
 import MainVisionSection from '@/components/Values';
 import { Users, FileText, BarChart2, Menu } from 'lucide-react';
 import { BlogCard } from './blog/page';
+import { HorizontalFeaturePin } from '@/components/Randomcontent';
+import AnimatedServicesSection from '@/components/AnimatedServiceSection';
 
 
 
@@ -160,6 +162,7 @@ const BookerAccountingWebsite = () => {
       </section> */}
       {/* Stats  */}
       <MainAchievements />
+    {/* <AnimatedServicesSection/> */}
 
 
       {/* about */}
@@ -176,7 +179,7 @@ const BookerAccountingWebsite = () => {
       {/* Values Section */}
       <MainVisionSection />
 
-      <div className="bg-gray-100 p-8 sm:p-12">
+      <div className="bg-primary p-8 sm:p-12">
         <header className="text-center mb-12">
           <h1 className="text-4xl sm:text-5xl font-extrabold text-gray-900">
             Latest Insights

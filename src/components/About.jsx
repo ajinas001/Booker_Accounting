@@ -10,9 +10,9 @@ const NEUTRAL_BG = 'bg-[#f5f5f0]';
 const DARK_BG = 'bg-secondary';
 
 // Placeholder Image Paths (Update these to your working URLs)
-const Image1Path = '/images/image4.jpg'; 
-const Image2Path = '/images/partner_trust.jpg';
-const Image3Path = '/images/growth_uae.jpeg';
+const Image1Path = '/images/newimg2.png'; 
+const Image2Path = '/images/business2.jpg';
+const Image3Path = '/images/newimg3.png';
 
 const AboutUsFlow = () => {
     
@@ -81,7 +81,7 @@ const AboutUsFlow = () => {
 
     // Image Component with custom styling (Kept Dynamic)
     const ImageBlock = ({ src, alt, borderRadius }) => (
-        <div className={`overflow-hidden shadow-2xl relative ${borderRadius} group`}>
+        <div className={`overflow-hidden  relative ${borderRadius} group`}>
              <img 
                 src={src} 
                 alt={alt}
@@ -93,7 +93,7 @@ const AboutUsFlow = () => {
             />
             {/* Dynamic Styling Overlays */}
             <div className={`absolute inset-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
-            <div className="absolute inset-4  rounded-2xl pointer-events-none"></div>
+            <div className="absolute inset-4  pointer-events-none"></div>
         </div>
     );
 
@@ -122,7 +122,7 @@ const AboutUsFlow = () => {
                         <ImageBlock 
                             src={Image1Path}
                             alt="Abstract image representing AI and strategic thinking"
-                            borderRadius="rounded-[70px] rounded-tl-none"
+                            borderRadius=""
                         />
                     </div>
                 </div>
@@ -136,7 +136,7 @@ const AboutUsFlow = () => {
                         <ImageBlock 
                             src={Image2Path}
                             alt="Professionals collaborating on a financial partnership"
-                            borderRadius="rounded-[70px] rounded-tr-none"
+                            borderRadius=""
                         />
                     </div>
                 </div>
@@ -150,7 +150,7 @@ const AboutUsFlow = () => {
                         <ImageBlock 
                             src={Image3Path}
                             alt="Chart representing business growth and success in a modern city (UAE)"
-                            borderRadius="rounded-[70px] rounded-bl-none"
+                            borderRadius=""
                         />
                     </div>
                 </div>
