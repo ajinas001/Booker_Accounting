@@ -60,7 +60,7 @@ export default function RootLayout({ children }) {
           antialiased
         `}
         style={{
-          fontFamily: '"Gros Ventre", var(--font-geist-sans), sans-serif',
+          fontFamily: '"cordiau", var(--font-geist-sans), sans-serif',
         }}
       >
         <LenisWrapper>
