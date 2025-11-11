@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 
 const AnimatedCounter = ({ value, suffix = "" }) => {
   const [count, setCount] = useState(0);
+  // Changed useInView import from react-intersection-observer to match the usage in the component body
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.3 });
 
   useEffect(() => {
@@ -36,7 +37,44 @@ const AnimatedCounter = ({ value, suffix = "" }) => {
   );
 };
 
+// --- FRAMER MOTION VARIANTS FOR HEADER TEXT ---
+
+// Container variant to orchestrate the animation of its children
+const headerContainerVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.8,
+      ease: "easeOut",
+      staggerChildren: 0.2, // Delay between each line of text
+      when: "beforeChildren",
+    },
+  },
+};
+
+// Item variant for individual lines of text
+const headerItemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+      ease: "easeOut",
+    },
+  },
+};
+
+// --- MAIN COMPONENT ---
+
 const MainAchievements = () => {
+  const { ref: headerRef, inView: headerInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.2, // Trigger when 20% of the header is visible
+  });
+
   const achievements = [
     {
       id: 1,
@@ -140,8 +178,8 @@ const MainAchievements = () => {
   ];
 
   return (
-    <section className="bg-[#f5f5f0] py-24 relative overflow-hidden">
-      {/* Background SVG Patterns */}
+    <section className="bg-primary py-24 relative overflow-hidden">
+      {/* Background SVG Patterns - Already animated, so no change needed here */}
       <div className="absolute inset-0 pointer-events-none">
         <svg viewBox="0 0 1000 600" className="w-full h-full opacity-5">
           <motion.g
@@ -172,60 +210,37 @@ const MainAchievements = () => {
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="text-center mb-20"
-        >
-          {/* <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
-            className="text-secondary text-sm font-semibold uppercase tracking-widest mb-4"
-          >
-            Our Extraordinary Achievement
-          </motion.div> */}
-          {/* <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            viewport={{ once: true }}
-            className="text-5xl md:text-7xl font-light text-primary-black mb-6"
-          >
-            By The
-            <span className="block text-secondary font-bold">Numbers</span>
-          </motion.h2> */}
-          <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
-        className="relative z-10 text-start text-black px-6 mb-16"
-      >
-        <h1 className="text-3xl md:text-5xl font-light leading-relaxed space-y-3 mb-8">
-          <div>
-            Booker, driven by{" "}
-            <span className="text-[#4DC2D1] font-semibold">expertise.</span>
-          </div>
-          <div>
-            Focused on{" "}
-            <span className="text-[#4DC2D1] font-semibold">strategy.</span>
-          </div>
-          <div>
-            Committed to your{" "}
-            <span className="text-[#4DC2D1] font-semibold">growth.</span>
-          </div>
-        </h1>
-
         
-      </motion.div>
+        {/* Section Header with Staggered Animations */}
+        <div className="text-center mb-20" ref={headerRef}>
+          <motion.div
+            // Apply the container variants and visibility control
+            variants={headerContainerVariants}
+            initial="hidden"
+            animate={headerInView ? "visible" : "hidden"}
+            
+            className="relative z-10 text-start text-black px-6 mb-16"
+          >
+            <h1 className="text-3xl md:text-5xl font-light leading-relaxed space-y-3 mb-8">
+              {/* Each line is wrapped in motion.div with item variants */}
+              <motion.div variants={headerItemVariants}>
+                Booker, driven by{" "}
+                <span className="text-[#4DC2D1] font-semibold">expertise.</span>
+              </motion.div>
+              <motion.div variants={headerItemVariants}>
+                Focused on{" "}
+                <span className="text-[#4DC2D1] font-semibold">strategy.</span>
+              </motion.div>
+              <motion.div variants={headerItemVariants}>
+                Committed to your{" "}
+                <span className="text-[#4DC2D1] font-semibold">growth.</span>
+              </motion.div>
+            </h1>
 
-        </motion.div>
+          </motion.div>
+        </div>
 
-        {/* Achievements Grid */}
+        {/* Achievements Grid - Animations already in place */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-8 lg:gap-16">
           {achievements.map((achievement, index) => (
             <motion.div
@@ -241,7 +256,7 @@ const MainAchievements = () => {
                 {achievement.svg}
               </div>
 
-              {/* Number */}
+              {/* Number (AnimatedCounter handles its own visibility animation) */}
               <motion.div
                 initial={{ scale: 0.5 }}
                 whileInView={{ scale: 1 }}
@@ -273,13 +288,14 @@ const MainAchievements = () => {
                 whileInView={{ scaleX: 1 }}
                 transition={{ duration: 1, delay: index * 0.2 + 0.7 }}
                 viewport={{ once: true }}
-                className="h-1 bg-gradient-to-r from-transparent via-secondary to-transparent mt-6 mx-auto w-32"
+                style={{ originX: 0.5 }} // Ensure scaling is from the center
+                className="h-1 bg-gradient-to-r from-transparent via-[#4DC2D1] to-transparent mt-6 mx-auto w-32"
               />
             </motion.div>
           ))}
         </div>
 
-        {/* Bottom Decorative SVG */}
+        {/* Bottom Decorative SVG - Already animated */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -301,7 +317,7 @@ const MainAchievements = () => {
           </svg>
         </motion.div>
 
-        {/* Floating Elements */}
+        {/* Floating Elements - Already animated */}
         <motion.div
           animate={{
             y: [0, -20, 0],
@@ -312,7 +328,7 @@ const MainAchievements = () => {
             repeat: Infinity,
             ease: "easeInOut"
           }}
-          className="absolute top-1/4 left-10 w-4 h-4 bg-secondary rounded-full opacity-30"
+          className="absolute top-1/4 left-10 w-4 h-4 bg-[#4DC2D1] rounded-full opacity-30"
         />
         <motion.div
           animate={{
@@ -338,7 +354,7 @@ const MainAchievements = () => {
             ease: "easeInOut",
             delay: 2
           }}
-          className="absolute top-1/3 right-20 w-2 h-2 bg-secondary rounded-full opacity-25"
+          className="absolute top-1/3 right-20 w-2 h-2 bg-[#4DC2D1] rounded-full opacity-25"
         />
       </div>
     </section>
