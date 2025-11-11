@@ -102,7 +102,7 @@ const BookerAccountingWebsite = () => {
 
 
   return (
-    <div className="min-h-screen bg-light-primary text-foreground">
+    <div className="min-h-screen bg-primary text-foreground">
 
 
 

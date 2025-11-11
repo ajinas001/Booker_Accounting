@@ -1,57 +1,86 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function Navbar() {
+export default function Navbar({ scrolled }) {
   const [isOpen, setIsOpen] = useState(false);
+  const [showNavbar, setShowNavbar] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
   const [servicesOpen, setServicesOpen] = useState(false);
 
   const navLinks = ["Home", "About", "Services", "Blog", "Contact"];
 
-  const services = [
-    {
-      title: "Audit & Assurance",
-      link: "/audit-assurance",
-      description:
-        "• Ensure financial accuracy\n• Meet regulatory standards\n• Build stakeholder confidence",
-    },
-    {
-      title: "Taxation",
-      link: "/taxation",
-      description:
-        "• Tax planning & compliance\n• Return preparation\n• Minimize tax liabilities",
-    },
-    {
-      title: "Accounting & Bookkeeping",
-      link: "/accounting-bookkeeping",
-      description:
-        "• Maintain accurate records\n• Manage financial statements\n• Support informed decisions",
-    },
-    {
-      title: "Business Advisory Services",
-      link: "/business-advisory",
-      description:
-        "• Strategic business advice\n• Process improvement\n• Growth and expansion planning",
-    },
-    {
-      title: "Business Support Services",
-      link: "/business-support",
-      description:
-        "• Strategic business advice\n• Process improvement\n• Growth and expansion planning",
-    },
-    {
-      title: "Anti–Money Laundering (AML)",
-      link: "/aml",
-      description:
-        "• AML policy development\n• Risk assessment & monitoring\n• Regulatory compliance support",
-    },
-  ];
+ const services = [
+  {
+    title: "Audit & Assurance",
+    link: "/audit-assurance",
+    description:
+      "• External Audit\n• Real Estate Audit\n• Internal Audit\n• Inventory Audit\n• Due Diligence Support\n• Forensic Audit",
+  },
+  {
+    title: "Taxation",
+    link: "/taxation",
+    description:
+      "• Corporate Tax\n• Value Added Tax (VAT)\n• Tax Agent Service",
+  },
+  {
+    title: "Accounting & Bookkeeping",
+    link: "/accounting-bookkeeping",
+    description:
+      "• Accounts Regulation\n• Cloud Accounting Services\n• Audit Preparation & Support\n• Accounting & Financial Reporting\n• Inventory & Asset Verification",
+  },
+  {
+    title: "Business Advisory Services",
+    link: "/business-advisory",
+    description:
+      "• CFO Service\n• Business Valuation\n• Business Consultation\n• Merger & Acquisition\n• Business Process Re-engineering\n• Financial Feasibilities\n• IFRS Advisory Service",
+  },
+  {
+    title: "Business Support Services",
+    link: "/business-support",
+    description:
+      "• Mainland Company Formation\n• Freezone Business Setup\n• Company Secretarial Service\n• Liquidation / De-registration\n• ICV Consultancy\n• PRO Service",
+  },
+  {
+    title: "Anti–Money Laundering (AML)",
+    link: "/aml",
+    description:
+      "• AML Risk Assessment\n• Compliance Program Design\n• Transaction Monitoring\n• KYC & Customer Due Diligence\n• AML Training & Awareness\n• Regulatory Reporting",
+  },
+];
+
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        setShowNavbar(false);
+        setServicesOpen(false);
+      } else {
+        setShowNavbar(true);
+      }
+
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY]);
 
   const menuVariants = {
-    closed: { opacity: 0, height: 0, transition: { duration: 0.3 } },
-    open: { opacity: 1, height: "auto", transition: { duration: 0.3 } },
+    closed: {
+      opacity: 0,
+      height: 0,
+      transition: { duration: 0.3, ease: "easeInOut" },
+    },
+    open: {
+      opacity: 1,
+      height: "auto",
+      transition: { duration: 0.3, ease: "easeInOut" },
+    },
   };
 
   const linkVariants = {
@@ -64,18 +93,30 @@ export default function Navbar() {
   };
 
   const megaMenuVariants = {
-    closed: { opacity: 0, y: -20, transition: { duration: 0.2 } },
-    open: { opacity: 1, y: 0, transition: { duration: 0.3 } },
+    closed: {
+      opacity: 0,
+      y: -20,
+      transition: { duration: 0.2, ease: "easeInOut" },
+    },
+    open: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.3, ease: "easeInOut" },
+    },
   };
 
   return (
     <>
       <motion.nav
         initial={{ y: 0 }}
-        className="font-sans py-2 w-full sticky top-0  z-50 transition-all duration-300 "
+        animate={{ y: showNavbar ? 0 : -100 }}
+        transition={{ duration: 0.4, ease: "easeInOut" }}
+        className={`font-sans py-4 fixed top-0 w-full z-50 transition-all duration-300 ${
+          scrolled ? "" : "bg-transparent"
+        }`}
       >
         <div className="mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
+          <div className="flex justify-between items-center h-20">
             {/* Logo */}
             <motion.div
               className="flex items-center space-x-2"
@@ -85,7 +126,9 @@ export default function Navbar() {
             >
               <div className="flex items-center justify-center overflow-hidden">
                 <Image
-                  src="/images/LogoDark.png"
+                  src={
+                    scrolled ? "/images/LogoDark.png" : "/images/LogoLight.png"
+                  }
                   alt="Booker Accounting Company Logo"
                   width={120}
                   height={120}
@@ -105,18 +148,20 @@ export default function Navbar() {
                       key={link}
                       initial={{ opacity: 0, y: -10 }}
                       animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: i * 0.1 }}
+                      transition={{ delay: i * 0.1, duration: 0.3 }}
                       onMouseEnter={() => setServicesOpen(true)}
                       onMouseLeave={() => setServicesOpen(false)}
                     >
                       <button
-                        className="px-4 py-2 text-black hover:text-teal-700 text-xl font-medium transition-colors relative group flex items-center gap-1"
+                        className={`px-4 py-2 ${
+                          scrolled ? "text-gray-800" : "text-white"
+                        } hover:text-teal-700 text-xl font-medium transition-colors relative group flex items-center gap-1`}
                       >
                         {link}
                         <svg
                           className={`w-4 h-4 transition-transform ${
                             servicesOpen ? "rotate-180" : ""
-                          } text-black`}
+                          }`}
                           fill="none"
                           strokeLinecap="round"
                           strokeLinejoin="round"
@@ -142,11 +187,13 @@ export default function Navbar() {
                     key={link}
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: i * 0.1 }}
+                    transition={{ delay: i * 0.1, duration: 0.3 }}
                   >
                     <a
                       href={href}
-                      className="px-4 py-2 text-black hover:text-teal-700 text-xl font-medium transition-colors relative group"
+                      className={`px-4 py-2 ${
+                        scrolled ? "text-gray-800" : "text-white"
+                      } hover:text-teal-700 text-xl font-medium transition-colors relative group`}
                     >
                       {link}
                       <motion.div
@@ -163,10 +210,14 @@ export default function Navbar() {
 
             {/* Get Started Button */}
             <motion.button
-              className="hidden md:block ml-4 w-fit px-8 py-3 rounded-tl-full rounded-tr-full rounded-br-full border-2 border-black text-black font-medium hover:bg-teal-800 hover:text-white transition-colors"
+              className={
+                scrolled
+                  ? "hidden md:block ml-4 w-fit px-8 py-3 rounded-tl-full rounded-tr-full rounded-br-full border-2 border-gray-800 text-gray-800 rounded-lg font-medium hover:bg-teal-800 transition-colors hover:text-white"
+                  : "hidden md:block ml-4 w-fit px-8 py-3 rounded-tl-full rounded-tr-full rounded-br-full border-2 border-white text-white rounded-lg font-medium hover:bg-teal-800 transition-colors"
+              }
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.6 }}
+              transition={{ delay: 0.6, duration: 0.3 }}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -180,7 +231,9 @@ export default function Navbar() {
               whileTap={{ scale: 0.9 }}
             >
               <svg
-                className="w-6 h-6 text-black"
+                className={`w-6 h-6 ${
+                  scrolled ? "text-teal-700" : "text-white"
+                }`}
                 fill="none"
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -198,6 +251,7 @@ export default function Navbar() {
           </div>
 
           {/* Mobile Menu */}
+          {/* ✅ Mobile Menu */}
           <AnimatePresence>
             {isOpen && (
               <motion.div
@@ -205,19 +259,24 @@ export default function Navbar() {
                 initial="closed"
                 animate="open"
                 exit="closed"
-                className="lg:hidden overflow-hidden bg-white text-center rounded-lg"
+                className="lg:hidden overflow-hidden bg-white text-center rounded-lg shadow-lg"
               >
                 <div className="py-4 space-y-2">
                   {navLinks.map((link, i) => {
                     const href =
                       link === "Home" ? "/" : `/${link.toLowerCase()}`;
 
+                    // ✅ Mobile dropdown for Services
                     if (link === "Services") {
                       return (
-                        <motion.div key={link} custom={i} variants={linkVariants}>
+                        <motion.div
+                          key={link}
+                          custom={i}
+                          variants={linkVariants}
+                        >
                           <button
                             onClick={() => setServicesOpen((prev) => !prev)}
-                            className="w-full px-4 py-3 flex items-center justify-center text-black hover:bg-teal-100 hover:text-teal-700 rounded-lg font-medium transition-colors"
+                            className="w-full px-4 py-3 flex items-center justify-center text-gray-800 hover:bg-teal-100 hover:text-teal-700 rounded-lg font-medium transition-colors"
                           >
                             Services
                             <svg
@@ -235,6 +294,7 @@ export default function Navbar() {
                             </svg>
                           </button>
 
+                          {/* ✅ Services dropdown list */}
                           <AnimatePresence>
                             {servicesOpen && (
                               <motion.div
@@ -247,8 +307,8 @@ export default function Navbar() {
                                   <Link
                                     key={service.title}
                                     href={service.link}
-                                    className="block py-2 text-black hover:text-teal-700 text-sm"
-                                    onClick={() => setIsOpen(false)}
+                                    className="block py-2 text-gray-700 hover:text-teal-700 text-sm"
+                                    onClick={() => setIsOpen(false)} // closes menu on click
                                   >
                                     {service.title}
                                   </Link>
@@ -264,7 +324,7 @@ export default function Navbar() {
                       <motion.div key={link} custom={i} variants={linkVariants}>
                         <a
                           href={href}
-                          className="block px-4 py-3 text-black hover:bg-teal-100 hover:text-teal-700 rounded-lg font-medium transition-colors"
+                          className="block px-4 py-3 text-gray-800 hover:bg-teal-100 hover:text-teal-700 rounded-lg font-medium transition-colors"
                           onClick={() => setIsOpen(false)}
                         >
                           {link}
@@ -279,7 +339,7 @@ export default function Navbar() {
         </div>
       </motion.nav>
 
-      {/* Mega Menu */}
+      {/* Mega Menu for Services */}
       <AnimatePresence>
         {servicesOpen && (
           <motion.div
@@ -289,44 +349,66 @@ export default function Navbar() {
             exit="closed"
             onMouseEnter={() => setServicesOpen(true)}
             onMouseLeave={() => setServicesOpen(false)}
-            className="absolute top-20 left-1/2 -translate-x-1/2 w-[95%] max-w-7xl  rounded-2xl  z-40"
+            className={`fixed left-0 right-0 z-40 ${
+              scrolled
+                ? "bg-white m-4 rounded-2xl"
+                : "bg-gray-900 bg-opacity-95 m-4 rounded-2xl"
+            } `}
           >
-            <div className="max-w-7xl mx-auto px-6 py-20">
-              <div className="grid grid-cols-1 lg:grid-cols-5">
+            <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-2 py-6">
+              {/* ✅ Two Column Layout */}
+              <div className="grid grid-cols-1 lg:grid-cols-5 ">
+                {/* LEFT SIDE → Title + Intro */}
                 <div className="lg:col-span-1 flex flex-col justify-center pr-6">
-                  <h3 className="text-3xl font-bold mb-4 text-black">
+                  <h3
+                    className={`text-3xl font-bold mb-4 ${
+                      scrolled ? "text-gray-900" : "text-white"
+                    }`}
+                  >
                     Our Services
                   </h3>
-                  <p className="text-base leading-relaxed text-gray-700">
+                  <p
+                    className={`text-base leading-relaxed ${
+                      scrolled ? "text-gray-600" : "text-gray-300"
+                    }`}
+                  >
                     No matter your role or goal{" "}
-                    <span className="text-teal-700 font-bold">BAC</span> adapts
+                    <span className="text-secondary font-bold">BAC</span> adapts
                     to your needs
                   </p>
                 </div>
 
-                <div className="lg:col-span-4 grid grid-cols-6 sm:grid-cols-6 gap-x-3 pt-12 text-center">
+                {/* RIGHT SIDE → Simple List */}
+                <div className="lg:col-span-4 grid grid-cols-6 sm:grid-cols-6 gap-x-3  pt-12 text-center">
                   {services.map((service, index) => (
                     <motion.div
                       key={service.title}
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: index * 0.05 }}
+                      transition={{ delay: index * 0.05, duration: 0.3 }}
                       className="space-y-2"
                     >
                       <Link
                         href={service.link}
-                        className="text-lg font-semibold mb-2 text-black"
+                        className={`text-lg font-semibold mb-2 ${
+                          scrolled ? "text-secondary" : "text-white"
+                        }`}
                       >
                         {service.title}
-                      </Link>
+                      
 
-                      <ul className="text-start list-disc pl-5 space-y-1 text-gray-700">
+                      <ul
+                        className={` text-start list-disc pl-5 space-y-1 ${
+                          scrolled ? "text-gray-600" : "text-gray-300"
+                        }`}
+                      >
                         {service.description.split("\n").map((point, i) => (
                           <li key={i} className="text-sm leading-relaxed">
                             {point.replace("•", "").trim()}
                           </li>
                         ))}
                       </ul>
+                      </Link>
                     </motion.div>
                   ))}
                 </div>
