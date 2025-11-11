@@ -143,7 +143,7 @@ export default function Page() {
                 <Image
                   width={600}
                   height={500}
-                  src="/images/about-hero.png"
+                  src="/images/taxation.jpg"
                   alt="Corporate tax advisory consultation"
                   className="w-full h-full object-cover"
                   priority
@@ -162,7 +162,7 @@ export default function Page() {
             <div className="lg:w-1/2 w-full lg:order-1 mb-10 lg:mb-0">
               <div className="relative w-full overflow-hidden rounded-3xl">
                 <Image
-                  src="/images/about-hero.png"
+                  src="/images/office-workers.jpg"
                   alt="VAT advisory consultation"
                   className="object-cover rounded-3xl"
                   priority
@@ -295,7 +295,7 @@ export default function Page() {
                 <Image
                   width={600}
                   height={500}
-                  src="/images/about-hero.png"
+                  src="/images/taxation2.jpg"
                   alt="FTA approved tax agent service"
                   className="w-full h-full object-cover"
                   priority

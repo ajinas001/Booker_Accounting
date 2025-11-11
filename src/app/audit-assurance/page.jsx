@@ -302,7 +302,7 @@ export default function AuditAssurancePage() {
 
                 <p className="text-lg text-gray-600 mb-10">
                   Our audit services go beyond the checklist: delivering a
-                  **risk-based, systematic examination** of your financial
+                  risk-based, systematic examination of your financial
                   statements, business processes, and internal controls.
                 </p>
 
@@ -342,9 +342,9 @@ export default function AuditAssurancePage() {
                   <Image
                     width={600}
                     height={500}
-                    src="/images/about-hero.png"
+                    src="/images/audit.jpg"
                     alt="Booker Accounting team working on a laptop, smiling"
-                    objectFit="cover"
+                    
                     className=" w-full h-full"
                   />
                 </div>
@@ -496,7 +496,7 @@ export default function AuditAssurancePage() {
               <div className="lg:w-1/2 w-full lg:order-1 mb-10 lg:mb-0">
                 <div className="relative w-full overflow-hidden rounded-3xl">
                   <Image
-                    src="/images/about-hero.png"
+                    src="/images/audit1.jpg"
                     alt="Professional collaboration"
                     
                     className="object-cover rounded-3xl"

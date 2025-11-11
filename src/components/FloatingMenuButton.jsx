@@ -53,24 +53,31 @@ export default function FloatingMenuButton() {
   // 🖱️ Animated Cursor Icon (Mimics the screenshot)
   const CursorIcon = () => (
     <motion.div
-      animate={{
-        y: [0, -2, 0], // Subtle bounce
-        transition: {
-          duration: 1,
-          ease: "easeInOut",
-          repeat: Infinity,
-        },
-      }}
-      className="p-2 bg-primary rounded-lg shadow-md cursor-pointer"
-    >
-      <svg
-        className="w-5 h-5 text-cyan-500 transform rotate-12"
-        fill="currentColor"
-        viewBox="0 0 20 20"
-      >
-        <path d="M12.93 17.06c-.45.45-1.18.45-1.63 0l-7-7c-.45-.45-.45-1.18 0-1.63l7-7c.45-.45 1.18-.45 1.63 0l7 7c.45.45.45 1.18 0 1.63l-7 7z" />
-      </svg>
-    </motion.div>
+  animate={{
+    y: [0, -3, 0], // slight hover bounce
+    transition: {
+      duration: 1.2,
+      ease: "easeInOut",
+      repeat: Infinity,
+    },
+  }}
+  className="p-2 bg-primary rounded-lg shadow-md cursor-pointer"
+>
+  <svg
+    className="w-6 h-6 text-cyan-500"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2.2"
+    viewBox="0 0 24 24"
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="M7 17L17 7M17 7H9M17 7V15"
+    />
+  </svg>
+</motion.div>
+
   );
 
   return (

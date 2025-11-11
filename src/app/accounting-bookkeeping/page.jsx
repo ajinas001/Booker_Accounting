@@ -252,9 +252,9 @@ function page() {
                 <Image
                   width={600}
                   height={500}
-                  src="/images/about-hero.png"
+                  src="/images/accounting.jpg"
                   alt="Booker Accounting team working on a laptop, smiling"
-                  objectFit="cover"
+                  
                   className=" w-full h-full"
                 />
               </div>

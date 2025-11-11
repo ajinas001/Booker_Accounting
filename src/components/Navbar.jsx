@@ -12,44 +12,45 @@ export default function Navbar({ scrolled }) {
 
   const navLinks = ["Home", "About", "Services", "Blog", "Contact"];
 
-  const services = [
-    {
-      title: "Audit & Assurance",
-      link: "/audit-assurance",
-      description:
-        "• Ensure financial accuracy\n• Meet regulatory standards\n• Build stakeholder confidence",
-    },
-    {
-      title: "Taxation",
-      link: "/taxation",
-      description:
-        "• Tax planning & compliance\n• Return preparation\n• Minimize tax liabilities",
-    },
-    {
-      title: "Accounting & Bookkeeping",
-      link: "/accounting-bookkeeping",
-      description:
-        "• Maintain accurate records\n• Manage financial statements\n• Support informed decisions",
-    },
-    {
-      title: "Business Advisory Services",
-      link: "/business-advisory",
-      description:
-        "• Strategic business advice\n• Process improvement\n• Growth and expansion planning",
-    },
-    {
-      title: "Business Support Services",
-      link: "/business-support",
-      description:
-        "• Strategic business advice\n• Process improvement\n• Growth and expansion planning",
-    },
-    {
-      title: "Anti–Money Laundering (AML)",
-      link: "/aml",
-      description:
-        "• AML policy development\n• Risk assessment & monitoring\n• Regulatory compliance support",
-    },
-  ];
+ const services = [
+  {
+    title: "Audit & Assurance",
+    link: "/audit-assurance",
+    description:
+      "• External Audit\n• Real Estate Audit\n• Internal Audit\n• Inventory Audit\n• Due Diligence Support\n• Forensic Audit",
+  },
+  {
+    title: "Taxation",
+    link: "/taxation",
+    description:
+      "• Corporate Tax\n• Value Added Tax (VAT)\n• Tax Agent Service",
+  },
+  {
+    title: "Accounting & Bookkeeping",
+    link: "/accounting-bookkeeping",
+    description:
+      "• Accounts Regulation\n• Cloud Accounting Services\n• Audit Preparation & Support\n• Accounting & Financial Reporting\n• Inventory & Asset Verification",
+  },
+  {
+    title: "Business Advisory Services",
+    link: "/business-advisory",
+    description:
+      "• CFO Service\n• Business Valuation\n• Business Consultation\n• Merger & Acquisition\n• Business Process Re-engineering\n• Financial Feasibilities\n• IFRS Advisory Service",
+  },
+  {
+    title: "Business Support Services",
+    link: "/business-support",
+    description:
+      "• Mainland Company Formation\n• Freezone Business Setup\n• Company Secretarial Service\n• Liquidation / De-registration\n• ICV Consultancy\n• PRO Service",
+  },
+  {
+    title: "Anti–Money Laundering (AML)",
+    link: "/aml",
+    description:
+      "• AML Risk Assessment\n• Compliance Program Design\n• Transaction Monitoring\n• KYC & Customer Due Diligence\n• AML Training & Awareness\n• Regulatory Reporting",
+  },
+];
+
 
   useEffect(() => {
     const handleScroll = () => {
@@ -354,7 +355,7 @@ export default function Navbar({ scrolled }) {
                 : "bg-gray-900 bg-opacity-95 m-4 rounded-2xl"
             } `}
           >
-            <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-2 py-20 ">
+            <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-2 py-6">
               {/* ✅ Two Column Layout */}
               <div className="grid grid-cols-1 lg:grid-cols-5 ">
                 {/* LEFT SIDE → Title + Intro */}
@@ -394,7 +395,7 @@ export default function Navbar({ scrolled }) {
                         }`}
                       >
                         {service.title}
-                      </Link>
+                      
 
                       <ul
                         className={` text-start list-disc pl-5 space-y-1 ${
@@ -407,6 +408,7 @@ export default function Navbar({ scrolled }) {
                           </li>
                         ))}
                       </ul>
+                      </Link>
                     </motion.div>
                   ))}
                 </div>

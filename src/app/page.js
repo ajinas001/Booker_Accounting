@@ -21,6 +21,7 @@ import { Users, FileText, BarChart2, Menu } from 'lucide-react';
 import { BlogCard } from './blog/page';
 import { HorizontalFeaturePin } from '@/components/Randomcontent';
 import AnimatedServicesSection from '@/components/AnimatedServiceSection';
+import BusinessJourney from '@/components/BusinessJourney';
 
 
 
@@ -179,6 +180,7 @@ const BookerAccountingWebsite = () => {
       {/* Values Section */}
       <MainVisionSection />
 
+{/* blog */}
       <div className="bg-primary p-8 sm:p-12">
         <header className="text-center mb-12">
           <h1 className="text-4xl sm:text-5xl font-extrabold text-gray-900">
@@ -209,7 +211,9 @@ const BookerAccountingWebsite = () => {
         </div>
       </div>
 
+{/* businesse journey */}
 
+{/* <BusinessJourney/> */}
 
       <ContactSection />
 
