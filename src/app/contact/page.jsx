@@ -2,15 +2,19 @@
 import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
-import { Send, Menu, X } from 'lucide-react';
+import {
+  motion,
+  useScroll,
+  useTransform,
+  AnimatePresence,
+} from "framer-motion";
+import { Send, } from "lucide-react";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
+import ContactSection from "@/components/ContactSection";
+
 
 // --- 0. Placeholder Components (Themed) ---
-
-
-
 
 // --- 1. Themed Contact Hero Component (Dark Background, Image & Animation) ---
 function ContactHero() {
@@ -24,169 +28,87 @@ function ContactHero() {
   };
 
   return (
-    <section className="relative overflow-hidden text-white bg-secondary">
-      {/* --- Background Layer with Animation --- */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1.2 }}
-        className="absolute inset-0"
-      >
-        {/* Background Image Container with Slow Zoom Effect */}
-        <div
-          className="absolute inset-0 bg-cover bg-center transition-transform duration-[6000ms] hover:scale-110"
-          style={{
-            backgroundImage: `url('/images/img3.jpg')`, // Use your requested image path
-          }}
-        />
-        {/* Overlay: Black/Secondary Teal gradient for theme integration */}
-        <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-black/50 to-black/80" />
-      </motion.div>
-
-      {/* --- Content Layer (Z-10) --- */}
-      <div className="relative z-10 max-w-7xl mx-auto px-8 md:px-20 py-32 md:py-48">
-
-        {/* BREADCRUMB / Subtitle (Themed) */}
+    <>
+      <section className="relative overflow-hidden text-white ">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="mb-6"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8 }}
+          className="absolute inset-0"
         >
-          <div className="text-sm md:text-lg flex text-gray-300 gap-x-2">
-            <Link href="/">
-              <span className="text-white cursor-pointer hover:text-secondary transition-colors">
-                Home
-              </span>
-            </Link>
-            <span className="text-white/50">&nbsp;›&nbsp;</span>
-            <span className="text-secondary font-medium">
-              Contact Us
-            </span>
-          </div>
+          <div
+            className="absolute inset-0 bg-cover bg-center transition-transform duration-[6000ms] hover:scale-110"
+            style={{
+              backgroundImage: `url('/images/img3.jpg')`,
+            }}
+          />
+
+          <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-black/50 to-black/80" />
         </motion.div>
 
-        {/* MAIN HEADLINE (Themed Gradient) */}
-        <motion.h1
-          variants={titleVariants}
-          initial="hidden"
-          animate="visible"
-          className="text-5xl md:text-7xl font-bold leading-tight mb-6"
-        >
-          We're Ready{" "}
-          {/* The gradient uses secondary/teal to white/primary for contrast */}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-secondary to-white">
-            When You Are.
-          </span>
-        </motion.h1>
+        <div className="relative z-10 max-w-7xl mx-auto px-6 py-32">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="mb-6"
+          >
+            <div className="text-sm md:text-lg flex text-gray-300 gap-x-2">
+              <Link href="/">
+                <span className="text-white cursor-pointer hover:text-teal-400 transition-colors">
+                  Home
+                </span>
+              </Link>
+              &nbsp;›&nbsp;
+              <span className="text-teal-400 font-medium">Contact Us</span>
+            </div>
+          </motion.div>
 
-        {/* TAGLINE */}
-        <motion.p
-          variants={textVariants}
-          initial="hidden"
-          animate="visible"
-          className="text-xl md:text-2xl text-gray-300 max-w-3xl"
-        >
-          Whether you have a project in mind, a question about our services, or just want to say hello, our team is eager to hear from you.
-        </motion.p>
-      </div>
-    </section>
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-5xl md:text-7xl font-bold leading-tight mb-6"
+          >
+            We're Ready,{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-cyan-400">
+              When You Are.
+            </span>
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9 }}
+            className="text-xl md:text-2xl text-gray-300 max-w-3xl"
+          >
+            Whether you have a project in mind, a question about our services,
+            or just want to say hello, our team is eager to hear from you.
+          </motion.p>
+        </div>
+      </section>
+    </>
   );
 }
 
 // --- 2. Themed ContactSection (Scroll-Animated + Button Fix) ---
-function ContactSection() {
-  const sectionRef = useRef(null);
 
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start end", "end start"],
-  });
-
-  const gap = useTransform(scrollYProgress, [0, 0.7], ["140vh", "0vh"]);
-  const imageY = useTransform(scrollYProgress, [0, 1], ["-10%", "10%"]);
-  const headingOpacity = useTransform(scrollYProgress, [0, 0.5, 0.7], [1, 1, 0.5]);
-
-
-  return (
-    <section ref={sectionRef} className="w-full py-20 bg-white">
-      <div className="grid grid-cols-1 md:grid-cols-2">
-
-        {/* LEFT SIDE (STICKY TEXT) */}
-        <div className="relative flex flex-col px-8 md:px-20">
-
-          <motion.div
-            className="md:sticky md:top-24 flex flex-col justify-start"
-            style={{ gap: gap }}
-          >
-            <motion.h2
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              className="text-4xl md:text-6xl font-semibold text-secondary leading-tight"
-            // style={{ opacity: headingOpacity }}
-            >
-              Let’s explore the possibilities together.
-            </motion.h2>
-
-            {/* CONTACT CTA - FIXED AND THEMED BUTTON */}
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7 }}
-              viewport={{ once: true, amount: 0.8 }}
-              className="mt-10"
-            >
-              <p className="text-lg text-gray-700 max-w-md mb-6">
-                Want to discuss how we can create value for your business?
-              </p>
-
-              <Link
-                href="/contact"
-                className=" w-fit  rounded-tl-full rounded-tr-full rounded-br-full border-2 inline-block px-10 py-4 hover:text-white  bordeer-secondary bg- text-secondary rounded-md hover:bg-secondary hover:text-white transition"
-              >
-                Let's talk
-              </Link>
-            </motion.div>
-          </motion.div>
-        </div>
-
-        {/* RIGHT IMAGE SECTION (PARALLAX) */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="relative w-full md:h-[140vh] p-6 "
-        >
-          <div className="relative w-full h-full rounded-xl overflow-hidden shadow-2xl">
-            <motion.div style={{ y: imageY }} className="w-full h-full">
-              <Image
-                src="/images/contact.jpeg"
-                alt="Contact banner"
-                fill
-                className="object-cover rounded-xl"
-                priority
-              />
-            </motion.div>
-          </div>
-        </motion.div>
-      </div>
-    </section>
-  );
-}
 
 // --- 3. Themed Contact Form Component (with State/Effect Logic) ---
 function ContactForm() {
   // State Management for the Form
-  const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
   const [status, setStatus] = useState(null); // 'idle', 'loading', 'success', 'error'
 
   // useEffect for Status Cleanup
   useEffect(() => {
-    if (status === 'success' || status === 'error') {
-      const timer = setTimeout(() => setStatus('idle'), 5000);
+    if (status === "success" || status === "error") {
+      const timer = setTimeout(() => setStatus("idle"), 5000);
       return () => clearTimeout(timer);
     }
   }, [status]);
@@ -197,19 +119,28 @@ function ContactForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setStatus('loading');
+    setStatus("loading");
     try {
       // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      setStatus('success');
-      setFormData({ name: '', email: '', subject: '', message: '' });
+      await new Promise((resolve) => setTimeout(resolve, 1500));
+      setStatus("success");
+      setFormData({ name: "", email: "", subject: "", message: "" });
     } catch (error) {
-      setStatus('error');
+      setStatus("error");
     }
   };
 
-  const formVariants = { hidden: { opacity: 0 }, visible: { opacity: 1, transition: { delayChildren: 0.2, staggerChildren: 0.1 } } };
-  const inputVariants = { hidden: { opacity: 0, y: 20, scale: 0.98 }, visible: { opacity: 1, y: 0, scale: 1 } };
+  const formVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { delayChildren: 0.2, staggerChildren: 0.1 },
+    },
+  };
+  const inputVariants = {
+    hidden: { opacity: 0, y: 20, scale: 0.98 },
+    visible: { opacity: 1, y: 0, scale: 1 },
+  };
 
   return (
     <section id="contact-form" className="py-20 px-8 md:px-20 bg-gray-100">
@@ -233,39 +164,98 @@ function ContactForm() {
       >
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <motion.div variants={inputVariants}>
-            <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
-            <input type="text" id="name" name="name" required value={formData.name} onChange={handleChange} className="w-full p-3 border border-gray-300 rounded-lg focus:ring-secondary focus:border-secondary bg-white text-gray-900" />
+            <label
+              htmlFor="name"
+              className="block text-sm font-medium text-gray-700 mb-1"
+            >
+              Full Name
+            </label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
+              value={formData.name}
+              onChange={handleChange}
+              className="w-full p-3 border border-gray-300 rounded-lg focus:ring-secondary focus:border-secondary bg-white text-gray-900"
+            />
           </motion.div>
           <motion.div variants={inputVariants}>
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
-            <input type="email" id="email" name="email" required value={formData.email} onChange={handleChange} className="w-full p-3 border border-gray-300 rounded-lg focus:ring-secondary focus:border-secondary bg-white text-gray-900" />
+            <label
+              htmlFor="email"
+              className="block text-sm font-medium text-gray-700 mb-1"
+            >
+              Email Address
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              value={formData.email}
+              onChange={handleChange}
+              className="w-full p-3 border border-gray-300 rounded-lg focus:ring-secondary focus:border-secondary bg-white text-gray-900"
+            />
           </motion.div>
         </div>
 
         <motion.div variants={inputVariants}>
-          <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">Subject</label>
-          <input type="text" id="subject" name="subject" value={formData.subject} onChange={handleChange} className="w-full p-3 border border-gray-300 rounded-lg focus:ring-secondary focus:border-secondary bg-white text-gray-900" />
+          <label
+            htmlFor="subject"
+            className="block text-sm font-medium text-gray-700 mb-1"
+          >
+            Subject
+          </label>
+          <input
+            type="text"
+            id="subject"
+            name="subject"
+            value={formData.subject}
+            onChange={handleChange}
+            className="w-full p-3 border border-gray-300 rounded-lg focus:ring-secondary focus:border-secondary bg-white text-gray-900"
+          />
         </motion.div>
 
         <motion.div variants={inputVariants}>
-          <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">Your Message</label>
-          <textarea id="message" name="message" rows="5" required value={formData.message} onChange={handleChange} className="w-full p-3 border border-gray-300 rounded-lg focus:ring-secondary focus:border-secondary bg-white text-gray-900"></textarea>
+          <label
+            htmlFor="message"
+            className="block text-sm font-medium text-gray-700 mb-1"
+          >
+            Your Message
+          </label>
+          <textarea
+            id="message"
+            name="message"
+            rows="5"
+            required
+            value={formData.message}
+            onChange={handleChange}
+            className="w-full p-3 border border-gray-300 rounded-lg focus:ring-secondary focus:border-secondary bg-white text-gray-900"
+          ></textarea>
         </motion.div>
 
-        {status === 'success' && <p className="text-green-600 font-semibold text-center">✅ Message sent successfully!</p>}
-        {status === 'error' && <p className="text-red-600 font-semibold text-center">❌ Failed to send message. Please try again.</p>}
+        {status === "success" && (
+          <p className="text-green-600 font-semibold text-center">
+            ✅ Message sent successfully!
+          </p>
+        )}
+        {status === "error" && (
+          <p className="text-red-600 font-semibold text-center">
+            ❌ Failed to send message. Please try again.
+          </p>
+        )}
 
         <motion.button
           type="submit"
           variants={inputVariants}
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
-          disabled={status === 'loading'}
+          disabled={status === "loading"}
           // Submit button uses Secondary (dark) for BG and Primary (light) for text
           className="w-full md:w-auto flex items-center justify-center space-x-2 px-8 py-3 mt-6 text-lg font-semibold text-white bg-secondary rounded-tl-full rounded-tr-full rounded-br-full border-2 hover:bg-opacity-90 transition duration-300 shadow-xl disabled:opacity-50"
         >
           <Send className="w-5 h-5" />
-          <span>{status === 'loading' ? 'Sending...' : 'Submit Message'}</span>
+          <span>{status === "loading" ? "Sending..." : "Submit Message"}</span>
         </motion.button>
       </motion.form>
     </section>
@@ -335,16 +325,20 @@ export default function ContactPage() {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
     };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
     <div className="min-h-screen bg-white">
-      <Navbar scrolled={scrolled} isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
+      <Navbar
+        scrolled={scrolled}
+        isMenuOpen={isMenuOpen}
+        setIsMenuOpen={setIsMenuOpen}
+      />
       <main>
         <ContactHero />
-        <ContactSection />
+        <ContactSection/>
         <ContactForm />
         <LocationInfo />
       </main>
