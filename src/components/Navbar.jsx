@@ -87,7 +87,7 @@ const megaMenuVariants = {
 export default function Navbar({ scrolled }) {
   const [isOpen, setIsOpen] = useState(false);
   const [showNavbar, setShowNavbar] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
+  
   const [servicesOpen, setServicesOpen] = useState(false);
 
   // Helper function for cleaner class assignment based on 'scrolled' prop
@@ -105,23 +105,7 @@ export default function Navbar({ scrolled }) {
   }, []);
 
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-
-      if (currentScrollY > lastScrollY && currentScrollY > 100) {
-        setShowNavbar(false);
-        setServicesOpen(false); // Close services menu on scroll down
-      } else {
-        setShowNavbar(true);
-      }
-
-      setLastScrollY(currentScrollY);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [lastScrollY]);
+  
 
   // Handle mobile services dropdown click
   const toggleMobileServices = () => setServicesOpen((prev) => !prev);
