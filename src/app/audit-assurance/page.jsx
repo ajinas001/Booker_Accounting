@@ -169,16 +169,21 @@ export default function AuditAssurancePage() {
         <Navbar />
 
         {/* HERO */}
-        {/* <section className="relative overflow-hidden text-white ">
+        <section className="relative overflow-hidden text-white ">
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8 }}
             className="absolute inset-0"
           >
-            <div
-              className="absolute inset-0 bg-cover bg-center will-change-transform"
-              style={{ backgroundImage: `url('/images/img3.jpg')` }}
+            <Image
+              src="/images/img3.jpg"
+              alt="Audit & Assurance"
+              priority
+              fill
+              sizes="100vw"
+              className="object-cover object-center"
+              style={{ transform: "translateZ(0)" }} // ✅ Forces GPU to not over-allocate memory
             />
             <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-black/60 to-black/80" />
           </motion.div>
@@ -224,7 +229,7 @@ export default function AuditAssurancePage() {
               Client Credibility. Stakeholder Confidence. Regulatory Compliance.
             </motion.p>
           </div>
-        </section> */}
+        </section>
 
         {/* APPROACH */}
         <section className="py-16 md:py-24 bg-white">
