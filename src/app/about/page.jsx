@@ -536,11 +536,11 @@ const AboutPageTimeline = () => {
           <FloatingImageGallery
             images={[
               {
-                url: "/images/image3.jpg",
+                url: "/images/image3.webp",
                 caption: "Precision in Every Detail",
               },
-              { url: "/images/img1.jpg", caption: "Uncompromising Integrity" },
-              { url: "/images/business7.jpg", caption: "Strategic Foresight" },
+              { url: "/images/img1.webp", caption: "Uncompromising Integrity" },
+              { url: "/images/business7.webo", caption: "Strategic Foresight" },
               // { url: "/images/image4.jpg", caption: "Continuous Innovation" }
             ]}
             delay={0.1}
@@ -603,7 +603,7 @@ const AboutPageTimeline = () => {
       iconKey: "uae",
       content: (
         <SplitContentLayout
-          imageUrl="/images/business8.jpg"
+          imageUrl="/images/business8.webp"
           title="Local Mastery, Global Standards"
           reverse={true}
           content={
