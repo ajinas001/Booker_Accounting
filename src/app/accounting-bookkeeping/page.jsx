@@ -119,7 +119,7 @@ function page() {
 
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       {/* Header */}
 
       <section className="relative overflow-hidden text-white ">

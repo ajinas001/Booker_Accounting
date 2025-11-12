@@ -143,7 +143,7 @@ const blog = () => {
   return (
     <div className=" min-h-screen">
       {/* 1. Placeholder Navbar (Replaces <Navbar/> import) */}
-      <Navbar />
+      {/* <Navbar /> */}
 
       {/* 2. Hero Section */}
 

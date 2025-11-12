@@ -23,7 +23,7 @@ import Link from "next/link";
 export default function Page() {
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
 
       {/* HERO SECTION */}
       <section className="relative overflow-hidden text-white ">

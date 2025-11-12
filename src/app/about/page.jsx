@@ -669,11 +669,11 @@ const AboutPageTimeline = () => {
 
   return (
     <>
-      <Navbar
+      {/* <Navbar
         scrolled={scrolled}
         isMenuOpen={isMenuOpen}
         setIsMenuOpen={setIsMenuOpen}
-      />
+      /> */}
       <div style={{ backgroundColor: PRIMARY_LIGHT }} className="min-h-screen">
 
         

@@ -73,7 +73,7 @@ const amlFlowSteps = [
 export default function AntiMoneyLaunderingPage() {
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
 
       {/* ================= HERO SECTION ================= */}
       <section className="relative overflow-hidden text-white ">

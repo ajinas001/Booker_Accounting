@@ -166,7 +166,7 @@ export default function AuditAssurancePage() {
       </Head>
 
       <div className="bg-gradient-to-b from-white to-gray-50 text-gray-800">
-        <Navbar />
+        {/* <Navbar /> */}
 
         {/* HERO */}
         <section className="relative overflow-hidden text-white ">

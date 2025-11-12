@@ -76,7 +76,7 @@ const cardVariants = {
 function page() {
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
 
       {/* hero section (unchanged) */}
       <section className="relative overflow-hidden text-white">

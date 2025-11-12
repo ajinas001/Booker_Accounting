@@ -86,7 +86,7 @@ const cardVariants = {
 export default function BusinessAdvisoryPage() {
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
 
       {/* ================= HERO SECTION ================= */}
 

@@ -331,11 +331,11 @@ export default function ContactPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      <Navbar
+      {/* <Navbar
         scrolled={scrolled}
         isMenuOpen={isMenuOpen}
         setIsMenuOpen={setIsMenuOpen}
-      />
+      /> */}
       <main>
         <ContactHero />
         <ContactSection/>
