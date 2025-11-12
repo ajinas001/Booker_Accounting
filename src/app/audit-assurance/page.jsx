@@ -5,14 +5,7 @@ import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import { motion } from "framer-motion";
-import {
-  Shield,
-  CheckCircle,
-  TrendingUp,
-  Users,
-  FileText,
-  
-} from "lucide-react";
+import { Shield, CheckCircle, TrendingUp, Users, FileText } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -106,7 +99,9 @@ export default function AuditAssurancePage() {
       {/* metadata */}
 
       <Head>
-        <title>Audit & Assurance Services — Booker Accounting & Cunsulting</title>
+        <title>
+          Audit & Assurance Services — Booker Accounting & Cunsulting
+        </title>
         <meta
           name="description"
           content="Booker Accounting provides audit, assurance and IFRS advisory services to help businesses improve compliance, transparency and stakeholder confidence."
@@ -182,10 +177,10 @@ export default function AuditAssurancePage() {
             className="absolute inset-0"
           >
             <div
-              className="absolute inset-0 bg-cover bg-center transition-transform duration-[6000ms] hover:scale-110"
+              className="absolute inset-0 bg-cover bg-center will-change-transform"
               style={{ backgroundImage: `url('/images/img3.jpg')` }}
             />
-            <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-black/50 to-black/80" />
+            <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-black/60 to-black/80" />
           </motion.div>
 
           <div className="relative z-10 max-w-7xl mx-auto px-6 py-32">
