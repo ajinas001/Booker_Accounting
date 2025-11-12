@@ -212,8 +212,8 @@ export default function Navbar({ scrolled }) {
             <motion.button
               className={
                 scrolled
-                  ? "hidden md:block ml-4 w-fit px-8 py-3 rounded-tl-full rounded-tr-full rounded-br-full border-2 border-gray-800 text-gray-800 rounded-lg font-medium hover:bg-teal-800 transition-colors hover:text-white"
-                  : "hidden md:block ml-4 w-fit px-8 py-3 rounded-tl-full rounded-tr-full rounded-br-full border-2 border-white text-white rounded-lg font-medium hover:bg-teal-800 transition-colors"
+                  ? "hidden lg:block ml-4 w-fit px-8 py-3 rounded-tl-full rounded-tr-full rounded-br-full border-2 border-gray-800 text-gray-800 rounded-lg font-medium hover:bg-teal-800 transition-colors hover:text-white"
+                  : "hidden lg:block ml-4 w-fit px-8 py-3 rounded-tl-full rounded-tr-full rounded-br-full border-2 border-white text-white rounded-lg font-medium hover:bg-teal-800 transition-colors"
               }
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
