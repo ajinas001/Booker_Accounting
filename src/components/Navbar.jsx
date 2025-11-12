@@ -1,18 +1,12 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function Navbar({ scrolled }) {
-  const [isOpen, setIsOpen] = useState(false);
-  const [showNavbar, setShowNavbar] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
-  const [servicesOpen, setServicesOpen] = useState(false);
+// --- START: Static Data & Helpers ---
 
-  const navLinks = ["Home", "About", "Services", "Blog", "Contact"];
-
- const services = [
+const SERVICES_DATA_RAW = [
   {
     title: "Audit & Assurance",
     link: "/audit-assurance",
@@ -22,8 +16,7 @@ export default function Navbar({ scrolled }) {
   {
     title: "Taxation",
     link: "/taxation",
-    description:
-      "• Corporate Tax\n• Value Added Tax (VAT)\n• Tax Agent Service",
+    description: "• Corporate Tax\n• Value Added Tax (VAT)\n• Tax Agent Service",
   },
   {
     title: "Accounting & Bookkeeping",
@@ -51,6 +44,66 @@ export default function Navbar({ scrolled }) {
   },
 ];
 
+const NAV_LINKS = ["Home", "About", "Services", "Blog", "Contact"];
+
+const menuVariants = {
+  closed: {
+    opacity: 0,
+    height: 0,
+    transition: { duration: 0.3, ease: "easeInOut" },
+  },
+  // Use a fixed max-height instead of 'auto' for potentially better mobile performance
+  open: {
+    opacity: 1,
+    height: "auto", // Can be changed to '500px' if 'auto' is buggy on iOS
+    transition: { duration: 0.3, ease: "easeInOut" },
+  },
+};
+
+const linkVariants = {
+  closed: { opacity: 0, x: -20 },
+  open: (i) => ({
+    opacity: 1,
+    x: 0,
+    transition: { delay: i * 0.1, duration: 0.3 },
+  }),
+};
+
+const megaMenuVariants = {
+  closed: {
+    opacity: 0,
+    y: -20,
+    transition: { duration: 0.2, ease: "easeInOut" },
+  },
+  open: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.3, ease: "easeInOut" },
+  },
+};
+
+// --- END: Static Data & Helpers ---
+
+export default function Navbar({ scrolled }) {
+  const [isOpen, setIsOpen] = useState(false);
+  const [showNavbar, setShowNavbar] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+  const [servicesOpen, setServicesOpen] = useState(false);
+
+  // Helper function for cleaner class assignment based on 'scrolled' prop
+  const getColor = (dark, light) => (scrolled ? dark : light);
+
+  // Pre-process services data for cleaner rendering (Optimization/Cleanliness)
+  const processedServices = useMemo(() => {
+    return SERVICES_DATA_RAW.map(service => ({
+      ...service,
+      descriptionPoints: service.description
+        .split('\n')
+        .map(point => point.replace('•', '').trim())
+        .filter(point => point.length > 0)
+    }));
+  }, []);
+
 
   useEffect(() => {
     const handleScroll = () => {
@@ -58,7 +111,7 @@ export default function Navbar({ scrolled }) {
 
       if (currentScrollY > lastScrollY && currentScrollY > 100) {
         setShowNavbar(false);
-        setServicesOpen(false);
+        setServicesOpen(false); // Close services menu on scroll down
       } else {
         setShowNavbar(true);
       }
@@ -70,39 +123,12 @@ export default function Navbar({ scrolled }) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
 
-  const menuVariants = {
-    closed: {
-      opacity: 0,
-      height: 0,
-      transition: { duration: 0.3, ease: "easeInOut" },
-    },
-    open: {
-      opacity: 1,
-      height: "auto",
-      transition: { duration: 0.3, ease: "easeInOut" },
-    },
-  };
-
-  const linkVariants = {
-    closed: { opacity: 0, x: -20 },
-    open: (i) => ({
-      opacity: 1,
-      x: 0,
-      transition: { delay: i * 0.1, duration: 0.3 },
-    }),
-  };
-
-  const megaMenuVariants = {
-    closed: {
-      opacity: 0,
-      y: -20,
-      transition: { duration: 0.2, ease: "easeInOut" },
-    },
-    open: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.3, ease: "easeInOut" },
-    },
+  // Handle mobile services dropdown click
+  const toggleMobileServices = () => setServicesOpen((prev) => !prev);
+  // Function to close both mobile menus (used on link click)
+  const closeAllMenus = () => {
+    setIsOpen(false);
+    setServicesOpen(false);
   };
 
   return (
@@ -112,7 +138,7 @@ export default function Navbar({ scrolled }) {
         animate={{ y: showNavbar ? 0 : -100 }}
         transition={{ duration: 0.4, ease: "easeInOut" }}
         className={`font-sans py-4 fixed top-0 w-full z-50 transition-all duration-300 ${
-          scrolled ? "" : "bg-transparent"
+          scrolled ? "bg-white shadow-lg" : "bg-transparent"
         }`}
       >
         <div className="mx-auto px-4 sm:px-6 lg:px-8">
@@ -139,7 +165,7 @@ export default function Navbar({ scrolled }) {
 
             {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center space-x-1">
-              {navLinks.map((link, i) => {
+              {NAV_LINKS.map((link, i) => {
                 const href = link === "Home" ? "/" : `/${link.toLowerCase()}`;
 
                 if (link === "Services") {
@@ -151,11 +177,13 @@ export default function Navbar({ scrolled }) {
                       transition={{ delay: i * 0.1, duration: 0.3 }}
                       onMouseEnter={() => setServicesOpen(true)}
                       onMouseLeave={() => setServicesOpen(false)}
+                      className="relative" // Added relative for dropdown positioning
                     >
                       <button
-                        className={`px-4 py-2 ${
-                          scrolled ? "text-gray-800" : "text-white"
-                        } hover:text-teal-700 text-xl font-medium transition-colors relative group flex items-center gap-1`}
+                        className={`px-4 py-2 ${getColor(
+                          "text-gray-800",
+                          "text-white"
+                        )} hover:text-teal-700 text-xl font-medium transition-colors relative group flex items-center gap-1`}
                       >
                         {link}
                         <svg
@@ -191,9 +219,10 @@ export default function Navbar({ scrolled }) {
                   >
                     <a
                       href={href}
-                      className={`px-4 py-2 ${
-                        scrolled ? "text-gray-800" : "text-white"
-                      } hover:text-teal-700 text-xl font-medium transition-colors relative group`}
+                      className={`px-4 py-2 ${getColor(
+                        "text-gray-800",
+                        "text-white"
+                      )} hover:text-teal-700 text-xl font-medium transition-colors relative group`}
                     >
                       {link}
                       <motion.div
@@ -231,9 +260,7 @@ export default function Navbar({ scrolled }) {
               whileTap={{ scale: 0.9 }}
             >
               <svg
-                className={`w-6 h-6 ${
-                  scrolled ? "text-teal-700" : "text-white"
-                }`}
+                className={`w-6 h-6 ${getColor("text-teal-700", "text-white")}`}
                 fill="none"
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -251,7 +278,6 @@ export default function Navbar({ scrolled }) {
           </div>
 
           {/* Mobile Menu */}
-          {/* ✅ Mobile Menu */}
           <AnimatePresence>
             {isOpen && (
               <motion.div
@@ -259,24 +285,25 @@ export default function Navbar({ scrolled }) {
                 initial="closed"
                 animate="open"
                 exit="closed"
-                className="lg:hidden overflow-hidden bg-white text-center rounded-lg shadow-lg"
+                // Add transformZ(0) to potentially fix iOS rendering issues (Bug Fix)
+                className="lg:hidden overflow-hidden bg-white text-center rounded-lg shadow-lg [transform:translateZ(0)]"
               >
                 <div className="py-4 space-y-2">
-                  {navLinks.map((link, i) => {
+                  {NAV_LINKS.map((link, i) => {
                     const href =
                       link === "Home" ? "/" : `/${link.toLowerCase()}`;
 
-                    // ✅ Mobile dropdown for Services
                     if (link === "Services") {
                       return (
                         <motion.div
                           key={link}
                           custom={i}
                           variants={linkVariants}
+                          className="flex flex-col items-center" // Ensure children stack
                         >
                           <button
-                            onClick={() => setServicesOpen((prev) => !prev)}
-                            className="w-full px-4 py-3 flex items-center justify-center text-gray-800 hover:bg-teal-100 hover:text-teal-700 rounded-lg font-medium transition-colors"
+                            onClick={toggleMobileServices}
+                            className="w-full px-4 py-3 flex items-center justify-center text-gray-800 hover:bg-teal-100 hover:text-teal-700 rounded-lg font-medium transition-colors gap-1"
                           >
                             Services
                             <svg
@@ -294,21 +321,21 @@ export default function Navbar({ scrolled }) {
                             </svg>
                           </button>
 
-                          {/* ✅ Services dropdown list */}
+                          {/* Services dropdown list */}
                           <AnimatePresence>
                             {servicesOpen && (
                               <motion.div
                                 initial={{ opacity: 0, height: 0 }}
                                 animate={{ opacity: 1, height: "auto" }}
                                 exit={{ opacity: 0, height: 0 }}
-                                className="pl-6 pr-4 space-y-1 text-start"
+                                className="w-full pl-6 pr-4 space-y-1 text-start"
                               >
-                                {services.map((service) => (
+                                {processedServices.map((service) => (
                                   <Link
                                     key={service.title}
                                     href={service.link}
                                     className="block py-2 text-gray-700 hover:text-teal-700 text-sm"
-                                    onClick={() => setIsOpen(false)} // closes menu on click
+                                    onClick={closeAllMenus} // Closes both menus on click
                                   >
                                     {service.title}
                                   </Link>
@@ -325,7 +352,7 @@ export default function Navbar({ scrolled }) {
                         <a
                           href={href}
                           className="block px-4 py-3 text-gray-800 hover:bg-teal-100 hover:text-teal-700 rounded-lg font-medium transition-colors"
-                          onClick={() => setIsOpen(false)}
+                          onClick={closeAllMenus} // Closes mobile menu on link click
                         >
                           {link}
                         </a>
@@ -349,38 +376,41 @@ export default function Navbar({ scrolled }) {
             exit="closed"
             onMouseEnter={() => setServicesOpen(true)}
             onMouseLeave={() => setServicesOpen(false)}
-            className={`fixed left-0 right-0 z-40 ${
+            // Add transformZ(0) for potential iOS animation fix
+            className={`fixed left-0 right-0 z-40 top-20 lg:top-16 p-4 ${
               scrolled
-                ? "bg-white m-4 rounded-2xl"
+                ? "bg-white m-4 rounded-2xl shadow-xl"
                 : "bg-gray-900 bg-opacity-95 m-4 rounded-2xl"
-            } `}
+            } [transform:translateZ(0)]`}
           >
             <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-2 py-6">
-              {/* ✅ Two Column Layout */}
+              {/* Two Column Layout */}
               <div className="grid grid-cols-1 lg:grid-cols-5 ">
                 {/* LEFT SIDE → Title + Intro */}
                 <div className="lg:col-span-1 flex flex-col justify-center pr-6">
                   <h3
-                    className={`text-3xl font-bold mb-4 ${
-                      scrolled ? "text-gray-900" : "text-white"
-                    }`}
+                    className={`text-3xl font-bold mb-4 ${getColor(
+                      "text-gray-900",
+                      "text-white"
+                    )}`}
                   >
                     Our Services
                   </h3>
                   <p
-                    className={`text-base leading-relaxed ${
-                      scrolled ? "text-gray-600" : "text-gray-300"
-                    }`}
+                    className={`text-base leading-relaxed ${getColor(
+                      "text-gray-600",
+                      "text-gray-300"
+                    )}`}
                   >
                     No matter your role or goal{" "}
-                    <span className="text-secondary font-bold">BAC</span> adapts
+                    <span className="text-teal-700 font-bold">BAC</span> adapts
                     to your needs
                   </p>
                 </div>
 
                 {/* RIGHT SIDE → Simple List */}
-                <div className="lg:col-span-4 grid grid-cols-6 sm:grid-cols-6 gap-x-3  pt-12 text-center">
-                  {services.map((service, index) => (
+                <div className="lg:col-span-4 grid grid-cols-2 sm:grid-cols-3 gap-x-6 gap-y-8 pt-12 text-start">
+                  {processedServices.map((service, index) => (
                     <motion.div
                       key={service.title}
                       initial={{ opacity: 0, y: 10 }}
@@ -390,25 +420,28 @@ export default function Navbar({ scrolled }) {
                     >
                       <Link
                         href={service.link}
-                        className={`text-lg font-semibold mb-2 ${
-                          scrolled ? "text-secondary" : "text-white"
-                        }`}
+                        className={`block text-lg font-semibold mb-2 ${getColor(
+                          "text-gray-900",
+                          "text-white"
+                        )} hover:text-teal-700 transition-colors`}
+                        onClick={closeAllMenus}
                       >
                         {service.title}
+                      </Link>
                       
-
+                      {/* Using pre-processed descriptionPoints */}
                       <ul
-                        className={` text-start list-disc pl-5 space-y-1 ${
-                          scrolled ? "text-gray-600" : "text-gray-300"
-                        }`}
+                        className={`text-start list-disc pl-5 space-y-1 ${getColor(
+                          "text-gray-600",
+                          "text-gray-300"
+                        )}`}
                       >
-                        {service.description.split("\n").map((point, i) => (
+                        {service.descriptionPoints.map((point, i) => (
                           <li key={i} className="text-sm leading-relaxed">
-                            {point.replace("•", "").trim()}
+                            {point}
                           </li>
                         ))}
                       </ul>
-                      </Link>
                     </motion.div>
                   ))}
                 </div>
