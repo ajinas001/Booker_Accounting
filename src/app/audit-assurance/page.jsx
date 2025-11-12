@@ -169,7 +169,7 @@ export default function AuditAssurancePage() {
         <Navbar />
 
         {/* HERO */}
-        <section className="relative overflow-hidden text-white ">
+        {/* <section className="relative overflow-hidden text-white ">
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -224,7 +224,7 @@ export default function AuditAssurancePage() {
               Client Credibility. Stakeholder Confidence. Regulatory Compliance.
             </motion.p>
           </div>
-        </section>
+        </section> */}
 
         {/* APPROACH */}
         <section className="py-16 md:py-24 bg-white">
