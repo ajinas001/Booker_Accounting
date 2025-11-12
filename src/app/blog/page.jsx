@@ -16,7 +16,7 @@ const MOCK_POSTS = [
     role: "Content Writer @ Pixis",
     date: "5 November, 2025",
     // Changed to placeholder URL for universal runnability. You should use your local path: /images/img3.jpg
-    imageUrl: "./images/img.jpg",
+    imageUrl: "./images/business7.webp",
     category: "Ad Creative",
     color: "bg-indigo-600", // Replaced bg-secondary
     icon: FileText,
@@ -29,7 +29,7 @@ const MOCK_POSTS = [
     role: "Head of Content @ Pixis",
     date: "4 November, 2025",
     // Changed to placeholder URL for universal runnability. You should use your local path: /images/image4.jpg
-    imageUrl: "./images/image3.jpg",
+    imageUrl: "./images/img.webp",
     category: "Ad Creative",
     category2: "Performance",
     color: "bg-teal-500",
@@ -43,7 +43,7 @@ const MOCK_POSTS = [
     role: "Director - Customer Success @ Pixis",
     date: "31 October, 2025",
     // Changed to placeholder URL for universal runnability. You should use your local path: /images/image3.jpg
-    imageUrl: "./images/image4.jpg",
+    imageUrl: "./images/img1.webp",
     category: "Performance Marketing",
     color: "bg-emerald-500",
     icon: BarChart2,

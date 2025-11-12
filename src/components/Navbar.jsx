@@ -44,7 +44,7 @@ const SERVICES_DATA_RAW = [
   },
 ];
 
-const NAV_LINKS = ["Home", "About", "Blog", "Contact"];
+const NAV_LINKS = ["Home", "About", "Services", "Blog", "Contact"];
 
 const menuVariants = {
   closed: {

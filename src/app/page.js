@@ -163,7 +163,7 @@ const BookerAccountingWebsite = () => {
       </section> */}
       {/* Stats  */}
       <MainAchievements />
-    {/* <AnimatedServicesSection/> */}
+      {/* <AnimatedServicesSection/> */}
 
 
       {/* about */}
@@ -180,8 +180,11 @@ const BookerAccountingWebsite = () => {
       {/* Values Section */}
       <MainVisionSection />
 
-{/* blog */}
-      <div className="bg-primary p-8 sm:p-12">
+      {/* blog */}
+
+
+
+      {/* <div className="bg-primary p-8 sm:p-12">
         <header className="text-center mb-12">
           <h1 className="text-4xl sm:text-5xl font-extrabold text-gray-900">
             Latest Insights
@@ -192,14 +195,14 @@ const BookerAccountingWebsite = () => {
         </header>
 
         <div className="max-w-7xl mx-auto">
-          {/* Blog Grid Layout */}
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {MOCK_POSTS.map((post) => (
               <BlogCard key={post.id} post={post} />
             ))}
           </div>
 
-          {/* Read More Button */}
+
           <div className="text-center mt-12">
             <a
               href="/blog"
@@ -209,11 +212,11 @@ const BookerAccountingWebsite = () => {
             </a>
           </div>
         </div>
-      </div>
+      </div> */}
 
-{/* businesse journey */}
+      {/* businesse journey */}
 
-{/* <BusinessJourney/> */}
+      {/* <BusinessJourney/> */}
 
       <ContactSection />
 

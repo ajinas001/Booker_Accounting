@@ -50,7 +50,7 @@ export default function HeroSection() {
                 className="absolute inset-0"
             >
                 <Image
-                    src="/images/business5.jpg"
+                    src="/images/business5.webp"
                     alt="Accounting Team"
                     fill
                     priority

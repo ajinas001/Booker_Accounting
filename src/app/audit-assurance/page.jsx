@@ -177,7 +177,7 @@ export default function AuditAssurancePage() {
             className="absolute inset-0"
           >
             <Image
-              src="/images/img3.jpg"
+              src="/images/img3.webp"
               alt="Audit & Assurance"
               priority
               fill
@@ -257,7 +257,7 @@ export default function AuditAssurancePage() {
               <Image
                 width={600}
                 height={500}
-                src="/images/audit.jpg"
+                src="/images/audit.webp"
                 alt="Team working"
                 className="w-full h-full object-cover"
               />
@@ -324,7 +324,7 @@ export default function AuditAssurancePage() {
               <div className="lg:w-1/2 w-full lg:order-1 mb-10 lg:mb-0">
                 <div className="relative w-full overflow-hidden rounded-3xl">
                   <Image
-                    src="/images/audit1.jpg"
+                    src="/images/audit1.webp"
                     alt="Professional collaboration"
                     className="object-cover rounded-3xl"
                     priority

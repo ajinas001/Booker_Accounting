@@ -95,7 +95,7 @@ export default function ContactSection() {
           >
             <div className="relative w-full h-full rounded-xl overflow-hidden">
               <Image
-                src="/images/contact.jpeg"
+                src="/images/contact.webp"
                 alt="Contact banner"
                 fill
                 className="object-cover rounded-xl"
