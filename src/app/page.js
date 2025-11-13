@@ -15,6 +15,7 @@ import MainVisionSection from '@/components/Values';
 import ContactSection from '@/components/ContactSection';
 import FloatingMenuButton from '@/components/FloatingMenuButton';
 import ScrollToTop from '@/components/ScrollToTop';
+import LoadingScreen from '@/components/LoadingSreen';
 
 const BookerAccountingWebsite = () => {
 
@@ -23,7 +24,7 @@ const BookerAccountingWebsite = () => {
     <div className="min-h-screen text-foreground">
       {/* <Navbar /
       > */}
-
+<LoadingScreen/>
       <HeroSection />
       <MainAchievements />
       <HomeAboutTimeline />
