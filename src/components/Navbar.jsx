@@ -155,11 +155,16 @@ export default function Navbar() {
             </button>
           </div>
 
-          {/* Mobile Menu */}
+          {/* Mobile Menu (Fixed for iOS crash) */}
           <div
-            className={`lg:hidden transition-all duration-300 overflow-hidden rounded-lg backdrop-blur-sm text-white text-center ${
+            className={`lg:hidden transition-[max-height,opacity] duration-300 ease-in-out rounded-lg text-white text-center will-change-[max-height,opacity] ${
               isOpen ? "max-h-[500px] py-4 opacity-100" : "max-h-0 opacity-0"
             }`}
+            style={{
+              WebkitOverflowScrolling: "touch",
+              WebkitTransform: "translateZ(0)",
+              backfaceVisibility: "hidden",
+            }}
           >
             {NAV_LINKS.map((link) => {
               const href = link === "Home" ? "/" : `/${link.toLowerCase()}`;
@@ -188,8 +193,8 @@ export default function Navbar() {
                     </button>
 
                     <div
-                      className={`transition-all duration-300 overflow-hidden ${
-                        servicesOpen ? "max-h-[400px] " : "max-h-0 opacity-0"
+                      className={`transition-[max-height,opacity] duration-300 overflow-hidden ${
+                        servicesOpen ? "max-h-[400px] opacity-100" : "max-h-0 opacity-0"
                       } w-full text-start px-6`}
                     >
                       {processedServices.map((s) => (
