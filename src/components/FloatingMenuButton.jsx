@@ -2,12 +2,29 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiMail, FiPhone, FiChevronUp } from "react-icons/fi";
-import { FaFacebookF, FaWhatsapp, FaInstagram, FaXTwitter } from "react-icons/fa6";
+import {
+  FaFacebookF,
+  FaWhatsapp,
+  FaInstagram,
+  FaXTwitter,
+} from "react-icons/fa6";
+import Link from "next/link";
+import Image from "next/image";
 
 // Data for the contact items
 const contactItems = [
-  { icon: FiPhone, label: "Call us now", type: "phone", href: "tel:+1234567890" },
-  { icon: FiMail, label: "Mail us now", type: "email", href: "mailto:contact@example.com" },
+  {
+    icon: FiPhone,
+    label: "Call us now",
+    type: "phone",
+    href: "tel:+1234567890",
+  },
+  {
+    icon: FiMail,
+    label: "Mail us now",
+    type: "email",
+    href: "mailto:contact@example.com",
+  },
 ];
 
 const socialItems = [
@@ -45,7 +62,7 @@ const menuContainerVariants = {
 const itemVariants = {
   hidden: { opacity: 0, y: 10 },
   visible: { opacity: 1, y: 0 },
-};
+};  
 
 export default function FloatingMenuButton() {
   const [isOpen, setIsOpen] = useState(false);
@@ -53,31 +70,30 @@ export default function FloatingMenuButton() {
   // 🖱️ Animated Cursor Icon (Mimics the screenshot)
   const CursorIcon = () => (
     <motion.div
-  animate={{
-    y: [0, -3, 0], // slight hover bounce
-    transition: {
-      duration: 1.2,
-      ease: "easeInOut",
-      repeat: Infinity,
-    },
-  }}
-  className="p-2 bg-primary rounded-lg shadow-md cursor-pointer"
->
-  <svg
-    className="w-6 h-6 text-cyan-500"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2.2"
-    viewBox="0 0 24 24"
-  >
-    <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      d="M7 17L17 7M17 7H9M17 7V15"
-    />
-  </svg>
-</motion.div>
-
+      animate={{
+        y: [0, -3, 0], // slight hover bounce
+        transition: {
+          duration: 1.2,
+          ease: "easeInOut",
+          repeat: Infinity,
+        },
+      }}
+      className="p-2 bg-primary rounded-lg shadow-md cursor-pointer"
+    >
+      <svg
+        className="w-6 h-6 text-cyan-500"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2.2"
+        viewBox="0 0 24 24"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M7 17L17 7M17 7H9M17 7V15"
+        />
+      </svg>
+    </motion.div>
   );
 
   return (
@@ -91,12 +107,28 @@ export default function FloatingMenuButton() {
             initial="hidden"
             animate="visible"
             exit="exit"
-            className="w-64 bg-white p-4 rounded-3xl shadow-2xl backdrop-blur-md border border-gray-100"
+            className="w-64 bg-white p-4 rounded-3xl shadow-2xl backdrop-blur-md border border-gray-100 relative"
           >
+            {/* 🏢 Company Logo at the Top Center */}
+            <div className="flex justify-center mb-4">
+              <Link href="/" className="inline-block">
+                <div className="relative w-16 h-16">
+                  <Image
+                    src="/images/LogoD.png" // your actual logo path
+                    alt="Company Logo"
+                    fill
+                    className="object-contain"
+                    priority
+                    sizes="64px"
+                  />
+                </div>
+              </Link>
+            </div>
+
             {/* Contact Section */}
             <motion.div className="mb-4">
               <ul className="space-y-2">
-                {contactItems.map((item, index) => (
+                {contactItems.map((item) => (
                   <motion.li key={item.label} variants={itemVariants}>
                     <a
                       href={item.href}
@@ -112,7 +144,7 @@ export default function FloatingMenuButton() {
 
             {/* Social Media Section */}
             <motion.div className="flex justify-center space-x-6 pt-4 border-t border-gray-100">
-              {socialItems.map((item, index) => (
+              {socialItems.map((item) => (
                 <motion.a
                   key={item.label}
                   href={item.href}

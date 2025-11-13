@@ -1,18 +1,14 @@
 "use client";
 
 import ContactSection from "@/components/ContactSection";
+import FloatingMenuButton from "@/components/FloatingMenuButton";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import { motion } from "framer-motion";
 import {
   FileText,
-  BarChart3,
   Shield,
-  CheckCircle,
   TrendingUp,
-  Users,
-  Target,
-  Award,
   Briefcase,
   Layers,
   ClipboardCheck,
@@ -23,7 +19,7 @@ import Link from "next/link";
 export default function Page() {
   return (
     <>
-      {/* <Navbar /> */}
+      <Navbar />
 
       {/* HERO SECTION */}
       <section className="relative overflow-hidden text-white ">
@@ -33,11 +29,14 @@ export default function Page() {
           transition={{ duration: 0.8 }}
           className="absolute inset-0"
         >
-          <div
-            className="absolute inset-0 bg-cover bg-center transition-transform duration-[6000ms] hover:scale-110"
-            style={{
-              backgroundImage: `url('/images/img3.jpg')`,
-            }}
+          <Image
+            src="/images/img3.webp"
+            alt="Taxation"
+            priority
+            fill
+            sizes="100vw"
+            className="object-cover object-center"
+            style={{ transform: "translateZ(0)" }} // ✅ Forces GPU to not over-allocate memory
           />
 
           <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-black/50 to-black/80" />
@@ -374,7 +373,7 @@ export default function Page() {
       {/* CONTACT */}
 
       <ContactSection />
-
+      <FloatingMenuButton />
       <Footer />
     </>
   );

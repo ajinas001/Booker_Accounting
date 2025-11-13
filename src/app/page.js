@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+
 
 // Components
 import Navbar from '@/components/Navbar';
@@ -14,13 +14,14 @@ import Whychoose from '@/components/Whychoose';
 import MainVisionSection from '@/components/Values';
 import ContactSection from '@/components/ContactSection';
 import FloatingMenuButton from '@/components/FloatingMenuButton';
+import ScrollToTop from '@/components/ScrollToTop';
 
 const BookerAccountingWebsite = () => {
 
 
   return (
-    <div className="min-h-screen bg-primary text-foreground">
-      {/* <Navbar /> */}
+    <div className="min-h-screen text-foreground">
+      <Navbar />
 
       <HeroSection />
       <MainAchievements />
@@ -30,7 +31,7 @@ const BookerAccountingWebsite = () => {
       <Whychoose />
       <MainVisionSection />
       <ContactSection />
-
+<ScrollToTop/>
       <FloatingMenuButton />
       <Footer />
     </div>

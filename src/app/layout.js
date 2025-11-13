@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
 import LenisWrapper from "@/components/LenisWrapper";
+import LoadingScreen from "@/components/LoadingSreen";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -64,6 +65,7 @@ export default function RootLayout({ children }) {
         }}
       >
         <LenisWrapper>
+          <LoadingScreen/>
           {children}
         </LenisWrapper>
         

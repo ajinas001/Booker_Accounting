@@ -8,6 +8,7 @@ import { motion } from "framer-motion";
 import { Shield, CheckCircle, TrendingUp, Users, FileText } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import FloatingMenuButton from "@/components/FloatingMenuButton";
 
 // Data moved outside the component for better rendering
 const services = [
@@ -166,7 +167,7 @@ export default function AuditAssurancePage() {
       </Head>
 
       <div className="bg-gradient-to-b from-white to-gray-50 text-gray-800">
-        {/* <Navbar /> */}
+        <Navbar />
 
         {/* HERO */}
         <section className="relative overflow-hidden text-white ">
@@ -494,6 +495,7 @@ export default function AuditAssurancePage() {
         </section>
 
         <ContactSection />
+        <FloatingMenuButton/>
         <Footer />
       </div>
     </>
