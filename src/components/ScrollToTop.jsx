@@ -28,7 +28,7 @@ const ScrollToTop = () => {
          
           whileTap={{ scale: 0.95 }}
           transition={{ duration: 0.3, ease: "easeOut" }}
-          className="fixed bottom-6 left-6 z-50 bg-white text-teal-600 p-3 rounded-2xl shadow-lg hover:bg-teal-600 hover:text-white transition-colors duration-300"
+          className="fixed bottom-7 left-7 z-50 bg-white text-teal-600 p-2 rounded-2xl shadow-lg hover:bg-teal-600 hover:text-white transition-colors duration-300"
           aria-label="Scroll to top"
         >
           {/* SVG Arrow */}

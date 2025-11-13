@@ -90,7 +90,7 @@ export default function FloatingMenuButton() {
   );
 
   return (
-    <div className="fixed bottom-8 right-8 z-40">
+    <div className="fixed bottom-6 right-8 z-40">
       <AnimatePresence>
         {isOpen ? (
           // --- Menu Pop-up ---
