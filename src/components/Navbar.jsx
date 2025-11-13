@@ -89,11 +89,15 @@ export default function Navbar() {
                   return (
                     <div
                       key={link}
-                      onMouseEnter={() => setServicesOpen(true)}
-                      onMouseLeave={() => setServicesOpen(false)}
-                      className="relative"
+                      className="relative group"
+                      onMouseEnter={() => {
+                        if (window.innerWidth >= 1024) setServicesOpen(true);
+                      }}
+                      onMouseLeave={() => {
+                        if (window.innerWidth >= 1024) setServicesOpen(false);
+                      }}
                     >
-                      <button className="px-4 py-2 flex items-center gap-1 text-md font-medium text-white hover:text-teal-400 transition">
+                      <button className="px-4 py-2 flex items-center gap-1 text-md font-medium hover:text-teal-400 transition">
                         {link}
                         <svg
                           className={`w-4 h-4 transition-transform duration-300 ${
@@ -109,7 +113,6 @@ export default function Navbar() {
                           <path d="M19 9l-7 7-7-7" />
                         </svg>
                       </button>
-                      {/* underline */}
                       <div className="absolute bottom-0 left-0 w-full h-0.5 bg-teal-400 origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
                     </div>
                   );
@@ -119,7 +122,7 @@ export default function Navbar() {
                   <Link
                     key={link}
                     href={href}
-                    className="px-4 py-2 text-md font-medium text-white hover:text-teal-400 transition relative group"
+                    className="px-4 py-2 text-md font-medium hover:text-teal-400 transition relative group"
                   >
                     {link}
                     <div className="absolute bottom-0 left-0 w-full h-0.5 bg-teal-400 origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
@@ -128,14 +131,17 @@ export default function Navbar() {
               })}
             </div>
 
-            <button className="hidden lg:block ml-4 px-8 py-3 rounded-full border-2 border-white text-white font-medium hover:bg-teal-600 transition">
+            <Link href={'/contact'} className="hidden lg:block ml-4 px-8 py-3 rounded-tl-full rounded-tr-full rounded-br-full border-2 border-white text-white font-medium hover:bg-secondary transition">
               Get started
-            </button>
+            </Link>
 
             {/* Mobile menu button */}
             <button
               className="lg:hidden p-2 rounded-lg hover:bg-white/10 transition"
-              onClick={() => setIsOpen(!isOpen)}
+              onClick={() => {
+                setIsOpen(!isOpen);
+                setServicesOpen(false); // close when toggling
+              }}
             >
               <svg
                 className="w-6 h-6 text-teal-400"
@@ -155,16 +161,13 @@ export default function Navbar() {
             </button>
           </div>
 
-          {/* Mobile Menu (Fixed for iOS crash) */}
+          {/* --- Mobile Menu --- */}
           <div
-            className={`lg:hidden transition-[max-height,opacity] duration-300 ease-in-out rounded-lg text-white text-center will-change-[max-height,opacity] ${
-              isOpen ? "max-h-[500px] py-4 opacity-100" : "max-h-0 opacity-0"
+            className={`lg:hidden transition-[max-height,opacity] duration-300 ease-in-out rounded-lg text-center overflow-hidden will-change-[max-height,opacity] ${
+              isOpen
+                ? "max-h-[500px] py-4 opacity-100 bg-white text-black"
+                : "max-h-0 opacity-0"
             }`}
-            style={{
-              WebkitOverflowScrolling: "touch",
-              WebkitTransform: "translateZ(0)",
-              backfaceVisibility: "hidden",
-            }}
           >
             {NAV_LINKS.map((link) => {
               const href = link === "Home" ? "/" : `/${link.toLowerCase()}`;
@@ -174,7 +177,7 @@ export default function Navbar() {
                   <div key={link} className="flex flex-col items-center">
                     <button
                       onClick={toggleMobileServices}
-                      className="w-full px-4 py-3 flex items-center justify-center gap-1 text-white hover:text-teal-400 font-medium transition"
+                      className="w-full px-4 py-3 flex items-center justify-center gap-1 hover:text-teal-600 font-medium transition"
                     >
                       Services
                       <svg
@@ -194,7 +197,9 @@ export default function Navbar() {
 
                     <div
                       className={`transition-[max-height,opacity] duration-300 overflow-hidden ${
-                        servicesOpen ? "max-h-[400px] opacity-100" : "max-h-0 opacity-0"
+                        servicesOpen
+                          ? "max-h-[400px] opacity-100"
+                          : "max-h-0 opacity-0"
                       } w-full text-start px-6`}
                     >
                       {processedServices.map((s) => (
@@ -202,7 +207,7 @@ export default function Navbar() {
                           key={s.title}
                           href={s.link}
                           onClick={closeAllMenus}
-                          className="block py-2 text-gray-200 hover:text-teal-400 text-sm transition"
+                          className="block py-2 text-gray-700 hover:text-teal-600 text-sm transition"
                         >
                           {s.title}
                         </Link>
@@ -217,7 +222,7 @@ export default function Navbar() {
                   key={link}
                   href={href}
                   onClick={closeAllMenus}
-                  className="block px-4 py-3 text-white hover:text-teal-400 font-medium transition"
+                  className="block px-4 py-3 hover:text-teal-600 font-medium transition"
                 >
                   {link}
                 </Link>
@@ -227,51 +232,53 @@ export default function Navbar() {
         </div>
       </nav>
 
-      {/* Desktop Mega Menu */}
-      <div
-        onMouseEnter={() => setServicesOpen(true)}
-        onMouseLeave={() => setServicesOpen(false)}
-        className={`absolute left-0 right-0 z-40 transition-all duration-300 ${
-          servicesOpen
-            ? "opacity-100 visible translate-y-0"
-            : "opacity-0 invisible -translate-y-4"
-        }`}
-      >
-        <div className="m-4 p-4 bg-gray-700 text-white rounded-2xl">
-          <div className="max-w-7xl mx-auto px-6 py-6">
-            <div className="grid grid-cols-1 lg:grid-cols-5">
-              <div className="lg:col-span-1 pr-6">
-                <h3 className="text-3xl font-bold mb-4">Our Services</h3>
-                <p className="text-base text-gray-200 leading-relaxed">
-                  No matter your role or goal{" "}
-                  <span className="text-teal-400 font-bold">BAC</span> adapts to
-                  your needs
-                </p>
-              </div>
-              <div className="lg:col-span-4 grid grid-cols-2 sm:grid-cols-3 gap-x-6 gap-y-8 pt-12 text-start">
-                {processedServices.map((service) => (
-                  <div key={service.title} className="space-y-2">
-                    <Link
-                      href={service.link}
-                      onClick={closeAllMenus}
-                      className="block text-lg font-semibold hover:text-teal-400 transition"
-                    >
-                      {service.title}
-                    </Link>
-                    <ul className="list-disc pl-5 space-y-1 text-gray-300">
-                      {service.descriptionPoints.map((point, i) => (
-                        <li key={i} className="text-sm leading-relaxed">
-                          {point}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                ))}
+      {/* --- Desktop Mega Menu --- */}
+      {typeof window !== "undefined" && window.innerWidth >= 1024 && (
+        <div
+          onMouseEnter={() => setServicesOpen(true)}
+          onMouseLeave={() => setServicesOpen(false)}
+          className={`absolute left-0 right-0 z-40 transition-all duration-300 ${
+            servicesOpen
+              ? "opacity-100 visible translate-y-0"
+              : "opacity-0 invisible -translate-y-4"
+          }`}
+        >
+          <div className="m-4 p-4 bg-gray-900 text-teal-400 rounded-2xl">
+            <div className="max-w-7xl mx-auto px-6 py-6">
+              <div className="grid grid-cols-1 lg:grid-cols-5">
+                <div className="lg:col-span-1 pr-6  py-48">
+                  <h3 className="text-3xl font-bold mb-4">Our Services</h3>
+                  <p className="text-base text-gray-200 leading-relaxed">
+                    No matter your role or goal{" "}
+                    <span className="text-teal-400 font-bold">BAC</span> adapts
+                    to your needs
+                  </p>
+                </div>
+                <div className="lg:col-span-4 grid grid-cols-2 sm:grid-cols-3 gap-x-6 gap-y-8 pt-12 text-start">
+                  {processedServices.map((service) => (
+                    <div key={service.title} className="space-y-2">
+                      <Link
+                        href={service.link}
+                        onClick={closeAllMenus}
+                        className="block text-lg font-semibold hover:text-teal-400 transition"
+                      >
+                        {service.title}
+                      </Link>
+                      <ul className="list-disc pl-5 space-y-1 text-gray-300">
+                        {service.descriptionPoints.map((point, i) => (
+                          <li key={i} className="text-sm leading-relaxed">
+                            {point}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      )}
     </>
   );
 }

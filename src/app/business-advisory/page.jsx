@@ -16,6 +16,7 @@ import {
 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import FloatingMenuButton from "@/components/FloatingMenuButton";
+import ScrollToTop from "@/components/ScrollToTop";
 
 // -------------------- SERVICES DATA --------------------
 const services = [
@@ -281,6 +282,7 @@ export default function BusinessAdvisoryPage() {
 
       {/* ================= CONTACT & FOOTER ================= */}
       <ContactSection />
+      <ScrollToTop/>
       <FloatingMenuButton/>
       <Footer />
     </>

@@ -7,6 +7,7 @@ import { Users, FileText, BarChart2 } from "lucide-react";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import FloatingMenuButton from "@/components/FloatingMenuButton";
+import ScrollToTop from "@/components/ScrollToTop";
 
 export default function BlogPage() {
   const POSTS = [
@@ -200,6 +201,7 @@ export default function BlogPage() {
         </section>
 
         {/* ✅ FOOTER SECTION */}
+        <ScrollToTop/>
         <FloatingMenuButton/>
         <Footer />
       </div>

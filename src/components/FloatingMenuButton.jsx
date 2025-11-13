@@ -3,40 +3,38 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiMail, FiPhone, FiChevronUp } from "react-icons/fi";
 import {
-  FaFacebookF,
+  FaLinkedinIn,
   FaWhatsapp,
   FaInstagram,
-  FaXTwitter,
+
 } from "react-icons/fa6";
 import Link from "next/link";
 import Image from "next/image";
 
-// Data for the contact items
+// Contact items
 const contactItems = [
   {
     icon: FiPhone,
     label: "Call us now",
     type: "phone",
-    href: "tel:+1234567890",
+    href: "tel:+971567678156",
   },
   {
     icon: FiMail,
     label: "Mail us now",
     type: "email",
-    href: "mailto:contact@example.com",
+    href: "mailto:Info@bookeraccounting.com",
   },
 ];
 
 const socialItems = [
-  { icon: FaFacebookF, href: "https://facebook.com", label: "Facebook" },
-  { icon: FaWhatsapp, href: "https://wa.me/1234567890", label: "WhatsApp" },
-  { icon: FaInstagram, href: "https://instagram.com", label: "Instagram" },
-  { icon: FaXTwitter, href: "https://twitter.com", label: "Twitter" },
+  { icon: FaLinkedinIn, href: "https://www.linkedin.com/company/bookeraccounting/", label: "LinkedIn" },
+  { icon: FaWhatsapp, href: "https://wa.me/971567678156 ", label: "WhatsApp" },
+  { icon: FaInstagram, href: "https://www.instagram.com/booker_accounting?igsh=dzZ5MGZwMHJscjh4&utm_source=qr", label: "Instagram" },
+  
 ];
 
-// ⚙️ Framer Motion Variants
-
-// Button/Menu Container Animation
+// Framer Motion Variants
 const menuContainerVariants = {
   hidden: { opacity: 0, scale: 0.95, y: 10 },
   visible: {
@@ -58,41 +56,36 @@ const menuContainerVariants = {
   },
 };
 
-// Individual Menu Item Animation
 const itemVariants = {
   hidden: { opacity: 0, y: 10 },
   visible: { opacity: 1, y: 0 },
-};  
+};
 
 export default function FloatingMenuButton() {
   const [isOpen, setIsOpen] = useState(false);
 
-  // 🖱️ Animated Cursor Icon (Mimics the screenshot)
-  const CursorIcon = () => (
+  // 🖼️ Replacing the cursor icon with a logo image
+  const LogoButton = () => (
     <motion.div
       animate={{
-        y: [0, -3, 0], // slight hover bounce
+        y: [0, -3, 0],
         transition: {
           duration: 1.2,
           ease: "easeInOut",
           repeat: Infinity,
         },
       }}
-      className="p-2 bg-primary rounded-lg shadow-md cursor-pointer"
+      className=" bg-white rounded-2xl shadow-md cursor-pointer border border-gray-100"
     >
-      <svg
-        className="w-6 h-6 text-cyan-500"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2.2"
-        viewBox="0 0 24 24"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M7 17L17 7M17 7H9M17 7V15"
+      <div className="relative w-10 h-10">
+        <Image
+          src="/images/Logo.png" // replace with your image path
+          alt="Logo"
+          fill
+          className="object-contain"
+          sizes="40px"
         />
-      </svg>
+      </div>
     </motion.div>
   );
 
@@ -109,12 +102,12 @@ export default function FloatingMenuButton() {
             exit="exit"
             className="w-64 bg-white p-4 rounded-3xl shadow-2xl backdrop-blur-md border border-gray-100 relative"
           >
-            {/* 🏢 Company Logo at the Top Center */}
+            {/* 🏢 Logo at the Top Center */}
             <div className="flex justify-center mb-4">
               <Link href="/" className="inline-block">
                 <div className="relative w-16 h-16">
                   <Image
-                    src="/images/LogoD.png" // your actual logo path
+                    src="/images/LogoD.png"
                     alt="Company Logo"
                     fill
                     className="object-contain"
@@ -142,7 +135,7 @@ export default function FloatingMenuButton() {
               </ul>
             </motion.div>
 
-            {/* Social Media Section */}
+            {/* Social Media */}
             <motion.div className="flex justify-center space-x-6 pt-4 border-t border-gray-100">
               {socialItems.map((item) => (
                 <motion.a
@@ -161,7 +154,7 @@ export default function FloatingMenuButton() {
               ))}
             </motion.div>
 
-            {/* Close Button at the Bottom */}
+            {/* Close Button */}
             <motion.button
               onClick={() => setIsOpen(false)}
               className="absolute -bottom-4 right-1/2 translate-x-1/2 p-2 bg-white rounded-full shadow-lg border border-gray-100 hover:bg-gray-50 transition-colors"
@@ -171,7 +164,7 @@ export default function FloatingMenuButton() {
             </motion.button>
           </motion.div>
         ) : (
-          // --- Floating Button (Cursor Icon) ---
+          // --- Floating Logo Button ---
           <motion.button
             key="button"
             className="relative"
@@ -183,7 +176,7 @@ export default function FloatingMenuButton() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            <CursorIcon />
+            <LogoButton />
           </motion.button>
         )}
       </AnimatePresence>

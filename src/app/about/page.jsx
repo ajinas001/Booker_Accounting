@@ -4,6 +4,10 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Link from "next/link";
+import ContactSection from "@/components/ContactSection";
+import ScrollToTop from "@/components/ScrollToTop";
+import FloatingMenuButton from "@/components/FloatingMenuButton";
+import Image from "next/image";
 
 // --- Custom Tailwind-like Colors based on CSS Theme ---
 const PRIMARY_BLACK = "#0d1a20";
@@ -477,7 +481,7 @@ const AboutPageTimeline = () => {
       content: (
         <div className="space-y-8">
           <SplitContentLayout
-            imageUrl="/images/sticky-3.png"
+            imageUrl="/images/business7.webp"
             title="Strategic Partnership"
             content={
               <>
@@ -501,14 +505,14 @@ const AboutPageTimeline = () => {
         <div className="space-y-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <ImageContentBlock
-              imageUrl="/images/business3.jpg"
+              imageUrl="/images/business.webp"
               title="Our Mission"
               description="Deliver flawless accuracy and proactive financial intelligence to keep your business not just compliant, but highly competitive."
               overlayPosition="bottom"
               delay={0.1}
             />
             <ImageContentBlock
-              imageUrl="/images/img.jpg"
+              imageUrl="/images/img.webp"
               title="Our Vision"
               description="Become the most reliable and innovative financial partner empowering owner-managed businesses across the UAE."
               overlayPosition="bottom"
@@ -536,12 +540,12 @@ const AboutPageTimeline = () => {
           <FloatingImageGallery
             images={[
               {
-                url: "/images/image3.webp",
+                url: "/images/img3.webp",
                 caption: "Precision in Every Detail",
               },
               { url: "/images/img1.webp", caption: "Uncompromising Integrity" },
-              { url: "/images/business7.webo", caption: "Strategic Foresight" },
-              // { url: "/images/image4.jpg", caption: "Continuous Innovation" }
+              { url: "/images/business7.webp", caption: "Strategic Foresight" },
+           
             ]}
             delay={0.1}
           />
@@ -603,7 +607,7 @@ const AboutPageTimeline = () => {
       iconKey: "uae",
       content: (
         <SplitContentLayout
-          imageUrl="/images/business8.webp"
+          imageUrl="/images/business7.webp"
           title="Local Mastery, Global Standards"
           reverse={true}
           content={
@@ -669,13 +673,9 @@ const AboutPageTimeline = () => {
 
   return (
     <>
-      {/* <Navbar
-        scrolled={scrolled}
-        isMenuOpen={isMenuOpen}
-        setIsMenuOpen={setIsMenuOpen}
-      /> */}
+ 
       <div style={{ backgroundColor: PRIMARY_LIGHT }} className="min-h-screen">
-
+<Navbar/>
         
         {/* Hero Section */}
 
@@ -687,11 +687,18 @@ const AboutPageTimeline = () => {
             transition={{ duration: 0.8 }}
             className="absolute inset-0"
           >
-            <div
-              className="absolute inset-0 bg-cover bg-center transition-transform duration-[6000ms] hover:scale-110"
-              style={{
-                backgroundImage: `url('/images/img3.jpg')`,
-              }}
+            <Image
+                          src="/images/img3.webp"
+                          alt="Blog"
+                          fill
+                          priority
+                          sizes="100vw"
+                          className="object-cover object-center transform-gpu"
+                          style={{
+                            WebkitTransform: "translateZ(0)",
+                            backfaceVisibility: "hidden",
+                            transformStyle: "preserve-3d",
+                          }}
             />
 
             <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-black/50 to-black/80" />
@@ -828,6 +835,9 @@ const AboutPageTimeline = () => {
           </div>
         </section>
       </div>
+      <ContactSection/>
+      <ScrollToTop/>
+      <FloatingMenuButton/>
       <Footer />
     </>
   );

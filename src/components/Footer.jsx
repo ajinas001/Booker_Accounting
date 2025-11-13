@@ -1,10 +1,12 @@
 "use client";
 import React, { useState } from "react";
 import {
+ 
   FaLinkedinIn,
-  FaYoutube,
-  FaXTwitter,
-  FaFacebookF,
+ 
+  FaWhatsapp,
+  FaInstagram,
+  FaEnvelope,
 } from "react-icons/fa6";
 import Image from "next/image";
 import Link from "next/link";
@@ -26,10 +28,12 @@ const pageLinks = [
 ];
 
 const socialLinks = [
-  { icon: FaFacebookF, href: "#", label: "Facebook" },
-  { icon: FaXTwitter, href: "#", label: "Twitter" },
-  { icon: FaLinkedinIn, href: "#", label: "LinkedIn" },
-  { icon: FaYoutube, href: "#", label: "YouTube" },
+  
+  { icon: FaLinkedinIn, href: "https://www.linkedin.com/company/bookeraccounting/", label: "LinkedIn" },
+ 
+  { icon: FaWhatsapp, href: "https://wa.me/971567678156", label: "WhatsApp" },
+  { icon: FaInstagram, href: "https://www.instagram.com/booker_accounting?igsh=dzZ5MGZwMHJscjh4&utm_source=qr", label: "Instagram" },
+  { icon: FaEnvelope, href: "mailto:info@bookeraccounting.com", label: "Email" },
 ];
 
 const Footer = () => {

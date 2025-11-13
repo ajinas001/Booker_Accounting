@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import FloatingMenuButton from "@/components/FloatingMenuButton";
+import ScrollToTop from "@/components/ScrollToTop";
 
 const containerVariants = {
   hidden: { opacity: 0, y: 30 },
@@ -215,7 +216,7 @@ export default function AntiMoneyLaunderingPage() {
             <Image
               width={600}
               height={500}
-              src="/images/audit.webp"
+              src="/images/aml.webp"
               alt="Team working"
               className="w-full h-full object-cover"
             />
@@ -293,6 +294,7 @@ export default function AntiMoneyLaunderingPage() {
       </section>
 
       <ContactSection />
+      <ScrollToTop/>
       <FloatingMenuButton/>
       <Footer />
     </>

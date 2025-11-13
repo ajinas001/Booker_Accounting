@@ -7,6 +7,7 @@ import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import FloatingMenuButton from "@/components/FloatingMenuButton";
+import ScrollToTop from "@/components/ScrollToTop";
 
 const offerings = [
   {
@@ -326,6 +327,7 @@ export default function AccountingPage() {
 
       <ContactSection />
       <FloatingMenuButton/>
+      <ScrollToTop/>
       <Footer />
     </>
   );

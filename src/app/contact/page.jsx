@@ -9,6 +9,7 @@ import Footer from "@/components/Footer";
 import ContactSection from "@/components/ContactSection";
 import Navbar from "@/components/Navbar";
 import FloatingMenuButton from "@/components/FloatingMenuButton";
+import ScrollToTop from "@/components/ScrollToTop";
 
 export default function ContactPage() {
   // --- Contact Form State ---
@@ -102,7 +103,7 @@ export default function ContactPage() {
       </section>
 
       {/* --- CONTACT INFO --- */}
-      <ContactSection />
+      {/* <ContactSection /> */}
 
       {/* --- FORM --- */}
       <section className="py-20 px-6 md:px-20 bg-gray-100">
@@ -213,7 +214,7 @@ export default function ContactPage() {
         </motion.div>
       </section>
       <FloatingMenuButton/>
-
+<ScrollToTop/>
       {/* --- FOOTER --- */}
       <Footer />
     </div>

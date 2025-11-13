@@ -9,6 +9,7 @@ import { Shield, CheckCircle, TrendingUp, Users, FileText } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import FloatingMenuButton from "@/components/FloatingMenuButton";
+import ScrollToTop from "@/components/ScrollToTop";
 
 // Data moved outside the component for better rendering
 const services = [
@@ -495,6 +496,7 @@ export default function AuditAssurancePage() {
         </section>
 
         <ContactSection />
+        <ScrollToTop/>
         <FloatingMenuButton/>
         <Footer />
       </div>
