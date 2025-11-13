@@ -31,7 +31,7 @@ const BookerAccountingWebsite = () => {
       <Whychoose />
       <MainVisionSection />
       <ContactSection />
-<ScrollToTop/>
+      <ScrollToTop />
       <FloatingMenuButton />
       <Footer />
     </div>

@@ -65,7 +65,6 @@ export default function RootLayout({ children }) {
         }}
       >
         <LenisWrapper>
-          <LoadingScreen/>
           {children}
         </LenisWrapper>
         
