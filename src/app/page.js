@@ -21,7 +21,8 @@ const BookerAccountingWebsite = () => {
 
   return (
     <div className="min-h-screen text-foreground">
-      <Navbar />
+      {/* <Navbar /
+      > */}
 
       <HeroSection />
       <MainAchievements />

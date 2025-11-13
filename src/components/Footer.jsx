@@ -44,7 +44,7 @@ const Footer = () => {
           <div className="max-w-md">
             <div className="flex items-center gap-3 mb-3">
               <Image
-                src="/images/LogoLight.png"
+                src="/images/LogoL.png"
                 alt="Booker Accounting Company Logo"
                 width={120}
                 height={120}
