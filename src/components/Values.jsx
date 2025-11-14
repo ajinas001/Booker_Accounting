@@ -485,7 +485,7 @@ const MainVisionSection = () => {
           transition={{ duration: 0.8 }}
           className="text-center pt-20 border-t border-gray-200/60"
         >
-          <blockquote className="text-2xl md:text-3xl font-light text-gray-700 max-w-5xl mx-auto leading-relaxed mb-10 px-4">
+          <blockquote className="text-2xl font-light text-gray-700  mx-auto leading-relaxed mb-10 px-4">
             <motion.span
               className="text-cyan-600 text-4xl font-serif"
               initial={{ opacity: 0 }}
@@ -494,7 +494,8 @@ const MainVisionSection = () => {
             >
               "
             </motion.span>
-            Where financial clarity, regulatory confidence, and business growth are accessible to all — powered by integrity, insight, and intelligent technology.
+              Where financial clarity, regulatory confidence, and business growth are accessible to all <br/>
+              powered by integrity, insight, and intelligent technology.
             <motion.span
               className="text-cyan-600 text-4xl font-serif"
               initial={{ opacity: 0 }}

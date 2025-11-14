@@ -247,11 +247,13 @@ export default function AuditAssurancePage() {
               </h2>
               <p className="text-lg text-gray-600 mb-4">
                 At Booker Accounting, we believe audits are more than regulatory
-                requirements — they’re strategic opportunities.
+                requirements. They are opportunities to strengthen your
+                business.
               </p>
+
               <p className="text-lg text-gray-600 mb-8">
-                Our audit services go beyond the checklist— delivering
-                insight-driven results.
+                Our audit services go beyond checklists. We deliver clear,
+                insight-driven results that support confident decision-making.
               </p>
             </div>
 
@@ -496,8 +498,8 @@ export default function AuditAssurancePage() {
         </section>
 
         <ContactSection />
-        <ScrollToTop/>
-        <FloatingMenuButton/>
+        <ScrollToTop />
+        <FloatingMenuButton />
         <Footer />
       </div>
     </>

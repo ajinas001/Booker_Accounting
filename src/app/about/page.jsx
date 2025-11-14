@@ -486,10 +486,10 @@ const AboutPageTimeline = () => {
             content={
               <>
                 <p className="text-lg leading-relaxed">
-                  We transcend traditional accounting. We are your dedicated
-                  financial command center, fusing **seasoned human judgment**
-                  with the precision of **AI-driven insights** for superior
-                  results.
+                  We go beyond traditional accounting. We serve as your
+                  dedicated financial command center, combining seasoned human
+                  judgment with the precision of AI driven insights to deliver
+                  superior results.
                 </p>
               </>
             }
@@ -505,7 +505,7 @@ const AboutPageTimeline = () => {
         <div className="space-y-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <ImageContentBlock
-              imageUrl="/images/business.webp"
+              imageUrl="/images/business4.webp"
               title="Our Mission"
               description="Deliver flawless accuracy and proactive financial intelligence to keep your business not just compliant, but highly competitive."
               overlayPosition="bottom"
@@ -540,12 +540,11 @@ const AboutPageTimeline = () => {
           <FloatingImageGallery
             images={[
               {
-                url: "/images/img3.webp",
+                url: "/images/business1.jpg",
                 caption: "Precision in Every Detail",
               },
               { url: "/images/img1.webp", caption: "Uncompromising Integrity" },
               { url: "/images/business7.webp", caption: "Strategic Foresight" },
-           
             ]}
             delay={0.1}
           />
@@ -607,7 +606,7 @@ const AboutPageTimeline = () => {
       iconKey: "uae",
       content: (
         <SplitContentLayout
-          imageUrl="/images/business7.webp"
+          imageUrl="/images/business8.webp"
           title="Local Mastery, Global Standards"
           reverse={true}
           content={
@@ -673,12 +672,10 @@ const AboutPageTimeline = () => {
 
   return (
     <>
- 
       <div style={{ backgroundColor: PRIMARY_LIGHT }} className="min-h-screen">
-<Navbar/>
-        
-        {/* Hero Section */}
+        <Navbar />
 
+        {/* Hero Section */}
 
         <section className="relative overflow-hidden text-white ">
           <motion.div
@@ -688,17 +685,17 @@ const AboutPageTimeline = () => {
             className="absolute inset-0"
           >
             <Image
-                          src="/images/img3.webp"
-                          alt="Blog"
-                          fill
-                          priority
-                          sizes="100vw"
-                          className="object-cover object-center transform-gpu"
-                          style={{
-                            WebkitTransform: "translateZ(0)",
-                            backfaceVisibility: "hidden",
-                            transformStyle: "preserve-3d",
-                          }}
+              src="/images/img3.webp"
+              alt="Blog"
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover object-center transform-gpu"
+              style={{
+                WebkitTransform: "translateZ(0)",
+                backfaceVisibility: "hidden",
+                transformStyle: "preserve-3d",
+              }}
             />
 
             <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-black/50 to-black/80" />
@@ -835,9 +832,9 @@ const AboutPageTimeline = () => {
           </div>
         </section>
       </div>
-      <ContactSection/>
-      <ScrollToTop/>
-      <FloatingMenuButton/>
+      <ContactSection />
+      <ScrollToTop />
+      <FloatingMenuButton />
       <Footer />
     </>
   );

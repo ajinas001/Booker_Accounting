@@ -134,7 +134,7 @@ const MainAchievements = () => {
     },
     {
       id: 3,
-      number: 100,
+      number: 500,
       suffix: "+",
       title: "Satisfied Customers",
       svg: (

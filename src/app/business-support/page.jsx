@@ -196,7 +196,7 @@ function BusinessSupportPage() {
               <Image
                 width={600}
                 height={500}
-                src="/images/business-support.jpg"
+                src="/images/business-support.webp"
                 alt="Business support UAE"
                 className="w-full h-full object-cover"
               />

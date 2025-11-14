@@ -11,7 +11,7 @@ function Whychoose() {
             title: "Owner-Managed Focus",
             tagline: "Built for entrepreneurs and business owners",
             description: "We specialize in serving privately owned companies across Dubai and the UAE, providing hands-on support to increase profitability and protect your wealth.",
-            image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&h=800&fit=crop",
+            image: "/images/handshake.webp",
             icon: Users
         },
         {
@@ -19,7 +19,7 @@ function Whychoose() {
             title: "Proven Local Expertise",
             tagline: "15+ years of UAE compliance excellence",
             description: "Deep knowledge of UAE business regulations and tax requirements. We treat every client's business as our own with dependable, result-driven accounting services.",
-            image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1200&h=800&fit=crop",
+            image: "/images/video-bg.webp",
             icon: Shield
         },
         {
@@ -27,7 +27,7 @@ function Whychoose() {
             title: "Customized Solutions",
             tagline: "Tailored strategies for your success",
             description: "Direct partner-level attention with customized accounting, bookkeeping, and tax strategies designed specifically to meet your unique business objectives and growth goals.",
-            image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=800&fit=crop",
+            image: "/images/taxation1.webp",
             icon: TrendingUp
         }
     ];
