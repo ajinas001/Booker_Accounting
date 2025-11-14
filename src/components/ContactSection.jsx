@@ -29,6 +29,15 @@ export default function ContactSection() {
           viewport={{ once: true, amount: 0.8 }}
           className="mt-10"
         >
+           <motion.h2
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true }}
+                className="text-4xl md:text-6xl font-semibold text-secondary leading-tight"
+              >
+                Let’s explore the possibilities together.
+              </motion.h2>
           <p className="text-lg text-neutral-600 max-w-md mb-6">
             Want to discuss how we can create value for your business?
           </p>
@@ -95,7 +104,7 @@ export default function ContactSection() {
           >
             <div className="relative w-full h-full rounded-xl overflow-hidden">
               <Image
-                src="/images/contact1.webp"
+                src="/images/contact.webp"
                 alt="Contact banner"
                 fill
                 className="object-cover rounded-xl"
