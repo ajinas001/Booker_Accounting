@@ -151,7 +151,7 @@ export default function ContactPage() {
 
                 {/* Google Maps Link */}
                 <Link
-                  href="https://www.google.com/maps?q=25.2048493,55.2707828"
+                  href="https://www.google.com/maps?q=25.2474167,55.3088056"
                   target="_blank"
                   className="flex items-center text-gray-800 font-medium mt-4 group w-fit"
                 >
@@ -160,6 +160,7 @@ export default function ContactPage() {
                   </span>
                   <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
                 </Link>
+
 
               </div>
             </div>
@@ -345,6 +346,6 @@ export default function ContactPage() {
       <ScrollToTop />
       {/* --- FOOTER --- */}
       <Footer />
-    </div>
-  );
+    </div>
+  );
 }
