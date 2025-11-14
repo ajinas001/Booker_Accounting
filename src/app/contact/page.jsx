@@ -10,8 +10,33 @@ import ContactSection from "@/components/ContactSection";
 import Navbar from "@/components/Navbar";
 import FloatingMenuButton from "@/components/FloatingMenuButton";
 import ScrollToTop from "@/components/ScrollToTop";
+import { ArrowRight } from "lucide-react";
+
+
+const officeAddress = [
+  ' R364 Al Wasl Building',
+  'Unique World Business Center',
+  'Office No: 12 3rd floor',
+  'Opp Civil Defence Station',
+  'Al Karama, Dubai, United Arab Emirates'
+];
 
 export default function ContactPage() {
+
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.15, delayChildren: 0.1 },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 10 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  };
+
   // --- Contact Form State ---
   const [formData, setFormData] = useState({
     name: "",
@@ -41,7 +66,7 @@ export default function ContactPage() {
   return (
     <div className="min-h-screen bg-white text-gray-900">
 
-      <Navbar/>
+      <Navbar />
       {/* --- HERO --- */}
       <section className="relative overflow-hidden text-white bg-black">
         {/* Background Image */}
@@ -70,11 +95,11 @@ export default function ContactPage() {
             transition={{ duration: 0.6 }}
             className="text-sm md:text-lg flex justify-center md:justify-start flex-wrap text-gray-300 gap-x-2 mb-4"
           >
-            <Link href="/" className="hover:text-teal-400 transition-colors">
+            <Link href="/" className="hover:text-textsecondary transition-colors">
               Home
             </Link>
             <span>›</span>
-            <span className="text-teal-400 font-medium">Contact Us</span>
+            <span className="text-textsecondary font-medium">Contact Us</span>
           </motion.div>
 
           <motion.h1
@@ -84,7 +109,7 @@ export default function ContactPage() {
             transition={{ duration: 0.7 }}
             className="text-5xl md:text-7xl font-bold mb-6"
           >
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-cyan-400">
+            <span className="text-transparent bg-clip-text bg-textsecondary">
               Contact Us
             </span>
           </motion.h1>
@@ -105,8 +130,122 @@ export default function ContactPage() {
       {/* --- CONTACT INFO --- */}
       {/* <ContactSection /> */}
 
+      <motion.section
+        className="py-20 px-6 md:px-20 bg-primary"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={containerVariants}
+      >
+        <div className="max-w-7xl mx-auto space-y-10">
+
+          {/* --- Office --- */}
+          <motion.div variants={itemVariants}>
+            <div className="flex flex-col md:flex-row justify-between pt-8 pb-4">
+              <p className="text-3xl font-normal text-gray-800 md:w-1/3">Office</p>
+
+              <div className="flex flex-col text-lg md:w-1/3">
+                {officeAddress.map((line, i) => (
+                  <p key={i} className="text-gray-700 leading-relaxed">{line}</p>
+                ))}
+
+                {/* Google Maps Link */}
+                <Link
+                  href="https://www.google.com/maps?q=25.2048493,55.2707828"
+                  target="_blank"
+                  className="flex items-center text-gray-800 font-medium mt-4 group w-fit"
+                >
+                  <span className="pb-1 border-b border-gray-800 group-hover:border-gray-600 transition-colors">
+                    Google Maps
+                  </span>
+                  <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+                </Link>
+
+              </div>
+            </div>
+          </motion.div>
+
+          <motion.div variants={itemVariants} className="w-full h-px bg-gray-300" />
+
+          {/* --- Phone --- */}
+          <motion.div variants={itemVariants}>
+            <div className="flex flex-col md:flex-row justify-between pt-8 pb-4">
+              <p className="text-3xl font-normal text-gray-800 md:w-1/3">Phone</p>
+
+              <div className="flex flex-col text-lg md:w-1/3">
+                <Link
+                  href="tel:+971567678156"
+                  className="text-gray-800 hover:text-gray-600 underline underline-offset-4 transition-colors"
+                >
+                  +971 567678156
+                </Link>
+              </div>
+            </div>
+          </motion.div>
+
+          <motion.div variants={itemVariants} className="w-full h-px bg-gray-300" />
+
+          {/* --- Email --- */}
+          <motion.div variants={itemVariants}>
+            <div className="flex flex-col md:flex-row justify-between pt-8 pb-4">
+              <p className="text-3xl font-normal text-gray-800 md:w-1/3">Email</p>
+
+              <div className="flex flex-col text-lg md:w-1/3">
+                <Link
+                  href="https://mail.google.com/mail/?view=cm&fs=1&to=info@bookeraccounting.com"
+                  className="text-gray-800 hover:text-gray-600 underline underline-offset-4 transition-colors"
+                  target="_blank"
+                >
+                  Info@bookeraccounting.com
+                </Link>
+              </div>
+            </div>
+          </motion.div>
+
+          <motion.div variants={itemVariants} className="w-full h-px bg-gray-300" />
+
+          {/* --- LinkedIn --- */}
+          <motion.div variants={itemVariants}>
+            <div className="flex flex-col md:flex-row justify-between pt-8 pb-4">
+              <p className="text-3xl font-normal text-gray-800 md:w-1/3">LinkedIn</p>
+
+              <div className="flex flex-col text-lg md:w-1/3">
+                <Link
+                  href="https://www.linkedin.com/company/bookeraccounting/"
+                  target="_blank"
+                  className="text-gray-800 hover:text-gray-600 underline underline-offset-4 transition-colors"
+                >
+                  Visit our LinkedIn
+                </Link>
+              </div>
+            </div>
+          </motion.div>
+
+          <motion.div variants={itemVariants} className="w-full h-px bg-gray-300" />
+
+          {/* --- WhatsApp --- */}
+          <motion.div variants={itemVariants}>
+            <div className="flex flex-col md:flex-row justify-between pt-8 pb-4">
+              <p className="text-3xl font-normal text-gray-800 md:w-1/3">WhatsApp</p>
+
+              <div className="flex flex-col text-lg md:w-1/3">
+                <Link
+                  href="https://wa.me/971567678156"
+                  target="_blank"
+                  className="text-gray-800 hover:text-gray-600 underline underline-offset-4 transition-colors"
+                >
+                  Message on WhatsApp
+                </Link>
+              </div>
+            </div>
+          </motion.div>
+
+        </div>
+      </motion.section>
+
+
       {/* --- FORM --- */}
-      <section className="py-20 px-6 md:px-20 bg-gray-100">
+      {/* <section className="py-20 px-6 md:px-20 bg-primary">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -199,24 +338,13 @@ export default function ContactPage() {
             </span>
           </motion.button>
         </motion.form>
-      </section>
+      </section> */}
 
-      {/* --- MAP / LOCATION --- */}
-      <section className="py-20 px-8 md:px-20 bg-white">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.97 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="w-full h-96 bg-gray-200 rounded-xl shadow-lg flex items-center justify-center text-lg font-medium text-secondary"
-        >
-          [Placeholder for Google Maps Embed]
-        </motion.div>
-      </section>
-      <FloatingMenuButton/>
-<ScrollToTop/>
+
+      <FloatingMenuButton />
+      <ScrollToTop />
       {/* --- FOOTER --- */}
       <Footer />
-    </div>
-  );
+    </div>
+  );
 }
