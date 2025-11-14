@@ -206,7 +206,7 @@ export default function BusinessAdvisoryPage() {
             className="flex justify-center"
           >
             <Image
-              src="/images/business-advisory.jpg"
+              src="/images/business-advisory.webp"
               alt="Advisory Team"
               width={550}
               height={500}
