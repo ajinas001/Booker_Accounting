@@ -103,14 +103,14 @@ export default function AntiMoneyLaunderingPage() {
             <div className="text-sm md:text-lg flex flex-wrap text-gray-300 gap-x-2">
               <Link
                 href="/"
-                className="text-white hover:text-teal-400 transition-colors"
+                className="text-white hover:text-textsecondary transition-colors"
               >
                 Home
               </Link>
               <span>›</span>
               <span>Services</span>
               <span>›</span>
-              <span className="text-teal-400 font-medium">
+              <span className="text-textsecondary font-medium">
                 Anti-Money Laundering
               </span>
             </div>
@@ -124,7 +124,7 @@ export default function AntiMoneyLaunderingPage() {
             className="text-5xl md:text-7xl font-bold leading-tight mb-6"
           >
             Anti-Money{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-cyan-400">
+            <span className="text-transparent bg-clip-text bg-textsecondary">
               Laundering
             </span>
           </motion.h1>
@@ -194,11 +194,11 @@ export default function AntiMoneyLaunderingPage() {
       <section className="py-16 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row lg:space-x-12 items-center">
           <div className="lg:w-1/2 mb-12 lg:mb-0">
-            <p className="text-sm font-semibold uppercase tracking-wider text-teal-400 mb-2">
+            <p className="text-sm font-semibold uppercase tracking-wider text-secondary mb-2">
               UAE AML Compliance
             </p>
             <h2 className="text-4xl sm:text-5xl font-extrabold text-gray-900 mb-6 leading-tight">
-              Implementing Strong Controls Against Financial Crime
+              Implementing Strong Controls Against  <span className="text-textsecondary">Financial Crime</span>
             </h2>
             <p className="text-lg text-gray-600 mb-4">
               Our AML compliance solutions help businesses implement strong

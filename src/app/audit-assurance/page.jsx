@@ -199,12 +199,12 @@ export default function AuditAssurancePage() {
             >
               <div className="text-sm md:text-lg flex text-gray-300 gap-x-2">
                 <Link href="/">
-                  <span className="text-white cursor-pointer hover:text-teal-400 transition-colors">
+                  <span className="text-white cursor-pointer hover:text-textsecondary transition-colors">
                     Home
                   </span>
                 </Link>
                 ›<span>Services</span>›
-                <span className="text-teal-400 font-medium">
+                <span className="text-textsecondary font-medium">
                   Audit & Assurance
                 </span>
               </div>
@@ -217,7 +217,7 @@ export default function AuditAssurancePage() {
               className="text-5xl md:text-7xl font-bold leading-tight mb-6"
             >
               Audit{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-cyan-400">
+              <span className="text-transparent bg-clip-text bg-textsecondary">
                 & Assurance
               </span>
             </motion.h1>
@@ -237,13 +237,13 @@ export default function AuditAssurancePage() {
         <section className="py-16 md:py-24 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row lg:space-x-12 items-center">
             <div className="lg:w-1/2 mb-12 lg:mb-0">
-              <p className="text-sm font-semibold uppercase tracking-wider text-gray-500 mb-2">
+              <p className="text-sm font-semibold uppercase tracking-wider text-secondary mb-2">
                 OUR APPROACH
               </p>
               <h2 className="text-4xl sm:text-5xl font-extrabold text-gray-900 mb-6 leading-tight">
                 Beyond Compliance,
                 <br />
-                <span className="text-teal-500">Towards Excellence</span>
+                <span className="text-textsecondary">Towards Excellence</span>
               </h2>
               <p className="text-lg text-gray-600 mb-4">
                 At Booker Accounting, we believe audits are more than regulatory
@@ -340,14 +340,14 @@ export default function AuditAssurancePage() {
 
               {/* RIGHT CONTENT */}
               <div className="lg:w-1/2 w-full lg:order-2">
-                <p className="text-xs md:text-sm font-semibold uppercase tracking-wider text-teal-600 mb-3">
+                <p className="text-xs md:text-sm font-semibold uppercase tracking-wider text-secondary mb-3">
                   Assurance Services
                 </p>
 
                 <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
                   Strengthen Confidence,
                   <br />
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-cyan-600">
+                  <span className="text-transparent bg-clip-text bg-textsecondary">
                     Enhance Transparency
                   </span>
                 </h2>

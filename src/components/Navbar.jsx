@@ -97,7 +97,7 @@ export default function Navbar() {
                         if (window.innerWidth >= 1024) setServicesOpen(false);
                       }}
                     >
-                      <button className="px-4 py-2 flex items-center gap-1 text-md font-medium hover:text-teal-400 transition">
+                      <button className="px-4 py-2 flex items-center gap-1 text-md font-medium hover:text-textsecondary transition">
                         {link}
                         <svg
                           className={`w-4 h-4 transition-transform duration-300 ${
@@ -113,7 +113,7 @@ export default function Navbar() {
                           <path d="M19 9l-7 7-7-7" />
                         </svg>
                       </button>
-                      <div className="absolute bottom-0 left-0 w-full h-0.5 bg-teal-400 origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
+                      <div className="absolute bottom-0 left-0 w-full h-0.5 bg-textsecondary origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
                     </div>
                   );
                 }
@@ -122,10 +122,10 @@ export default function Navbar() {
                   <Link
                     key={link}
                     href={href}
-                    className="px-4 py-2 text-md font-medium hover:text-teal-400 transition relative group"
+                    className="px-4 py-2 text-md font-medium hover:text-textsecondary transition relative group"
                   >
                     {link}
-                    <div className="absolute bottom-0 left-0 w-full h-0.5 bg-teal-400 origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
+                    <div className="absolute bottom-0 left-0 w-full h-0.5 bg-textsecondary origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
                   </Link>
                 );
               })}
@@ -144,7 +144,7 @@ export default function Navbar() {
               }}
             >
               <svg
-                className="w-6 h-6 text-teal-400"
+                className="w-6 h-6 text-textsecondary"
                 fill="none"
                 stroke="currentColor"
                 strokeWidth="2"
@@ -177,7 +177,7 @@ export default function Navbar() {
                   <div key={link} className="flex flex-col items-center">
                     <button
                       onClick={toggleMobileServices}
-                      className="w-full px-4 py-3 flex items-center justify-center gap-1 hover:text-teal-600 font-medium transition"
+                      className="w-full px-4 py-3 flex items-center justify-center gap-1 hover:text-textsecondary font-medium transition"
                     >
                       Services
                       <svg
@@ -207,7 +207,7 @@ export default function Navbar() {
                           key={s.title}
                           href={s.link}
                           onClick={closeAllMenus}
-                          className="block py-2 text-gray-700 hover:text-teal-600 text-sm transition"
+                          className="block py-2 text-gray-700 hover:text-textsecondary text-sm transition"
                         >
                           {s.title}
                         </Link>
@@ -222,7 +222,7 @@ export default function Navbar() {
                   key={link}
                   href={href}
                   onClick={closeAllMenus}
-                  className="block px-4 py-3 hover:text-teal-600 font-medium transition"
+                  className="block px-4 py-3 hover:text-textsecondary font-medium transition"
                 >
                   {link}
                 </Link>
@@ -243,14 +243,14 @@ export default function Navbar() {
               : "opacity-0 invisible -translate-y-4"
           }`}
         >
-          <div className="m-4 p-4 bg-gray-900 text-teal-400 rounded-2xl">
+          <div className="m-4 p-4 bg-gray-900 text-textsecondary rounded-2xl">
             <div className="max-w-7xl mx-auto px-6 py-6">
               <div className="grid grid-cols-1 lg:grid-cols-5">
                 <div className="lg:col-span-1 pr-6  py-48">
                   <h3 className="text-3xl font-bold mb-4">Our Services</h3>
                   <p className="text-base text-gray-200 leading-relaxed">
                     No matter your role or goal{" "}
-                    <span className="text-teal-400 font-bold">BAC</span> adapts
+                    <span className="text-textsecondary font-bold">BAC</span> adapts
                     to your needs
                   </p>
                 </div>
@@ -260,7 +260,7 @@ export default function Navbar() {
                       <Link
                         href={service.link}
                         onClick={closeAllMenus}
-                        className="block text-lg font-semibold hover:text-teal-400 transition"
+                        className="block text-lg font-semibold hover:text-textsecondary transition"
                       >
                         {service.title}
                       </Link>

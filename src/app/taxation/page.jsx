@@ -51,14 +51,14 @@ export default function Page() {
           >
             <div className="text-sm md:text-lg flex text-gray-300 gap-x-2">
               <Link href="/">
-                <span className="text-white cursor-pointer hover:text-teal-400 transition-colors">
+                <span className="text-white cursor-pointer hover:text-textsecondary transition-colors">
                   Home
                 </span>
               </Link>
               &nbsp;›&nbsp;
               <span>Services</span>
               &nbsp;›&nbsp;
-              <span className="text-teal-400 font-medium">Taxation</span>
+              <span className="text-textsecondary font-medium">Taxation</span>
             </div>
           </motion.div>
 
@@ -69,7 +69,7 @@ export default function Page() {
             className="text-5xl md:text-7xl font-bold leading-tight mb-6"
           >
             {" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-cyan-400">
+            <span className="text-transparent bg-clip-text bg-textsecondary">
               Taxation
             </span>
           </motion.h1>
@@ -93,14 +93,14 @@ export default function Page() {
           <div className="flex flex-col lg:flex-row lg:space-x-12 items-center">
             {/* LEFT CONTENT */}
             <div className="lg:w-1/2 mb-12 lg:mb-0">
-              <p className="text-sm font-semibold uppercase tracking-wider text-gray-500 mb-2">
+              <p className="text-sm font-semibold uppercase tracking-wider text-secondary mb-2">
                 CORPORATE TAX ADVISORY
               </p>
 
               <h2 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-gray-900 leading-tight mb-6">
                 Strategic Tax Guidance
                 <br />
-                <span className="text-teal-500">
+                <span className="text-textsecondary">
                   in a Complex and Evolving Landscape
                 </span>
               </h2>
@@ -173,14 +173,14 @@ export default function Page() {
 
             {/* RIGHT CONTENT */}
             <div className="lg:w-1/2 w-full lg:order-2">
-              <p className="text-xs md:text-sm font-semibold uppercase tracking-wider text-teal-600 mb-3">
+              <p className="text-xs md:text-sm font-semibold uppercase tracking-wider text-secondary mb-3">
                 VALUE ADDED TAX (VAT)
               </p>
 
               <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6 leading-tight">
                 VAT Made Simple,
                 <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-cyan-600">
+                <span className="text-transparent bg-clip-text bg-textsecondary">
                   Compliance + Optimization
                 </span>
               </h2>
@@ -233,14 +233,14 @@ export default function Page() {
           <div className="flex flex-col lg:flex-row lg:space-x-12 items-center">
             {/* LEFT CONTENT */}
             <div className="lg:w-1/2 mb-12 lg:mb-0">
-              <p className="text-sm font-semibold uppercase tracking-wider text-gray-500 mb-2">
+              <p className="text-sm font-semibold uppercase tracking-wider text-secondary mb-2">
                 TAX AGENT SERVICE (FTA APPROVED)
               </p>
 
               <h2 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-gray-900 leading-tight mb-6">
                 Your Trusted Representation,
                 <br />
-                <span className="text-teal-500">
+                <span className="text-textsecondary">
                   Before the FTA & Authorities
                 </span>
               </h2>
@@ -316,7 +316,7 @@ export default function Page() {
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
             Corporate Tax Advisory &{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-500 to-cyan-500">
+            <span className="text-transparent bg-clip-text bg-textsecondary">
               Compliance
             </span>
           </h2>

@@ -157,14 +157,14 @@ export default function AccountingPage() {
             <div className="text-sm md:text-lg flex flex-wrap text-gray-300 gap-x-2">
               <Link
                 href="/"
-                className="text-white hover:text-teal-400 transition-colors"
+                className="text-white hover:text-textsecondary transition-colors"
               >
                 Home
               </Link>
               <span>›</span>
               <span>Services</span>
               <span>›</span>
-              <span className="text-teal-400 font-medium">
+              <span className="text-textsecondary font-medium">
                 Accounting & Bookkeeping
               </span>
             </div>
@@ -177,7 +177,7 @@ export default function AccountingPage() {
             className="text-5xl md:text-7xl font-bold leading-tight mb-6"
           >
             Accounting &{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-cyan-400">
+            <span className="text-transparent bg-clip-text bg-textsecondary">
               Bookkeeping
             </span>
           </motion.h1>
@@ -229,7 +229,7 @@ export default function AccountingPage() {
           className="text-3xl md:text-5xl font-bold mb-12"
         >
           BAC Accounting &{" "}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-cyan-400">
+          <span className="text-transparent bg-clip-text bg-textsecondary">
             Compliance Offering
           </span>
         </motion.h2>

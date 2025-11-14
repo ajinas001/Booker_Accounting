@@ -128,14 +128,14 @@ export default function BusinessAdvisoryPage() {
             <div className="text-sm md:text-lg flex flex-wrap text-gray-300 gap-x-2">
               <Link
                 href="/"
-                className="text-white hover:text-teal-400 transition-colors"
+                className="text-white hover:text-textsecondary transition-colors"
               >
                 Home
               </Link>
               <span>›</span>
               <span>Services</span>
               <span>›</span>
-              <span className="text-teal-400 font-medium">
+              <span className="text-textsecondary font-medium">
                 Business Advisory Service
               </span>
             </div>
@@ -149,7 +149,7 @@ export default function BusinessAdvisoryPage() {
             className="text-5xl md:text-7xl font-bold leading-tight mb-6"
           >
             Business{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-cyan-400">
+            <span className="text-transparent bg-clip-text bg-textsecondary">
               Advisory Service
             </span>
           </motion.h1>
@@ -168,52 +168,50 @@ export default function BusinessAdvisoryPage() {
 
       {/* detail */}
 
-      <section className="max-w-7xl mx-auto px-6 md:px-12 py-20">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          {/* Left Content */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            <span className="text-teal-600 font-semibold tracking-wide uppercase">
-              Business Advisory
-            </span>
-            <h2 className="text-3xl md:text-4xl font-bold mt-3 leading-snug">
-              Helping You Make Confident & Strategic Business Decisions
-            </h2>
+      <section className="py-16 md:py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col lg:flex-row lg:space-x-12 items-center">
+            {/* LEFT CONTENT */}
+            <div className="lg:w-1/2 mb-12 lg:mb-0">
+              <p className="text-sm font-semibold uppercase tracking-wider text-secondary mb-2">
+                Business Advisory
+              </p>
 
-            <p className="mt-6 text-gray-700 leading-relaxed">
-              We work closely with startups, SMEs, and enterprises to guide them
-              through strategic decision-making, process improvement, financial
-              forecasting, and performance optimization.
-            </p>
+              <h2 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-gray-900 leading-tight mb-6">
+                Helping You Make Confident &
+                <br />
+                <span className="text-textsecondary">
+                  Strategic Business Decisions
+                </span>
+              </h2>
 
-            <p className="mt-4 text-gray-700 leading-relaxed">
-              Whether you're scaling, restructuring, or pivoting your business,
-              our expert advisors provide clear direction backed by data and
-              market insights.
-            </p>
-          </motion.div>
+              <p className="text-lg text-gray-600 mb-6">
+                We work closely with startups, SMEs, and enterprises to guide
+                them through strategic decision-making, process improvement,
+                financial forecasting, and performance optimization.
+              </p>
 
-          {/* Right Image */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="flex justify-center"
-          >
-            <Image
-              src="/images/business-advisory.webp"
-              alt="Advisory Team"
-              width={550}
-              height={500}
-              className="rounded-xl shadow-lg object-cover transform-gpu"
-              style={{ WebkitTransform: "translateZ(0)" }}
-            />
-          </motion.div>
+              <p className="text-lg text-gray-600 mb-10">
+                Whether you're scaling, restructuring, or pivoting your
+                business, our expert advisors provide clear direction backed by
+                data and market insights.
+              </p>
+            </div>
+
+            {/* RIGHT IMAGE */}
+            <div className="lg:w-1/2 relative">
+              <div className="w-full overflow-hidden rounded-xl">
+                <Image
+                  width={600}
+                  height={500}
+                  src="/images/business-advisory.webp"
+                  alt="Corporate tax advisory consultation"
+                  className="w-full h-full object-cover"
+                  priority
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -282,8 +280,8 @@ export default function BusinessAdvisoryPage() {
 
       {/* ================= CONTACT & FOOTER ================= */}
       <ContactSection />
-      <ScrollToTop/>
-      <FloatingMenuButton/>
+      <ScrollToTop />
+      <FloatingMenuButton />
       <Footer />
     </>
   );

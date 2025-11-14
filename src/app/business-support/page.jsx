@@ -11,11 +11,35 @@ import {
   FileText,
   Users,
 } from "lucide-react";
+import {
+  LuSettings2,
+  LuMapPinned,
+  LuRocket,
+  LuShieldCheck,
+} from "react-icons/lu";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import FloatingMenuButton from "@/components/FloatingMenuButton";
 import ScrollToTop from "@/components/ScrollToTop";
+const featureItems = [
+  {
+    icon: <LuSettings2 className="text-teal-500 text-2xl" />,
+    text: "Expert guidance on entity setup & structuring",
+  },
+  {
+    icon: <LuMapPinned className="text-teal-500 text-2xl" />,
+    text: "Freezone, Mainland & Offshore formation",
+  },
+  {
+    icon: <LuRocket className="text-teal-500 text-2xl" />,
+    text: "End-to-end PRO & visa processing support",
+  },
+  {
+    icon: <LuShieldCheck className="text-teal-500 text-2xl" />,
+    text: "Compliance, secretarial & governance",
+  },
+];
 
 const services = [
   {
@@ -118,12 +142,12 @@ function BusinessSupportPage() {
           >
             <div className="text-sm md:text-lg flex justify-center md:justify-start text-gray-300 flex-wrap gap-x-2">
               <Link href="/">
-                <span className="text-white hover:text-teal-400 transition-colors">
+                <span className="text-white hover:text-textsecondary transition-colors">
                   Home
                 </span>
               </Link>
               &nbsp;›&nbsp;<span>Services</span>&nbsp;›&nbsp;
-              <span className="text-teal-400 font-medium">
+              <span className="text-textsecondary font-medium">
                 Business Support Service
               </span>
             </div>
@@ -136,7 +160,7 @@ function BusinessSupportPage() {
             className="text-5xl md:text-7xl font-bold leading-tight mb-6"
           >
             Business{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-cyan-400">
+            <span className="text-transparent bg-clip-text bg-textsecondary">
               Support Service
             </span>
           </motion.h1>
@@ -154,56 +178,54 @@ function BusinessSupportPage() {
 
       {/* ✅ ABOUT SECTION */}
       <section className="py-16 md:py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row lg:space-x-12 items-center">
-          <div className="lg:w-1/2 mb-12 lg:mb-0">
-            <h2 className="text-4xl sm:text-5xl font-extrabold text-gray-900 mb-6 leading-tight">
-              Your Partner in <br />
-              <span className="text-teal-500">
-                Business Growth & Compliance
-              </span>
-            </h2>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row lg:space-x-12 items-center">
+        
+        {/* LEFT CONTENT */}
+        <div className="lg:w-1/2 mb-12 lg:mb-0">
+          <h2 className="text-4xl sm:text-5xl font-extrabold text-gray-900 mb-6 leading-tight">
+            Your Partner in <br />
+            <span className="text-textsecondary">
+              Business Growth & Compliance
+            </span>
+          </h2>
 
-            <p className="text-lg text-gray-600 mb-8">
-              From company setup to compliance, we handle complexities so you
-              can focus on growth.
-            </p>
-            <p className="text-lg text-gray-600 mb-10">
-              Our advisory team ensures your business stays structured,
-              compliant, and takes advantage of UAE's economic benefits.
-            </p>
+          <p className="text-lg text-gray-600 mb-8">
+            From company setup to compliance, we handle complexities so you can
+            focus on growth.
+          </p>
 
-            <div className="grid grid-cols-2 gap-y-6">
-              {[
-                "⚒️ Expert guidance on entity setup & structuring",
-                "✅ Freezone, Mainland & Offshore formation",
-                "⚡ End-to-end PRO & visa processing support",
-                "💬 Compliance, secretarial & governance",
-              ].map((text, i) => (
-                <div key={i} className="flex items-center space-x-2">
-                  <span className="text-xl text-teal-500">
-                    {text.split(" ")[0]}
-                  </span>
-                  <p className="text-base font-medium text-gray-700">
-                    {text.split(" ").slice(1).join(" ")}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
+          <p className="text-lg text-gray-600 mb-10">
+            Our advisory team ensures your business stays structured, compliant,
+            and takes advantage of UAE's economic benefits.
+          </p>
 
-          <div className="lg:w-1/2">
-            <div className="overflow-hidden rounded-xl shadow-lg">
-              <Image
-                width={600}
-                height={500}
-                src="/images/business-support.webp"
-                alt="Business support UAE"
-                className="w-full h-full object-cover"
-              />
-            </div>
+          {/* FEATURES */}
+          <div className="grid grid-cols-2 gap-y-6">
+            {featureItems.map((item, i) => (
+              <div key={i} className="flex items-center space-x-3">
+                {item.icon}
+                <p className="text-base font-medium text-gray-700">
+                  {item.text}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
-      </section>
+
+        {/* RIGHT IMAGE */}
+        <div className="lg:w-1/2">
+          <div className="overflow-hidden rounded-xl shadow-lg">
+            <Image
+              width={600}
+              height={500}
+              src="/images/business-support.webp"
+              alt="Business support UAE"
+              className="w-full h-full object-cover"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
 
       {/* ✅ SERVICES GRID */}
       <section className="bg-gradient-to-b from-gray-50 to-white py-20 px-6">
