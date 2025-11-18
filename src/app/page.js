@@ -16,6 +16,7 @@ import ContactSection from '@/components/ContactSection';
 import FloatingMenuButton from '@/components/FloatingMenuButton';
 import ScrollToTop from '@/components/ScrollToTop';
 import LoadingScreen from '@/components/LoadingSreen';
+import OneFirm from '@/components/OneFirm';
 
 const BookerAccountingWebsite = () => {
 
@@ -30,7 +31,9 @@ const BookerAccountingWebsite = () => {
       <Services />
       <IndustriesSection />
       <Whychoose />
+      <OneFirm/>
       <MainVisionSection />
+      
       <ContactSection />
       <ScrollToTop />
       <FloatingMenuButton />
