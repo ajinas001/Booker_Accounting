@@ -95,11 +95,11 @@ export default function ContactPage() {
             transition={{ duration: 0.6 }}
             className="text-sm md:text-lg flex justify-center md:justify-start flex-wrap text-gray-300 gap-x-2 mb-4"
           >
-            <Link href="/" className="hover:text-textsecondary transition-colors">
+            <Link href="/" className="hover:text-textprimary transition-colors">
               Home
             </Link>
             <span>›</span>
-            <span className="text-textsecondary font-medium">Contact Us</span>
+            <span className="text-textprimary font-medium">Contact Us</span>
           </motion.div>
 
           <motion.h1
@@ -109,7 +109,7 @@ export default function ContactPage() {
             transition={{ duration: 0.7 }}
             className="text-5xl md:text-7xl font-bold mb-6"
           >
-            <span className="text-transparent bg-clip-text bg-textsecondary">
+            <span className="text-transparent bg-clip-text bg-textprimary">
               Contact Us
             </span>
           </motion.h1>

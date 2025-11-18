@@ -710,12 +710,12 @@ const AboutPageTimeline = () => {
             >
               <div className="text-sm md:text-lg flex text-gray-300 gap-x-2">
                 <Link href="/">
-                  <span className="text-white cursor-pointer hover:text-textsecondary transition-colors">
+                  <span className="text-white cursor-pointer hover:text-textprimary transition-colors">
                     Home
                   </span>
                 </Link>
                 &nbsp;›&nbsp;
-                <span className="text-textsecondary font-medium">About</span>
+                <span className="text-textprimary font-medium">About</span>
               </div>
             </motion.div>
 
@@ -726,7 +726,7 @@ const AboutPageTimeline = () => {
               className="text-5xl md:text-7xl font-bold leading-tight mb-6"
             >
               The{" "}
-              <span className="text-transparent bg-clip-text bg-textsecondary">
+              <span className="text-transparent bg-clip-text bg-textprimary">
                 BAC Story
               </span>
             </motion.h1>

@@ -103,14 +103,14 @@ export default function AntiMoneyLaunderingPage() {
             <div className="text-sm md:text-lg flex flex-wrap text-gray-300 gap-x-2">
               <Link
                 href="/"
-                className="text-white hover:text-textsecondary transition-colors"
+                className="text-white hover:text-textprimary transition-colors"
               >
                 Home
               </Link>
               <span>›</span>
               <span>Services</span>
               <span>›</span>
-              <span className="text-textsecondary font-medium">
+              <span className="text-textprimary font-medium">
                 Anti-Money Laundering
               </span>
             </div>
@@ -124,7 +124,7 @@ export default function AntiMoneyLaunderingPage() {
             className="text-5xl md:text-7xl font-bold leading-tight mb-6"
           >
             Anti-Money{" "}
-            <span className="text-transparent bg-clip-text bg-textsecondary">
+            <span className="text-transparent bg-clip-text bg-textprimary">
               Laundering
             </span>
           </motion.h1>

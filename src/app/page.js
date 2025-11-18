@@ -17,6 +17,8 @@ import FloatingMenuButton from '@/components/FloatingMenuButton';
 import ScrollToTop from '@/components/ScrollToTop';
 import LoadingScreen from '@/components/LoadingSreen';
 import OneFirm from '@/components/OneFirm';
+import MotoSwiper from '@/components/MottoSwiper';
+import Dashboard from '@/components/Dashboard';
 
 const BookerAccountingWebsite = () => {
 
@@ -24,16 +26,18 @@ const BookerAccountingWebsite = () => {
   return (
     <div className="min-h-screen text-foreground">
       <Navbar />
-<LoadingScreen/>
+      <LoadingScreen />
       <HeroSection />
       <MainAchievements />
       <HomeAboutTimeline />
       <Services />
       <IndustriesSection />
+      <MotoSwiper/>
+      <Dashboard/>
       <Whychoose />
-      <OneFirm/>
+      {/* <OneFirm /> */}
       <MainVisionSection />
-      
+
       <ContactSection />
       <ScrollToTop />
       <FloatingMenuButton />

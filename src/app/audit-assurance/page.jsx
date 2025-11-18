@@ -199,12 +199,12 @@ export default function AuditAssurancePage() {
             >
               <div className="text-sm md:text-lg flex text-gray-300 gap-x-2">
                 <Link href="/">
-                  <span className="text-white cursor-pointer hover:text-textsecondary transition-colors">
+                  <span className="text-white cursor-pointer hover:text-textprimary transition-colors">
                     Home
                   </span>
                 </Link>
                 ›<span>Services</span>›
-                <span className="text-textsecondary font-medium">
+                <span className="text-textprimary font-medium">
                   Audit & Assurance
                 </span>
               </div>
@@ -217,7 +217,7 @@ export default function AuditAssurancePage() {
               className="text-5xl md:text-7xl font-bold leading-tight mb-6"
             >
               Audit{" "}
-              <span className="text-transparent bg-clip-text bg-textsecondary">
+              <span className="text-transparent bg-clip-text bg-textprimary">
                 & Assurance
               </span>
             </motion.h1>

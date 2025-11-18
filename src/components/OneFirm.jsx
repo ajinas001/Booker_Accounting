@@ -46,7 +46,7 @@ export default function OneFirm() {
         >
           One Firm. Every Step.
           <br />
-          <span className="text-textsecondary">With a Stategic Edge</span>
+          <span className="text-textsecondary">With a Strategic Edge</span>
         </motion.h1>
 
         <motion.div

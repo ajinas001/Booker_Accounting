@@ -51,14 +51,14 @@ export default function Page() {
           >
             <div className="text-sm md:text-lg flex text-gray-300 gap-x-2">
               <Link href="/">
-                <span className="text-white cursor-pointer hover:text-textsecondary transition-colors">
+                <span className="text-white cursor-pointer hover:text-textprimary transition-colors">
                   Home
                 </span>
               </Link>
               &nbsp;›&nbsp;
               <span>Services</span>
               &nbsp;›&nbsp;
-              <span className="text-textsecondary font-medium">Taxation</span>
+              <span className="text-textprimary font-medium">Taxation</span>
             </div>
           </motion.div>
 
@@ -69,7 +69,7 @@ export default function Page() {
             className="text-5xl md:text-7xl font-bold leading-tight mb-6"
           >
             {" "}
-            <span className="text-transparent bg-clip-text bg-textsecondary">
+            <span className="text-transparent bg-clip-text bg-textprimary">
               Taxation
             </span>
           </motion.h1>

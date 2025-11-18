@@ -142,12 +142,12 @@ function BusinessSupportPage() {
           >
             <div className="text-sm md:text-lg flex justify-center md:justify-start text-gray-300 flex-wrap gap-x-2">
               <Link href="/">
-                <span className="text-white hover:text-textsecondary transition-colors">
+                <span className="text-white hover:text-textprimary transition-colors">
                   Home
                 </span>
               </Link>
               &nbsp;›&nbsp;<span>Services</span>&nbsp;›&nbsp;
-              <span className="text-textsecondary font-medium">
+              <span className="text-textprimary font-medium">
                 Business Support Service
               </span>
             </div>
@@ -160,7 +160,7 @@ function BusinessSupportPage() {
             className="text-5xl md:text-7xl font-bold leading-tight mb-6"
           >
             Business{" "}
-            <span className="text-transparent bg-clip-text bg-textsecondary">
+            <span className="text-transparent bg-clip-text bg-textprimary">
               Support Service
             </span>
           </motion.h1>

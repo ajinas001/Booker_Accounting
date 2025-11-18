@@ -89,7 +89,7 @@ export default function BlogPage() {
               <div className="text-sm md:text-lg flex flex-wrap text-gray-300 gap-x-2">
                 <Link
                   href="/"
-                  className="text-white hover:text-teal-400 transition-colors"
+                  className="text-white hover:text-textprimary transition-colors"
                 >
                   Home
                 </Link>
@@ -106,7 +106,7 @@ export default function BlogPage() {
               className="text-5xl md:text-7xl font-bold leading-tight mb-6"
             >
               Latest{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-cyan-400">
+              <span className="text-transparent bg-clip-text bg-textprimary">
                 Blogs
               </span>
             </motion.h1>

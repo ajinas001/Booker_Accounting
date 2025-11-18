@@ -133,7 +133,7 @@ export default function AccountingServices() {
       <section className="py-12 px-6 md:px-16">
         <h1 className="text-5xl md:text-7xl font-light text-gray-900 leading-tight">
           Business Consultants <br />
-          for a <span className="font-semibold">Growth Mindset</span>
+          for a <span className="font-semibold text-textsecondary">Growth Mindset</span>
         </h1>
       </section>
 

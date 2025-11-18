@@ -1,113 +1,96 @@
-import React from 'react';
+"use client";
 
-// Custom SVG Icon Component for 'Build' (Represents growth/structure)
-const BuildIcon = ({ color = 'white' }) => (
-  <svg className="w-8 h-8 mr-2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    {/* A simple geometric building block / process indicator */}
-    <path d="M7 16V12L12 7L17 12V16H15V14H9V16H7Z" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-    <rect x="3" y="18" width="18" height="3" rx="1.5" stroke={color} strokeWidth="1.5" strokeLinecap="round"/>
-    <path d="M12 4V7" stroke={color} strokeWidth="1.5" strokeLinecap="round"/>
-  </svg>
-);
+import React from "react";
+import Image from "next/image";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/autoplay";
+import { Autoplay } from "swiper/modules";
 
-// Custom SVG Icon Component for 'Balance' (Represents stability/equilibrium)
-const BalanceIcon = ({ color = 'white' }) => (
-  <svg className="w-8 h-8 mr-2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    {/* Classic scale icon for balance */}
-    <path d="M12 3V21M3 15L21 15" stroke={color} strokeWidth="1.5" strokeLinecap="round"/>
-    <path d="M7 15L9 9M17 15L15 9" stroke={color} strokeWidth="1.5" strokeLinecap="round"/>
-    <path d="M10.5 19L13.5 19" stroke={color} strokeWidth="1.5" strokeLinecap="round"/>
-  </svg>
-);
+const partnerItems = [
+  {
+    title: "DMCC",
+    description:
+      "Trusted licensing & business setup support through DMCC — ensuring fast registration and premium compliance.",
+    image: "/images/dmcc.png",
+  },
+  {
+    title: "Meydan ",
+    description:
+      "Efficient business establishment with Meydan, offering fast processing and premium Dubai address solutions.",
+    image: "/images/mydan.png",
+  },
+  {
+    title: "Hamriyah ",
+    description:
+      "Strong industrial licensing support ideal for manufacturing and commercial activities.",
+    image: "/images/hamriya.png",
+  },
+  {
+    title: "IFZA",
+    description:
+      "Flexible licensing and cost-effective setup solutions helping businesses scale quickly.",
+    image: "/images/ifza.png",
+  },
+];
 
-// Custom SVG Icon Component for 'Brilliance' (Represents ideas/light/innovation)
-const BrillianceIcon = ({ color = 'white' }) => (
-  <svg className="w-8 h-8 mr-2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    {/* Stylized lightbulb with a spark */}
-    <path d="M12 2C9.23858 2 7 4.23858 7 7C7 9.09705 7.82869 11.2366 9.42845 12.8364L10.7412 14.1491C11.5204 14.9284 12.4939 16 12 16C12.4939 16 13.4674 14.9284 14.2466 14.1491L15.5594 12.8364C17.1591 11.2366 17.9878 9.09705 17.9878 7C17.9878 4.23858 15.7592 2 13 2H12Z" stroke={color} strokeWidth="1.5"/>
-    <path d="M14 16L14 18M10 16L10 18M12 20L12 22" stroke={color} strokeWidth="1.5" strokeLinecap="round"/>
-    <rect x="6" y="18" width="12" height="4" rx="2" stroke={color} strokeWidth="1.5"/>
-    <path d="M16 16C16 18.2091 14.2091 20 12 20C9.79086 20 8 18.2091 8 16" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-  </svg>
-);
-
-
-// Icon mapping
-const iconMap = {
-  'Build': BuildIcon,
-  'Balance': BalanceIcon,
-  'Brilliance': BrillianceIcon
-};
-
-
-// Main Component
-const App = () => {
-  // Define the content: 6 unique items
-  const items = [
-    { name: 'Build' },
-    { name: 'Balance' },
-    { name: 'Brilliance' },
-    { name: 'Build' },
-    { name: 'Balance' },
-    { name: 'Brilliance' },
-  ];
-
-  // We duplicate the array multiple times to ensure a seamless, continuous loop
-  // Total items: 6 * 4 = 24
-  const duplicatedItems = [...items, ...items, ...items, ...items];
-  
-  // Custom CSS for the infinite scroll keyframes
-  // Items length is 6, duplicatedItems is 24 (4 sets). We need to scroll 1/4 of the width (25%)
-  const scrollingStyle = `
-    @keyframes scroll {
-      0% { transform: translateX(0); }
-      /* Scrolls one full set of the original 6 items (1/4 or 25% of the total track width) */
-      100% { transform: translateX(-25%); } 
-    }
-
-    .scroller {
-      animation: scroll 30s linear infinite;
-    }
-  `;
-
-  // Correct calculation: Each item must take up 1/6th of the container width (16.666%)
-  const itemWidthPercentage = (50 / items.length);
-
+const MotoSwiper = () => {
   return (
-    <div className=" p-16 flex items-center justify-center bg-[#0e4a4a] font-inter">
-      {/* Inject custom CSS for keyframes */}
-      <style dangerouslySetInnerHTML={{ __html: scrollingStyle }} />
+    <section className="w-full bg-gray-200 py-24 px-6 ">
+      <div className="max-w-7xl mx-auto text-start">
+        <h1 className="text-5xl md:text-7xl font-light text-gray-900 leading-tight ">
+          Our Trusted <br />
+         
+          <span className="font-semibold text-textsecondary ">Partners</span>
+        </h1>
 
-      {/* Main container with the visible boundary */}
-      <div 
-        className="w-full max-w-7xl overflow-hidden rounded-xl border border-white/30 shadow-2xl p-4 md:p-6"
-        style={{ backgroundColor: 'rgba(255, 255, 255, 0.05)' }} // Slightly transparent white overlay
-      >
-        {/* The scrolling track - setting width to 400% of container (4 sets of 6 items) */}
-        <div 
-          className="scroller flex flex-nowrap h-16 items-center" 
-          style={{ width: `${(duplicatedItems.length / items.length) * 100}%` }}
+        <p className="text-lg text-black  max-w-2xl text-start mb-16 leading-relaxed">
+          We proudly collaborate with industry-leading freezones to empower
+          businesses to establish and expand with confidence.
+        </p>
+
+        {/* Swiper */}
+        <Swiper
+          modules={[Autoplay]}
+          autoplay={{ delay: 2500, disableOnInteraction: false }}
+          loop={true}
+          slidesPerView={1}
+          spaceBetween={40}
+          breakpoints={{
+            640: { slidesPerView: 1 },
+            768: { slidesPerView: 2 },
+            1024: { slidesPerView: 3 },
+          }}
+          className="pb-10 py-20"
         >
-          {duplicatedItems.map((item, index) => {
-            const IconComponent = iconMap[item.name];
-            return (
-              <div 
-                key={index} 
-                // Tighter spacing: increased icon margin slightly and kept px-4 on div
-                className="flex items-center justify-center text-white text-xl md:text-4xl font-semibold px-4"
-                // Each original item takes up 1/6th width (16.666%)
-                style={{ flex: `0 0 ${itemWidthPercentage}%` }} 
-              >
-                {/* Logo Icon and Text */}
-                <IconComponent color="white"/>
-                <span className="whitespace-nowrap">{item.name}</span>
+          {partnerItems.map((partner, index) => (
+            <SwiperSlide key={index}>
+              <div className="flex flex-col items-center text-center px-6">
+                {/* Logo */}
+                <div className="w-32 h-32 flex items-center justify-center mb-6">
+                  <Image
+                    src={partner.image}
+                    alt={partner.title}
+                    width={120}
+                    height={120}
+                    className="object-contain rounded-md"
+                  />
+                </div>
+
+                {/* Title */}
+                {/* <h3 className="text-xl font-semibold text-[#0f3b3b] mb-3">
+                  {partner.title}
+                </h3> */}
+
+                {/* Description */}
+                
               </div>
-            );
-          })}
-        </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </div>
-    </div>
+    </section>
   );
 };
 
-export default App;
+export default MotoSwiper;
