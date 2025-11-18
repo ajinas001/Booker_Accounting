@@ -7,7 +7,7 @@ function Whychoose() {
 
     const features = [
         {
-            id: 0,
+            id: 0,  
             title: "Owner-Managed Focus",
             tagline: "Built for entrepreneurs and business owners",
             description: "We specialize in serving privately owned companies across Dubai and the UAE, providing hands-on support to increase profitability and protect your wealth.",
