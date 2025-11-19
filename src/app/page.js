@@ -19,6 +19,8 @@ import LoadingScreen from '@/components/LoadingSreen';
 import OneFirm from '@/components/OneFirm';
 import MotoSwiper from '@/components/MottoSwiper';
 import Dashboard from '@/components/Dashboard';
+import OurProcess from '@/components/OurProcess';
+import Call from '@/components/Call';
 
 const BookerAccountingWebsite = () => {
 
@@ -33,9 +35,11 @@ const BookerAccountingWebsite = () => {
       <Services />
       <IndustriesSection />
       <MotoSwiper/>
-      <Dashboard/>
-      <Whychoose />
-      {/* <OneFirm /> */}
+      <OurProcess/>
+      <Call/>
+      {/* <Dashboard/> */}
+      {/* <Whychoose /> */}
+      <OneFirm />
       <MainVisionSection />
 
       <ContactSection />

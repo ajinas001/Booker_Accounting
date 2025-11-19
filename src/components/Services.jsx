@@ -49,7 +49,7 @@ const services = [
     id: 4,
     type: "image",
     imageUrl:
-      "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&q=80",
+      "/images/service.webp",
     bgColor: "bg-neutral-300",
     span: "lg:col-span-1 lg:row-span-2",
     borderRadius: "rounded-[45px]",

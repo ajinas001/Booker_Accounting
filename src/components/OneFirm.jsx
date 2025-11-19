@@ -1,328 +1,220 @@
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
-import { useRef } from "react";
+"use client";
+import React, { useRef } from "react";
+import { motion, useInView } from "framer-motion";
 
+// --- ICONS (same as your version) ---
+const BuildingIcon = ({ className = "w-6 h-6" }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="none">
+    <path
+      d="M10 20v-6h4v6h5V9h4L12 3 1 9h4v11h5z"
+      stroke="currentColor"
+      strokeWidth="1.8"
+    />
+  </svg>
+);
+
+const DollarSignIcon = ({ className = "w-6 h-6" }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="none">
+    <path
+      d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"
+      stroke="currentColor"
+      strokeWidth="1.8"
+    />
+  </svg>
+);
+
+const BookOpenIcon = ({ className = "w-6 h-6" }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="none">
+    <path
+      d="M4 19.5A2.5 2.5 0 016.5 17H20M6.5 22.5A2.5 2.5 0 014 20M6.5 17C4.5 17 3 15.5 3 13.5V4.5C3 3.395 3.895 2.5 5 2.5H19c1.105 0 2 .895 2 2v9c0 2-1.5 3.5-3.5 3.5h-11z"
+      stroke="currentColor"
+      strokeWidth="1.8"
+    />
+  </svg>
+);
+
+const CheckShieldIcon = ({ className = "w-6 h-6" }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="none">
+    <path
+      d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"
+      stroke="currentColor"
+      strokeWidth="1.8"
+    />
+    <path d="M9 11l2 2 4-4" stroke="currentColor" strokeWidth="1.8" />
+  </svg>
+);
+
+const SearchIcon = ({ className = "w-6 h-6" }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="none">
+    <circle cx="11" cy="11" r="8" stroke="currentColor" strokeWidth="1.8" />
+    <path d="M21 21l-4.35-4.35" stroke="currentColor" strokeWidth="1.8" />
+  </svg>
+);
+
+const TrendingUpIcon = ({ className = "w-6 h-6" }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="none">
+    <path d="M23 6l-9.5 9.5-5-5L1 18" stroke="currentColor" strokeWidth="1.8" />
+    <path d="M17 6h6v6" stroke="currentColor" strokeWidth="1.8" />
+  </svg>
+);
+
+const TrashIcon = ({ className = "w-6 h-6" }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="none">
+    <path
+      d="M3 6h18M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6M8 6V4a2 2 0 012-2h4a2 2 0 012 2v2"
+      stroke="currentColor"
+      strokeWidth="1.8"
+    />
+  </svg>
+);
+
+// --- MAIN ---
 export default function OneFirm() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const inView = useInView(ref, { once: true, margin: "-100px 0px" });
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.3,
-      },
+  const steps = [
+    {
+      title: "Company Formation ",
+      desc: "Entity selection, paperwork, registration.",
+      icon: BuildingIcon,
     },
-  };
+    {
+      title: "Tax Registration",
+      desc: "VAT, corporate tax, payroll tax & statutory setup.",
+      icon: DollarSignIcon,
+    },
+    {
+      title: "Accounting & Bookkeeping",
+      desc: "Chart of accounts, cycles & reporting setup.",
+      icon: BookOpenIcon,
+    },
+    {
+      title: "Taxation & Compliance",
+      desc: "Ongoing filings and proactive reviews.",
+      icon: CheckShieldIcon,
+    },
+    {
+      title: "Audit & Financial Reviews",
+      desc: "Audit preparation & assurance.",
+      icon: SearchIcon,
+    },
+    {
+      title: "Advice & Restructuring ",
+      desc: "Strategic restructuring and optimization.",
+      icon: TrendingUpIcon,
+    },
+    {
+      title: "Liquidation / De-Registration",
+      desc: "Orderly winding-down support.",
+      icon: TrashIcon,
+    },
+  ];
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
+  const fadeSlide = {
+    hidden: { opacity: 0, y: 40 },
+    visible: (i) => ({
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: "easeOut" },
-    },
-  };
-
-  const iconVariants = {
-    hidden: { opacity: 0, scale: 0.8 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: { duration: 0.5, ease: "easeOut" },
-    },
+      transition: { duration: 0.8, ease: "easeOut", delay: i * 0.15 },
+    }),
   };
 
   return (
-    <div className="min-h-screen bg-primary text-black py-20 px-6">
-      <div className="max-w-7xl mx-auto">
-        <motion.h1
-          initial={{ opacity: 0, y: -30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="text-6xl md:text-7xl lg:text-8xl font-medium mb-24"
-        >
-          One Firm. Every Step.
-          <br />
-          <span className="text-textsecondary">With a Strategic Edge</span>
-        </motion.h1>
-
-        <motion.div
-          ref={ref}
-          variants={containerVariants}
+    <section className="py-24 px-6 bg-primary">
+      <div className="max-w-7xl mx-auto" ref={ref}>
+        {/* ---- HEADER ---- */}
+         <motion.div
           initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-          className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-32"
+          animate={inView ? "visible" : "hidden"}
+          variants={fadeSlide}
+          custom={0}
+          className="mb-16 text-center"
         >
-          <motion.p  variants={itemVariants}
-            className="text-base md:text-lg leading-relaxed">
-            From start to finish we guide your business through every stage of
-            its lifecycle whether you’re starting up, scaling, restructuring, or
-            winding down. With deep expertise in UAE and international markets,
-            we ensure your journey is smooth, compliant, and strategically
-            sound.
-          </motion.p>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 leading-tight">
+            One Firm. Every Step.
+          </h2>
+          <p className="text-2xl md:text-3xl font-semibold text-secondary mb-6">
+            With a Strategic Edge
+          </p>
+          <p className="text-lg md:text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+            From start to finish, we guide your business through every stage of its lifecycle—whether 
+            you're starting up, scaling, restructuring, or winding down. With deep expertise in UAE 
+            and international markets, we ensure your journey is smooth, compliant, and strategically sound.
+          </p>
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.2, duration: 0.8 }}
-          className="flex justify-center mb-16"
-        >
-          <div className="w-3 h-3 rounded-full bg-[#9b8b8f]"></div>
-        </motion.div>
+        {/* ---- TIMELINE ---- */}
+        <div className="relative mt-12">
+          {/* Center Line */}
+          <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-[2px] bg-gray-300/70 -translate-x-1/2"></div>
 
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-          className="grid grid-cols-2 md:grid-cols-5 gap-8 items-end"
-        >
-          <motion.div variants={iconVariants} className="flex justify-center">
-            <svg
-              className="w-32 h-32 md:w-40 md:h-40"
-              viewBox="0 0 200 150"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M40 120 L40 80 L160 80 L160 120 M60 80 L60 60 L140 60 L140 80 M80 100 L120 100 M100 100 L100 120"
-                stroke="#d4a5b0"
-                strokeWidth="2"
-              />
-              <circle cx="90" cy="100" r="4" fill="#e97f7f" />
-              <path
-                d="M50 120 L50 140 L150 140 L150 120"
-                stroke="#d4a5b0"
-                strokeWidth="2"
-              />
-            </svg>
-          </motion.div>
+          <div className="space-y-20 md:space-y-28">
+            {steps.map((item, index) => {
+              const isLeft = index % 2 === 0;
 
-          <motion.div variants={iconVariants} className="flex justify-center">
-            <svg
-              className="w-32 h-32 md:w-40 md:h-40"
-              viewBox="0 0 200 150"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <rect
-                x="40"
-                y="40"
-                width="120"
-                height="80"
-                stroke="#d4a5b0"
-                strokeWidth="2"
-                fill="none"
-              />
-              <line
-                x1="40"
-                y1="60"
-                x2="160"
-                y2="60"
-                stroke="#d4a5b0"
-                strokeWidth="2"
-              />
-              <line
-                x1="40"
-                y1="80"
-                x2="160"
-                y2="80"
-                stroke="#d4a5b0"
-                strokeWidth="2"
-              />
-              <line
-                x1="40"
-                y1="100"
-                x2="160"
-                y2="100"
-                stroke="#d4a5b0"
-                strokeWidth="2"
-              />
-              <line
-                x1="80"
-                y1="40"
-                x2="80"
-                y2="120"
-                stroke="#d4a5b0"
-                strokeWidth="2"
-              />
-              <line
-                x1="120"
-                y1="40"
-                x2="120"
-                y2="120"
-                stroke="#d4a5b0"
-                strokeWidth="2"
-              />
-            </svg>
-          </motion.div>
+              return (
+                <motion.div
+                  key={index}
+                  variants={fadeSlide}
+                  initial="hidden"
+                  animate={inView ? "visible" : "hidden"}
+                  custom={index + 1}
+                  className={`relative flex flex-col md:flex-row items-center md:items-start ${
+                    isLeft ? "md:justify-start" : "md:justify-end"
+                  }`}
+                >
+                  {/* ---- CENTER ICON BUBBLE ---- */}
+                  <div
+                    className="
+                      hidden md:flex absolute left-1/2 -translate-x-1/2 
+                      w-16 h-16 rounded-full 
+                      bg-secondary backdrop-blur-md
+                      flex items-center justify-center
+                      text-white z-10
+                    "
+                  >
+                    <item.icon className="w-7 h-7" />
+                  </div>
 
-          <motion.div variants={iconVariants} className="flex justify-center">
-            <svg
-              className="w-32 h-32 md:w-40 md:h-40"
-              viewBox="0 0 200 150"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <rect
-                x="40"
-                y="70"
-                width="40"
-                height="50"
-                stroke="#d4a5b0"
-                strokeWidth="2"
-                fill="none"
-              />
-              <rect
-                x="90"
-                y="50"
-                width="40"
-                height="70"
-                stroke="#d4a5b0"
-                strokeWidth="2"
-                fill="none"
-              />
-              <rect
-                x="140"
-                y="60"
-                width="30"
-                height="60"
-                stroke="#d4a5b0"
-                strokeWidth="2"
-                fill="none"
-              />
-              <circle
-                cx="50"
-                cy="40"
-                r="8"
-                stroke="#d4a5b0"
-                strokeWidth="2"
-                fill="none"
-              />
-              <circle
-                cx="160"
-                cy="45"
-                r="8"
-                stroke="#d4a5b0"
-                strokeWidth="2"
-                fill="none"
-              />
-              <line
-                x1="30"
-                y1="120"
-                x2="180"
-                y2="120"
-                stroke="#d4a5b0"
-                strokeWidth="2"
-              />
-            </svg>
-          </motion.div>
+                  {/* ---- CARD ---- */}
+                  <div
+                    className={`
+                      bg-gray-200 backdrop-blur-xl 
+                      rounded-2xl p-7 md:p-9 max-w-lg 
+                      transition duration-300 
+                      hover:scale-[1.02] hover:bg-gray-300
+                      ${isLeft ? " md:pr-20" : " md:pl-20"}
+                    `}
+                  >
+                    {/* mobile icon */}
+                    <div className="flex items-center gap-3 md:hidden mb-4">
+                      <div className="w-12 h-12 bg-white/70 backdrop-blur-xl rounded-xl flex items-center justify-center">
+                        <item.icon className="w-6 h-6 text-gray-800" />
+                      </div>
+                      <span className="text-lg font-semibold text-gray-800">
+                        STEP {index + 1}
+                      </span>
+                    </div>
 
-          <motion.div variants={iconVariants} className="flex justify-center">
-            <svg
-              className="w-32 h-32 md:w-40 md:h-40"
-              viewBox="0 0 200 150"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <rect
-                x="120"
-                y="30"
-                width="15"
-                height="90"
-                stroke="#d4a5b0"
-                strokeWidth="2"
-                fill="none"
-              />
-              <rect
-                x="100"
-                y="50"
-                width="15"
-                height="70"
-                stroke="#d4a5b0"
-                strokeWidth="2"
-                fill="none"
-              />
-              <rect
-                x="80"
-                y="40"
-                width="15"
-                height="80"
-                stroke="#d4a5b0"
-                strokeWidth="2"
-                fill="none"
-              />
-              <rect
-                x="60"
-                y="60"
-                width="15"
-                height="60"
-                stroke="#d4a5b0"
-                strokeWidth="2"
-                fill="none"
-              />
-              <rect
-                x="40"
-                y="70"
-                width="15"
-                height="50"
-                stroke="#d4a5b0"
-                strokeWidth="2"
-                fill="none"
-              />
-              <rect
-                x="140"
-                y="45"
-                width="20"
-                height="75"
-                stroke="#d4a5b0"
-                strokeWidth="2"
-                fill="none"
-              />
-              <line
-                x1="30"
-                y1="120"
-                x2="170"
-                y2="120"
-                stroke="#d4a5b0"
-                strokeWidth="2"
-              />
-            </svg>
-          </motion.div>
+                    <h3 className="text-2xl font-semibold text-gray-900 mb-2">
+                      {item.title}
+                    </h3>
+                    <p className="text-gray-700 leading-relaxed">{item.desc}</p>
 
-          <motion.div variants={iconVariants} className="flex justify-center">
-            <svg
-              className="w-32 h-32 md:w-40 md:h-40"
-              viewBox="0 0 200 150"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M40 120 Q60 80, 80 90 T120 85 T160 95 L160 120 Z"
-                stroke="#d4a5b0"
-                strokeWidth="2"
-                fill="none"
-              />
-              <path
-                d="M45 110 Q55 100, 65 105 T85 100 T105 108"
-                stroke="#d4a5b0"
-                strokeWidth="1.5"
-                fill="none"
-              />
-              <path
-                d="M110 105 Q120 98, 130 102 T150 100"
-                stroke="#d4a5b0"
-                strokeWidth="1.5"
-                fill="none"
-              />
-            </svg>
-          </motion.div>
-        </motion.div>
+                    <p className="mt-4 text-sm text-gray-500 italic">
+                      Typical Completion Time:{" "}
+                      <span className="font-medium text-gray-700">
+                        1–3 weeks
+                      </span>
+                    </p>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
   );
 }
