@@ -185,7 +185,7 @@ export default function OurProcess() {
       </section>
 
       <section className="max-w-7xl mx-auto pb-24 px-6 py-12">
-        <div className="mt-12 bg-gradient-to-br from-teal-600 via-teal-700 to-teal-800 p-10 rounded-3xl text-white ">
+        <div className="mt-12 bg-secondary p-10 rounded-3xl text-white ">
           <h3 className="text-3xl md:text-4xl font-extrabold mb-5 leading-snug">
             Why Our Assessment-First Approach Works
           </h3>

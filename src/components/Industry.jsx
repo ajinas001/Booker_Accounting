@@ -155,7 +155,7 @@ export default function IndustriesSection() {
   };
 
   return (
-    <section className="bg-[#ebe5d5] text-foreground">
+    <section className="bg-primary text-foreground">
       <div className="mx-4 sm:mx-8 lg:mx-20 xl:mx-32 px-6 md:px-12 lg:px-16 py-24 md:py-32">
         {/* Label with animation */}
         <motion.div

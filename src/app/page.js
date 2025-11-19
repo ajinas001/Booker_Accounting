@@ -21,6 +21,7 @@ import MotoSwiper from '@/components/MottoSwiper';
 import Dashboard from '@/components/Dashboard';
 import OurProcess from '@/components/OurProcess';
 import Call from '@/components/Call';
+import Testimonials from '@/components/Testimonials';
 
 const BookerAccountingWebsite = () => {
 
@@ -36,10 +37,11 @@ const BookerAccountingWebsite = () => {
       <IndustriesSection />
       <MotoSwiper/>
       <OurProcess/>
+      <Testimonials/>
       <Call/>
       {/* <Dashboard/> */}
       {/* <Whychoose /> */}
-      <OneFirm />
+      {/* <OneFirm /> */}
       <MainVisionSection />
 
       <ContactSection />
