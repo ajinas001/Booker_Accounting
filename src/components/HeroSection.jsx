@@ -108,7 +108,7 @@ export default function HeroSection() {
 
                         {/* CTA Button */}
                         <motion.a
-                            href="#contact"
+                            href="/contact"
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 1.5, duration: 0.8 }}

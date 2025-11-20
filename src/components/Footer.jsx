@@ -1,9 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import {
- 
   FaLinkedinIn,
- 
   FaWhatsapp,
   FaInstagram,
   FaEnvelope,
@@ -28,12 +26,23 @@ const pageLinks = [
 ];
 
 const socialLinks = [
-  
-  { icon: FaLinkedinIn, href: "https://www.linkedin.com/company/bookeraccounting/", label: "LinkedIn" },
- 
+  {
+    icon: FaLinkedinIn,
+    href: "https://www.linkedin.com/company/bookeraccounting/",
+    label: "LinkedIn",
+  },
+
   { icon: FaWhatsapp, href: "https://wa.me/971567678156", label: "WhatsApp" },
-  { icon: FaInstagram, href: "https://www.instagram.com/booker_accounting?igsh=dzZ5MGZwMHJscjh4&utm_source=qr", label: "Instagram" },
-  { icon: FaEnvelope, href: "mailto:info@bookeraccounting.com", label: "Email" },
+  {
+    icon: FaInstagram,
+    href: "https://www.instagram.com/booker_accounting?igsh=dzZ5MGZwMHJscjh4&utm_source=qr",
+    label: "Instagram",
+  },
+  {
+    icon: FaEnvelope,
+    href: "mailto:info@bookeraccounting.com",
+    label: "Email",
+  },
 ];
 
 const Footer = () => {
@@ -47,13 +56,15 @@ const Footer = () => {
           {/* Logo + Description */}
           <div className="max-w-md">
             <div className="flex items-center gap-3 mb-3">
-              <Image
-                src="/images/LogoL.png"
-                alt="Booker Accounting Company Logo"
-                width={120}
-                height={120}
-                className="object-contain"
-              />
+              <Link href={"/"}>
+                <Image
+                  src="/images/LogoL.png"
+                  alt="Booker Accounting Company Logo"
+                  width={120}
+                  height={120}
+                  className="object-contain"
+                />
+              </Link>
             </div>
             <p className="text-sm text-gray-50 leading-relaxed">
               Booker refers to the global organization of accounting and
