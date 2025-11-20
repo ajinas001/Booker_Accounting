@@ -1,220 +1,224 @@
 "use client";
-import React, { useRef } from "react";
-import { motion, useInView } from "framer-motion";
 
-// --- ICONS (same as your version) ---
-const BuildingIcon = ({ className = "w-6 h-6" }) => (
-  <svg className={className} viewBox="0 0 24 24" fill="none">
-    <path
-      d="M10 20v-6h4v6h5V9h4L12 3 1 9h4v11h5z"
-      stroke="currentColor"
-      strokeWidth="1.8"
-    />
-  </svg>
-);
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 
-const DollarSignIcon = ({ className = "w-6 h-6" }) => (
-  <svg className={className} viewBox="0 0 24 24" fill="none">
-    <path
-      d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"
-      stroke="currentColor"
-      strokeWidth="1.8"
-    />
-  </svg>
-);
+const steps = [
+  {
+    title: "Company Formation",
+    desc: "Launch your business with confidence through expert entity selection, comprehensive paperwork handling, and seamless registration. We guide you through every legal requirement to establish a solid foundation for your company's success.",
+    icon: (
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.5"
+      >
+        <path
+          d="M3 21h18M3 7v14M21 7v14M9 21V9M15 21V9M9 3v4M15 3v4M3 7h18M9 7h6"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    ),
+  },
+  {
+    title: "Tax Registration",
+    desc: "Navigate the complexities of tax obligations with our comprehensive registration services. From VAT and corporate tax to payroll tax and statutory requirements, we ensure your business is fully compliant from day one.",
+    icon: (
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.5"
+      >
+        <path
+          d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    ),
+  },
+  {
+    title: "Accounting & Bookkeeping",
+    desc: "Maintain crystal-clear financial records with our professional accounting services. We establish your chart of accounts, manage accounting cycles, and set up robust reporting systems that provide real-time insights into your business performance.",
+    icon: (
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.5"
+      >
+        <path
+          d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M4 19.5A2.5 2.5 0 0 0 6.5 22H20M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20M9 6h6M9 10h6M9 14h6"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    ),
+  },
+  {
+    title: "Taxation & Compliance",
+    desc: "Stay ahead of regulatory requirements with our proactive compliance management. We handle ongoing tax filings, conduct regular reviews, and ensure your business remains in good standing with all relevant authorities.",
+    icon: (
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.5"
+      >
+        <path
+          d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z M9 12l2 2 4-4"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    ),
+  },
+  {
+    title: "Audit & Financial Reviews",
+    desc: "Prepare for audits with confidence through our thorough preparation services and comprehensive assurance reviews. We ensure your financial statements meet the highest standards of accuracy and transparency.",
+    icon: (
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.5"
+      >
+        <circle cx="11" cy="11" r="8" />
+        <path
+          d="m21 21-4.35-4.35"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    ),
+  },
+  {
+    title: "Advice & Restructuring",
+    desc: "Transform your business for maximum efficiency and growth. Our strategic restructuring and optimization services help you adapt to market changes, improve operational effectiveness, and unlock new opportunities for success.",
+    icon: (
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.5"
+      >
+        <path
+          d="M22 7L13.5 15.5 8.5 10.5 2 17M22 7h-6M22 7v6"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    ),
+  },
+  {
+    title: "Liquidation / De-Registration",
+    desc: "When it's time to close a chapter, we provide professional support for orderly business winding-down. Our comprehensive liquidation and de-registration services ensure all legal and financial obligations are properly addressed.",
+    icon: (
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.5"
+      >
+        <path
+          d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M10 11v6M14 11v6"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    ),
+  },
+];
 
-const BookOpenIcon = ({ className = "w-6 h-6" }) => (
-  <svg className={className} viewBox="0 0 24 24" fill="none">
-    <path
-      d="M4 19.5A2.5 2.5 0 016.5 17H20M6.5 22.5A2.5 2.5 0 014 20M6.5 17C4.5 17 3 15.5 3 13.5V4.5C3 3.395 3.895 2.5 5 2.5H19c1.105 0 2 .895 2 2v9c0 2-1.5 3.5-3.5 3.5h-11z"
-      stroke="currentColor"
-      strokeWidth="1.8"
-    />
-  </svg>
-);
-
-const CheckShieldIcon = ({ className = "w-6 h-6" }) => (
-  <svg className={className} viewBox="0 0 24 24" fill="none">
-    <path
-      d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"
-      stroke="currentColor"
-      strokeWidth="1.8"
-    />
-    <path d="M9 11l2 2 4-4" stroke="currentColor" strokeWidth="1.8" />
-  </svg>
-);
-
-const SearchIcon = ({ className = "w-6 h-6" }) => (
-  <svg className={className} viewBox="0 0 24 24" fill="none">
-    <circle cx="11" cy="11" r="8" stroke="currentColor" strokeWidth="1.8" />
-    <path d="M21 21l-4.35-4.35" stroke="currentColor" strokeWidth="1.8" />
-  </svg>
-);
-
-const TrendingUpIcon = ({ className = "w-6 h-6" }) => (
-  <svg className={className} viewBox="0 0 24 24" fill="none">
-    <path d="M23 6l-9.5 9.5-5-5L1 18" stroke="currentColor" strokeWidth="1.8" />
-    <path d="M17 6h6v6" stroke="currentColor" strokeWidth="1.8" />
-  </svg>
-);
-
-const TrashIcon = ({ className = "w-6 h-6" }) => (
-  <svg className={className} viewBox="0 0 24 24" fill="none">
-    <path
-      d="M3 6h18M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6M8 6V4a2 2 0 012-2h4a2 2 0 012 2v2"
-      stroke="currentColor"
-      strokeWidth="1.8"
-    />
-  </svg>
-);
-
-// --- MAIN ---
-export default function OneFirm() {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-100px 0px" });
-
-  const steps = [
-    {
-      title: "Company Formation ",
-      desc: "Entity selection, paperwork, registration.",
-      icon: BuildingIcon,
-    },
-    {
-      title: "Tax Registration",
-      desc: "VAT, corporate tax, payroll tax & statutory setup.",
-      icon: DollarSignIcon,
-    },
-    {
-      title: "Accounting & Bookkeeping",
-      desc: "Chart of accounts, cycles & reporting setup.",
-      icon: BookOpenIcon,
-    },
-    {
-      title: "Taxation & Compliance",
-      desc: "Ongoing filings and proactive reviews.",
-      icon: CheckShieldIcon,
-    },
-    {
-      title: "Audit & Financial Reviews",
-      desc: "Audit preparation & assurance.",
-      icon: SearchIcon,
-    },
-    {
-      title: "Advice & Restructuring ",
-      desc: "Strategic restructuring and optimization.",
-      icon: TrendingUpIcon,
-    },
-    {
-      title: "Liquidation / De-Registration",
-      desc: "Orderly winding-down support.",
-      icon: TrashIcon,
-    },
-  ];
-
-  const fadeSlide = {
-    hidden: { opacity: 0, y: 40 },
-    visible: (i) => ({
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.8, ease: "easeOut", delay: i * 0.15 },
-    }),
-  };
+const Card = ({ step, index, range, targetScale, progress }) => {
+  const scale = useTransform(progress, range, [1, targetScale]);
 
   return (
-    <section className="py-24 px-6 bg-primary">
-      <div className="max-w-7xl mx-auto" ref={ref}>
-        {/* ---- HEADER ---- */}
-         <motion.div
-          initial="hidden"
-          animate={inView ? "visible" : "hidden"}
-          variants={fadeSlide}
-          custom={0}
-          className="mb-16 text-center"
-        >
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 leading-tight">
-            One Firm. Every Step.
-          </h2>
-          <p className="text-2xl md:text-3xl font-semibold text-secondary mb-6">
-            With a Strategic Edge
-          </p>
-          <p className="text-lg md:text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-            From start to finish, we guide your business through every stage of its lifecycle—whether 
-            you're starting up, scaling, restructuring, or winding down. With deep expertise in UAE 
-            and international markets, we ensure your journey is smooth, compliant, and strategically sound.
-          </p>
-        </motion.div>
+    <motion.div
+      style={{
+        scale,
+        top: `calc(5vh + ${index * 25}px)`,
+      }}
+      className="sticky h-[500px] w-full rounded-3xl bg-secondary text-white p-12 mb-6"
+    >
+      <div className="flex h-full flex-col justify-between">
+        <div className="flex items-start justify-between">
+          <span className="text-8xl font-light text-white opacity-90">
+            {String(index + 1).padStart(2, "0")}
+          </span>
+        </div>
 
-        {/* ---- TIMELINE ---- */}
-        <div className="relative mt-12">
-          {/* Center Line */}
-          <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-[2px] bg-gray-300/70 -translate-x-1/2"></div>
+        <div>
+          <h3 className="mb-6 text-3xl md:text-5xl font-normal text-white">
+            {step.title}
+          </h3>
+          <p className="leading-relaxed text-white text-sm md:text-lg max-w-lg">
+            {step.desc}
+          </p>
+        </div>
+      </div>
+    </motion.div>
+  );
+};
 
-          <div className="space-y-20 md:space-y-28">
-            {steps.map((item, index) => {
-              const isLeft = index % 2 === 0;
+export default function StickyOverlapCards() {
+  const container = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: container,
+    offset: ["start start", "end end"],
+  });
+
+  return (
+    <div className="min-h-screen py-8 md:py-20 bg-white text-black">
+      <div className="mx-auto max-w-7xl px-6 md:px-12 py-20">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
+          {/* Left Sticky Section */}
+          <div className="lg:sticky lg:top-32 lg:h-fit">
+            <div className="space-y-4">
+              <p className="text-sm font-medium tracking-wider uppercase text-textsecondary">
+                OUR APPROACH
+              </p>
+
+              <h1 className="text-4xl font-semibold leading-tight text-black lg:text-4xl xl:text-6xl">
+                One Firm. Every Step. <br className="hidden sm:block" />{" "}
+                <span className="text-textsecondary ">
+                  With a Strategic Edge.
+                </span>
+              </h1>
+
+              <p className="text-base leading-relaxed text-gray-700 pt-8 max-w-md">
+                We support your journey at every stage from launch to expansion,
+                restructuring, and closure. Backed by strong expertise in UAE
+                and global markets, we make your business path seamless,
+                compliant, and strategically driven.
+              </p>
+            </div>
+          </div>
+
+          {/* Right Cards Section */}
+          <div ref={container} className="relative space-y-6">
+            {steps.map((step, i) => {
+              const targetScale = 1 - (steps.length - i) * 0.05;
+              const range = [i / steps.length, 1];
 
               return (
-                <motion.div
-                  key={index}
-                  variants={fadeSlide}
-                  initial="hidden"
-                  animate={inView ? "visible" : "hidden"}
-                  custom={index + 1}
-                  className={`relative flex flex-col md:flex-row items-center md:items-start ${
-                    isLeft ? "md:justify-start" : "md:justify-end"
-                  }`}
-                >
-                  {/* ---- CENTER ICON BUBBLE ---- */}
-                  <div
-                    className="
-                      hidden md:flex absolute left-1/2 -translate-x-1/2 
-                      w-16 h-16 rounded-full 
-                      bg-secondary backdrop-blur-md
-                      flex items-center justify-center
-                      text-white z-10
-                    "
-                  >
-                    <item.icon className="w-7 h-7" />
-                  </div>
-
-                  {/* ---- CARD ---- */}
-                  <div
-                    className={`
-                      bg-gray-200 backdrop-blur-xl 
-                      rounded-2xl p-7 md:p-9 max-w-lg 
-                      transition duration-300 
-                      hover:scale-[1.02] hover:bg-gray-300
-                      ${isLeft ? " md:pr-20" : " md:pl-20"}
-                    `}
-                  >
-                    {/* mobile icon */}
-                    <div className="flex items-center gap-3 md:hidden mb-4">
-                      <div className="w-12 h-12 bg-white/70 backdrop-blur-xl rounded-xl flex items-center justify-center">
-                        <item.icon className="w-6 h-6 text-gray-800" />
-                      </div>
-                      <span className="text-lg font-semibold text-gray-800">
-                        STEP {index + 1}
-                      </span>
-                    </div>
-
-                    <h3 className="text-2xl font-semibold text-gray-900 mb-2">
-                      {item.title}
-                    </h3>
-                    <p className="text-gray-700 leading-relaxed">{item.desc}</p>
-
-                    <p className="mt-4 text-sm text-gray-500 italic">
-                      Typical Completion Time:{" "}
-                      <span className="font-medium text-gray-700">
-                        1–3 weeks
-                      </span>
-                    </p>
-                  </div>
-                </motion.div>
+                <Card
+                  key={i}
+                  step={step}
+                  index={i}
+                  range={range}
+                  targetScale={targetScale}
+                  progress={scrollYProgress}
+                />
               );
             })}
+            <div className="h-[500px]" />
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 }

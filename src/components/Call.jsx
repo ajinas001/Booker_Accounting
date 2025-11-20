@@ -32,16 +32,16 @@ function Call() {
             tailored to your business. No obligation. No credit card needed.
           </p>
 
-         <div className="inline-block overflow-hidden">
-  <motion.div
-    initial={{ opacity: 0, y: 20 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.6, ease: "easeOut" }}
-    viewport={{ once: true }}
-  >
-    <Link
-      href="tel:+971567678156"
-      className="
+          <div className="inline-block overflow-hidden">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              viewport={{ once: true }}
+            >
+              <Link
+                href="tel:+971567678156"
+                className="
         inline-block
         backdrop-blur-xl 
         bg-white/15 
@@ -57,12 +57,11 @@ function Call() {
         hover:bg-white/25 
         hover:translate-y-[-2px]
       "
-    >
-      Book Your FREE Assessment Call
-    </Link>
-  </motion.div>
-</div>
-
+              >
+                Book Your FREE Assessment Call
+              </Link>
+            </motion.div>
+          </div>
 
           <p className="text-white/70 text-sm mt-4">
             30-min call • Personalized recommendations • Transparent pricing

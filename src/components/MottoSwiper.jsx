@@ -6,6 +6,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/autoplay";
 import { Autoplay } from "swiper/modules";
+import { motion } from "framer-motion";
 
 const partnerItems = [
   {
@@ -38,16 +39,26 @@ const MotoSwiper = () => {
   return (
     <section className="w-full bg-gray-200 py-24 px-6 ">
       <div className="max-w-7xl mx-auto text-start">
-        <h1 className="text-5xl md:text-7xl font-light text-gray-900 leading-tight ">
-          Our Trusted <br />
-         
-          <span className="font-semibold text-textsecondary ">Partners</span>
-        </h1>
-
-        <p className="text-lg text-black  max-w-2xl text-start mb-16 leading-relaxed">
-          We proudly collaborate with industry-leading freezones to empower
+         <motion.div
+          className="mb-16 max-w-4xl"
+          
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+        >
+          {/* Using a font class that closely matches the image's "Success Stories" style */}
+          <h2 className="text-7xl sm:text-8xl c font-normal text-gray-900 mb-8 tracking-tight leading-none font-bold">
+            Our {" "}
+            <span className="font-['Playfair_Display',_serif] italic text-secondary">
+              Partners
+            </span>
+          </h2>
+          {/* Keeping this description for context, adjust as needed */}
+          <p className="text-xl text-gray-600">
+           We proudly collaborate with industry-leading freezones to empower
           businesses to establish and expand with confidence.
-        </p>
+          </p>
+        </motion.div>
 
         {/* Swiper */}
         <Swiper

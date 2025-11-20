@@ -2,7 +2,17 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
-
+const textRevealVariant = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.7,
+      ease: "easeOut",
+    },
+  },
+};
 export default function OurProcess() {
   const [openIndex, setOpenIndex] = useState(null);
 
@@ -98,18 +108,26 @@ export default function OurProcess() {
 
   return (
     <>
-      <section className="max-w-7xl mx-auto pb-24 px-6 py-12">
-        <motion.h2
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-4xl md:text-6xl font-bold mb-16"
+      <section className="max-w-7xl mx-auto pb-24 px-6 py-8 md:py-20">
+        <motion.div
+          className="mb-16 max-w-4xl"
+          variants={textRevealVariant}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
         >
-          Our{" "}
-          <span className="text-transparent bg-clip-text bg-textsecondary">
-            Process
-          </span>
-        </motion.h2>
+          {/* Using a font class that closely matches the image's "Success Stories" style */}
+          <h2 className="text-7xl sm:text-8xl c font-normal text-gray-900 mb-8 tracking-tight leading-none font-bold">
+            Our{" "}
+            <span className="font-['Playfair_Display',_serif] italic text-secondary">
+              Process
+            </span>
+          </h2>
+          {/* Keeping this description for context, adjust as needed */}
+          <p className="text-xl text-gray-600">
+            A clear, strategic process that powers your business forward.
+          </p>
+        </motion.div>
 
         <div className="space-y-8">
           {processSteps.map((item, index) => (
