@@ -22,6 +22,7 @@ import Dashboard from '@/components/Dashboard';
 import OurProcess from '@/components/OurProcess';
 import Call from '@/components/Call';
 import Testimonials from '@/components/Testimonials';
+import ServicesPopup from '@/components/ServicesPopup';
 
 const BookerAccountingWebsite = () => {
 
@@ -33,12 +34,13 @@ const BookerAccountingWebsite = () => {
       <HeroSection />
       <MainAchievements />
       <HomeAboutTimeline />
-      <Services /><MotoSwiper/>
+      <Services />
+      <MotoSwiper />
       <IndustriesSection />
-      
-      <OurProcess/>
-      <Testimonials/>
-      <Call/>
+{/* <ServicesPopup/> */}
+      <OurProcess />
+      <Testimonials />
+      <Call />
       {/* <Dashboard/> */}
       {/* <Whychoose /> */}
       <OneFirm />
