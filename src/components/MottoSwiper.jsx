@@ -33,6 +33,12 @@ const partnerItems = [
       "Flexible licensing and cost-effective setup solutions helping businesses scale quickly.",
     image: "/images/ifza.png",
   },
+  {
+    title: "IFZA",
+    description:
+      "Flexible licensing and cost-effective setup solutions helping businesses scale quickly.",
+    image: "/images/shamu.png",
+  },
 ];
 
 const MotoSwiper = () => {
