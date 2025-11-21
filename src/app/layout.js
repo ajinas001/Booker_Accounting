@@ -35,7 +35,7 @@ export const metadata = {
   ],
   // Open Graph metadata for social media sharing previews
   openGraph: {
-    title: "Booker Accounting and Consulting | Build, Balance, Brilliance",
+    title: "Booker Accounting and Consulting",
     description: "Booker Accounting and Consulting provides expert bookkeeping, tax compliance, and strategic financial advisory services to help businesses build a balanced and brilliant financial future.",
     url: "https://bookeraccounting.com", // Placeholder URL based on company name
     siteName: "Booker Accounting and Consulting",
