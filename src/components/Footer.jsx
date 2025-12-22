@@ -22,6 +22,7 @@ const pageLinks = [
   { name: "Home", href: "/" },
   { name: "About Us", href: "/about" },
   { name: "Blog", href: "/blog" },
+  { name: "Faq", href: "/faq" },
   { name: "Contact Us", href: "/contact" },
 ];
 

@@ -23,11 +23,13 @@ import OurProcess from '@/components/OurProcess';
 import Call from '@/components/Call';
 import Testimonials from '@/components/Testimonials';
 import ServicesPopup from '@/components/ServicesPopup';
+import Faq from '@/components/Faq';
 
 const BookerAccountingWebsite = () => {
 
 
   return (
+    
     <div className="min-h-screen text-foreground">
       <Navbar />
       <LoadingScreen />
@@ -37,7 +39,7 @@ const BookerAccountingWebsite = () => {
       <Services />
       <MotoSwiper />
       <IndustriesSection />
-{/* <ServicesPopup/> */}
+      {/* <ServicesPopup/> */}
       <OurProcess />
       <Testimonials />
       <Call />
@@ -45,7 +47,7 @@ const BookerAccountingWebsite = () => {
       {/* <Whychoose /> */}
       <OneFirm />
       <MainVisionSection />
-
+      <Faq />
       <ContactSection />
       <ScrollToTop />
       <FloatingMenuButton />

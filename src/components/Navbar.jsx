@@ -42,7 +42,7 @@ const SERVICES_DATA_RAW = [
   },
 ];
 
-const NAV_LINKS = ["Home", "About", "Services", "Blog", "Contact"];
+const NAV_LINKS = ["Home", "About", "Services","Faq", "Blog", "Contact"];
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
