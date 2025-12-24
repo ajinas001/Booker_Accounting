@@ -12,40 +12,33 @@ import ScrollToTop from "@/components/ScrollToTop";
 export default function BlogPage() {
   const POSTS = [
     {
+      href: "/e-invoice",
       id: 1,
-      title: "Six Critical Ad Creative Mistakes Every Marketer Makes",
-      author: "Swetha Venkateswaran",
-      role: "Content Writer @ Pixis",
+      title: "UAE E-Invoicing Transformation",
+      description:
+        "Understanding the UAE’s mandatory e-invoicing rollout, compliance requirements, timelines, and its impact on businesses",
+      author: "Content Writer",
+      role: "Booker Accounting and Consulting",
       date: "5 November, 2025",
-      imageUrl: "/images/business7.webp",
-      category: "Ad Creative",
+      imageUrl: "/images/e-invoice.webp",
+      
       color: "bg-indigo-600",
       icon: FileText,
     },
     {
       id: 2,
+      href: "/offshore",
       title:
-        "18 ChatGPT Prompts for Ad Creative and Copywriting That Actually Improve Performance",
-      author: "Colin Campbell",
-      role: "Head of Content @ Pixis",
+        "UAE Offshore Corporate TaxRegistration",
+        description:"A comprehensive guide to understanding corporate tax registration for offshore companies in the UAE's evolving tax framework",
+      author: "Head of Content ",
+      role: "Booker Accounting and Consulting",
       date: "4 November, 2025",
-      imageUrl: "/images/img.webp",
+      imageUrl: "/images/tax.webp",
       category: "Ad Creative",
       category2: "Performance",
       color: "bg-teal-500",
       icon: Users,
-    },
-    {
-      id: 3,
-      title:
-        "How to Build a Testing Cadence for Scaling in Performance Marketing",
-      author: "William Lewis Eldredge",
-      role: "Director - Customer Success @ Pixis",
-      date: "31 October, 2025",
-      imageUrl: "/images/img1.webp",
-      category: "Performance Marketing",
-      color: "bg-emerald-500",
-      icon: BarChart2,
     },
   ];
 
@@ -135,74 +128,88 @@ export default function BlogPage() {
           </div>
 
           {/* Blog Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-            {POSTS.map((post) => {
-              const Icon = post.icon;
-              return (
-                <motion.div
-                  key={post.id}
-                  initial={{ opacity: 0, y: 40 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6 }}
-                  whileHover={{ scale: 1.02, transition: { duration: 0.3 } }}
-                  className="bg-white rounded-2xl overflow-hidden  transition-all border border-gray-200"
-                >
-                  {/* Image */}
-                  <div className="relative h-64 overflow-hidden">
-                    <Image
-                      src={post.imageUrl}
-                      alt={post.title}
-                      fill
-                      sizes="(max-width: 768px) 100vw, 33vw"
-                      className="object-cover object-center transition-transform duration-700 hover:scale-105"
-                    />
-                    <div className="absolute top-4 left-4 flex gap-2">
-                      {post.category && (
-                        <span className="px-4 py-2 bg-black/60 text-xs font-semibold uppercase tracking-wider rounded-full text-white">
-                          {post.category}
-                        </span>
-                      )}
-                      {post.category2 && (
-                        <span className="px-4 py-2 bg-black/60 text-xs font-semibold uppercase tracking-wider rounded-full text-white">
-                          {post.category2}
-                        </span>
-                      )}
-                    </div>
-                  </div>
+         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-10">
+  {POSTS.map((post) => {
+    const Icon = post.icon;
+    return (
+      <motion.div
+        key={post.id}
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="bg-white rounded-2xl overflow-hidden transition-all border border-gray-200"
+      >
+        {/* Image */}
+        <div className="relative h-64 overflow-hidden">
+          <Image
+            src={post.imageUrl}
+            alt={post.title}
+            fill
+            sizes="(max-width: 768px) 100vw, 33vw"
+            className="object-cover object-center transition-transform duration-700 hover:scale-105"
+          />
+        </div>
 
-                  {/* Content */}
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold leading-snug mb-3">
-                      {post.title}
-                    </h3>
+        {/* Content */}
+        <div className="p-6 flex flex-col h-full">
+          <h3 className="text-xl font-bold leading-snug mb-3 text-textsecondary">
+            {post.title}
+          </h3>
 
-                    {/* Author Info */}
-                    <div className="flex items-center gap-3 mt-4">
-                      <div
-                        className={`w-10 h-10 rounded-full flex items-center justify-center text-white ${post.color}`}
-                      >
-                        <Icon className="w-5 h-5" />
-                      </div>
-                      <div>
-                        <p className="text-sm font-semibold">{post.author}</p>
-                        <p className="text-xs text-gray-500">{post.role}</p>
-                      </div>
-                    </div>
+          {/* Description (NEW — no design change) */}
+          <p className="text-lg text-black leading-relaxed">
+            {post.description}
+          </p>
 
-                    <p className="text-sm text-gray-500 mt-4 pt-4 border-t border-gray-200">
-                      {post.date}
-                    </p>
-                  </div>
-                </motion.div>
-              );
-            })}
+          {/* Author Info */}
+          <div className="flex items-center gap-3 mt-4">
+            <div
+              className={`w-10 h-10 rounded-full flex items-center justify-center text-white ${post.color}`}
+            >
+              <Icon className="w-5 h-5" />
+            </div>
+            <div>
+              <p className="text-sm font-semibold">{post.author}</p>
+              <p className="text-xs text-gray-500">{post.role}</p>
+            </div>
           </div>
+
+          <p className="text-sm text-gray-500 mt-4 pt-4 border-t border-gray-200">
+            {post.date}
+          </p>
+
+          {/* Read More */}
+          <Link
+            href={`/blog/${post.href}`}
+            className="mt-6 inline-flex items-center gap-2 text-teal-600 hover:text-teal-700 font-semibold transition-colors group"
+          >
+            Read More
+            <svg
+              className="w-5 h-5 transition-transform group-hover:translate-x-1"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M17 8l4 4m0 0l-4 4m4-4H3"
+              />
+            </svg>
+          </Link>
+        </div>
+      </motion.div>
+    );
+  })}
+</div>
+
         </section>
 
         {/* ✅ FOOTER SECTION */}
-        <ScrollToTop/>
-        <FloatingMenuButton/>
+        <ScrollToTop />
+        <FloatingMenuButton />
         <Footer />
       </div>
     </>
