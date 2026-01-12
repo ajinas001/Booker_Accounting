@@ -2,36 +2,49 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiMail, FiPhone, FiChevronUp } from "react-icons/fi";
-import {
-  FaLinkedinIn,
-  FaWhatsapp,
-  FaInstagram,
-
-} from "react-icons/fa6";
+import { FaLinkedinIn, FaWhatsapp, FaInstagram } from "react-icons/fa6";
 import Link from "next/link";
 import Image from "next/image";
 
 // Contact items
+import { FaStar } from "react-icons/fa6";
+
+const reviewItem = {
+  // 🔁 replace with your Google review link
+};
 const contactItems = [
   {
     icon: FiPhone,
     label: "Call us now",
-    type: "phone",
     href: "tel:+971567678156",
+    isImage: false,
   },
   {
     icon: FiMail,
     label: "Mail us now",
-    type: "email",
     href: "mailto:Info@bookeraccounting.com",
+    isImage: false,
+  },
+  {
+    label: "Review us on Trustpilot",
+    href: "https://www.trustpilot.com/review/bookeraccounting.com",
+    isImage: true,
+    imageSrc: "/images/trustpilot.png", // 🔁 your PNG icon path
   },
 ];
 
 const socialItems = [
-  { icon: FaLinkedinIn, href: "https://www.linkedin.com/company/bookeraccounting/", label: "LinkedIn" },
+  {
+    icon: FaLinkedinIn,
+    href: "https://www.linkedin.com/company/bookeraccounting/",
+    label: "LinkedIn",
+  },
   { icon: FaWhatsapp, href: "https://wa.me/971567678156 ", label: "WhatsApp" },
-  { icon: FaInstagram, href: "https://www.instagram.com/booker_accounting?igsh=dzZ5MGZwMHJscjh4&utm_source=qr", label: "Instagram" },
-  
+  {
+    icon: FaInstagram,
+    href: "https://www.instagram.com/booker_accounting?igsh=dzZ5MGZwMHJscjh4&utm_source=qr",
+    label: "Instagram",
+  },
 ];
 
 // Framer Motion Variants
@@ -100,7 +113,7 @@ export default function FloatingMenuButton() {
             initial="hidden"
             animate="visible"
             exit="exit"
-            className="w-64 bg-white p-4 rounded-3xl shadow-2xl backdrop-blur-md border border-gray-100 relative"
+            className="w-64 md:w-72 bg-white p-3 rounded-3xl shadow-2xl backdrop-blur-md border border-gray-100 relative"
           >
             {/* 🏢 Logo at the Top Center */}
             <div className="flex justify-center mb-4">
@@ -127,8 +140,19 @@ export default function FloatingMenuButton() {
                       href={item.href}
                       className="flex items-center px-4 py-2 text-gray-700 hover:text-cyan-600 transition-colors"
                     >
-                      <item.icon className="w-5 h-5 mr-3" />
-                      <span className="text-lg font-medium">{item.label}</span>
+                      {item.isImage ? (
+                        <Image
+                          src={item.imageSrc}
+                          alt={item.label}
+                          width={20}
+                          height={20}
+                          className="mr-3 object-contain"
+                        />
+                      ) : (
+                        <item.icon className="w-5 h-5 mr-3" />
+                      )}
+
+                      <span className="text-sm md:text-lg font-medium">{item.label}</span>
                     </a>
                   </motion.li>
                 ))}
