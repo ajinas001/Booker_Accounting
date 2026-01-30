@@ -182,7 +182,7 @@ export default function StickyOverlapCards() {
                 OUR APPROACH
               </p>
 
-              <h1 className="text-4xl font-semibold leading-tight text-black lg:text-4xl xl:text-6xl">
+              <h1 className="text-3xl font-semibold leading-tight text-black md:text-3xl xl:text-6xl">
                 One Firm. Every Step. <br className="hidden sm:block" />{" "}
                 <span className="text-textsecondary ">
                   With a Strategic Edge.

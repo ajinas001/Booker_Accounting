@@ -168,7 +168,7 @@ export default function IndustriesSection() {
             backgroundColor: "rgba(28, 94, 106, 0.1)",
             transition: { duration: 0.2 }
           }}
-          className="inline-block border border-secondary text-secondary text-sm font-medium w-fit px-8 py-3 rounded-tl-full rounded-tr-full rounded-br-full uppercase tracking-widest mb-16 cursor-pointer"
+          className="inline-block border border-secondary text-secondary text-sm  font-medium w-fit px-8 py-3 rounded-tl-full rounded-tr-full rounded-br-full uppercase tracking-widest mb-16 cursor-pointer"
         >
           Industries We Serve
         </motion.div>

@@ -32,7 +32,7 @@ export default function FaqSection() {
         
         {/* Left Column: Heading and Description */}
         <div className="flex flex-col justify-start">
-          <h2 className="text-5xl md:text-6xl font-bold text-textsecondary leading-tight mb-8">
+          <h2 className="text-4xl md:text-5xl font-bold text-textsecondary leading-tight mb-8">
             Frequently Asked<br />
            <span className=" text-secondary">
               Questions

@@ -117,7 +117,7 @@ export default function OurProcess() {
           viewport={{ once: true, amount: 0.2 }}
         >
           {/* Using a font class that closely matches the image's "Success Stories" style */}
-          <h2 className="text-7xl sm:text-8xl c font-normal text-gray-900 mb-8 tracking-tight leading-none font-bold">
+          <h2 className="text-4xl md:text-6xl font-normal text-gray-900 mb-8 tracking-tight leading-none font-bold">
             Our{" "}
             <span className="font-['Playfair_Display',_serif] italic text-secondary">
               Process
