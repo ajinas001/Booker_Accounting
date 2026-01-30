@@ -156,9 +156,9 @@ export default function Testimonials() {
             viewport={{ once: true, amount: 0.2 }}
           >
             {/* Using a font class that closely matches the image's "Success Stories" style */}
-            <h2 className="text-4xl md:text-6xl c font-normal text-gray-900 mb-8 tracking-tight leading-none font-bold">
+            <h2 className="text-4xl md:text-6xl c font-normal text-gray-900 mb-8 tracking-tight leading-none ">
               Success{" "}
-              <span className="font-['Playfair_Display',_serif] italic text-secondary">
+              <span className="font- italic text-secondary">
                 Stories
               </span>
             </h2>
@@ -181,7 +181,7 @@ export default function Testimonials() {
                 variants={cardSlideUpVariant}
                 whileHover={{ scale: 1.01, transition: { duration: 0.3 } }}
                 // Card background and border for light theme match
-                className="p-10 bg-gray-200  rounded-[24px] cursor-pointer h-full flex flex-col" // Removed justify-between
+                className="p-10 bg-gray-200  rounded-3xl cursor-pointer h-full flex flex-col" // Removed justify-between
               >
                 {/* Name and Date - Top of card */}
                 <div className="mb-6">
@@ -194,7 +194,7 @@ export default function Testimonials() {
                 </div>
 
                 {/* Testimonial Quote */}
-                <p className="text-lg text-gray-800 mb-8 leading-relaxed flex-grow">
+                <p className="text-lg text-gray-800 mb-8 leading-relaxed grow">
                   {" "}
                   {/* Adjusted text size */}"{testimonial.text}"
                 </p>
@@ -259,7 +259,7 @@ export default function Testimonials() {
         {/* SECTION 4: Client Benefits (Checklist) */}
 
         {/* Client Benefits */}
-        <div className="bg-gray-200 p-16 py-4 md:py-16 rounded-[24px]  space-y-8 mb-8 ">
+        <div className="bg-gray-200 p-16 py-4 md:py-16 rounded-3xl  space-y-8 mb-8 ">
           <h3 className="text-2xl font-bold text-gray-900 mb-6">
             What Our Clients Actually Get
           </h3>
@@ -275,7 +275,7 @@ export default function Testimonials() {
               "20+ hours per month back to focus on growing your business",
             ].map((benefit, idx) => (
               <div key={idx} className="flex items-start gap-3">
-                <CheckCircle className="w-6 h-6 text-teal-600 flex-shrink-0 mt-0.5" />
+                <CheckCircle className="w-6 h-6 text-teal-600 shrink-0 mt-0.5" />
                 <span className="text-gray-700">{benefit}</span>
               </div>
             ))}
@@ -283,13 +283,13 @@ export default function Testimonials() {
         </div>
 
         {/* Why Choose Us */}
-        <div className="bg-secondary text-white p-16  rounded-[24px] ">
+        <div className="bg-secondary text-white p-16  rounded-3xl ">
           <h3 className="text-2xl font-bold  mb-6">
             Why Clients Choose Booker Accounting
           </h3>
           <div className="space-y-4">
             <div className="flex items-start gap-4">
-              <div className="w-3 h-3 bg-teal-600 rounded-full mt-2 flex-shrink-0"></div>
+              <div className="w-3 h-3 bg-teal-600 rounded-full mt-2 shrink-0"></div>
               <div>
                 <h4 className="font-bold ">We Assess First, Not Sell First</h4>
                 <p className=" text-lg">
@@ -300,7 +300,7 @@ export default function Testimonials() {
               </div>
             </div>
             <div className="flex items-start gap-4">
-              <div className="w-3 h-3 bg-teal-600 rounded-full mt-2 flex-shrink-0"></div>
+              <div className="w-3 h-3 bg-teal-600 rounded-full mt-2 shrink-0"></div>
               <div>
                 <h4 className="font-bold ">
                   Custom Solutions, Not One-Size-Fits-All
@@ -313,7 +313,7 @@ export default function Testimonials() {
               </div>
             </div>
             <div className="flex items-start gap-4">
-              <div className="w-3 h-3 bg-teal-600 rounded-full mt-2 flex-shrink-0"></div>
+              <div className="w-3 h-3 bg-teal-600 rounded-full mt-2 shrink-0"></div>
               <div>
                 <h4 className="font-bold ">Complete Transparency</h4>
                 <p className=" text-lg">
@@ -323,7 +323,7 @@ export default function Testimonials() {
               </div>
             </div>
             <div className="flex items-start gap-4">
-              <div className="w-3 h-3 bg-teal-600 rounded-full mt-2 flex-shrink-0"></div>
+              <div className="w-3 h-3 bg-teal-600 rounded-full mt-2 shrink-0"></div>
               <div>
                 <h4 className="font-bold ">UAE Expertise</h4>
                 <p className=" text-lg">

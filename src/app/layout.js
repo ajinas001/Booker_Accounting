@@ -16,39 +16,57 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  // Title structure for better SEO and page navigation
   title: {
     default: "Booker Accounting & Consulting",
-    template: "%s | Booker Accounting and Consulting",
+    template: "%s | Booker Accounting & Consulting",
   },
-  // Detailed description to appear in search results
-  description: "Booker Accounting and Consulting provides expert bookkeeping, tax compliance, and strategic financial advisory services to help businesses build a balanced and brilliant financial future.",
-  // Keywords for search engines
+
+  description:
+    "Booker Accounting and Consulting provides expert bookkeeping, tax compliance, and strategic financial advisory services to help businesses build a balanced and brilliant financial future.",
+
   keywords: [
     "Bookkeeping Services",
     "Financial Advisory",
     "Tax Compliance",
     "Business Accounting",
-    "Booker Accounting and Consulting",
     "Dubai Accounting Firm",
-    "UAE Business Setup"
+    "UAE Accounting Services",
+    "Booker Accounting and Consulting",
   ],
-  // Open Graph metadata for social media sharing previews
+
+  // ✅ THIS CONTROLS GOOGLE SEARCH ICON
+  icons: {
+    icon: "/favicon.png",
+    apple: "/apple-touch-icon.png",
+  },
+
   openGraph: {
-    title: "Booker Accounting and Consulting",
-    description: "Booker Accounting and Consulting provides expert bookkeeping, tax compliance, and strategic financial advisory services to help businesses build a balanced and brilliant financial future.",
-    url: "https://bookeraccounting.com", // Placeholder URL based on company name
-    siteName: "Booker Accounting and Consulting",
+    title: "Booker Accounting & Consulting",
+    description:
+      "Expert bookkeeping, tax compliance, and strategic financial advisory services in the UAE.",
+    url: "https://bookeraccounting.com",
+    siteName: "Booker Accounting & Consulting",
     locale: "en_US",
     type: "website",
+    images: [
+      {
+        url: "https://bookeraccounting.com/icon-512.png",
+        width: 512,
+        height: 512,
+        alt: "Booker Accounting & Consulting Logo",
+      },
+    ],
   },
-  // Twitter card metadata
+
   twitter: {
     card: "summary_large_image",
-    title: "Booker Accounting | Bookkeeping & Consulting",
-    description: "Expert bookkeeping, tax compliance, and strategic financial advisory services in the UAE.",
+    title: "Booker Accounting & Consulting",
+    description:
+      "Expert bookkeeping, tax compliance, and strategic financial advisory services in the UAE.",
+    images: ["https://bookeraccounting.com/icon-512.png"],
   },
 };
+
 
 export default function RootLayout({ children }) {
   return (
@@ -65,9 +83,22 @@ export default function RootLayout({ children }) {
         }}
       >
         <LenisWrapper>
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "Organization",
+                name: "Booker Accounting & Consulting",
+                url: "https://bookeraccounting.com",
+                logo: "https://bookeraccounting.com/icon-512.png",
+              }),
+            }}
+          />
+
           {children}
         </LenisWrapper>
-        
+
       </body>
     </html>
   );
