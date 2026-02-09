@@ -204,161 +204,113 @@ const MainVisionSection = () => {
   );
 
   // Enhanced central visualization
-  const CentralVision = () => (
-    // Reduced viewBox from 800 500 to 400 250
-    <svg viewBox="0 0 400 250" className="w-full h-auto">
-      <defs>
-        <linearGradient id="mainGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stopColor="#0891b2" />
-          <stop offset="50%" stopColor="#0e7490" />
-          <stop offset="100%" stopColor="#0891b2" />
-        </linearGradient>
-        <linearGradient id="coreGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#0891b2" />
-          <stop offset="100%" stopColor="#155e75" />
-        </linearGradient>
-        <filter id="softGlow">
-          <feGaussianBlur stdDeviation="1" result="blur"/> {/* Reduced stdDeviation */}
-          <feComposite in="blur" in2="SourceGraphic" operator="over"/>
-        </filter>
-      </defs>
+ const CentralVision = () => (
+  <svg viewBox="0 0 400 250" className="w-full h-auto">
+    <defs>
+      <linearGradient id="mainGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stopColor="#0891b2" />
+        <stop offset="50%" stopColor="#0e7490" />
+        <stop offset="100%" stopColor="#0891b2" />
+      </linearGradient>
+      <linearGradient id="coreGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stopColor="#0891b2" />
+        <stop offset="100%" stopColor="#155e75" />
+      </linearGradient>
+      <filter id="softGlow">
+        <feGaussianBlur stdDeviation="1.5" result="blur"/>
+        <feComposite in="blur" in2="SourceGraphic" operator="over"/>
+      </filter>
+    </defs>
 
-      {/* Outer framework circle (All coordinates and sizes halved) */}
-      <motion.circle
-        cx="200"
-        cy="125"
-        r="100"
-        fill="none"
-        stroke="#e0f2fe"
-        strokeWidth="1"
-        initial={{ scale: 0.8, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{ duration: 1, delay: 0.2 }}
-      />
+    {/* The Orbital Path (Visual Guide) */}
+    <circle 
+      cx="200" cy="125" r="100" 
+      fill="none" stroke="#e0f2fe" strokeWidth="0.5" strokeDasharray="4 4" 
+    />
 
-      {/* Connection paths */}
-      <motion.path
-        d="M 200 125 L 100 125"
-        stroke="url(#mainGrad)"
-        strokeWidth="1"
-        strokeDasharray="3 3" // Reduced dash size
-        opacity="0.5"
-        initial={{ pathLength: 0 }}
-        animate={{ pathLength: 1 }}
-        transition={{ duration: 1, delay: 0.5 }}
-      />
-      <motion.path
-        d="M 200 125 L 300 125"
-        stroke="url(#mainGrad)"
-        strokeWidth="1"
-        strokeDasharray="3 3" // Reduced dash size
-        opacity="0.5"
-        initial={{ pathLength: 0 }}
-        animate={{ pathLength: 1 }}
-        transition={{ duration: 1, delay: 0.5 }}
-      />
-
-      {/* Balance node - Left */}
-      <motion.g
-        initial={{ scale: 0, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{ duration: 0.6, delay: 0.8, type: "spring" }}
+    {/* --- ORBITING SYSTEM --- */}
+    <motion.g
+      initial={{ rotate: 0 }}
+      animate={{ rotate: 360 }}
+      transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+      style={{ transformOrigin: "200px 125px" }}
+    >
+      {/* Balance node - Left (Orbiting) */}
+      <motion.g 
+        initial={{ scale: 0 }}
+        animate={{ scale: 1 }}
+        style={{ transformOrigin: "100px 125px" }}
       >
-        <circle cx="100" cy="125" r="32.5" fill="white" stroke="#e0f2fe" strokeWidth="1" />
-        <circle cx="100" cy="125" r="29" fill="none" stroke="url(#mainGrad)" strokeWidth="1" />
-        <text x="100" y="122.5" textAnchor="middle" fill="#0e7490" fontSize="7.5" fontWeight="600"> {/* Reduced font size */}
-          BALANCE
-        </text>
-        <text x="100" y="132.5" textAnchor="middle" fill="#0891b2" fontSize="5.5" fontWeight="500"> {/* Reduced font size */}
-          Compliance
-        </text>
+        {/* Counter-rotate internal content so text stays upright */}
+        <motion.g
+          animate={{ rotate: -360 }}
+          transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+          style={{ transformOrigin: "100px 125px" }}
+        >
+          <circle cx="100" cy="125" r="32.5" fill="white" stroke="#e0f2fe" strokeWidth="1" />
+          <circle cx="100" cy="125" r="29" fill="none" stroke="url(#mainGrad)" strokeWidth="1" />
+          <text x="100" y="122.5" textAnchor="middle" fill="#0e7490" fontSize="7.5" fontWeight="600">BALANCE</text>
+          <text x="100" y="132.5" textAnchor="middle" fill="#0891b2" fontSize="5.5" fontWeight="500">Compliance</text>
+        </motion.g>
       </motion.g>
 
-      {/* Central Build node */}
-      <motion.g
-        initial={{ scale: 0, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{ duration: 0.8, delay: 0.3, type: "spring" }}
+      {/* Brilliance node - Right (Orbiting) */}
+      <motion.g 
+        initial={{ scale: 0 }}
+        animate={{ scale: 1 }}
+        style={{ transformOrigin: "300px 125px" }}
       >
-        <circle cx="200" cy="125" r="42.5" fill="url(#coreGrad)" filter="url(#softGlow)" />
-        <circle cx="200" cy="125" r="39" fill="none" stroke="white" strokeWidth="1" opacity="0.6" />
-        <motion.circle
-          cx="200"
-          cy="125"
-          r="42.5"
-          fill="none"
-          stroke="white"
-          strokeWidth="0.5" // Reduced stroke width
-          opacity="0"
-          animate={{
-            r: [42.5, 47.5], // Reduced animation radius
-            opacity: [0.4, 0]
-          }}
-          transition={{ duration: 2, repeat: Infinity, ease: "easeOut" }}
-        />
-        <text x="200" y="127.5" textAnchor="middle" fill="white" fontSize="11" fontWeight="700" letterSpacing="1.5"> {/* Reduced font size/spacing */}
-          BUILD
-        </text>
-        <text x="200" y="137.5" textAnchor="middle" fill="white" fontSize="6" fontWeight="500" opacity="0.9"> {/* Reduced font size */}
-          Core Foundation
-        </text>
+        <motion.g
+          animate={{ rotate: -360 }}
+          transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+          style={{ transformOrigin: "300px 125px" }}
+        >
+          <circle cx="300" cy="125" r="32.5" fill="white" stroke="#e0f2fe" strokeWidth="1" />
+          <circle cx="300" cy="125" r="29" fill="none" stroke="url(#mainGrad)" strokeWidth="1" />
+          <text x="300" y="122.5" textAnchor="middle" fill="#0e7490" fontSize="7.5" fontWeight="600">BRILLIANCE</text>
+          <text x="300" y="132.5" textAnchor="middle" fill="#0891b2" fontSize="5.5" fontWeight="500">Excellence</text>
+        </motion.g>
       </motion.g>
+    </motion.g>
 
-      {/* Brilliance node - Right */}
-      <motion.g
-        initial={{ scale: 0, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{ duration: 0.6, delay: 0.8, type: "spring" }}
-      >
-        <circle cx="300" cy="125" r="32.5" fill="white" stroke="#e0f2fe" strokeWidth="1" />
-        <circle cx="300" cy="125" r="29" fill="none" stroke="url(#mainGrad)" strokeWidth="1" />
-        <text x="300" y="122.5" textAnchor="middle" fill="#0e7490" fontSize="7.5" fontWeight="600"> {/* Reduced font size */}
-          BRILLIANCE
-        </text>
-        <text x="300" y="132.5" textAnchor="middle" fill="#0891b2" fontSize="5.5" fontWeight="500"> {/* Reduced font size */}
-          Excellence
-        </text>
-      </motion.g>
+    {/* --- CENTRAL SUN (BUILD) --- */}
+    <motion.g
+      initial={{ scale: 0 }}
+      animate={{ scale: 1 }}
+      transition={{ duration: 0.8, type: "spring" }}
+    >
+      <circle cx="200" cy="125" r="42.5" fill="url(#coreGrad)" filter="url(#softGlow)" />
+      {/* Pulsing Sun Effect */}
+      <motion.circle
+        cx="200" cy="125" r="42.5"
+        fill="none" stroke="white" strokeWidth="1"
+        animate={{ scale: [1, 1.2], opacity: [0.5, 0] }}
+        transition={{ duration: 3, repeat: Infinity, ease: "easeOut" }}
+      />
+      <text x="200" y="127.5" textAnchor="middle" fill="white" fontSize="11" fontWeight="700" letterSpacing="1.5">BUILD</text>
+      <text x="200" y="137.5" textAnchor="middle" fill="white" fontSize="6" fontWeight="500" opacity="0.9">Core Foundation</text>
+    </motion.g>
 
-      {/* Decorative nodes */}
+    {/* Floating Particles (Asteroids/Stars) */}
+    {[
+      { cx: 150, cy: 75, d: 0 }, 
+      { cx: 250, cy: 75, d: 1 }, 
+      { cx: 150, cy: 175, d: 2 }, 
+      { cx: 250, cy: 175, d: 0.5 }
+    ].map((dot, i) => (
       <motion.circle
-        cx="150"
-        cy="75"
-        r="2"
+        key={i}
+        cx={dot.cx} cy={dot.cy} r="1.5"
         fill="#0891b2"
-        opacity="0.4"
-        animate={{ scale: [1, 1.3, 1], opacity: [0.4, 0.7, 0.4] }}
-        transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+        animate={{ 
+          y: [0, -10, 0],
+          opacity: [0.2, 0.6, 0.2] 
+        }}
+        transition={{ duration: 4, repeat: Infinity, delay: dot.d }}
       />
-      <motion.circle
-        cx="250"
-        cy="75"
-        r="2.5"
-        fill="#0891b2"
-        opacity="0.4"
-        animate={{ scale: [1, 1.3, 1], opacity: [0.4, 0.7, 0.4] }}
-        transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-      />
-      <motion.circle
-        cx="150"
-        cy="175"
-        r="2"
-        fill="#0891b2"
-        opacity="0.4"
-        animate={{ scale: [1, 1.3, 1], opacity: [0.4, 0.7, 0.4] }}
-        transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
-      />
-      <motion.circle
-        cx="250"
-        cy="175"
-        r="2.5"
-        fill="#0891b2"
-        opacity="0.4"
-        animate={{ scale: [1, 1.3, 1], opacity: [0.4, 0.7, 0.4] }}
-        transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-      />
-    </svg>
-  );
+    ))}
+  </svg>
+);
 
   return (
     <>
