@@ -165,7 +165,7 @@ export default function Navbar() {
           <div
             className={`lg:hidden transition-[max-height,opacity] duration-300 ease-in-out rounded-lg text-center overflow-hidden will-change-[max-height,opacity] ${
               isOpen
-                ? "max-h-[500px] py-4 opacity-100 bg-white text-black"
+                ? "max-h-[520px] py-4 opacity-100 bg-white text-black"
                 : "max-h-0 opacity-0"
             }`}
           >
