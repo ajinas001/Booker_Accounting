@@ -315,7 +315,7 @@ const MainVisionSection = () => {
   return (
     <>
       {/* <MottoSwiper/> */}
-      <section className="relative bg-gradient-to-b from-slate-50 via-white to-cyan-50/20 py-16 md:py-16 overflow-hidden">
+      <section className="relative bg-primary py-16 md:py-16 overflow-hidden">
         {/* Subtle top border */}
 
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">

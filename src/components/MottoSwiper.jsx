@@ -11,33 +11,45 @@ import { motion } from "framer-motion";
 const partnerItems = [
   {
     title: "DMCC",
-    description:
-      "Trusted licensing & business setup support through DMCC — ensuring fast registration and premium compliance.",
+    // description:
+    //   "Trusted licensing & business setup support through DMCC — ensuring fast registration and premium compliance.",
     image: "/images/dmcc.png",
   },
   {
     title: "Meydan ",
-    description:
-      "Efficient business establishment with Meydan, offering fast processing and premium Dubai address solutions.",
+    // description:
+    //   "Efficient business establishment with Meydan, offering fast processing and premium Dubai address solutions.",
     image: "/images/mydan.png",
   },
   {
     title: "Hamriyah ",
-    description:
-      "Strong industrial licensing support ideal for manufacturing and commercial activities.",
+    // description:
+    //   "Strong industrial licensing support ideal for manufacturing and commercial activities.",
     image: "/images/hamriya.png",
   },
   {
     title: "IFZA",
-    description:
-      "Flexible licensing and cost-effective setup solutions helping businesses scale quickly.",
+    // description:
+    //   "Flexible licensing and cost-effective setup solutions helping businesses scale quickly.",
     image: "/images/ifza.png",
   },
   {
-    title: "IFZA",
-    description:
-      "Flexible licensing and cost-effective setup solutions helping businesses scale quickly.",
+    title: "SHARJAH MEDIA CITY",
+    // description:
+    //   "Flexible licensing and cost-effective setup solutions helping businesses scale quickly.",
     image: "/images/shamu.png",
+  },
+  {
+    title: "RAKEZ",
+    // description:
+    //   "Flexible licensing and cost-effective setup solutions helping businesses scale quickly.",
+    image: "/images/rakez.png",
+  },
+  {
+    title: "SPC FREE ZONE",
+    // description:
+    //   "Flexible licensing and cost-effective setup solutions helping businesses scale quickly.",
+    image: "/images/spc.png",
   },
 ];
 
@@ -45,9 +57,9 @@ const MotoSwiper = () => {
   return (
     <section className="w-full bg-gray-200 py-24 px-6 ">
       <div className="max-w-7xl mx-auto text-start">
-         <motion.div
+        <motion.div
           className="mb-16 max-w-4xl"
-          
+
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
@@ -56,13 +68,13 @@ const MotoSwiper = () => {
           <h2 className="text-4xl md:text-6xl sm:text-8xl c font-normal text-gray-900 mb-8 tracking-tight leading-none font-bold">
             Our {" "}
             <span className="font-['Playfair_Display',_serif] italic text-secondary">
-              Partners
+              Collaborators
             </span>
           </h2>
           {/* Keeping this description for context, adjust as needed */}
           <p className="text-xl text-gray-600">
-           We proudly collaborate with industry-leading freezones to empower
-          businesses to establish and expand with confidence.
+            We proudly collaborate with industry-leading freezones to empower
+            businesses to establish and expand with confidence.
           </p>
         </motion.div>
 
@@ -88,8 +100,8 @@ const MotoSwiper = () => {
                   <Image
                     src={partner.image}
                     alt={partner.title}
-                    width={120}
-                    height={120}
+                    width={200}
+                    height={100}
                     className="object-contain rounded-md"
                   />
                 </div>
@@ -100,11 +112,44 @@ const MotoSwiper = () => {
                 </h3> */}
 
                 {/* Description */}
-                
+
               </div>
             </SwiperSlide>
           ))}
         </Swiper>
+      </div>
+      {/* Zoho Partnership Section */}
+      <div className="mt-24 flex flex-col items-center justify-center text-center">
+
+        <h2 className="text-4xl md:text-6xl sm:text-8xl c font-normal text-gray-900 mb-8 tracking-tight leading-none font-bold">
+          In {" "}
+          <span className="font-['Playfair_Display',_serif] italic text-secondary">
+            Partnership with
+          </span>
+        </h2>
+
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="  rounded-xl p-8 flex items-center justify-center"
+        >
+          <Image
+            src="/images/zoho.png"
+            alt="Zoho Partner"
+            width={180}
+            height={80}
+            className="object-contain"
+          />
+        </motion.div>
+
+        <p className="text-gray-600 mt-6 max-w-xl">
+          We proudly partner with Zoho to deliver powerful business tools,
+          helping organizations streamline operations, manage customers,
+          and scale efficiently.
+        </p>
+
       </div>
     </section>
   );

@@ -124,8 +124,7 @@ const Footer = () => {
         {/* Bottom Section */}
         <div className="mt-10 pt-6 flex flex-col md:flex-row justify-between items-center border-t border-gray-700">
           <p className="text-sm text-gray-50 leading-relaxed max-w-2xl text-center md:text-left order-2 md:order-1 mt-6 md:mt-0">
-            © {new Date().getFullYear()} Booker Global Limited, each of which is
-            a separate legal entity.
+            © {new Date().getFullYear()} Booker Accounting and Consulting
           </p>
 
           {/* Social Icons */}

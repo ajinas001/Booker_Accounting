@@ -70,9 +70,8 @@ const StarRating = ({ rating }) => (
     {[...Array(5)].map((_, i) => (
       <Star
         key={i}
-        className={`w-4 h-4 ${
-          i < rating ? "text-yellow-500 fill-yellow-500" : "text-gray-300"
-        }`}
+        className={`w-4 h-4 ${i < rating ? "text-yellow-500 fill-yellow-500" : "text-gray-300"
+          }`}
         strokeWidth={1}
       />
     ))}
@@ -120,22 +119,22 @@ const benefits = [
 
 const testimonials = [
   {
-    text: "The financial clarity and proactive tax advice provided by the team were invaluable. They helped us navigate VAT regulations effortlessly, saving us significant time and money.",
-    name: " E-Commerce Owner",
+    text: "Had an great experience with the BAC team. They are truly amazing with phenomenal expertise in Taxation, humble approach, attention to detail and always available for support 24/7 which is incredible. Had a great support on Corporate Tax from them , One of the best Tax Consultant in UAE.",
+    name: " Mohammed Fazal",
     place: "Dubai",
     rating: 5,
   },
   {
-    text: "As a rapidly growing tech startup, we needed scalable accounting. Their custom systems freed up over 20 hours a month, allowing us to focus entirely on product development and growth.",
-    name: " Startup Founder",
+    text: "Among all the firms I’ve tried, Booker Accounting is the most responsive and reliable. Their attention to detail is excellent, and their depth of knowledge is beyond expectations. Definitely a 5-star service! Highly Recommend",
+    name: " ABHILASH METTAMMAL",
     place: "Abu Dhabi",
     rating: 5,
   },
   {
-    text: "Their expert knowledge of UAE import-export duties and corporate compliance made a huge difference. We now have fully organized, audit-ready books and complete peace of mind.",
-    name: "Import-Export Executive",
+    text: "It was great working with Booker Accounting Services! The team was professional, efficient, and got the work done without me having to follow up. Really appreciated the smooth experience, highly recommend their services!",
+    name: "Mohammed Taha",
     place: "Sharjah",
-    rating: 4,
+    rating: 5,
   },
 ];
 
@@ -158,7 +157,7 @@ export default function Testimonials() {
             {/* Using a font class that closely matches the image's "Success Stories" style */}
             <h2 className="text-4xl md:text-6xl c font-normal text-gray-900 mb-8 tracking-tight leading-none ">
               Success{" "}
-              <span className="font- italic text-secondary">
+              <span className="font-['Playfair_Display',_serif] italic text-secondary">
                 Stories
               </span>
             </h2>
@@ -189,7 +188,7 @@ export default function Testimonials() {
                     {testimonial.name}
                   </h4>
                   <p className="text-gray-800 text-sm italic mt-1">
-                    {testimonial.place}
+                    {/* {testimonial.place} */}
                   </p>
                 </div>
 

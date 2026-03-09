@@ -29,13 +29,15 @@ const BookerAccountingWebsite = () => {
 
 
   return (
-    
+
     <div className="min-h-screen text-foreground">
       <Navbar />
       <LoadingScreen />
       <HeroSection />
       <MainAchievements />
       <HomeAboutTimeline />
+      <MainVisionSection />
+
       <Services />
       <MotoSwiper />
       <IndustriesSection />
@@ -46,7 +48,6 @@ const BookerAccountingWebsite = () => {
       {/* <Dashboard/> */}
       {/* <Whychoose /> */}
       <OneFirm />
-      <MainVisionSection />
       <Faq />
       <ContactSection />
       <ScrollToTop />
