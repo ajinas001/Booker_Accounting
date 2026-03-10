@@ -180,7 +180,7 @@ const MainAchievements = () => {
   return (
     <section className="bg-primary py-24 relative overflow-hidden">
       {/* Background SVG Patterns - Already animated, so no change needed here */}
-      <div className="absolute inset-0 pointer-events-none">
+      {/* <div className="absolute inset-0 pointer-events-none">
         <svg viewBox="0 0 1000 600" className="w-full h-full opacity-5">
           <motion.g
             animate={{ rotate: 360 }}
@@ -207,7 +207,7 @@ const MainAchievements = () => {
             strokeDasharray="4 4"
           />
         </svg>
-      </div>
+      </div> */}
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
@@ -252,9 +252,9 @@ const MainAchievements = () => {
               className="text-center relative"
             >
               {/* Background SVG */}
-              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+              {/* <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                 {achievement.svg}
-              </div>
+              </div> */}
 
               {/* Number (AnimatedCounter handles its own visibility animation) */}
               <motion.div
