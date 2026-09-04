@@ -10,6 +10,7 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@next/third-parties": "^16.3.4",
     "@splinetool/runtime": "^1.10.99",
     "@studio-freight/lenis": "^1.0.42",
     "framer-motion": "^12.23.24",
@@ -26,6 +27,7 @@
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
     "babel-plugin-react-compiler": "1.0.0",
+    "baseline-browser-mapping": "^2.11.21",
     "eslint": "^9",
     "eslint-config-next": "16.0.1",
     "tailwindcss": "^4"

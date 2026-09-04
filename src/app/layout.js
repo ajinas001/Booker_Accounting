@@ -2,6 +2,7 @@ import { Inter, Geist_Mono } from "next/font/google";
 import { Poppins } from "next/font/google";
 import "./globals.css";
 
+import { GoogleAnalytics } from '@next/third-parties/google';
 import LenisWrapper from "@/components/LenisWrapper";
 import LoadingScreen from "@/components/LoadingSreen";
 import FloatingService from "@/components/FloatingService";
@@ -91,9 +92,7 @@ export default function RootLayout({ children }) {
           ${poppins.variable}
           ${inter.variable}
           ${geistMono.variable}
-          
-      
-          antialiased
+           antialiased
         `}
       >
         <LenisWrapper>
@@ -176,6 +175,7 @@ export default function RootLayout({ children }) {
           <FloatingActions />
           <FloatingService />
         </LenisWrapper>
+        <GoogleAnalytics gaId="G-QFX59S5C1E" />
       </body>
     </html>
   );
