@@ -2,7 +2,7 @@ import { Inter, Geist_Mono } from "next/font/google";
 import { Poppins } from "next/font/google";
 import "./globals.css";
 
-import { GoogleAnalytics } from '@next/third-parties/google';
+import { GoogleAnalytics } from "@next/third-parties/google";
 import LenisWrapper from "@/components/LenisWrapper";
 import LoadingScreen from "@/components/LoadingSreen";
 import FloatingService from "@/components/FloatingService";
@@ -12,11 +12,13 @@ const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
 });
+
 const poppins = Poppins({
   variable: "--font-poppins",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
 });
+
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
@@ -24,9 +26,11 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
   metadataBase: new URL("https://www.bookeraccounting.com"),
+
   alternates: {
     canonical: "/",
   },
+
   title: {
     default: "Booker Accounting & Consulting",
     template: "%s | Booker Accounting & Consulting",
@@ -75,13 +79,6 @@ export const metadata = {
       "Expert bookkeeping, tax compliance, and strategic financial advisory services in the UAE.",
     images: ["https://www.bookeraccounting.com/icon-512.png"],
   },
-
-  verification: {
-    google: "google-site-verification-placeholder",
-    other: {
-      "msvalidate.01": "bing-site-verification-placeholder",
-    },
-  },
 };
 
 export default function RootLayout({ children }) {
@@ -92,7 +89,7 @@ export default function RootLayout({ children }) {
           ${poppins.variable}
           ${inter.variable}
           ${geistMono.variable}
-           antialiased
+          antialiased
         `}
       >
         <LenisWrapper>
@@ -102,79 +99,93 @@ export default function RootLayout({ children }) {
               __html: JSON.stringify({
                 "@context": "https://schema.org",
                 "@type": "AccountingService",
-                "name": "Booker Accounting & Consulting",
-                "url": "https://www.bookeraccounting.com",
-                "logo": "https://www.bookeraccounting.com/icon-512.png",
-                "telephone": "+971567678156",
-                "email": "info@bookeraccounting.com",
-                "address": {
+                name: "Booker Accounting & Consulting",
+                url: "https://www.bookeraccounting.com",
+                logo: "https://www.bookeraccounting.com/icon-512.png",
+                telephone: "+971567678156",
+                email: "info@bookeraccounting.com",
+
+                address: {
                   "@type": "PostalAddress",
-                  "streetAddress": "R364 Al Wasl Building, Unique World Business Center, Office 12, Al Karama",
-                  "addressLocality": "Dubai",
-                  "addressCountry": "AE"
+                  streetAddress:
+                    "R364 Al Wasl Building, Unique World Business Center, Office 12, Al Karama",
+                  addressLocality: "Dubai",
+                  addressCountry: "AE",
                 },
-                "geo": {
+
+                geo: {
                   "@type": "GeoCoordinates",
-                  "latitude": 25.2474167,
-                  "longitude": 55.3088056
+                  latitude: 25.2474167,
+                  longitude: 55.3088056,
                 },
-                "areaServed": "United Arab Emirates",
-                "priceRange": "AED 200 - AED 200,000",
-                "sameAs": [
+
+                areaServed: "United Arab Emirates",
+
+                priceRange: "AED 200 - AED 200,000",
+
+                sameAs: [
                   "https://www.linkedin.com/company/bookeraccounting/",
                   "https://www.instagram.com/booker_consulting",
                   "https://www.facebook.com/share/1bsoQ3j3Km/",
-                  "https://www.trustpilot.com/review/bookeraccounting.com"
+                  "https://www.trustpilot.com/review/bookeraccounting.com",
                 ],
-                "hasOfferCatalog": {
+
+                hasOfferCatalog: {
                   "@type": "OfferCatalog",
-                  "name": "Services",
-                  "itemListElement": [
+                  name: "Services",
+
+                  itemListElement: [
                     {
                       "@type": "Offer",
-                      "itemOffered": {
+                      itemOffered: {
                         "@type": "Service",
-                        "name": "Bookkeeping & Accounting"
-                      }
+                        name: "Bookkeeping & Accounting",
+                      },
                     },
+
                     {
                       "@type": "Offer",
-                      "itemOffered": {
+                      itemOffered: {
                         "@type": "Service",
-                        "name": "Corporate Tax Advisory"
-                      }
+                        name: "Corporate Tax Advisory",
+                      },
                     },
+
                     {
                       "@type": "Offer",
-                      "itemOffered": {
+                      itemOffered: {
                         "@type": "Service",
-                        "name": "VAT Advisory & Compliance"
-                      }
+                        name: "VAT Advisory & Compliance",
+                      },
                     },
+
                     {
                       "@type": "Offer",
-                      "itemOffered": {
+                      itemOffered: {
                         "@type": "Service",
-                        "name": "AML Compliance Consultancy"
-                      }
+                        name: "AML Compliance Consultancy",
+                      },
                     },
+
                     {
                       "@type": "Offer",
-                      "itemOffered": {
+                      itemOffered: {
                         "@type": "Service",
-                        "name": "Audit & Assurance"
-                      }
-                    }
-                  ]
-                }
+                        name: "Audit & Assurance",
+                      },
+                    },
+                  ],
+                },
               }),
             }}
           />
 
           {children}
+
           <FloatingActions />
           <FloatingService />
         </LenisWrapper>
+
         <GoogleAnalytics gaId="G-QFX59S5C1E" />
       </body>
     </html>
