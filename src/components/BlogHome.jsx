@@ -6,13 +6,15 @@ export default function BlogHome() {
   const POSTS = [
     {
       id: 1,
+      date: new Date("2026-01-01"),
       href: "/blog/e-invoice",
       title: "UAE E-INVOICING TRANSFORMATION & MANDATORY STRATEGY",
-      excerpt: "Understanding the UAE’s mandatory e-invoicing rollout, compliance requirements, timelines, and its impact on businesses.",
+      excerpt: "Understanding the UAE's mandatory e-invoicing rollout, compliance requirements, timelines, and its impact on businesses.",
       image: "/images/blog1.webp",
     },
     {
       id: 2,
+      date: new Date("2026-02-01"),
       href: "/blog/offshore",
       title: "UAE OFFSHORE CORPORATE TAX REGISTRATION PRACTICES",
       excerpt: "A comprehensive guide to understanding corporate tax registration for offshore companies in the UAE's evolving tax framework.",
@@ -20,16 +22,26 @@ export default function BlogHome() {
     },
     {
       id: 3,
+      date: new Date("2026-03-01"),
       href: "/blog/e-invoicing",
       title: "THE PAPER TRAIL ENDS HERE : WHY E-INVOICING IS NO LONGER OPTIONAL?",
       excerpt: "Slow payments, manual errors, and compliance risk are symptoms of the same root cause paper-based invoicing. Here's what the shift looks like.",
       image: "/images/office-workers.webp",
-    }
-  ];
+    },
+    {
+      id: 4,
+      date: new Date("2026-09-14"),
+      href: "/blog/the-one-habit-that-decides-whether-you-get-blindsided",
+      title: "THE ONE HABIT THAT DECIDES WHETHER YOU GET BLINDSIDED",
+      excerpt: "Bookkeeping never feels urgent — right up until the year it needed to be right. Learn how bookkeeping acts as vital business infrastructure.",
+      image: "/images/accounting.webp",
+    },
+  ].sort((a, b) => b.date - a.date);
 
   const mainFeaturedPost = POSTS[0];
   const secondaryPostLarge = POSTS[1];
   const secondaryPostSmall = POSTS[2];
+
 
   return (
     <section className="bg-white text-slate-900 py-16 px-6 md:px-12 lg:px-16 selection:bg-[#1f626d]/20 selection:text-[#1f626d]">

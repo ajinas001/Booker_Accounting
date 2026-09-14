@@ -27,16 +27,18 @@ export default function BlogPage() {
   const POSTS = [
     {
       id: 1,
+      date: new Date("2025-01-01"),
       href: "/e-invoice",
       title: "UAE E-Invoicing Transformation & Mandatory Strategy",
       description:
-        "Understanding the UAE’s mandatory e-invoicing rollout, compliance requirements, timelines, and its impact on businesses.",
+        "Understanding the UAE's mandatory e-invoicing rollout, compliance requirements, timelines, and its impact on businesses.",
       author: "Content Writer",
       imageUrl: "/images/e-invoice.webp",
       readTime: "",
     },
     {
       id: 2,
+      date: new Date("2025-02-01"),
       href: "/offshore",
       title: "UAE Offshore Corporate Tax Registration Practices",
       description:
@@ -47,6 +49,7 @@ export default function BlogPage() {
     },
     {
       id: 3,
+      date: new Date("2025-03-01"),
       href: "/e-invoicing",
       title: "The Paper Trail Ends Here : Why E-Invoicing Is No Longer Optional?",
       description:
@@ -57,6 +60,7 @@ export default function BlogPage() {
     },
     {
       id: 4,
+      date: new Date("2025-04-01"),
       href: "/uaecorporatetaxblog",
       title: "No More Tax-Free by Default: UAE Corporate Tax — Everything Business Owners Need to Know",
       description:
@@ -65,7 +69,19 @@ export default function BlogPage() {
       imageUrl: "/images/uaecorporatetax.webp",
       readTime: "11 Min Read",
     },
-  ];
+    {
+      id: 5,
+      date: new Date("2025-09-14"),
+      href: "/the-one-habit-that-decides-whether-you-get-blindsided",
+      title: "The One Habit That Decides Whether You Get Blindsided",
+      description:
+        "Bookkeeping never feels urgent — right up until the year it needed to be right. Learn how bookkeeping acts as vital business infrastructure.",
+      author: "Content Writer",
+      imageUrl: "/images/accounting.webp",
+      readTime: "7 Min Read",
+    },
+  ].sort((a, b) => b.date - a.date);
+
 
   return (
     <>
