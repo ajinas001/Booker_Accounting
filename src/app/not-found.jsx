@@ -9,7 +9,7 @@ export const metadata = {
 
 export default function NotFound() {
   return (
-    <div className="min-h-screen flex flex-col bg-gray-950 text-white font-sans">
+    <div className=" font-poppins min-h-screen flex flex-col bg-gray-950 text-white ">
       <Navbar />
       <main className="flex-1 flex items-center justify-center px-6 py-24 relative overflow-hidden">
         {/* Background glow effects */}
@@ -23,9 +23,9 @@ export default function NotFound() {
           <h1 className="text-5xl sm:text-7xl font-extrabold text-white tracking-tight mb-6">
             Page Not Found
           </h1>
-          <p className="text-lg text-gray-300 mb-10 max-w-xl mx-auto leading-relaxed">
+          {/* <p className="text-lg text-gray-300 mb-10 max-w-xl mx-auto leading-relaxed">
             Sorry, the page you are looking for might have been removed, had its name changed, or is temporarily unavailable.
-          </p>
+          </p> */}
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
