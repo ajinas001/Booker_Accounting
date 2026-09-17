@@ -34,9 +34,9 @@ const taxServices = [
     icon: Building2,
     title: "Corporate Tax",
     tag: "Advisory",
-    desc: "End-to-end corporate tax support — from FTA registration to ongoing compliance and strategic planning.",
+    desc: "End-to-end corporate tax support — from tax registration to ongoing compliance and strategic planning.",
     highlights: [
-      "Corporate tax registration with the FTA",
+      "Corporate tax registration",
       "Tax return preparation and timely filing",
       "Tax exposure assessment and risk review",
       "Identification of applicable exemptions and reliefs",
@@ -53,7 +53,7 @@ const taxServices = [
     tag: "Compliance",
     desc: "Full-spectrum VAT services — simplified, accurate, and tailored for specialized sectors including free zones and oil & gas.",
     highlights: [
-      "VAT registration and deregistration with the FTA",
+      "VAT registration and deregistration",
       "VAT return preparation and timely filing",
       "Input tax recovery and optimization",
       "VAT health checks and compliance reviews",
@@ -67,18 +67,18 @@ const taxServices = [
     id: 3,
     icon: Shield,
     title: "Tax Agent Service",
-    tag: "FTA Approved",
-    desc: "Your official, FTA-authorized representative — managing all correspondence, filings, and disputes on your behalf.",
+    tag: "Representation",
+    desc: "Your dedicated representative — managing all tax correspondence, filings, and disputes on your behalf.",
     highlights: [
-      "Official FTA representation on your behalf",
+      "Official representation on your behalf",
       "Tax return filing and documentation management",
-      "Handling of FTA audits and tax assessments",
+      "Handling of tax audits and assessments",
       "Dispute resolution and appeals management",
-      "Response to FTA queries and notices",
+      "Response to authority queries and notices",
       "Full compliance monitoring and deadline tracking",
     ],
     forWhom:
-      "Businesses of any size wanting a licensed professional handling all FTA interactions.",
+      "Businesses of any size wanting a licensed professional handling all tax interactions.",
   },
 ];
 
@@ -104,8 +104,8 @@ const transferPricingItems = [
 const whyChoose = [
   {
     icon: CheckCircle,
-    title: "FTA Approved",
-    body: "Fully authorized to represent your business before the Federal Tax Authority.",
+    title: "Licensed Advisory",
+    body: "Authorized professionals to represent and safeguard your business interests.",
   },
   {
     icon: TrendingUp,
@@ -169,7 +169,7 @@ function TaxServiceCard({ service, index, open, onToggle }) {
           <div className="w-10 h-10 rounded-xl bg-teal-50 flex items-center justify-center flex-shrink-0">
             <Icon className="w-5 h-5 text-teal-700" strokeWidth={1.6} />
           </div>
-          <span className="text-[10px] font-semibold  tracking-widest text-gray-800 bg-purpletint border border-purpletint px-2.5 py-1 rounded-full">
+          <span className="text-[10px] font-semibold tracking-widest text-gray-800 bg-purpletint border border-purpletint px-2.5 py-1 rounded-full">
             {service.tag}
           </span>
         </div>
@@ -245,7 +245,6 @@ export default function TaxationPage() {
 
   return (
     <>
-
       <div className="bg-white text-gray-800 antialiased">
         <Navbar />
 
@@ -294,7 +293,7 @@ export default function TaxationPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-textprimary text-xs md:text-sm font-semibold  tracking-[0.2em] mb-5"
+              className="text-textprimary text-xs md:text-sm font-semibold tracking-[0.2em] mb-5"
             >
               BAC Taxation
             </motion.p>
@@ -317,7 +316,7 @@ export default function TaxationPage() {
               transition={{ duration: 0.8, delay: 0.3 }}
               className="text-lg md:text-xl text-gray-300 max-w-xl mb-10"
             >
-              Corporate tax advisory, VAT compliance, and FTA-approved representation
+              Corporate tax advisory, VAT compliance, and professional representation
               for startups, SMEs, and multinationals across the UAE.
             </motion.p>
 
@@ -373,7 +372,7 @@ export default function TaxationPage() {
               {/* Stat row */}
               <div className="flex gap-10 border-t border-gray-100 pt-8">
                 {[
-                  { value: "FTA", label: "Registered tax agent" },
+                  { value: "100%", label: "Compliant Solutions" },
                   { value: "3", label: "Core tax disciplines" },
                   { value: "0", label: "Missed deadlines" },
                 ].map((s) => (
@@ -413,7 +412,7 @@ export default function TaxationPage() {
                 </div>
                 <div>
                   <p className="text-xs font-bold text-gray-900 leading-snug">
-                    FTA-Approved Tax Agent
+                    Dedicated Tax Advisory
                   </p>
                   <p className="text-xs text-gray-400 mt-0.5">
                     Authorized UAE representation
@@ -530,38 +529,36 @@ export default function TaxationPage() {
                   experts help you develop defensible transfer pricing policies
                   aligned with UAE regulations and international standards.
                 </p>
-
-                
               </motion.div>
             </div>
             <div className="flex flex-col gap-4 py-8 ">
-                  {transferPricingItems.map((item, i) => {
-                    const Icon = item.icon;
-                    return (
-                      <motion.div
-                        key={i}
-                        variants={fadeUp}
-                        custom={i * 0.4}
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        className="flex items-start gap-4 p-4 rounded-xl border border-gray-100 bg-gray-100 hover:border-purpletint hover:bg-purpletint transition-colors duration-200"
-                      >
-                        <div className="w-9 h-9 rounded-lg bg-gray-200 border border-gray-200 flex items-center justify-center flex-shrink-0">
-                          <Icon className="w-4 h-4 text-textsecondary" strokeWidth={1.8} />
-                        </div>
-                        <p className="text-sm md:text-lg text-gray-700 leading-relaxed pt-1.5">
-                          {item.text}
-                        </p>
-                      </motion.div>
-                    );
-                  })}
-                </div>
+              {transferPricingItems.map((item, i) => {
+                const Icon = item.icon;
+                return (
+                  <motion.div
+                    key={i}
+                    variants={fadeUp}
+                    custom={i * 0.4}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                    className="flex items-start gap-4 p-4 rounded-xl border border-gray-100 bg-gray-100 hover:border-purpletint hover:bg-purpletint transition-colors duration-200"
+                  >
+                    <div className="w-9 h-9 rounded-lg bg-gray-200 border border-gray-200 flex items-center justify-center flex-shrink-0">
+                      <Icon className="w-4 h-4 text-textsecondary" strokeWidth={1.8} />
+                    </div>
+                    <p className="text-sm md:text-lg text-gray-700 leading-relaxed pt-1.5">
+                      {item.text}
+                    </p>
+                  </motion.div>
+                );
+              })}
+            </div>
           </div>
         </section>
 
         {/* ── WHY BAC ──────────────────────────────────────────────────────── */}
-        <section className="py-6  md:py-16 bg-white">
+        <section className="py-6 md:py-16 bg-white">
           <div className="max-w-7xl mx-auto px-6 md:px-16">
             <motion.div
               variants={fadeUp}
@@ -572,9 +569,8 @@ export default function TaxationPage() {
             >
               <SectionLabel>Why Choose Us</SectionLabel>
               <h2 className="text-3xl md:text-3xl lg:text-4xl font-semibold text-black">
-             Why Businesses Trust <spam className="text-textsecondary" >BAC</spam> for Taxation
-            </h2>
-              
+                Why Businesses Trust <span className="text-textsecondary">BAC</span> for Taxation
+              </h2>
             </motion.div>
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-6">
@@ -593,7 +589,7 @@ export default function TaxationPage() {
                     <div className="w-12 h-12 bg-teal-50 group-hover:bg-teal-100 rounded-2xl flex items-center justify-center mx-auto mb-5 transition-colors duration-200">
                       <Icon className="w-6 h-6 text-textsecondary" strokeWidth={1.6} />
                     </div>
-                    <h3 className="font-semibold text-gray-900 text-sm md:text-lg  mb-2">
+                    <h3 className="font-semibold text-gray-900 text-sm md:text-lg mb-2">
                       {item.title}
                     </h3>
                     <p className="text-gray-500 text-xs md:text-sm leading-relaxed">{item.body}</p>
@@ -664,7 +660,7 @@ export default function TaxationPage() {
               <div className="relative rounded-3xl overflow-hidden aspect-[4/3]">
                 <Image
                   src="/images/taxation2.webp"
-                  alt="FTA approved tax agent service"
+                  alt="Tax agent service"
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-cover"
@@ -687,7 +683,7 @@ export default function TaxationPage() {
                 Take Control of Your Tax Position Today
               </h2>
               <p className="text-teal-200 text-lg">
-                Corporate tax registration, VAT compliance, or FTA representation — BAC has you covered.
+                Corporate tax registration, VAT compliance, or representation — BAC has you covered.
               </p>
             </motion.div>
             <motion.div
@@ -711,7 +707,7 @@ export default function TaxationPage() {
 
         <ContactSection />
         <ScrollToTop />
-  
+
         <Footer />
       </div>
     </>
