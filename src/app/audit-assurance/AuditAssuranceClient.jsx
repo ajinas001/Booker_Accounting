@@ -360,7 +360,7 @@ export default function AuditAssurancePage() {
             style={{ opacity: heroOpacity }}
             className="relative z-10 max-w-7xl mx-auto px-6 md:px-16 pb-20 md:pb-28 w-full"
           >
-            <motion.p
+            {/* <motion.p
               variants={fadeUp}
               custom={0}
               initial="hidden"
@@ -368,14 +368,14 @@ export default function AuditAssurancePage() {
               className="text-textprimary text-xs md:text-sm font-semibold  tracking-[0.2em] mb-5"
             >
               BAC Audit & Assurance
-            </motion.p>
+            </motion.p> */}
 
             <motion.h1
               variants={fadeUp}
               custom={1}
               initial="hidden"
               animate="visible"
-              className="text-3xl md:text-6xl lg:text-7xl font-extrabold text-white leading-[1.02] mb-6 max-w-4xl"
+              className="text-3xl md:text-5xl lg:text-6xl font-extrabold text-white leading-[1.02] mb-6 max-w-4xl"
             >
               Audit & <br />
               <span className="text-transparent bg-clip-text bg-textprimary">

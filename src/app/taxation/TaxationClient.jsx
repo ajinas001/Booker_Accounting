@@ -289,20 +289,20 @@ export default function TaxationPage() {
             style={{ opacity: heroOpacity }}
             className="relative z-10 max-w-7xl mx-auto px-6 md:px-16 pb-20 md:pb-28 w-full"
           >
-            <motion.p
+            {/* <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
               className="text-textprimary text-xs md:text-sm font-semibold tracking-[0.2em] mb-5"
             >
               BAC Taxation
-            </motion.p>
+            </motion.p> */}
 
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.75, delay: 0.2 }}
-              className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white leading-[1.02] mb-6 max-w-4xl"
+              className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-[1.02] mb-6 max-w-4xl"
             >
               Corporate Tax & <br />
               <span className="text-transparent bg-clip-text bg-textprimary">
