@@ -406,7 +406,7 @@ export default function TaxationPage() {
                 />
               </div>
               {/* Floating badge */}
-              <div className="absolute -bottom-6 -left-6 bg-white rounded-2xl shadow-xl p-5 flex items-center gap-4 max-w-[230px]">
+              {/* <div className="absolute -bottom-6 -left-6 bg-white rounded-2xl shadow-xl p-5 flex items-center gap-4 max-w-[230px]">
                 <div className="w-10 h-10 rounded-full bg-textsecondary flex items-center justify-center flex-shrink-0">
                   <Shield className="w-5 h-5 text-white" />
                 </div>
@@ -418,7 +418,7 @@ export default function TaxationPage() {
                     Authorized UAE representation
                   </p>
                 </div>
-              </div>
+              </div> */}
             </motion.div>
           </div>
         </section>
