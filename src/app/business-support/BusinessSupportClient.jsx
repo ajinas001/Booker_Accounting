@@ -356,7 +356,7 @@ export default function BusinessSupportPage() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.75, delay: 0.2 }}
-              className="text-3xl md:text-5xl lg:text-4xl font-extrabold text-white leading-[1.02] mb-6 max-w-4xl"
+              className="text-3xl md:text-5xl lg:text-6xl font-extrabold text-white leading-[1.02] mb-6 max-w-4xl"
             >
               Company Formation & <br />
               <span className="text-transparent bg-clip-text bg-textprimary">
