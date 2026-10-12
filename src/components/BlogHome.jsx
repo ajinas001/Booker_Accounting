@@ -5,6 +5,14 @@ import Link from 'next/link';
 export default function BlogHome() {
   const POSTS = [
     {
+      id: 5,
+      date: new Date("2026-10-02"),
+      href: "/blog/vat-in-the-middle-east-without-the-headache",
+      title: "VAT IN THE MIDDLE EAST, WITHOUT THE HEADACHE: UAE & GCC GUIDE",
+      excerpt: "A plain-English guide for founders and business owners: who needs to register, what changed in 2026, and how to stay on the right side of the tax authority.",
+      image: "/images/taxationpage.webp",
+    },
+    {
       id: 1,
       date: new Date("2026-01-01"),
       href: "/blog/e-invoice",

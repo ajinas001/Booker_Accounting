@@ -26,6 +26,17 @@ export default function BlogPage() {
 
   const POSTS = [
     {
+      id: 6,
+      date: new Date("2026-10-02"),
+      href: "/vat-in-the-middle-east-without-the-headache",
+      title: "VAT in the Middle East, Without the Headache: UAE & GCC Guide 2026",
+      description:
+        "A plain-English guide for founders and business owners: who needs to register, what changed in 2026, and how to stay on the right side of the tax authority.",
+      author: "Booker Tax Team",
+      imageUrl: "/images/taxationpage.webp",
+      readTime: "10 Min Read",
+    },
+    {
       id: 1,
       date: new Date("2025-01-01"),
       href: "/e-invoice",
