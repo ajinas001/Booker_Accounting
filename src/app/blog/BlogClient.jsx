@@ -26,6 +26,17 @@ export default function BlogPage() {
 
   const POSTS = [
     {
+      id: 7,
+      date: new Date("2026-10-13"),
+      href: "/vat-update-2026",
+      title: "A VAT Invoice Is No Longer Enough: FTA Decision No. 13 of 2026",
+      description:
+        "From 1 October 2026, a valid tax invoice is no longer enough to claim back the VAT you pay on purchases in the UAE. Learn the supplier checks you now need before claiming input VAT.",
+      author: "Booker Tax Team",
+      imageUrl: "/images/taxation1.webp",
+      readTime: "8 Min Read",
+    },
+    {
       id: 6,
       date: new Date("2026-10-02"),
       href: "/vat-in-the-middle-east-without-the-headache",

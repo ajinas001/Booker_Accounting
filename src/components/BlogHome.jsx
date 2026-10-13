@@ -5,6 +5,14 @@ import Link from 'next/link';
 export default function BlogHome() {
   const POSTS = [
     {
+      id: 7,
+      date: new Date("2026-10-13"),
+      href: "/blog/vat-update-2026",
+      title: "A VAT INVOICE IS NO LONGER ENOUGH: FTA DECISION NO. 13 OF 2026",
+      excerpt: "From 1 October 2026, a valid tax invoice is no longer enough to claim back the VAT you pay on purchases in the UAE. Learn the supplier checks you now need before claiming input VAT.",
+      image: "/images/taxation1.webp",
+    },
+    {
       id: 5,
       date: new Date("2026-10-02"),
       href: "/blog/vat-in-the-middle-east-without-the-headache",
