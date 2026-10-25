@@ -702,7 +702,57 @@ export default function PricingClient() {
         </div>
       </main>
 
-      {/* Floating Sticky Summary Bar */}
+      {/* Mobile & Tablet (< lg) Top Floating Sticky Bar: Sits cleanly below navbar with zero overlap */}
+      <AnimatePresence>
+        {selectedPlan && (
+          <motion.div
+            initial={{ y: -60, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: -60, opacity: 0 }}
+            transition={{ type: "spring", stiffness: 350, damping: 28 }}
+            className="block lg:hidden fixed top-20 left-3 right-3 z-40 bg-[#0d1a20]/95 backdrop-blur-md border border-white/15 text-white rounded-2xl p-3 shadow-2xl"
+          >
+            <div className="flex items-center justify-between gap-2.5">
+              <div className="min-w-0 flex-1">
+                <div className="flex items-center gap-1.5">
+                  <span className="font-bold text-xs text-white truncate">
+                    {summary?.name}
+                  </span>
+                  {selectedPlan.premium && (
+                    <span className="text-[9px] bg-[#b8892b] text-white font-bold px-1.5 py-0.2 rounded-full shrink-0">
+                      Prime
+                    </span>
+                  )}
+                </div>
+                <p className="text-[11px] text-emerald-400 font-semibold truncate mt-0.5">
+                  {summary?.priceText}
+                </p>
+              </div>
+
+              <div className="flex items-center gap-1.5 shrink-0">
+                <button
+                  type="button"
+                  onClick={() => setShowModal(true)}
+                  className="px-3 py-1.5 bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold rounded-lg flex items-center gap-1.5 shadow-sm active:scale-95 transition-all cursor-pointer"
+                >
+                  <MessageCircle className="w-3.5 h-3.5" />
+                  <span>WhatsApp</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setSelectedPlanId(null)}
+                  className="p-1.5 text-gray-400 hover:text-white rounded-lg bg-white/10 transition-colors cursor-pointer"
+                  aria-label="Clear selection"
+                >
+                  <X className="w-4 h-4" />
+                </button>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Desktop (>= lg) Floating Bottom Sticky Bar: Only visible on desktop where FloatingService is not rendered */}
       <AnimatePresence>
         {selectedPlan && (
           <motion.div
@@ -710,7 +760,7 @@ export default function PricingClient() {
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: 100, opacity: 0 }}
             transition={{ type: "spring", stiffness: 350, damping: 30 }}
-            className="fixed bottom-0 left-0 right-0 z-40 bg-[#0d1a20]/95 backdrop-blur-md border-t border-white/10 text-white py-3.5 px-4 sm:px-8 shadow-2xl"
+            className="hidden lg:block fixed bottom-0 left-0 right-0 z-40 bg-[#0d1a20]/95 backdrop-blur-md border-t border-white/10 text-white py-3.5 px-8 shadow-2xl"
           >
             <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
               <div className="text-center sm:text-left">
