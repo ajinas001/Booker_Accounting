@@ -26,6 +26,17 @@ export default function BlogPage() {
 
   const POSTS = [
     {
+      id: 8,
+      date: new Date("2026-10-20"),
+      href: "/uae-business-setup-guide-2026",
+      title: "Starting a Business in the UAE: Business Setup Guide 2026",
+      description:
+        "A practical guide for founders and new business owners: mainland or free zone, setup steps, and the tax and compliance obligations that come after the licence.",
+      author: "Booker Advisory Team",
+      imageUrl: "/images/freezone.webp",
+      readTime: "12 Min Read",
+    },
+    {
       id: 7,
       date: new Date("2026-10-13"),
       href: "/vat-update-2026",

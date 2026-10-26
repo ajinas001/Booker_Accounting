@@ -5,6 +5,14 @@ import Link from 'next/link';
 export default function BlogHome() {
   const POSTS = [
     {
+      id: 8,
+      date: new Date("2026-10-20"),
+      href: "/blog/uae-business-setup-guide-2026",
+      title: "STARTING A BUSINESS IN THE UAE: SETUP GUIDE 2026",
+      excerpt: "A practical guide for founders and new business owners: mainland or free zone, setup steps, and the tax and compliance obligations that come after the licence.",
+      image: "/images/freezone.webp",
+    },
+    {
       id: 7,
       date: new Date("2026-10-13"),
       href: "/blog/vat-update-2026",
