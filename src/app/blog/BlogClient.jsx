@@ -26,6 +26,17 @@ export default function BlogPage() {
 
   const POSTS = [
     {
+      id: 9,
+      date: new Date("2026-10-27"),
+      href: "/e-invoicing-guide-2026",
+      title: "Choosing Your E-Invoicing ASP, Made Simple: UAE Guide 2026",
+      description:
+        "What an Accredited Service Provider does, your deadlines, an 8-point checklist, and how to appoint one in EmaraTax, step by step.",
+      author: "Booker Tax Team",
+      imageUrl: "/images/einvoice-asp-guide.jpg",
+      readTime: "10 Min Read",
+    },
+    {
       id: 8,
       date: new Date("2026-10-20"),
       href: "/uae-business-setup-guide-2026",

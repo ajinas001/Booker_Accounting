@@ -5,6 +5,14 @@ import Link from 'next/link';
 export default function BlogHome() {
   const POSTS = [
     {
+      id: 9,
+      date: new Date("2026-10-27"),
+      href: "/blog/e-invoicing-guide-2026",
+      title: "CHOOSING YOUR E-INVOICING ASP, MADE SIMPLE: UAE GUIDE 2026",
+      excerpt: "What an Accredited Service Provider does, your deadlines, an 8-point checklist, and how to appoint one in EmaraTax, step by step.",
+      image: "/images/einvoice-asp-guide.jpg",
+    },
+    {
       id: 8,
       date: new Date("2026-10-20"),
       href: "/blog/uae-business-setup-guide-2026",
