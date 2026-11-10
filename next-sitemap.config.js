@@ -3,7 +3,7 @@ module.exports = {
   siteUrl: 'https://www.bookeraccounting.com',
   generateRobotsTxt: false, // Serve robots.txt statically for exact custom content
   outDir: 'public',
-  exclude: ['/pricing'],
+  exclude: ['/pricing', '/thank-you'],
   transform: async (config, path) => {
     let priority = 0.7;
     let changefreq = 'weekly';

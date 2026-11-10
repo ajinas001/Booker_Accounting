@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { 
@@ -46,6 +47,7 @@ const services = [
 ];
 
 export default function FloatingService() {
+  const pathname = usePathname();
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -59,6 +61,10 @@ export default function FloatingService() {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  if (pathname?.startsWith("/tax-services") || pathname === "/thank-you") {
+    return null;
+  }
 
   return (
     <AnimatePresence>

@@ -7,6 +7,7 @@ import LenisWrapper from "@/components/LenisWrapper";
 import LoadingScreen from "@/components/LoadingSreen";
 import FloatingService from "@/components/FloatingService";
 import FloatingActions from "@/components/FloatingActions";
+import GoogleAdsTag from "@/components/GoogleAdsTag";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -187,6 +188,7 @@ export default function RootLayout({ children }) {
         </LenisWrapper>
 
         <GoogleAnalytics gaId="G-QFX59S5C1E" />
+        <GoogleAdsTag />
       </body>
     </html>
   );
