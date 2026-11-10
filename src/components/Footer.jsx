@@ -136,7 +136,7 @@ const Footer = () => {
         {/* Bottom Section */}
         <div className="mt-12 pt-8 flex flex-col sm:flex-row justify-between items-center border-t border-gray-800 gap-6">
           <p className="text-xs text-gray-500 text-center sm:text-left order-2 sm:order-1">
-            &copy; {new Date().getFullYear()} Booker Accounting and Consulting LLC.
+            &copy; {new Date().getFullYear()} Booker Accounting and Consulting.
             All rights reserved.
           </p>
 
