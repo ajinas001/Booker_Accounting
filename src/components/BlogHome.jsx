@@ -5,6 +5,14 @@ import Link from 'next/link';
 export default function BlogHome() {
   const POSTS = [
     {
+      id: 10,
+      date: new Date("2026-11-10"),
+      href: "/blog/ecommerce-guide-2026",
+      title: "SELLING ONLINE IN THE UAE? HERE'S WHAT YOUR BOOKS NEED: E-COMMERCE GUIDE 2026",
+      excerpt: "Multiple channels, marketplace payouts, stock in three places and VAT across borders: a plain-English guide to e-commerce accounting.",
+      image: "/images/trading.webp",
+    },
+    {
       id: 9,
       date: new Date("2026-10-27"),
       href: "/blog/e-invoicing-guide-2026",

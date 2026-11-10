@@ -26,6 +26,17 @@ export default function BlogPage() {
 
   const POSTS = [
     {
+      id: 10,
+      date: new Date("2026-11-10"),
+      href: "/ecommerce-guide-2026",
+      title: "Selling Online in the UAE? Here's What Your Books Need: E-Commerce Guide 2026",
+      description:
+        "Multiple channels, marketplace payouts, stock in three places and VAT across borders: a plain-English guide to e-commerce accounting in the UAE.",
+      author: "Booker E-Commerce Team",
+      imageUrl: "/images/trading.webp",
+      readTime: "9 Min Read",
+    },
+    {
       id: 9,
       date: new Date("2026-10-27"),
       href: "/e-invoicing-guide-2026",
@@ -187,7 +198,7 @@ export default function BlogPage() {
               transition={{ duration: 0.9 }}
               className="text-xl md:text-2xl text-gray-300 max-w-3xl"
             >
-              We believe business owners deserve clear and practical guidance. That's why we share valuable insights, compliance updates, and expert advice to help you stay compliant.
+              We believe business owners deserve clear and practical guidance. That&apos;s why we share valuable insights, compliance updates, and expert advice to help you stay compliant.
             </motion.p>
           </div>
         </section>
