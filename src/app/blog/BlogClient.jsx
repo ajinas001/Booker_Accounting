@@ -26,6 +26,17 @@ export default function BlogPage() {
 
   const POSTS = [
     {
+      id: 11,
+      date: new Date("2026-11-12"),
+      href: "/mandatory-supplier-checks-2026",
+      title: "Mandatory Supplier Checks: What Changed on 1 October 2026",
+      description:
+        "FTA Decision No. 13 of 2026 explained: the before-and-after, the two levels of checks, the three thresholds, and what it means for your business.",
+      author: "Booker Tax Team",
+      imageUrl: "/images/taxationpage.webp",
+      readTime: "8 Min Read",
+    },
+    {
       id: 10,
       date: new Date("2026-11-10"),
       href: "/ecommerce-guide-2026",

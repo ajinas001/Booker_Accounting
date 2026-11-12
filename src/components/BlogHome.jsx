@@ -5,6 +5,14 @@ import Link from 'next/link';
 export default function BlogHome() {
   const POSTS = [
     {
+      id: 11,
+      date: new Date("2026-11-12"),
+      href: "/blog/mandatory-supplier-checks-2026",
+      title: "MANDATORY SUPPLIER CHECKS: WHAT CHANGED ON 1 OCTOBER 2026",
+      excerpt: "FTA Decision No. 13 of 2026 explained: the before-and-after, the two levels of checks, the three thresholds, and what it means for your business.",
+      image: "/images/taxationpage.webp",
+    },
+    {
       id: 10,
       date: new Date("2026-11-10"),
       href: "/blog/ecommerce-guide-2026",
