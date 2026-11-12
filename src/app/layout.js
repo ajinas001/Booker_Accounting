@@ -109,15 +109,15 @@ export default function RootLayout({ children }) {
                 address: {
                   "@type": "PostalAddress",
                   streetAddress:
-                    "R364 Al Wasl Building, Unique World Business Center, Office 12, Al Karama",
+                    "Office 1801, 18th Floor, The Prism Tower, Business Bay",
                   addressLocality: "Dubai",
                   addressCountry: "AE",
                 },
 
                 geo: {
                   "@type": "GeoCoordinates",
-                  latitude: 25.2474167,
-                  longitude: 55.3088056,
+                  latitude: 25.1874,
+                  longitude: 55.2611,
                 },
 
                 areaServed: "United Arab Emirates",

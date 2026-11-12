@@ -114,7 +114,11 @@ const Footer = () => {
           {/* Column 4: Location Block */}
           <div className="flex flex-col gap-3 border-t md:border-t-0 pt-6 md:pt-0 border-gray-800">
             {/* <h3 className="text-sm font-semibold tracking-wide text-gray-200">Headquarters</h3> */}
-            <Link href={"https://www.google.com/maps?q=25.2474167,55.3088056"}>
+            <Link
+              href="https://www.google.com/maps?q=The+Prism+Tower,+Business+Bay,+Dubai"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <div className="flex items-start gap-3 text-gray-400">
                 <FaLocationDot
                   size={16}
@@ -122,11 +126,10 @@ const Footer = () => {
                 />
                 <div className="text-sm leading-relaxed">
                   <p className="font-medium text-white">Dubai Office</p>
-                  <p>R364 Al Wasl Building</p>
-                  <p>Unique World Business Center</p>
-                  <p>Office 12 (2nd Floor)</p>
-                  <p>Opp. Civil Defence Station</p>
-                  <p>Al Karama, Dubai, United Arab Emirates</p>
+                  <p>Office 1801, 18th Floor</p>
+                  <p>The Prism Tower</p>
+                  <p>Business Bay, Dubai</p>
+                  <p>United Arab Emirates</p>
                 </div>
               </div>
             </Link>

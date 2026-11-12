@@ -45,7 +45,7 @@ export default function TaxServicesPage() {
       email: "md@bookeraccounting.com",
       address: {
         "@type": "PostalAddress",
-        streetAddress: "Business Bay & Al Karama, Office 12, Unique World Business Center",
+        streetAddress: "Office 1801, 18th Floor, The Prism Tower, Business Bay",
         addressLocality: "Dubai",
         addressCountry: "AE",
       },

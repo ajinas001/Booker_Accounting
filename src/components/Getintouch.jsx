@@ -8,7 +8,7 @@ function Getintouch() {
 const COMPANY_INFO = {
   name: 'Booker Accounting',
   contact: {
-    address: 'R364 Al Wasl Building, Unique World Business Center, Office 12 (3rd floor), Opp. Civil Defence, Al Karama, Dubai',
+    address: 'Office 1801, 18th Floor, The Prism Tower, Business Bay, Dubai',
     phone: '+971 56 767 8156',
     email: 'info@bookeraccounting.com',
   },

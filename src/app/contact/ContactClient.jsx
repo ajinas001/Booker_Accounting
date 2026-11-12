@@ -21,11 +21,10 @@ import FloatingMenuButton from "@/components/FloatingMenuButton";
 import ScrollToTop from "@/components/ScrollToTop";
 
 const officeAddress = [
-  "R364 Al Wasl Building",
-  "Unique World Business Center",
-  "Office 12 (2nd floor)",
-  "Opp Civil Defence Station",
-  "Al Karama, Dubai, United Arab Emirates",
+  "Office 1801, 18th Floor",
+  "The Prism Tower",
+  "Business Bay, Dubai",
+  "United Arab Emirates",
 ];
 
 export default function ContactPage() {
@@ -131,7 +130,7 @@ export default function ContactPage() {
                 </p>
               ))}
               <Link
-                href="https://www.google.com/maps?q=25.2474167,55.3088056"
+                href="https://www.google.com/maps?q=The+Prism+Tower,+Business+Bay,+Dubai"
                 target="_blank"
                 className="inline-flex items-center text-gray-900 font-semibold mt-6 group w-fit hover:text-blue-600 transition-colors"
               >
