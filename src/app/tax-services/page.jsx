@@ -10,7 +10,7 @@ export const metadata = {
   openGraph: {
     title: "Corporate Tax & VAT Services in the UAE | Booker Accounting",
     description:
-      "Expert Corporate Tax and VAT registration, filing, and deregistration services in Dubai & across the UAE. Avoid penalties with FTA certified tax advisors.",
+      "Expert Corporate Tax and VAT registration, filing, and deregistration services in Dubai & across the UAE. Avoid penalties with expert corporate tax and VAT advisors.",
     url: "https://www.bookeraccounting.com/tax-services",
     siteName: "Booker Accounting & Consulting",
     locale: "en_US",

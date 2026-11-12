@@ -17,7 +17,7 @@ const SERVICES_DATA_RAW = [
     title: "Taxation",
     link: "/taxation",
     description:
-      "• Corporate Tax\n• Value Added Tax (VAT)\n• Tax Agent Service",
+      "• Corporate Tax\n• Value Added Tax (VAT)\n• Tax Consultation & Compliance",
   },
   {
     title: "Accounting & Bookkeeping",

@@ -164,7 +164,7 @@ const BlogPage = () => {
               <div className="space-y-6">
                 {[
                   { title: "Structured Digital Format", text: "Only XML/JSON formats aligned with standards like PINT AE or UBL are accepted." },
-                  { title: "Accredited Service Providers (ASPs)", text: "Businesses must issue invoices via FTA-approved ASPs to ensure compliance." },
+                  { title: "Accredited Service Providers (ASPs)", text: "Businesses must issue invoices via accredited ASPs to ensure compliance." },
                   { title: "Real-Time Reporting", text: "Near real-time invoice transmission to the tax authority is mandatory." },
                   { title: "Data Compliance", text: "Seller & buyer details, TRNs, VAT breakdowns, and unique IDs are required." },
                   { title: "Scope", text: "Initially applies to B2B and B2G (Government) transactions." }

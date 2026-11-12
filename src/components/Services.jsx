@@ -74,7 +74,7 @@ const services = [
   {
     id: 8,
     title: "Taxation & Compliance",
-    description: "Corporate Tax • Value Added Tax (VAT) • Tax Agent Service",
+    description: "Corporate Tax • Value Added Tax (VAT) • Tax Consultation & Compliance",
     buttonText: "More About",
     link: "/taxation",
     bgColor: "bg-secondary",

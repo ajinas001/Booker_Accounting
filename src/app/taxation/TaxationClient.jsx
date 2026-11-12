@@ -66,19 +66,19 @@ const taxServices = [
   {
     id: 3,
     icon: Shield,
-    title: "Tax Agent Service",
-    tag: "Representation",
-    desc: "Your dedicated representative — managing all tax correspondence, filings, and disputes on your behalf.",
+    title: "Tax Consultation & Compliance",
+    tag: "Advisory & Compliance",
+    desc: "Your dedicated tax advisory team — managing all tax documentation, return preparation, and compliance filings on your behalf.",
     highlights: [
-      "Official representation on your behalf",
-      "Tax return filing and documentation management",
-      "Handling of tax audits and assessments",
-      "Dispute resolution and appeals management",
-      "Response to authority queries and notices",
+      "Expert corporate tax & VAT advisory",
+      "Tax return preparation and documentation management",
+      "Support during tax audits and authority reviews",
+      "Assistance with authority queries and clarification requests",
+      "Reconsideration & penalty review support",
       "Full compliance monitoring and deadline tracking",
     ],
     forWhom:
-      "Businesses of any size wanting a licensed professional handling all tax interactions.",
+      "Businesses of any size wanting seasoned tax advisors managing their UAE tax obligations.",
   },
 ];
 
@@ -359,9 +359,9 @@ export default function TaxationPage() {
                 <span className="text-textsecondary">Complex, Evolving Landscape</span>
               </h2>
               <p className="text-gray-500 text-sm md:text-lg leading-relaxed mb-4">
-                In today's highly regulated and digitally transparent UAE tax
+                In today&apos;s highly regulated and digitally transparent UAE tax
                 environment, managing your tax obligations is more than just
-                compliance — it's about adding value, minimizing risk, and
+                compliance — it&apos;s about adding value, minimizing risk, and
                 supporting sustainable business growth.
               </p>
               <p className="text-gray-500 text-sm md:text-lg leading-relaxed mb-10">
@@ -660,7 +660,7 @@ export default function TaxationPage() {
               <div className="relative rounded-3xl overflow-hidden aspect-[4/3]">
                 <Image
                   src="/images/taxation2.webp"
-                  alt="Tax agent service"
+                  alt="Tax consultation and compliance service"
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-cover"
