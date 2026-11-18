@@ -5,6 +5,22 @@ import Link from 'next/link';
 export default function BlogHome() {
   const POSTS = [
     {
+      id: 13,
+      date: new Date("2026-11-18T10:00:00Z"),
+      href: "/blog/transfer-pricing-guide-2026-ar",
+      title: "دليل تسعير المعاملات للملكية الفكرية 2026: نسب الإتاوات وقواعد الإمارات",
+      excerpt: "كيف تحدد إتاوة وفق مبدأ السعر المحايد للعلامات التجارية والبرمجيات والمعرفة الفنية بين الشركات المرتبطة، وما الذي تطلبه ضريبة الشركات في الإمارات.",
+      image: "/images/uaecorporatetax.webp",
+    },
+    {
+      id: 12,
+      date: new Date("2026-11-18"),
+      href: "/blog/transfer-pricing-guide-2026",
+      title: "TRANSFER PRICING FOR IP: ROYALTY RATES AND UAE RULES (GUIDE 2026)",
+      excerpt: "How to set an arm's length royalty for brands, software and know-how between related companies, and what UAE Corporate Tax requires you to keep on file.",
+      image: "/images/uaecorporatetax.webp",
+    },
+    {
       id: 11,
       date: new Date("2026-11-12"),
       href: "/blog/mandatory-supplier-checks-2026",
