@@ -11,6 +11,7 @@ import {
 import { FaTiktok } from "react-icons/fa";
 import Image from "next/image";
 import Link from "next/link";
+import { COMPANY_CREDENTIALS } from "@/data/companyInfo";
 
 const serviceLinks = [
   { name: "Audit & Assurance", href: "/audit-assurance" },
@@ -24,6 +25,7 @@ const serviceLinks = [
 const pageLinks = [
   { name: "Home", href: "/" },
   { name: "About Us", href: "/about" },
+  { name: "Credentials", href: "/credentials" },
   { name: "Blog", href: "/blog" },
   { name: "Faq", href: "/faq" },
   { name: "Contact Us", href: "/contact" },
@@ -69,10 +71,19 @@ const Footer = () => {
               />
             </Link>
             <p className="text-sm text-gray-400 leading-relaxed">
-              Booker refers to the global organization of accounting and
-              consultancy firms, providing trusted financial services with
-              integrity and innovation.
+              Booker Accounting & Consulting L.L.C provides trusted accounting,
+              bookkeeping, tax consultation, and management advisory services
+              across Dubai and the UAE.
             </p>
+            <div className="text-xs text-gray-400 border-t border-gray-800 pt-3 space-y-1">
+              <p>
+                <span className="text-gray-300 font-medium">Trade Licence No:</span>{" "}
+                <span className="text-teal-400 font-mono font-semibold">{COMPANY_CREDENTIALS.tradeLicenceNumber}</span>
+              </p>
+              <p className="text-gray-500 text-[11px]">
+                {COMPANY_CREDENTIALS.issuingAuthority}
+              </p>
+            </div>
           </div>
 
           {/* Column 2: Services List (Static & Stable) */}
@@ -115,7 +126,7 @@ const Footer = () => {
           <div className="flex flex-col gap-3 border-t md:border-t-0 pt-6 md:pt-0 border-gray-800">
             {/* <h3 className="text-sm font-semibold tracking-wide text-gray-200">Headquarters</h3> */}
             <Link
-              href="https://www.google.com/maps?q=The+Prism+Tower,+Business+Bay,+Dubai"
+              href={COMPANY_CREDENTIALS.googleMapsUrl}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -126,10 +137,10 @@ const Footer = () => {
                 />
                 <div className="text-sm leading-relaxed">
                   <p className="font-medium text-white">Dubai Office</p>
-                  <p>Office 1801, 18th Floor</p>
-                  <p>The Prism Tower</p>
-                  <p>Business Bay, Dubai</p>
-                  <p>United Arab Emirates</p>
+                  <p>{COMPANY_CREDENTIALS.officeAddress.line1}</p>
+                  <p>{COMPANY_CREDENTIALS.officeAddress.building}</p>
+                  <p>{COMPANY_CREDENTIALS.officeAddress.area}</p>
+                  <p>{COMPANY_CREDENTIALS.officeAddress.country}</p>
                 </div>
               </div>
             </Link>
@@ -138,10 +149,11 @@ const Footer = () => {
 
         {/* Bottom Section */}
         <div className="mt-12 pt-8 flex flex-col sm:flex-row justify-between items-center border-t border-gray-800 gap-6">
-          <p className="text-xs text-gray-500 text-center sm:text-left order-2 sm:order-1">
-            &copy; {new Date().getFullYear()} Booker Accounting and Consulting.
-            All rights reserved.
-          </p>
+          <div className="text-xs text-gray-500 text-center sm:text-left order-2 sm:order-1 flex flex-col sm:flex-row gap-1 sm:gap-3 items-center">
+            <span>&copy; {new Date().getFullYear()} {COMPANY_CREDENTIALS.legalName}. All rights reserved.</span>
+            <span className="hidden sm:inline text-gray-700">•</span>
+            <span>Trade Licence No: {COMPANY_CREDENTIALS.tradeLicenceNumber}</span>
+          </div>
 
           {/* Clean Social Links */}
           <div className="flex gap-3 order-1 sm:order-2">

@@ -20,6 +20,7 @@ module.exports = {
         '/business-advisory',
         '/business-support',
         '/contact',
+        '/credentials',
       ].includes(path)
     ) {
       priority = 0.9;

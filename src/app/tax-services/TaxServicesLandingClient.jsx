@@ -4,6 +4,7 @@ import React, { useCallback } from "react";
 import { FileText, CalendarCheck, Trash2 } from "lucide-react";
 import TaxHeroSection from "@/components/landing/TaxHeroSection";
 import Footer from "@/components/Footer";
+import { COMPANY_STATS } from "@/data/companyInfo";
 
 /* Design tokens (from the approved design)
    ink #0E2F36 · teal #185561 · aqua #5CB9CA · soft #F5F7FA · line #E2E8F0 · muted #4A5568 */
@@ -82,9 +83,9 @@ const steps = [
 ];
 
 const stats = [
-  { value: "10+", label: "years of experience" },
-  { value: "500+", label: "happy clients" },
-  { value: "99.8%", label: "compliance rate" },
+  { value: COMPANY_STATS.yearsExperience, label: "years of experience" },
+  { value: COMPANY_STATS.clientsServed, label: "happy clients" },
+  { value: COMPANY_STATS.complianceRate, label: "compliance rate" },
 ];
 
 const testimonials = [

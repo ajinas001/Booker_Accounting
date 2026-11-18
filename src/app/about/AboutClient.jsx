@@ -8,6 +8,7 @@ import ContactSection from "@/components/ContactSection";
 import ScrollToTop from "@/components/ScrollToTop";
 import FloatingMenuButton from "@/components/FloatingMenuButton";
 import Image from "next/image";
+import { COMPANY_STATS } from "@/data/companyInfo";
 
 // --- Custom Tailwind-like Colors based on CSS Theme ---
 const PRIMARY_BLACK = "#0d1a20";
@@ -522,10 +523,10 @@ const AboutPageTimeline = () => {
 
           <StatsGrid
             stats={[
-              { icon: "accuracy", value: "99%", label: "Accuracy Rate" },
-              { icon: "clients", value: "200+", label: "Clients Served" },
-              { icon: "experience", value: "15+", label: "Years Experience" },
-              { icon: "support", value: "24/7", label: "Support" },
+              { icon: "accuracy", value: COMPANY_STATS.complianceRate, label: COMPANY_STATS.complianceRateLabel },
+              { icon: "clients", value: COMPANY_STATS.clientsServed, label: "Clients Served" },
+              { icon: "experience", value: COMPANY_STATS.yearsExperience, label: "Years Experience" },
+              { icon: "support", value: COMPANY_STATS.support, label: "Support" },
             ]}
             delay={0.5}
           />

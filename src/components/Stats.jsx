@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useEffect, useState } from "react";
+import { COMPANY_STATS } from "@/data/companyInfo";
 
 const AnimatedCounter = ({ value, suffix = "" }) => {
   const [count, setCount] = useState(0);
@@ -105,7 +106,7 @@ const MainAchievements = () => {
     },
     {
       id: 2,
-      number: 5,
+      number: COMPANY_STATS.yearsExperienceCount,
       suffix: "+",
       title: "Years Of Experience",
       svg: (
@@ -134,7 +135,7 @@ const MainAchievements = () => {
     },
     {
       id: 3,
-      number: 500,
+      number: COMPANY_STATS.clientsServedCount,
       suffix: "+",
       title: "Satisfied Customers",
       svg: (

@@ -4,6 +4,7 @@ import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import { COMPANY_STATS } from "@/data/companyInfo";
 import { 
     HiOutlineClipboardDocumentCheck, 
     HiOutlineDocumentText, 
@@ -149,7 +150,7 @@ export default function HeroSection() {
                             <div className="flex flex-col space-y-6">
                                 {[
                                     {
-                                        label: "500+",
+                                        label: COMPANY_STATS.clientsServed,
                                         desc: "Happy Clients",
                                         icon: (
                                             <svg className="w-7 h-7 text-textprimary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -176,7 +177,7 @@ export default function HeroSection() {
                                         )
                                     },
                                     {
-                                        label: "10+ Years",
+                                        label: `${COMPANY_STATS.yearsExperience} Years`,
                                         desc: "of Experience",
                                         icon: (
                                             <svg className="w-7 h-7 text-textprimary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">

@@ -19,12 +19,14 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import FloatingMenuButton from "@/components/FloatingMenuButton";
 import ScrollToTop from "@/components/ScrollToTop";
+import { COMPANY_CREDENTIALS } from "@/data/companyInfo";
 
 const officeAddress = [
-  "Office 1801, 18th Floor",
-  "The Prism Tower",
-  "Business Bay, Dubai",
-  "United Arab Emirates",
+  COMPANY_CREDENTIALS.tradeName,
+  COMPANY_CREDENTIALS.officeAddress.line1,
+  COMPANY_CREDENTIALS.officeAddress.building,
+  COMPANY_CREDENTIALS.officeAddress.area,
+  COMPANY_CREDENTIALS.officeAddress.country,
 ];
 
 export default function ContactPage() {
@@ -130,8 +132,9 @@ export default function ContactPage() {
                 </p>
               ))}
               <Link
-                href="https://www.google.com/maps?q=The+Prism+Tower,+Business+Bay,+Dubai"
+                href={COMPANY_CREDENTIALS.googleMapsUrl}
                 target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center text-gray-900 font-semibold mt-6 group w-fit hover:text-blue-600 transition-colors"
               >
                 <span>View on Google Maps</span>

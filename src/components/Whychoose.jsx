@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Users, Shield, TrendingUp, Award, CheckCircle2, Target } from 'lucide-react';
+import { COMPANY_STATS } from '@/data/companyInfo';
 
 function Whychoose() {
     const [activeTab, setActiveTab] = useState(0);
@@ -17,7 +18,7 @@ function Whychoose() {
         {
             id: 1,
             title: "Proven Local Expertise",
-            tagline: "15+ years of UAE compliance excellence",
+            tagline: `${COMPANY_STATS.yearsExperience} years of UAE compliance excellence`,
             description: "Deep knowledge of UAE business regulations and tax requirements. We treat every client's business as our own with dependable, result-driven accounting services.",
             image: "/images/video-bg.webp",
             icon: Shield

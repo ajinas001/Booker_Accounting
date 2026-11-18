@@ -45,7 +45,7 @@ const SERVICES_DATA_RAW = [
   },
 ];
 
-const NAV_LINKS = ["Home", "About", "Services", "Faq", "Blog", "Contact"];
+const NAV_LINKS = ["Home", "About", "Services", "Credentials", "Faq", "Blog", "Contact"];
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);

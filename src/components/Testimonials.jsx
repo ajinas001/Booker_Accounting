@@ -12,6 +12,7 @@ import {
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import { COMPANY_STATS } from "@/data/companyInfo";
 
 // ---------------------------------------------------------------------------
 // Animation Variants
@@ -67,7 +68,7 @@ const StarRating = ({ rating }) => (
 const results = [
   { icon: Wallet, label: "Average Tax Savings", value: "AED 45K+", },
   { icon: TrendingUp, label: "Financial Clarity", value: "100%", },
-  { icon: FileText, label: "Compliance Rate", value: "99.8%", },
+  { icon: FileText, label: COMPANY_STATS.complianceRateLabel, value: COMPANY_STATS.complianceRate, },
   { icon: BarChart3, label: "Time Saved", value: "20+ hrs/mo", },
 ];
 

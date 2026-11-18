@@ -1,19 +1,19 @@
 'use client'
 import React, { useState } from 'react'
 import { Menu, X, ChevronDown, ArrowRight, Phone, Mail, MapPin, CheckCircle, TrendingUp, Shield, Users, Briefcase, FileText, Calculator, BarChart3, Building2, ShoppingCart, Laptop, Truck, Heart, GraduationCap, Factory } from 'lucide-react';
+import { COMPANY_CREDENTIALS } from '@/data/companyInfo';
 
 
 function Getintouch() {
       const [contactMessage, setContactMessage] = useState('');
 const COMPANY_INFO = {
-  name: 'Booker Accounting',
+  name: COMPANY_CREDENTIALS.tradeName,
   contact: {
-    address: 'Office 1801, 18th Floor, The Prism Tower, Business Bay, Dubai',
-    phone: '+971 56 767 8156',
-    email: 'info@bookeraccounting.com',
+    address: COMPANY_CREDENTIALS.officeAddress.full,
+    phone: COMPANY_CREDENTIALS.phone,
+    email: COMPANY_CREDENTIALS.email,
   },
-  // ADDED: Video URL for Hero Background
-  heroVideoUrl: './videos/video.mp4', // Placeholder Burj Khalifa video
+  heroVideoUrl: './videos/video.mp4',
 };
 
  const handleContactSubmit = (e) => {

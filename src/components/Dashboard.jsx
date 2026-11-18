@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { CheckCircle, TrendingUp, DollarSign, FileText, BarChart3, ArrowRight, Zap, Target } from 'lucide-react';
+import { COMPANY_STATS } from '@/data/companyInfo';
 
 export default function Dashboard() {
   const [activeTab, setActiveTab] = useState('process');
@@ -92,7 +93,7 @@ export default function Dashboard() {
   const results = [
     { icon: DollarSign, label: 'Average Tax Savings', value: 'AED 45K+', color: 'bg-teal-500' },
     { icon: TrendingUp, label: 'Financial Clarity', value: '100%', color: 'bg-teal-400' },
-    { icon: FileText, label: 'Compliance Rate', value: '99.8%', color: 'bg-teal-600' },
+    { icon: FileText, label: COMPANY_STATS.complianceRateLabel, value: COMPANY_STATS.complianceRate, color: 'bg-teal-600' },
     { icon: BarChart3, label: 'Time Saved', value: '20+ hrs/month', color: 'bg-teal-500' }
   ];
 
@@ -238,7 +239,7 @@ export default function Dashboard() {
             {/* Client Testimonials */}
             <div className="mb-8">
               <h3 className="text-2xl font-bold text-gray-900 mb-2">What Our Clients Say</h3>
-              <p className="text-gray-600 mb-6">Trusted by 200+ businesses across UAE</p>
+              <p className="text-gray-600 mb-6">Trusted by {COMPANY_STATS.clientsServed} businesses across UAE</p>
               <div className="grid md:grid-cols-3 gap-6">
                 <div className="bg-white p-6 rounded-lg border-2 border-gray-200 hover:border-teal-400 transition-colors shadow-sm">
                   <div className="flex items-center gap-1 mb-4">

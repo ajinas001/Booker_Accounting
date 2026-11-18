@@ -1,11 +1,12 @@
 "use client";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { COMPANY_STATS } from "@/data/companyInfo";
 
 export default function HeroAbout() {
   const stats = [
     {
-      number: "500+",
+      number: COMPANY_STATS.clientsServed,
       label: "Clients Served",
       icon: (
         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -19,8 +20,8 @@ export default function HeroAbout() {
       ),
     },
     {
-      number: "99%",
-      label: "Success Rate",
+      number: COMPANY_STATS.complianceRate,
+      label: COMPANY_STATS.complianceRateLabel,
       icon: (
         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path
@@ -33,7 +34,7 @@ export default function HeroAbout() {
       ),
     },
     {
-      number: "10+",
+      number: COMPANY_STATS.yearsExperience,
       label: "Years Experience",
       icon: (
         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">

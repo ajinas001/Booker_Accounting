@@ -101,6 +101,8 @@ export default function RootLayout({ children }) {
                 "@context": "https://schema.org",
                 "@type": "AccountingService",
                 name: "Booker Accounting & Consulting",
+                legalName: "Booker Accounting & Consulting L.L.C",
+                identifier: "1407736",
                 url: "https://www.bookeraccounting.com",
                 logo: "https://www.bookeraccounting.com/icon-512.png",
                 telephone: "+971567678156",
