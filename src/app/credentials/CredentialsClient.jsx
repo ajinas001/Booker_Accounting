@@ -381,7 +381,7 @@ export default function CredentialsClient() {
                   href={c.googleMapsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-lg bg-teal-800 px-5 py-3 text-sm font-semibold text-white hover:bg-teal-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-700"
+                  className="inline-flex items-center gap-2 rounded-lg bg-textsecondary px-5 py-3 text-sm font-semibold text-white hover:bg-teal-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-700"
                 >
                   Open in Google Maps
                   <ExternalLink className="h-4 w-4" />
@@ -411,7 +411,7 @@ export default function CredentialsClient() {
         </section>
 
         {/* CTA */}
-        <section className="rounded-3xl bg-teal-950 px-8 py-14 text-white sm:px-14">
+        <section className="rounded-3xl bg-gradient-to-br from-gray-900 to-teal-900 px-8 py-14 text-white sm:px-14">
           <div className="grid items-center gap-10 lg:grid-cols-[1fr_auto]">
             <div className="max-w-2xl">
               <h2 className="text-3xl font-semibold tracking-tight md:text-4xl">
@@ -427,7 +427,7 @@ export default function CredentialsClient() {
                 href={c.whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-lg bg-teal-300 px-6 py-3.5 text-sm font-semibold text-teal-950 hover:bg-teal-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                className="inline-flex items-center justify-center gap-2 rounded-lg bg-white px-6 py-3.5 text-sm font-semibold text-teal-950  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
               >
                 Request verification package
                 <ExternalLink className="h-4 w-4" />
