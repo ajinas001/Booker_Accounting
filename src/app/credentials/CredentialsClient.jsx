@@ -148,7 +148,7 @@ export default function CredentialsClient() {
         {/* Overlays keep the text readable on any photo */}
         <div
           aria-hidden="true"
-          className="absolute inset-0 -z-10 bg-gradient-to-r from-teal-950/95 via-teal-950/80 to-teal-950/40"
+          className="absolute inset-0 -z-10 bg-gradient-to-r from-teal-950/75 via-teal-950/50 to-teal-950/40"
         />
         <div
           aria-hidden="true"
@@ -177,20 +177,20 @@ export default function CredentialsClient() {
           </motion.p>
 
           <motion.div {...enter(3)} className="mt-8 flex flex-wrap items-center gap-3">
-            <a
+            {/* <a
               href="#verify"
               className="inline-flex items-center gap-2 rounded-lg bg-teal-300 px-6 py-3 text-sm font-semibold text-teal-950 transition-colors hover:bg-teal-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
             >
               <ShieldCheck className="h-4 w-4" />
               How to verify us
-            </a>
+            </a> */}
             <Link
               href={c.whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-lg border border-white/30 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+              className="inline-flex items-center gap-2 rounded-lg bg-textsecondary  border border-white/30 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
             >
-              Request certified copies
+              More info
               <ExternalLink className="h-4 w-4" />
             </Link>
           </motion.div>
@@ -351,7 +351,7 @@ export default function CredentialsClient() {
         </section>
 
         {/* OFFICE */}
-        <section className="overflow-hidden rounded-3xl bg-white ring-1 ring-slate-200">
+        <section className="overflow-hidden rounded-3xl bg-white ">
           <div className="grid lg:grid-cols-[0.8fr_1.2fr]">
             <div className="flex flex-col justify-between gap-10 p-8 md:p-12">
               <div>

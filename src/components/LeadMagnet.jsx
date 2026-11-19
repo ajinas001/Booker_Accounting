@@ -17,6 +17,7 @@ const INSTAGRAM_URL = "https://www.instagram.com/booker_consulting";
 const guides = [
   {
     id: "corporate-tax",
+    requiresFollow: false, // Free instant download
     title: "UAE Corporate Tax Guide",
     subtitle: "Federal Decree-Law & GCC Regulations",
     edition: "2026 Edition",
@@ -35,6 +36,7 @@ const guides = [
   },
   {
     id: "vat-guide",
+    requiresFollow: true, // Gated behind Instagram follow
     title: "Middle East & UAE VAT Guide",
     subtitle: "Value Added Tax & FTA Guidelines",
     edition: "2026 Edition",
@@ -69,8 +71,10 @@ function GuideCard({ guide }) {
     timer.current = setTimeout(() => setDownloaded(false), 3500);
   };
 
+  const isUnlocked = !guide.requiresFollow || followed;
+
   return (
-    <article className=" bg-textsecondary text-white rounded-2xl p-6 flex flex-col shadow-sm hover:shadow-lg transition-shadow duration-300">
+    <article className="bg-textsecondary text-white rounded-2xl p-6 flex flex-col shadow-sm hover:shadow-lg transition-shadow duration-300">
       {/* Meta */}
       <div className="flex items-center justify-between gap-3 mb-5">
         <div className="flex items-center gap-2.5 min-w-0">
@@ -105,53 +109,61 @@ function GuideCard({ guide }) {
 
       {/* Actions */}
       <div className="mt-auto space-y-2.5">
-        {!followed && (
-          <p className="text-[13px] text-white/80 leading-relaxed pb-0.5">
-            Please follow us on Instagram to unlock your free download.
+        {guide.requiresFollow ? (
+          <>
+            {!followed && (
+              <p className="text-[13px] text-white/80 leading-relaxed pb-0.5">
+                Please follow us on Instagram to unlock your free download.
+              </p>
+            )}
+            <Link
+              href={INSTAGRAM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setFollowed(true)}
+              className={`group/follow relative flex items-center gap-3.5 w-full overflow-hidden rounded-xl bg-white/10 border border-white/25 hover:border-white/60 hover:bg-white/15 p-2.5 pr-4 transition duration-300 ${focusRing}`}
+            >
+              <span
+                className={`w-11 h-11 rounded-xl flex items-center justify-center shrink-0 shadow-md ${
+                  followed ? "bg-teal-300 text-[#0d1a20]" : "text-white"
+                }`}
+              >
+                {followed ? (
+                  <Check size={20} strokeWidth={3} aria-hidden="true" />
+                ) : (
+                  <Instagram size={20} aria-hidden="true" />
+                )}
+              </span>
+
+              <span className="flex-1 text-left leading-tight">
+                <span className="block text-sm font-semibold">
+                  {followed ? "Thanks for following" : "Follow on Instagram"}
+                </span>
+                <span className="block text-xs text-white/65 mt-1">
+                  @booker_consulting &middot; Step 1
+                </span>
+              </span>
+
+              <ArrowUpRight
+                size={18}
+                aria-hidden="true"
+                className="shrink-0 text-white/70 transition duration-300 group-hover/follow:text-white group-hover/follow:translate-x-0.5 group-hover/follow:-translate-y-0.5 motion-reduce:transition-none"
+              />
+
+              {/* hover shine */}
+              <span
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-0 -translate-x-full group-hover/follow:translate-x-full bg-gradient-to-r from-transparent via-white/10 to-transparent transition-transform duration-700 motion-reduce:hidden"
+              />
+            </Link>
+          </>
+        ) : (
+          <p className="text-[13px] text-teal-300/90 font-medium pb-0.5">
+            Instant free download · No signup required
           </p>
         )}
-        <Link
-          href={INSTAGRAM_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          onClick={() => setFollowed(true)}
-          className={`group/follow relative flex items-center gap-3.5 w-full overflow-hidden rounded-xl bg-white/10 border border-white/25 hover:border-white/60 hover:bg-white/15 p-2.5 pr-4 transition duration-300 ${focusRing}`}
-        >
-          <span
-            className={`w-11 h-11 rounded-xl flex items-center justify-center shrink-0 shadow-md ${followed ? "bg-teal-300 text-[#0d1a20]" : "text-white"
-              }`}
-          
-          >
-            {followed ? (
-              <Check size={20} strokeWidth={3} aria-hidden="true" />
-            ) : (
-              <Instagram size={20} aria-hidden="true" />
-            )}
-          </span>
 
-          <span className="flex-1 text-left leading-tight">
-            <span className="block text-sm font-semibold">
-              {followed ? "Thanks for following" : "Follow on Instagram"}
-            </span>
-            <span className="block text-xs text-white/65 mt-1">
-              @booker_consulting &middot; Step 1
-            </span>
-          </span>
-
-          <ArrowUpRight
-            size={18}
-            aria-hidden="true"
-            className="shrink-0 text-white/70 transition duration-300 group-hover/follow:text-white group-hover/follow:translate-x-0.5 group-hover/follow:-translate-y-0.5 motion-reduce:transition-none"
-          />
-
-          {/* hover shine */}
-          <span
-            aria-hidden="true"
-            className="pointer-events-none absolute inset-0 -translate-x-full group-hover/follow:translate-x-full bg-gradient-to-r from-transparent via-white/10 to-transparent transition-transform duration-700 motion-reduce:hidden"
-          />
-        </Link>
-
-        {followed ? (
+        {isUnlocked ? (
           <a
             href={guide.fileUrl}
             download={guide.fileName}
@@ -166,7 +178,9 @@ function GuideCard({ guide }) {
                 </>
               ) : (
                 <>
-                  <span>Step 2: {guide.ctaText}</span>
+                  <span>
+                    {guide.requiresFollow ? `Step 2: ${guide.ctaText}` : guide.ctaText}
+                  </span>
                   <Download size={15} aria-hidden="true" />
                 </>
               )}
@@ -184,8 +198,9 @@ function GuideCard({ guide }) {
         )}
       </div>
 
+      {/* Footer links */}
       <div className="flex items-center justify-between gap-3 mt-3.5 text-xs text-white/65">
-        {!followed ? (
+        {guide.requiresFollow && !followed ? (
           <button
             type="button"
             onClick={() => setFollowed(true)}
@@ -228,7 +243,8 @@ export default function LeadMagnet() {
             </h2>
             <p className="text-black/70 text-sm sm:text-base leading-relaxed">
               Plain-language PDFs on corporate tax and VAT for UAE business
-              owners. Follow us, then download.
+              owners. Download our Corporate Tax guide instantly or follow us to
+              unlock the VAT guide.
             </p>
           </div>
 

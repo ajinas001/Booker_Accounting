@@ -26,6 +26,29 @@ export default function BlogPage() {
 
   const POSTS = [
     {
+      id: 13,
+      date: new Date("2026-11-18T10:00:00Z"),
+      href: "/transfer-pricing-guide-2026-ar",
+      title: "دليل تسعير المعاملات للملكية الفكرية 2026: نسب الإتاوات وقواعد الإمارات",
+      description:
+        "كيف تحدد إتاوة وفق مبدأ السعر المحايد للعلامات التجارية والبرمجيات والمعرفة الفنية بين الشركات المرتبطة، وما الذي تطلبه ضريبة الشركات في الإمارات.",
+      author: "فريق بوكر الضريبي",
+      imageUrl: "/images/uaecorporatetax.webp",
+      readTime: "11 دقائق قراءة",
+      isArabic: true,
+    },
+    {
+      id: 12,
+      date: new Date("2026-11-18"),
+      href: "/transfer-pricing-guide-2026",
+      title: "Transfer Pricing for IP: Royalty Rates & UAE Rules (Guide 2026)",
+      description:
+        "How to set an arm's length royalty for brands, software and know-how between related companies, DEMPE analysis, and what UAE Corporate Tax requires you to keep on file.",
+      author: "Booker Tax Team",
+      imageUrl: "/images/uaecorporatetax.webp",
+      readTime: "11 Min Read",
+    },
+    {
       id: 11,
       date: new Date("2026-11-12"),
       href: "/mandatory-supplier-checks-2026",
@@ -272,13 +295,21 @@ export default function BlogPage() {
 
                 {/* Info Text Area Block */}
                 <div className="p-6 flex flex-col flex-grow">
+                  {post.isArabic && (
+                    <div className="mb-2">
+                      <span className="inline-block px-2.5 py-0.5 rounded-full bg-teal-50 border border-teal-200 text-[10px] font-bold text-textsecondary font-arabic">
+                        العربية (Arabic)
+                      </span>
+                    </div>
+                  )}
+
                   <Link href={`/blog${post.href}`} className="block mb-2">
-                    <h3 className="text-base font-semibold leading-snug text-slate-900 group-hover:text-textsecondary transition-colors line-clamp-2">
+                    <h3 className={`text-base font-semibold leading-snug text-slate-900 group-hover:text-textsecondary transition-colors line-clamp-2 ${post.isArabic ? "font-arabic text-right" : ""}`}>
                       {post.title}
                     </h3>
                   </Link>
 
-                  <p className="text-xs text-gray-400 leading-relaxed font-normal line-clamp-2 mb-3">
+                  <p className={`text-xs text-gray-400 leading-relaxed font-normal line-clamp-2 mb-3 ${post.isArabic ? "font-arabic text-right" : ""}`}>
                     {post.description}
                   </p>
 
